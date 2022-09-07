@@ -1,17 +1,23 @@
-<!--
-跟 Vue 说 Hello World！
--->
+<template>
+  <div id="app">
+    <img src="./assets/logo.png">
+    <router-view/>
+  </div>
+</template>
 
 <script>
 export default {
-  data() {
-    return {
-      message: "Hello World!"
-    };
-  }
-};
+  name: 'App'
+}
 </script>
 
-<template>
-  <h1>{{ message }}</h1>
-</template>
+<style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #5180af;
+  margin-top: 60px;
+}
+</style>
