@@ -60,7 +60,6 @@ export class AuthController {
 
   async register(ctx: Context) {
     const { username, email, password } = this.getLoginOrRegisterPayload(ctx)
-
     const user = username
       ? await this.userService.registerByUsername(ctx, username, password)
       : email

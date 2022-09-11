@@ -25,10 +25,8 @@ export enum VerificationIntent {
 }
 
 export class VerificationService {
-  verificationService
   accountRepository
   constructor() {
-    this.verificationService = new VerificationService()
     this.accountRepository = new AccountRepositoryPostgres()
   }
 
