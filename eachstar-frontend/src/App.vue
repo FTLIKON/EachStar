@@ -1,72 +1,104 @@
-<script setup lang="ts">
-import { RouterLink, RouterView } from "vue-router";
-import HelloWorld from "./components/HelloWorld.vue";
-</script>
-
 <template>
+    <div id="main">
+        <top-nav v-if="navShow" />
+        <router-view />
+        <popup-layout ref="popupLayout" />
+        <a class="gov-record" href="https://beian.miit.gov.cn/" target="_blank"
+            >豫ICP备2021001737号</a
+        >
+    </div>
   <RouterView />
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+<script>
+import topNav from '@/components/top-nav';
+import popupLayout from '@/components/popup-layout/index';
+
+export default {
+    components: {
+        'top-nav': topNav,
+        popupLayout,
+    },
+    computed: {
+        navShow() {
+            return this.$store.getters['nav/getShow'];
+        },
+        eventLock() {
+            return this.$store.getters['getEventLock'];
+        },
+    },
+    created() {
+        const that = this;
+        window.addEventListener(
+            'click',
+            function (e) {
+                if (that.eventLock) {
+                    e.stopPropagation();
+                }
+            },
+            true
+        );
+    },
+};
+</script>
+
+<style lang="scss">
+@import url(//at.alicdn.com/t/font_2012018_tkf4x0svmo.css);
+
+#main {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+// 滚动条（任意写一个样式即可修改其他伪元素样式）
+::-webkit-scrollbar,
+::-webkit-scrollbar-track {
+    width: 6px;
+    height: 6px;
+    background-color: transparent;
+    // background-color: #fff;
+}
+// 滚动条滑块
+::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: #c9cdd4;
 }
 
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
+body {
+    margin: 0;
+    padding: 0;
+    background-color: $back;
+    font-family: 'Microsoft YaHei', Arial, sans-serif;
+    color: $text1;
 }
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
+ul {
+    margin-block-start: unset;
+    margin-block-end: unset;
+    margin-inline-start: unset;
+    margin-inline-end: unset;
+    padding-inline-start: unset;
+    list-style-type: none;
 }
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
+.page {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
 }
 
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
+.gov-record {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.1);
+    transition: 0.1s;
+    &:hover {
+        color: rgba($color: #000, $alpha: 0.3);
+    }
 }
 </style>

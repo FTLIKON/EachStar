@@ -1,0 +1,35 @@
+.message-box {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    padding: 10px 20px;
+    left: 50%;
+    top: 10%;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    background-color: $white;
+    border-radius: 24px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    animation: show 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    .iconfont {
+        position: relative;
+        top: 1px;
+        font-size: 18px;
+        margin-right: 2px;
+    }
+}
+
+@keyframes show {
+    from {
+        transform: translate(-50%, -50%) translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%) translateY(0);
+        opacity: 1;
+    }
+}

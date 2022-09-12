@@ -1,0 +1,12 @@
+.vuepress-markdown-body div[class*='v-md-pre-wrapper-'].line-numbers-mode pre {
+    padding-left: 3.5rem;
+}
+.vuepress-markdown-body
+    div[class*='v-md-pre-wrapper-'].line-numbers-mode
+    .line-numbers-wrapper {
+    width: 2.5rem;
+}
+.vuepress-markdown-body
+    div[class*='v-md-pre-wrapper-'].line-numbers-mode:after {
+    width: 2.5rem;
+}

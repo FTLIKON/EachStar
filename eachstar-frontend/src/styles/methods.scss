@@ -1,0 +1,16 @@
+// 定义颜色
+@mixin color($color, $background_color) {
+    color: $color;
+    background-color: $background_color;
+}
+// 定义边框
+@mixin border($style, $width, $color) {
+    border-style: $style;
+    border-width: $width;
+    border-color: $color;
+}
+// 定义描边
+@mixin stroke($color) {
+    text-shadow: $color 1px 0 0, $color 0 1px 0, $color -1px 0 0,
+        $color 0 -1px 0;
+}
