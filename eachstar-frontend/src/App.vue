@@ -7,6 +7,7 @@
             >豫ICP备2021001737号</a
         >
     </div>
+  <RouterView />
 </template>
 
 <script>

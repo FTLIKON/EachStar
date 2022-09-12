@@ -1,0 +1,25 @@
+{
+  "ts-node": {
+    "transpileOnly": true,
+  },
+  "compilerOptions": {
+    "strict": true,
+    "alwaysStrict": true,
+    "strictNullChecks": true,
+    "module": "commonjs",
+    "suppressImplicitAnyIndexErrors": true,
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "target": "ES2020",
+    "sourceMap": true,
+    "incremental": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "outDir": "dist"
+  },
+  "include": ["./src/**/*.ts"]
+}
