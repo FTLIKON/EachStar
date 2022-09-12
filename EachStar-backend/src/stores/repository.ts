@@ -9,7 +9,7 @@ import type {
 } from '../types'
 import { Pool } from 'pg'
 import * as bcrypt from 'bcryptjs'
-
+import AccountServiceConfig from '../config'
 export enum VerificationStatus {
   valid = 'valid',
   used = 'used',
@@ -94,10 +94,9 @@ interface VerificationPO {
  * ```
  */
 export class AccountRepositoryPostgres implements AccountRepository {
-  pool:Pool
+  pool: Pool
   constructor() {
-    const connectionString =
-      'postgresql://postgres:nes816224@localhost:5432/components-account'
+    const connectionString = AccountServiceConfig.databaseUrl
     this.pool = new Pool({
       connectionString,
     })

@@ -50,6 +50,6 @@ const accountServiceConfig = {
   auth: authConfig,
   oauth: oAuthConfig,
   verification: verificationConfig,
+  databaseUrl :'postgresql://postgres:nes816224@localhost:5432/components-account'
 }
-
 export default accountServiceConfig
