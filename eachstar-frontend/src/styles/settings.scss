@@ -1,0 +1,31 @@
+// 移动端配适
+.container {
+    @media screen and (max-width: 640px) {
+        width: 100% !important;
+    }
+}
+
+.tweet-list-component,
+.article-list-component {
+    @media screen and (max-width: 640px) {
+        border-radius: 0 !important;
+    }
+}
+
+.user-panel-box {
+    @media screen and (max-width: 640px) {
+        box-sizing: border-box;
+        width: 100% !important;
+    }
+}
+
+// 列表过渡动画
+.list-enter-active,
+.list-leave-active {
+    transition: all 0.4s ease;
+}
+.list-enter-from,
+.list-leave-to {
+    opacity: 0;
+    transform: translateY(-50px);
+}
