@@ -1,17 +1,13 @@
 <template>
     <div :class="['sidebar-component', { fixed: fixed }]">
         <div class="content">
-            <div id="logo" :class="{ back: isBack }" @click="onBack">
+            <div id="logo">
                 <div class="logo-box">
                     <span class="iconfont icon-sun" />
                     <div class="logo-text">
                         <span class="main">中二Devil</span>
                         <span class="sub">的个人网站</span>
                     </div>
-                </div>
-                <div class="back-btn">
-                    <span class="iconfont icon-arrow-left" />
-                    <span class="text">返回</span>
                 </div>
             </div>
             <div class="nav-box">
