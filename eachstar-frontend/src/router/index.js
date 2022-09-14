@@ -9,6 +9,12 @@ const router = createRouter({
       component: () =>
         import(/* webpackChunkName: "login" */ "../views/Login/index.vue"),
     },
+    {
+      path: "/main",
+      name: "main",
+      component: () =>
+        import(/* webpackChunkName: "login" */ "../components/top-nav.vue"),
+    }
   ],
 });
 
