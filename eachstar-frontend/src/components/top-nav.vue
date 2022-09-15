@@ -38,17 +38,17 @@ export default {
 }
 .title-left {
   width: 580px;
-  height: 48px;
+  height: 28px;
   margin-left: 0;
   background: #fff;
   display: flex;
 }
 .title-left-image {
-  height: 48px;
+  height: 10px;
   width: 120px;
 }
 span {
-  font-size: 16px;
+  font-size: 10px;
 }
 a {
   width: 70px;
