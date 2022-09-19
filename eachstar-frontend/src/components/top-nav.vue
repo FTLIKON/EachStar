@@ -5,8 +5,7 @@
         ><div class="inner"><span class="text">导航五</span></div></router-link
       >
     </div>
-    <div class="user-box" @click="handleDialog">
-      <testDialog title="测试窗口" v-if="openDialog" ref="testDialog" />
+    <div class="user-box" @click="onUserInfo">
       <div class="inner">
         <div class="info-box">
           <div class="info-content">
@@ -20,28 +19,23 @@
 </template>
 
 <script>
-import testDialog from "./register.vue";
 export default {
   name: "top-nav",
-  components: {testDialog},
   data() {
-      return {
-          // 显示窗口
-          openDialog: false
-      };
   },
   methods: {
-
-    // 按钮方法
-    handleDialog() {
-        this.openDialog = true;
-        this.$nextTick(() => {
-            this.$refs.testDialog.init(2);
-        });
-    }
-  }
+    /**
+     * 用户按钮
+     */
+    onUserInfo() {
+      this.$PL.show(this, {
+        name: "user-panel",
+      });
+    },
+  },
 };
 </script>
+
 <style lang="scss" scoped>
 // 响应式
 @media screen and (min-width: 801px) {
