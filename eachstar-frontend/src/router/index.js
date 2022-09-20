@@ -7,7 +7,7 @@ const router = createRouter({
       path: "/",
       name: "/",
       component: () =>
-        import(/* webpackChunkName: "login" */ "../components/top-nav.vue"),
+        import("../components/top-nav.vue"),
     },
   ],
 });
