@@ -1,13 +1,13 @@
 import { createRouter, createWebHistory } from "vue-router";
+import Main from '../views/main.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: "/",
-      name: "/",
-      component: () =>
-        import("../components/top-nav.vue"),
+      name: "main",
+      component: Main,
     },
   ],
 });
