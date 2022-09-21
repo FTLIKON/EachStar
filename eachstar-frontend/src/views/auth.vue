@@ -1,35 +1,44 @@
 <template>
-  <el-button @click="visible = true">
-    Open Dialog with customized header
-  </el-button>
-  <el-dialog v-model="visible" :show-close="false">
-    <template #header="{ close, titleId, titleClass }">
-      <div class="my-header">
-        <h4 :id="titleId" :class="titleClass">This is a custom header!</h4>
-        <el-button type="danger" @click="close">
-          <el-icon class="el-icon--left"><CircleCloseFilled /></el-icon>
-          Close
-        </el-button>
-      </div>
+  <el-button text @click="dialogVisible = true"
+    >click to open the Dialog</el-button
+  >
+
+  <el-dialog
+    v-model="dialogVisible"
+    title="Tips"
+    width="30%"
+    :before-close="handleClose"
+  >
+    <span>This is a message</span>
+    <template #footer>
+      <span class="dialog-footer">
+        <el-button @click="dialogVisible = false">Cancel</el-button>
+        <el-button type="primary" @click="dialogVisible = false"
+          >Confirm</el-button
+        >
+      </span>
     </template>
-    This is dialog content.
   </el-dialog>
 </template>
 
-<script>
-
+<script lang="ts" setup>
 import { ref } from "vue";
-import { ElButton, ElDialog } from "element-plus";
-import { CircleCloseFilled } from "@element-plus/icons-vue";
+import { ElMessageBox } from "element-plus";
 
+const dialogVisible = ref(false);
 
-const visible = ref(false);
+const handleClose = (done: () => void) => {
+  ElMessageBox.confirm("Are you sure to close this dialog?")
+    .then(() => {
+      done();
+    })
+    .catch(() => {
+      // catch error
+    });
+};
 </script>
-
 <style scoped>
-.my-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.dialog-footer button:first-child {
+  margin-right: 10px;
 }
 </style>
