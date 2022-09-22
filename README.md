@@ -1,13 +1,17 @@
 # EachStar
 
 ## 技术栈
-* **backend**
-  * Typescript
-  * koa
-  * postgres
-  * node-pg
-* **frontend**
-  * vue.js 
+
+- **backend**
+  - Typescript
+  - koa
+  - postgres
+  - smtp
+- **frontend**
+  - Vue3
+  - Element-plus
+  - scss
+
 ## 环境部署
 
-* 
+-
