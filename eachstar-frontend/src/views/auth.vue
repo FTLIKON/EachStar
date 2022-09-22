@@ -1,7 +1,7 @@
 <template>
   <el-button
     text
-    @click="dialogVisible = true"
+    @click="openPage()"
     style="color: white; background-color: #3c8dbc; margin-left: -20px"
     >打开注册登录小弹窗</el-button
   >
@@ -10,7 +10,7 @@
     <el-input
       v-model="userEmail"
       placeholder="请输入邮箱"
-      style="width: 70%;"
+      style="width: 70%"
       clearable
     />
     <el-button
@@ -80,6 +80,9 @@ export default {
     };
   },
   methods: {
+    openPage() {
+      this.dialogVisible = true;
+    },
     sendEmail() {
       const TIME_COUNT = 60; //  更改倒计时时间
       if (!this.timer) {
