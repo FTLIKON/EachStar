@@ -7,39 +7,56 @@
   >
 
   <el-dialog v-model="dialogVisible" title="注册/登录" width="30%">
-    <span class="auth-inputs">
     <el-input
       v-model="userEmail"
       placeholder="请输入邮箱"
-      width="40%"
+      style="width: 70%;"
       clearable
     />
     <el-button
       slot="append"
-      style="color: white; background-color: #3c8dbc"
+      style="
+        color: white;
+        background-color: #3c8dbc;
+        width: 30%;
+        margin-top: 10px;
+        margin-right: 1%;
+      "
       v-show="showTime"
       @click="sendEmail()"
-      >发送验证码</el-button
+      >获取验证码</el-button
     >
     <el-button
       slot="append"
-      style="color: white; background-color: #3c8dbc"
+      style="
+        color: white;
+        background-color: #3c8dbc;
+        width: 30%;
+        margin-top: 10px;
+        margin-right: 1%;
+      "
       v-show="!showTime"
       >{{ sendTime }}秒</el-button
     >
-    <el-input v-model="emailCode" placeholder="请输入邮件验证码" clearable />
     <el-input
-      v-model="userPassword"
-      type="password"
-      placeholder="请输入密码"
-      show-password
+      v-model="emailCode"
+      style="width: 39%; margin-top: 10px"
+      placeholder="6位邮件验证码"
+      clearable
     />
-    <el-input
-      v-model="userPasswordTwice"
-      type="password"
-      placeholder="请再次输入密码"
-      show-password
-    />
+    <span class="password-inputs">
+      <el-input
+        v-model="userPassword"
+        type="password"
+        placeholder="请输入密码"
+        show-password
+      />
+      <el-input
+        v-model="userPasswordTwice"
+        type="password"
+        placeholder="请再次输入密码"
+        show-password
+      />
     </span>
     <span class="dialog-footer">
       <el-button @click="dialogVisible = false">取消</el-button>
@@ -79,7 +96,7 @@ export default {
         }, 1000);
       }
 
-      //todo：发送邮件的逻辑
+      //todo：发送邮件的api逻辑
     },
   },
 };
@@ -96,12 +113,15 @@ export default {
   }
 }
 
-.auth-inputs {
+.password-inputs {
   display: flex;
-  justify-content: center;
   align-items: center;
-  flex-flow: column wrap;
-  width: 70%;
-  margin-bottom: 100px;
+  justify-content: center;
+  flex-direction: column;
+
+  .el-input {
+    width: 70%;
+    margin-top: 10px;
+  }
 }
 </style>
