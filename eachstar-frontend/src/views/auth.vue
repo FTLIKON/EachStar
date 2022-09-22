@@ -1,10 +1,4 @@
 <template>
-  <el-button
-    text
-    @click="openPage()"
-    style="color: white; background-color: #3c8dbc; margin-left: -20px"
-    >打开注册登录小弹窗</el-button
-  >
 
   <el-dialog v-model="dialogVisible" title="注册/登录" width="30%">
     <el-input

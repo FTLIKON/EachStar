@@ -10,7 +10,7 @@
       >
     </template>
   </el-page-header>
-  <authPage />
+  <authPage ref="authPage" />
 </template>
 
 <script>
