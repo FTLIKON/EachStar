@@ -2,14 +2,15 @@
   <el-menu
     class="top-menu"
     mode="horizontal"
+    default-active="1"
     @select="menuSelect"
   >
     <div id="logo">EachStar</div>
     <div class="menu-left-flow"></div>
-    <el-menu-item index="2">
+    <el-menu-item index="1">
       <router-link to="/github" class="link">发现仓库</router-link>
     </el-menu-item>
-    <el-menu-item index="3">
+    <el-menu-item index="2">
       <router-link to="/test" class="link">你的仓库</router-link>
     </el-menu-item>
 
@@ -43,6 +44,9 @@ export default {
   text-decoration: none;
 }
 
+.divider {
+  margin-top: 2%;
+}
 #auth-button {
   font-weight: bold;
   color: white;

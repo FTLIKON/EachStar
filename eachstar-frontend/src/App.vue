@@ -5,7 +5,7 @@
       <el-header><top-nav /></el-header>
 
       <!-- main content -->
-      <el-main><router-view /></el-main>
+      <router-view />
     </el-container>
   </div>
 </template>
@@ -30,9 +30,7 @@ export default {
 
 body {
   margin: 0;
+  padding: 0;
 }
 
-.el-header {
-  box-shadow: var(--el-box-shadow-lighter);
-}
 </style>

@@ -15,5 +15,8 @@ export default {
 </script>
 
 <style>
-
+#github {
+  padding-top: 2%;
+  background-image: linear-gradient(to bottom, #dcfff9,#ffffff);
+}
 </style>
