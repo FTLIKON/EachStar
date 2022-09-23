@@ -50,7 +50,7 @@ export default {
   margin-left: auto;
 
   border: none;
-  border-radius: 10px;
+  border-radius: 6px;
   text-shadow: 0px 0px 1px #303133; 
 }
 
