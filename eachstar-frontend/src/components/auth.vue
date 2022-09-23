@@ -86,14 +86,11 @@ export default {
         password: this.userPassword,
       };
 
-      var data = JSON.stringify({
-        username: "ssdadaadsa",
-        password: "123456sda",
-      });
+      let param = new URLSearchParams();
+      param.append("email", "3147983767@qq.com");
+      param.append("password", "123456sda");
 
-
-
-      axios.post(`http://localhost:3050/auth/register`, data).then((res) => {
+      axios.post(`http://localhost:3050/auth/register`, param).then((res) => {
         console.log("res=>", res);
       });
 
