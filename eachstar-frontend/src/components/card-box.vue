@@ -1,6 +1,7 @@
 <template>
   <el-space class="card-space" fill direction="vertical">
-    <el-card v-for="i in 123" :key="i" class="box-card">
+    <!-- 卡片列表 -->
+    <el-card v-for="i in total_data.card_num" :key="i" class="box-card">
       <div class="card-header">
         <span>Github仓库 </span>
         <el-button class="button">点击 Star</el-button>
@@ -17,7 +18,12 @@
   >发布卡片</el-button>
 </template>
 
-<script>
+<script setup>
+import { reactive } from "@vue/reactivity";
+
+  const total_data = reactive({
+    card_num: 3 //卡片总数
+  })
 </script>
 
 <style>
@@ -27,6 +33,7 @@
   
   font-weight: bolder;
   font-size: large;
+  text-shadow: 0px 0px 2px #303133; 
 }
 
 .card-space {
