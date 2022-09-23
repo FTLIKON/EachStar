@@ -1,5 +1,5 @@
 <template>
-  <div id="main">
+  <div id="test">
     <p>content 1</p><br>
     <p>content 2</p><br>
     <p>content 3</p><br>
@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: "main",
+  name: "test",
 };
 </script>
 
