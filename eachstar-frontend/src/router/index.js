@@ -9,16 +9,25 @@ const router = createRouter({
       path: "/",
       name: "gen",
       component: github,
+      meta: {
+        title: "EachStar",
+      },
     },
     {
       path: "/test",
       name: "test",
       component: test,
+      meta: {
+        title: "EachStar",
+      },
     },
     {
       path: "/github",
       name: "github",
       component: github,
+      meta: {
+        title: "EachStar",
+      },
     },
   ],
 });
