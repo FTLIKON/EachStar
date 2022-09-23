@@ -1,5 +1,4 @@
 <template>
-
   <el-dialog v-model="dialogVisible" title="注册/登录" width="30%">
     <el-input
       v-model="userEmail"
@@ -60,6 +59,9 @@
 </template>
 
 <script>
+import { register } from "../api/auth";
+import axios from "axios";
+
 export default {
   data() {
     return {
@@ -78,7 +80,24 @@ export default {
       this.dialogVisible = true;
     },
     sendEmail() {
-      const TIME_COUNT = 60; //  更改倒计时时间
+      // 获取验证码
+      let requestData = {
+        email: this.userEmail,
+        password: this.userPassword,
+      };
+
+      var data = JSON.stringify({
+        username: "ssdadaadsa",
+        password: "123456sda",
+      });
+
+
+
+      axios.post(`http://localhost:3050/auth/register`, data).then((res) => {
+        console.log("res=>", res);
+      });
+
+      const TIME_COUNT = 60; //更改倒计时时间
       if (!this.timer) {
         this.sendTime = TIME_COUNT;
         this.showTime = false;
