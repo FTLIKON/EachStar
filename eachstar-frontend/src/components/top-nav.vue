@@ -7,9 +7,20 @@
     
     :ellipsis="false"
   >
+<<<<<<< HEAD
     <div class="left-block">
       <div class="logo">EachStar</div>
     </div>
+=======
+    <div id="logo">EachStar</div>
+    <div class="menu-left-flow"></div>
+    <el-menu-item index="1">
+      <router-link to="/github" class="link">发现仓库</router-link>
+    </el-menu-item>
+    <el-menu-item index="2">
+      <router-link to="/test" class="link">你的仓库</router-link>
+    </el-menu-item>
+>>>>>>> 23d6608 (update: card-box)
 
     <div class="mid-block">
       <el-menu-item index="1">
@@ -85,6 +96,38 @@ export default {
 
 .link {
   text-decoration: none;
+<<<<<<< HEAD
   color: #303133;
+=======
+}
+
+.divider {
+  margin-top: 2%;
+}
+#auth-button {
+  font-weight: bold;
+  color: white;
+  background-color: #409EFF;
+  
+  margin: auto 1%;
+  margin-left: auto;
+
+  border: none;
+  border-radius: 6px;
+  text-shadow: 0px 0px 1px #303133; 
+}
+
+#logo {
+  font-weight: bold;
+  font-size: x-large;
+  color: white;
+  
+  margin-right: 1%;
+  margin-left: 1%;
+  margin-top: auto;
+  margin-bottom: auto;
+
+  text-shadow: 1px 1px 2px #303133, 0px 0px 3px #303133; 
+>>>>>>> 23d6608 (update: card-box)
 }
 </style>
