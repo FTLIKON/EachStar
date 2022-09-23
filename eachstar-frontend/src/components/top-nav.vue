@@ -4,9 +4,8 @@
     mode="horizontal"
     @select="menuSelect"
   >
-    <el-menu-item index="1">
-      <router-link to="/github" class="link">欢迎加入</router-link>
-    </el-menu-item>
+    <div id="logo">EachStar</div>
+    <div class="menu-left-flow"></div>
     <el-menu-item index="2">
       <router-link to="/github" class="link">发现仓库</router-link>
     </el-menu-item>
@@ -15,7 +14,6 @@
     </el-menu-item>
 
     <el-button @click="authButton()" id="auth-button">注册 / 登录</el-button>
-    <div id="logo">EachStar</div>
   </el-menu>
   <authPage ref="authPage" />
 </template>
@@ -35,8 +33,12 @@ export default {
 </script>
 
 <style>
+.menu-left-flow {
+  margin-left: auto;
+}
+
 .link {
-  font-weight: bold;
+  font-weight: 700;
   color: white;
   text-decoration: none;
 }
@@ -44,7 +46,7 @@ export default {
 #auth-button {
   font-weight: bold;
   color: white;
-  background-color: #337ecc;
+  background-color: #409EFF;
   
   margin: auto 1%;
   margin-left: auto;
@@ -64,6 +66,6 @@ export default {
   margin-top: auto;
   margin-bottom: auto;
 
-  text-shadow: 1px 1px 2px #303133, 0px 0px 1px #303133; 
+  text-shadow: 1px 1px 2px #303133, 0px 0px 3px #303133; 
 }
 </style>

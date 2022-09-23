@@ -1,5 +1,5 @@
 <template>
-  <el-dialog v-model="dialogVisible" title="注册/登录" width="30%">
+  <el-dialog v-model="dialogVisible" title="注册/登录">
     <el-input
       v-model="userEmail"
       placeholder="请输入邮箱"
@@ -108,8 +108,7 @@ export default {
           }
         }, 1000);
       }
-
-      //todo：发送邮件的api逻辑
+      // todo：发送邮件的api逻辑
     },
   },
 };
