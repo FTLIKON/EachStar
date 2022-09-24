@@ -1,5 +1,5 @@
 <template>
-  <el-dialog v-model="dialogVisible" title="注册/登录">
+  <el-dialog v-model="dialogVisible" title="github快捷登录">
     <el-button
       type="primary"
       @click="
