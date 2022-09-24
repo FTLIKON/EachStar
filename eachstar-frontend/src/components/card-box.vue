@@ -11,13 +11,13 @@
     </el-card>
   </el-space>
   <!-- 发布卡片按钮 -->
-  <el-button type="success" size="large" id="public-button" @click="public()">发布卡片</el-button>
+  <el-button type="success" size="large" id="public-button" @click="openPublicPage()">发布卡片</el-button>
   <el-pagination
     id="pagination"
     layout="prev, pager, next"
     @current-change="pageChange"
     :total="total_page*10"/>
-  <publicPage ref="publicPage" />
+  <publicPage ref="publicPage" @publicCard="addCard"/>
 </template>
 
 <script>
@@ -46,11 +46,11 @@ export default {
   },
 
   methods: {
-    public: function(){
+    openPublicPage: function(){
       this.$.refs.publicPage.openPage();
     },
 
-    appCard: function(data){
+    addCard: function(data){
       this.current_page_data.push(data);
     },
 
