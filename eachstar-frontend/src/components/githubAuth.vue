@@ -9,6 +9,15 @@
       "
       >点我</el-button
     >
+    <el-button
+      type="primary"
+      @click="
+        goPage(
+          'http://119.91.192.183:3050/oauth/github/login?path=http://127.0.0.1:5173/'
+        )
+      "
+      >点我</el-button
+    >
   </el-dialog>
 </template>
 
@@ -26,6 +35,11 @@ export default {
     goPage(url) {
       window.location.href = url;
     },
+    goTest(){
+      axios.get(`http://localhost:3050/auth/register`, param).then((res) => {
+      console.log("res=>", res);
+      });
+    }
   },
 };
 </script>

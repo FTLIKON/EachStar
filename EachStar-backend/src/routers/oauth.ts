@@ -18,6 +18,11 @@ export const getOAuthMiddleware = () => {
     ctx.redirect(path) //重定向到请求页面
   })
   //认证后的github回调
+  router.get('/test', async ctx => {
+    const code = ctx.query.code
+    console.log(code)
+    console.log('测试cookie')
+  })
   router.get('/github/callback', async ctx => {
     console.log('callback...')
     const code = ctx.query.code //返回的授权码
