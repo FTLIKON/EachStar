@@ -17,17 +17,22 @@
     id="issue-button"
     @click="issue()"
   >发布卡片</el-button>
-  <el-pagination id="pagination" layout="prev, pager, next" :total="800" />
+  <el-pagination
+    id="pagination"
+    layout="prev, pager, next"
+    @current-change="pageChange"
+    :total="total_page*10"/>
   
 </template>
 
 <script>
 import { reactive } from "@vue/reactivity";
 import { getCurrentInstance, onMounted } from "@vue/runtime-core";
+import { throttledWatch } from "@vueuse/shared";
 export default {
   data() {
     return {
-      total_page: 1,
+      total_page: 5,
       current_page: 1,
       page_size: 5,
       
@@ -42,31 +47,25 @@ export default {
   },
 
   methods: {
+    issue: function(){
+      this.appCard(card_1);
+    },
+
     appCard: function(data){
       this.current_page_data.push(data);
     },
 
-    issue: function(){
-      this.appCard(card_1);
+    getData: function(page){
+      axios.get('localhost:8081/sel/'+id).then((res) => {
+        console.log(res.data);
+      })
+    },
+
+    pageChange: function(page){
+      console.log(page);
     }
   },
 };
-
-  const card_1 = {
-    title: "ZLMediaKit",
-    link: "github.com",
-    discription: "实现RTSP/RTMP/HLS/HTTP协议的轻量级流媒体框架，支持大并发连接请求",
-  };
-  const card_2 = {
-    title: "Qml_CustomControl",
-    link: "github.com",
-    discription: "QtQml控件展示，提供控件案例，惠州地铁动态地图案例",
-  };
-  const card_3 = {
-    title: "洪学习笔记",
-    link: "github.com",
-    discription: "这是@hongjilin的学习笔记(小部分是各种博客及官方资料的摘录或整合),旨在方便自己或身边同学的使用与查阅.",
-  };
 </script>
 
 <style>
