@@ -13,8 +13,10 @@
     <el-menu-item index="2">
       <router-link to="/test" class="link">你的仓库</router-link>
     </el-menu-item>
-
-    <el-button @click="authButton()" id="auth-button">注册 / 登录</el-button>
+    <div class="menu-right-flow">
+      <span id="rank">积分 0/100</span>
+      <el-button @click="authButton()" id="auth-button">注册 / 登录</el-button>
+    </div>
   </el-menu>
   <authPage ref="authPage" />
 </template>
@@ -41,21 +43,29 @@ export default {
   margin-left: auto;
 }
 
+.menu-right-flow {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  flex-direction: row;
+}
+
 .link {
   font-weight: 700;
   color: white;
   text-decoration: none;
 }
 
-.divider {
-  margin-top: 2%;
+#rank {
+  margin-right: 10px;
+  font-weight: bold;
+  text-decoration: none;
 }
 #auth-button {
   font-weight: bold;
   color: white;
   background-color: #409EFF;
   
-  margin: auto 1%;
   margin-left: auto;
 
   border: none;

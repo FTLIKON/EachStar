@@ -70,7 +70,7 @@ export default {
 <style>
 .card-space {
   width: 60%;
-  margin-left: 17%;
+  margin-left: 20%;
 }
 
 .card-title {
@@ -103,8 +103,9 @@ export default {
 }
 
 #public-button {
-  width: 15%;
-  margin-left: 4%;
+  width: 16%;
+  margin-left: 2%;
+  margin-right: 2%;
   
   font-weight: bolder;
   font-size: large;
