@@ -26,7 +26,7 @@ export default {
     },
     goPage(url) {
       window.location.href = url;
-    }，
+    },
   },
 };
 </script>

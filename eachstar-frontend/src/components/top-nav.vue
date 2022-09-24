@@ -23,7 +23,7 @@ export default {
   components: { authPage },
   data() {
     return {
-      userName: this.$cookies.get("user");
+      userName: this.$cookies.get("user"),
     };
   },
   methods: {
