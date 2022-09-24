@@ -8,7 +8,7 @@ export const getOAuthMiddleware = () => {
     client_id: 'cc67a3235e881990831d', //github生成的ID及密码
     client_secret: 'e003aa5159e7159c2f43b5d81244ac914a9cb0c0',
   }
-  let redirectPath = 'http://127.0.0.1:5173/'
+  let redirectPath = 'http://119.91.192.183:12377/'
   router.get('/github/login', async ctx => {
     //重定向到认证接口,并配置参数
     var path = 'https://github.com/login/oauth/authorize'
