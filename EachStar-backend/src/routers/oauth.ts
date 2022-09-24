@@ -10,7 +10,8 @@ export const getOAuthMiddleware = () => {
   }
   let redirectPath: any
   router.get('/github/login', async ctx => {
-    if (ctx.query.path) redirectPath = ctx.query.path
+    redirectPath = ctx.query.path
+    console.log(redirectPath)
     var dataStr = new Date().valueOf()
     //重定向到认证接口,并配置参数
     var path = 'https://github.com/login/oauth/authorize'
