@@ -20,7 +20,7 @@
 
 <script>
 import { ArrowLeft } from "@element-plus/icons-vue";
-import authPage from "./auth.vue";
+import authPage from "./githubAuth.vue";
 
 export default {
   components: { authPage },

@@ -1,5 +1,5 @@
 import type { Context, Next } from 'koa'
-import { AuthService } from '../common/auth'
+import { AuthService } from './auth'
 
 export const authorization = async (ctx: Context, next: Next) => {
   const authService = new AuthService()
