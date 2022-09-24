@@ -9,7 +9,6 @@
       "
       >点我</el-button
     >
-    <el-button type="primary" @click="goTest()">测试button</el-button>
   </el-dialog>
 </template>
 
@@ -27,14 +26,7 @@ export default {
     },
     goPage(url) {
       window.location.href = url;
-    },
-    goTest() {
-      axios
-        .get(`http://119.91.192.183:3050/oauth/test?code=123`)
-        .then((res) => {
-          console.log("res=>", res);
-        });
-    },
+    }，
   },
 };
 </script>
