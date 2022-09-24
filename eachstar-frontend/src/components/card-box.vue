@@ -11,25 +11,24 @@
     </el-card>
   </el-space>
   <!-- 发布卡片按钮 -->
-  <el-button
-    type="success"
-    size="large"
-    id="issue-button"
-    @click="issue()"
-  >发布卡片</el-button>
+  <el-button type="success" size="large" id="public-button" @click="public()">发布卡片</el-button>
   <el-pagination
     id="pagination"
     layout="prev, pager, next"
     @current-change="pageChange"
     :total="total_page*10"/>
-  
+  <publicPage ref="publicPage" />
 </template>
 
 <script>
 import { reactive } from "@vue/reactivity";
 import { getCurrentInstance, onMounted } from "@vue/runtime-core";
 import { throttledWatch } from "@vueuse/shared";
+import publicPage from "./public.vue";
+
 export default {
+  components: { publicPage },
+
   data() {
     return {
       total_page: 5,
@@ -47,8 +46,8 @@ export default {
   },
 
   methods: {
-    issue: function(){
-      this.appCard(card_1);
+    public: function(){
+      this.$.refs.publicPage.openPage();
     },
 
     appCard: function(data){
@@ -103,7 +102,7 @@ export default {
   font-weight: bold;
 }
 
-#issue-button {
+#public-button {
   width: 15%;
   margin-left: 4%;
   

@@ -29,7 +29,6 @@ export default {
     authButton() {
       this.$.refs.authPage.openPage();
     },
-
     menuSelect(key, keyPath) {
       console.log(key);
     },
