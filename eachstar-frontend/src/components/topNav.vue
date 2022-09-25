@@ -24,13 +24,13 @@
       <el-button @click="authButton()" id="auth-button">注册 / 登录</el-button>
     </div>
   </el-menu>
-  <authPage ref="authPage" />
+  <!-- <authPage ref="authPage" /> -->
 </template>
 
 <script>
-import authPage from "./components/emailAuth.vue";
+// import authPage from "./components/emailAuth.vue";
 export default {
-  components: { authPage },
+  // components: { authPage },
   data() {
     return {
       userName: this.$cookies.get("user"),
