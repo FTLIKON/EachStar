@@ -75,7 +75,7 @@ export default {
           that.totalPage = parseInt(pageData.count);
           that.currentPageData = pageData.data;
 
-          console.log(that.totalPage, that.currentPageData);
+          console.log(pageData);
         })
         .catch(function (error) {
           console.log(error);
