@@ -2,11 +2,6 @@ import type { RepositoryType, User, Card, UserStar } from '../types'
 import { Pool, PoolClient, Client } from 'pg'
 import * as bcrypt from 'bcryptjs'
 import AccountServiceConfig from '../config'
-export enum VerificationStatus {
-  valid = 'valid',
-  used = 'used',
-  expired = 'expired',
-}
 
 interface UserPO {
   id: bigint
@@ -37,7 +32,7 @@ interface UserStarPO {
 
 export class RepositoryPostgres implements RepositoryType {
   client: Client
-  constructor(poolconn: Pool) {
+  constructor() {
     const connectionString = AccountServiceConfig.databaseUrl
     this.client = new Client({
       connectionString,
@@ -92,9 +87,7 @@ export class RepositoryPostgres implements RepositoryType {
   async createUser(data: User): Promise<User> {
     const { id, githubName, price = 0 } = data
 
-    const client = await this.getClient()
-
-    const result = await client.query<UserPO>(
+    const result = await this.client.query<UserPO>(
       `--sql
       INSERT INTO users (
         "id",
@@ -116,8 +109,7 @@ export class RepositoryPostgres implements RepositoryType {
   }
 
   async getUserById(id: bigint): Promise<User | undefined> {
-    const client = await this.getClient()
-    const result = await client.query<UserPO>(
+    const result = await this.client.query<UserPO>(
       `--sql
       SELECT * FROM users WHERE id = $1
       `,
@@ -127,8 +119,7 @@ export class RepositoryPostgres implements RepositoryType {
   }
 
   async changeUserPrice(UserId: bigint, newPrice: bigint): Promise<User> {
-    const client = await this.getClient()
-    const result = await client.query<UserPO>(
+    const result = await this.client.query<UserPO>(
       `--sql
       UPDATE users SET star_price = $1,
       updated_at = NOW()
@@ -149,9 +140,8 @@ export class RepositoryPostgres implements RepositoryType {
     expireTime: Date,
   ): Promise<Card> {
     const id = this.genId()
-    const client = await this.getClient()
 
-    const result = await client.query<CardPO>(
+    const result = await this.client.query<CardPO>(
       `--sql
       INSERT INTO cards (
         "id",
@@ -183,9 +173,7 @@ export class RepositoryPostgres implements RepositoryType {
   async updateCard(data: Card): Promise<Card> {
     const { id, userId, title, context, starPrice, expireTime } = data
 
-    const client = await this.getClient()
-
-    const result = await client.query<CardPO>(
+    const result = await this.client.query<CardPO>(
       `--sql
       UPDATE cards SET 
       title = $1,

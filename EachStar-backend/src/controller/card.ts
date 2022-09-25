@@ -3,8 +3,8 @@ import { RepositoryPostgres } from '../stores'
 import { Pool } from 'pg'
 export class CardController {
   repository
-  constructor(pool: Pool) {
-    this.repository = new RepositoryPostgres(pool)
+  constructor() {
+    this.repository = new RepositoryPostgres()
   }
 
   async createCard(ctx: Context) {
