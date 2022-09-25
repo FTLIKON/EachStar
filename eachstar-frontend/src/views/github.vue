@@ -81,9 +81,10 @@ export default {
           var start = page*that.pageSize; // 防止页面请求溢出
           while(index < that.pageSize && start < that.totalCard){
             list.push(response.data.data[index]);
+            console.log(response.data.data[index]);
             index++; start++;
           }
-          this.currentPageData = list;
+          that.currentPageData = list;
         })
         .catch(function (error) {
           console.log(error);
