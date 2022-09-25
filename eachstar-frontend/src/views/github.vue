@@ -78,7 +78,6 @@ export default {
 };
 </script>
 
-<<<<<<< HEAD
 <style scoped>
 .github {
   background-color: none;
@@ -169,11 +168,5 @@ export default {
 #pagination {
   margin-top: 3%;
   justify-content: center;
-=======
-<style>
-#github {
-  padding-top: 2%;
-  background-image: linear-gradient(to bottom, #dcfff9,#ffffff);
->>>>>>> 23d6608 (update: card-box)
 }
 </style>

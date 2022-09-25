@@ -7,20 +7,9 @@
     
     :ellipsis="false"
   >
-<<<<<<< HEAD
     <div class="left-block">
       <div class="logo">EachStar</div>
     </div>
-=======
-    <div id="logo">EachStar</div>
-    <div class="menu-left-flow"></div>
-    <el-menu-item index="1">
-      <router-link to="/github" class="link">发现仓库</router-link>
-    </el-menu-item>
-    <el-menu-item index="2">
-      <router-link to="/test" class="link">你的仓库</router-link>
-    </el-menu-item>
->>>>>>> 23d6608 (update: card-box)
 
     <div class="mid-block">
       <el-menu-item index="1">
@@ -44,6 +33,11 @@ import authPage from "./auth.vue";
 
 export default {
   components: { authPage },
+  data() {
+    return {
+      userName: this.$cookies.get("user"),
+    };
+  },
   methods: {
     authButton() {
       this.$.refs.authPage.openPage();
@@ -96,9 +90,7 @@ export default {
 
 .link {
   text-decoration: none;
-<<<<<<< HEAD
   color: #303133;
-=======
 }
 
 .divider {
@@ -128,6 +120,5 @@ export default {
   margin-bottom: auto;
 
   text-shadow: 1px 1px 2px #303133, 0px 0px 3px #303133; 
->>>>>>> 23d6608 (update: card-box)
 }
 </style>

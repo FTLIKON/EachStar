@@ -18,6 +18,8 @@
 
 <script>
 import { register } from "../api/auth";
+import { validateEmail, validatePass, validateVCode } from "../utils/validate";
+import { ElMessage } from "element-plus";
 import axios from "axios";
 
 export default {
@@ -38,35 +40,46 @@ export default {
       this.dialogVisible = true;
     },
     sendEmail() {
-      // 获取验证码
-      let requestData = {
-        email: this.userEmail,
-        password: this.userPassword,
-      };
+      if (this.userPassword != this.userPasswordTwice) {
+        ElMessage({
+          message: "两次输入密码不一致",
+          type: "warning",
+        });
+      } else if (validatePass(this.userPassword)) {
+        ElMessage({
+          message: "密码格式错误, 必须为6至20位的字母+数字",
+          type: "warning",
+        });
+      } else if (validateEmail(this.userEmail)) {
+        ElMessage({
+          message: "邮箱格式错误",
+          type: "warning",
+        });
+      } else {
+        // 发送验证码请求
+        let param = new URLSearchParams();
+        param.append("email", this.userEmail);
+        param.append("password", this.userPassword);
 
-      let param = new URLSearchParams();
-      param.append("email", "3147983767@qq.com");
-      param.append("password", "123456sda");
+        axios.post(`http://localhost:3050/auth/register`, param).then((res) => {
+          console.log("res=>", res);
+        });
 
-      axios.post(`http://localhost:3050/auth/register`, param).then((res) => {
-        console.log("res=>", res);
-      });
-
-      const TIME_COUNT = 60; // 更改倒计时时间
-      if (!this.timer) {
-        this.sendTime = TIME_COUNT;
-        this.showTime = false;
-        this.timer = setInterval(() => {
-          if (this.sendTime > 0 && this.sendTime <= TIME_COUNT) {
-            this.sendTime--;
-          } else {
-            this.showTime = true;
-            clearInterval(this.timer); // 清除定时器
-            this.timer = null;
-          }
-        }, 1000);
+        const TIME_COUNT = 60; //更改倒计时时间
+        if (!this.timer) {
+          this.sendTime = TIME_COUNT;
+          this.showTime = false;
+          this.timer = setInterval(() => {
+            if (this.sendTime > 0 && this.sendTime <= TIME_COUNT) {
+              this.sendTime--;
+            } else {
+              this.showTime = true;
+              clearInterval(this.timer); // 清除定时器
+              this.timer = null;
+            }
+          }, 1000);
+        }
       }
-      // todo：发送邮件的api逻辑
     },
   },
 };

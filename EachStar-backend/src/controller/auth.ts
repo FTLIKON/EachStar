@@ -1,90 +1,93 @@
-import { Context } from 'koa'
-import Ajv, { JSONSchemaType, ValidateFunction } from 'ajv'
-import AccountServiceConfig from '../config'
-import UserService from '../common/user'
-import AuthService from '../common/auth'
+import type { Context } from 'koa'
+import type { Profile } from './type'
+import { assignQs, parseQs } from '../util/qs'
+import { AccountServiceConfig } from '../config'
+import { AccountRepository, User } from '../types'
+import AuthService from '../auth'
 
-export interface LoginOrRegisterPayload {
-  email?: string
-  username?: string
-  password: string
-}
+export class OAuthService {
+  constructor(
+    public ctx: Context,
+    public config: AccountServiceConfig,
+    public repository: AccountRepository,
+    public authService: AuthService,
+  ) {}
 
-export class AuthController {
-  loginOrRegisterSchemaValidator: ValidateFunction<LoginOrRegisterPayload>
+  get providers() {
+    return this.config.oauth.providers
+  }
 
-  getLoginOrRegisterSchema(): JSONSchemaType<LoginOrRegisterPayload> {
-    return {
-      type: 'object',
-      properties: {
-        email: {
-          type: 'string',
-          nullable: true,
-        },
-        username: {
-          type: 'string',
-          nullable: true,
-          minLength:
-            AccountServiceConfig.auth.constrains?.username?.minLength ?? 1,
-          maxLength:
-            AccountServiceConfig.auth.constrains?.username?.maxLength ?? 200,
-        },
-        password: {
-          type: 'string',
-          minLength:
-            AccountServiceConfig.auth.constrains?.password?.minLength ?? 1,
-          maxLength:
-            AccountServiceConfig.auth.constrains?.password?.maxLength ?? 200,
-        },
-      },
-      required: ['password'],
+  protected async setExternalForUser(
+    user: User,
+    type: string,
+    profile: Profile,
+  ) {
+    await this.repository.setExternalForUser(user, type, profile)
+    return user
+  }
+
+  protected async getByExternal(type: string, profile: Profile): Promise<User> {
+    return this.repository.getByExternal(type, profile)
+  }
+
+  protected async createByExternal(
+    type: string,
+    profile: Profile,
+  ): Promise<User> {
+    return this.repository.createByExternal(type, profile)
+  }
+
+  protected async getOrCreateByExternal(type: string, profile: Profile) {
+    const user = await this.getByExternal(type, profile)
+    if (user) return user
+    return this.createByExternal(type, profile)
+  }
+
+  async authorize(type: string) {
+    const createProvider = this.providers[type]
+    if (!createProvider) this.ctx.throw(400, 'unknown type')
+
+    const provider = createProvider(this.ctx)
+
+    const { code, state = '' } = this.ctx.query
+
+    if (code && typeof code !== 'string') this.ctx.throw(400, 'invalid code')
+    if (state && typeof state !== 'string') this.ctx.throw(400, 'invalid state')
+
+    const { redirect } = parseQs(state)
+
+    try {
+      if (!code) {
+        const { protocol, host, path } = this.ctx
+        const redirectTo = `${protocol}://${host}${path}`
+        const url = await provider.getAuthorizeUrl(redirectTo)
+        this.ctx.redirect(assignQs(url, { state }))
+      } else {
+        const userInfo = await provider.getUserInfo(code, state)
+        const profile = await provider.getProfile(userInfo)
+        const user = this.ctx.user
+          ? await this.setExternalForUser(this.ctx.user, type, profile)
+          : await this.getOrCreateByExternal(type, profile)
+
+        await provider.onSuccess?.(user)
+
+        const token = await this.authService.setTokenToHeader(user)
+
+        if (redirect) {
+          this.ctx.redirect(assignQs(redirect, { token }))
+        } else {
+          this.ctx.body = { user, state }
+        }
+      }
+    } catch (err: any) {
+      this.config.oauth.onError?.(err)
+      if (redirect) {
+        this.ctx.redirect(assignQs(redirect, { error: err.message }))
+      } else {
+        this.ctx.throw(500, err)
+      }
     }
   }
-
-  userService
-  authService
-  constructor() {
-    const ajv = new Ajv()
-    this.loginOrRegisterSchemaValidator = ajv.compile(
-      this.getLoginOrRegisterSchema(),
-    )
-    this.userService = new UserService()
-    this.authService = new AuthService()
-  }
-
-  private getLoginOrRegisterPayload(ctx: Context) {
-    const payload = ctx.request.body
-    ctx.assert(this.loginOrRegisterSchemaValidator(payload), 400)
-    return payload
-  }
-
-  async register(ctx: Context) {
-    const { username, email, password } = this.getLoginOrRegisterPayload(ctx)
-    const user = username
-      ? await this.userService.registerByUsername(ctx, username, password)
-      : email
-      ? await this.userService.registerByEmail(ctx, email, password)
-      : undefined
-    if (!user) ctx.throw(400)
-    ctx.user = user
-    await this.authService.setTokenToHeader(ctx, user)
-    ctx.body = user
-  }
-
-  async login(ctx: Context) {
-    const { username, email, password } = this.getLoginOrRegisterPayload(ctx)
-    const user = await this.userService.loginByPassword(
-      ctx,
-      {
-        username,
-        email,
-      },
-      password,
-    )
-
-    ctx.user = user
-    await this.authService.setTokenToHeader(ctx, user)
-    ctx.body = user
-  }
 }
-export default AuthController
+
+export default OAuthService

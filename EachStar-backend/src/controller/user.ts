@@ -1,6 +1,6 @@
 import { Context } from 'koa'
-import UserService from '../common/user'
-import AuthService from '../common/auth'
+import UserService from '../middleware/auth'
+import AuthService from '../middleware/auth'
 import { AccountRepositoryPostgres } from '../stores'
 
 export class UserController {
@@ -73,18 +73,6 @@ export class UserController {
       ctx.user.id,
     )
     ctx.body = profiles
-  }
-
-  async checkEmailCode(ctx: Context) {
-    let userId: any
-    let code: any
-    if (ctx.request.body) {
-      userId = ctx.request.body.id
-      code = ctx.request.body.code
-    }
-    let user = await this.userService.getById(userId)
-    user = await this.userService.verifyEmail(ctx, code, user)
-    ctx.body = user
   }
 }
 export default UserController

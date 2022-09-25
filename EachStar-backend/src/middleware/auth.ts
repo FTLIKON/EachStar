@@ -1,9 +1,9 @@
-import UserService from '../user'
+import UserService from '../common/user'
 import * as jwt from 'jsonwebtoken'
-import AccountServiceConfig from '../../config'
+import AccountServiceConfig from '../config'
 import ms from 'ms'
 import type { Context } from 'koa'
-import { User } from '../../types'
+import { User } from '../types'
 
 export class AuthService {
   getJwtSignSecret() {
