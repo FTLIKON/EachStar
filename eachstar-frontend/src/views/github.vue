@@ -134,7 +134,7 @@ export default {
       pageChange: function(page){
         this.currentPage = page-1;
         console.log("切换到: " + this.currentPage + " 页");
-        console(this.cardData[0]);
+        console.log(this.cardData[0]);
 
         this.setCurrentPageData(this.currentPage*10);
       }
