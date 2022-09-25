@@ -49,7 +49,7 @@ export class RepositoryPostgres implements RepositoryType {
   }
 
   protected async getClient() {
-    return this.pool.connect()
+    return await this.pool.connect()
   }
 
   protected formatUserPo({
