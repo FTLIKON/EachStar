@@ -24,7 +24,7 @@
       <el-button @click="authButton()" id="auth-button">注册 / 登录</el-button>
     </div>
   </el-menu>
-  <email-auth ref="email-auth"/>
+  <email-auth ref="EmailAuth"/>
 </template>
 
 <script>
