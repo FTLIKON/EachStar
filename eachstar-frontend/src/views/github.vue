@@ -78,7 +78,7 @@ export default {
 
           var list = [];
           var index = 0; // 限制页面最大上限
-          var start = cardStart; // 防止页面请求溢出
+          var start = page*that.pageSize; // 防止页面请求溢出
           while(index < that.pageSize && start < that.totalCard){
             list.push(response.data.data[index]);
             index++; start++;
