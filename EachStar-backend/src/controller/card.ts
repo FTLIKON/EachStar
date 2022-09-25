@@ -31,6 +31,7 @@ export class CardController {
     const start = ctx.query.start
 
     const cards = await this.repository.getCardsByTimeSort(Number(start))
+    console.log(cards.count)
     ctx.body = cards
   }
 }
