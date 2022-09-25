@@ -194,24 +194,28 @@ export class RepositoryPostgres implements RepositoryType {
   }
 
   async getCardsByTimeSort(start: number): Promise<any> {
-    const result = await this.pool.query<CardPO>(
+    const connectionString = 'postgresql://postgres:nes816224@localhost:5432/eachstar'
+    const pool = new Pool({
+      connectionString,
+    })
+    const result = await pool.query<CardPO>(
       `--sql
       SELECT * FROM cards ORDER BY updated_at DESC limit 10 offset $1
     `,
       [start],
     )
-    await this.pool.end()
+    await pool.end()
 
     let cards = []
     for (let index in result.rows) {
       cards.push(this.formatCardPo(result.rows[index]))
     }
-    const resCount = await this.pool.query(
+    const resCount = await pool.query(
       `--sql
       SELECT count(*) FROM cards
     `,
     )
-    await this.pool.end()
+    await pool.end()
     return { count: BigInt(resCount.rows[0].count), data: cards }
   }
 }
