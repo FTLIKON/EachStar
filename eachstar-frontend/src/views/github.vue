@@ -81,10 +81,17 @@ export default {
           console.log(error);
         });
       },
+      setCurrentPageData: function(pageStart){
+        console.log(pageStart);
+        console.log(this.currentPageData);
+        this.currentPageData = [];
+        this.currentPageData.join(pageStart);
+      },
       pageChange: function(page){
         this.currentPage = page-1;
-        console.log(this.currentPage);
-        this.getPageData();
+        console.log("切换到: " + this.currentPage + " 页");
+
+        this.setCurrentPageData(this.currentPage*10);
       }
     },
 };
