@@ -18,7 +18,7 @@
       id="pagination"
       layout="prev, pager, next"
       @current-change="pageChange"
-      :total="total_page*10"/>
+      :total="totalPage*10"/>
     </div>
 
     <div class="aside-menu">
@@ -46,7 +46,7 @@ export default {
     },
     data() {
       return{
-        total_page: 10,
+        totalPage: 10,
         currentPage: 0,
         currentPageData: [
           {
@@ -64,13 +64,18 @@ export default {
     },
     methods: {
       getPageData: function(){
+        var that = this;
         var config = {
           method: 'get',
           url: '/server/api/card?start=0',
         };
         axios(config)
         .then(function (response) {
-          console.log(JSON.stringify(response.data));
+          let pageData = JSON.stringify(response.data);
+          that.totalPage = parseInt(response.data["count"]);
+          that.currentPageData = response.data["data"];
+
+          console.log(pageData);
         })
         .catch(function (error) {
           console.log(error);
