@@ -24,25 +24,28 @@
       <el-button @click="authButton()" id="auth-button">注册 / 登录</el-button>
     </div>
   </el-menu>
-  <authPage ref="authPage" />
+  <GithubAuth ref="GithubAuth"/>
 </template>
 
 <script>
+import GithubAuth from './githubAuth.vue';
 export default {
-  components: { authPage },
-  data() {
-    return {
-      userName: this.$cookies.get("user"),
-    };
-  },
-  methods: {
-    authButton() {
-      this.$.refs.authPage.openPage();
+    components: { 
+      GithubAuth
     },
-    menuSelect(key, keyPath) {
-      console.log(key);
+    data() {
+        return {
+            userName: this.$cookies.get("user"),
+        };
     },
-  },
+    methods: {
+        authButton() {
+            this.$.refs.GithubAuth.openPage();
+        },
+        menuSelect(key, keyPath) {
+            console.log(key);
+        },
+    }
 };
 </script>
 
@@ -98,8 +101,8 @@ export default {
   color: white;
   background-color: #409EFF;
   
-  margin: auto 1%;
-  margin-left: auto;
+  margin-right: 5%;
+  margin-left: 30%;
 
   border: none;
   border-radius: 6px;

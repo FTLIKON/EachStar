@@ -6,11 +6,9 @@
 </template>
 
 <script>
-import TopNav from "./components/top-nav.vue";
+import TopNav from './components/topNav.vue';
 export default {
-  components: {
-    "top-nav": TopNav,
-  },
+    components: { TopNav }
 };
 </script>
 
