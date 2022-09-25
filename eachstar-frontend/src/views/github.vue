@@ -32,6 +32,7 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
     name: "github",
     components: { 
@@ -39,6 +40,7 @@ export default {
     data() {
       return{
         total_page: 10,
+        currentPage: 0,
         currentPageData: [
           {
             title: "这是一个标题",
@@ -54,8 +56,23 @@ export default {
       }
     },
     methods: {
+      getPageData: function(){
+        var config = {
+          method: 'get',
+          url: 'http://119.91.192.183:3050/api/card?start=0',
+        };
+        axios(config)
+        .then(function (response) {
+          console.log(JSON.stringify(response.data));
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+      },
       pageChange: function(page){
-        console.log(page);
+        this.currentPage = page-1;
+        console.log(this.currentPage);
+        this.getPageData();
       }
     },
 };
