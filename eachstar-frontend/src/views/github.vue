@@ -5,9 +5,9 @@
       <el-card v-for="i in currentPageData" :key="i" class="card-list">
         <div class="card-block">
           <div class="card-title">{{i.title}}</div>
-          <div class="card-discription">{{i.discription}}</div>
+          <div class="card-discription">{{i.context}} {{i.updatedAt}}</div>
           <div class="card-valueblock">
-            <span class="card-rank">积分价值{{i.cardRank}}</span>
+            <span class="card-rank">积分价值{{i.starPrice}}</span>
             <el-button id="card-button" type="success" plain>Star</el-button>
           </div>
         </div>
