@@ -223,7 +223,7 @@ export class RepositoryPostgres implements RepositoryType {
       SELECT count(*) FROM cards
     `,
     )
-    await this.pool.end()
+
     return { count: BigInt(resCount.rows[0].count), data: cards }
   }
 }
