@@ -29,10 +29,8 @@
 
 <script>
 import EmailAuth from './emailAuth.vue';
-// import authPage from "./components/emailAuth.vue";
 export default {
     components: { 
-      authPage,
       EmailAuth,
     },
     data() {
