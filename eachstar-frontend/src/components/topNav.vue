@@ -24,14 +24,14 @@
       <el-button @click="authButton()" id="auth-button">注册 / 登录</el-button>
     </div>
   </el-menu>
-  <email-auth ref="EmailAuth"/>
+  <GithubAuth ref="GithubAuth"/>
 </template>
 
 <script>
-import EmailAuth from './emailAuth.vue';
+import GithubAuth from './githubAuth.vue';
 export default {
     components: { 
-      EmailAuth,
+      GithubAuth
     },
     data() {
         return {
@@ -40,13 +40,12 @@ export default {
     },
     methods: {
         authButton() {
-            this.$.refs.EmailAuth.openPage();
+            this.$.refs.GithubAuth.openPage();
         },
         menuSelect(key, keyPath) {
             console.log(key);
         },
-    },
-    components: { EmailAuth }
+    }
 };
 </script>
 
