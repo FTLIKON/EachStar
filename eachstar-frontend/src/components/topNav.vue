@@ -24,26 +24,31 @@
       <el-button @click="authButton()" id="auth-button">注册 / 登录</el-button>
     </div>
   </el-menu>
-  <!-- <authPage ref="authPage" /> -->
+  <email-auth ref="email-auth"/>
 </template>
 
 <script>
+import EmailAuth from './emailAuth.vue';
 // import authPage from "./components/emailAuth.vue";
 export default {
-  // components: { authPage },
-  data() {
-    return {
-      userName: this.$cookies.get("user"),
-    };
-  },
-  methods: {
-    authButton() {
-      this.$.refs.authPage.openPage();
+    components: { 
+      authPage,
+      EmailAuth,
     },
-    menuSelect(key, keyPath) {
-      console.log(key);
+    data() {
+        return {
+            userName: this.$cookies.get("user"),
+        };
     },
-  },
+    methods: {
+        authButton() {
+            this.$.refs.authPage.openPage();
+        },
+        menuSelect(key, keyPath) {
+            console.log(key);
+        },
+    },
+    components: { EmailAuth }
 };
 </script>
 
