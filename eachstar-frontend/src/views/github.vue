@@ -41,6 +41,7 @@ export default {
     setup() {
       onMounted(() => {
         console.log("created");
+        this.getPageData();
       });
     },
     data() {
