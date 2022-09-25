@@ -39,10 +39,11 @@ export default {
     components: { 
     },
     setup() {
-      const ins = getCurrentInstance();
       onMounted(() => {
         console.log("created");
-        ins.methods.getPageData();
+
+        let that = this;
+        that.getPageData();
       });
     },
     data() {
