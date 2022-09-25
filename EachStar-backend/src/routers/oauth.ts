@@ -58,8 +58,9 @@ export const getOAuthMiddleware = () => {
     })
     console.log('userAccess:', res.data)
     // ctx.body = res.data
-    ctx.cookies.set('user', res.data.login, { httpOnly: false }) //用户名称
-    ctx.cookies.set('icon', res.data.avatar_url, { httpOnly: false }) //用户图片
+    ctx.cookies.set('userId', res.data.id, { httpOnly: false }) //用户名称
+    ctx.cookies.set('userName', res.data.login, { httpOnly: false }) //用户名称
+    ctx.cookies.set('userIcon', res.data.avatar_url, { httpOnly: false }) //用户图片
     console.log(redirectPath)
     ctx.status = 301
     ctx.redirect(redirectPath) //重定向到请求页面

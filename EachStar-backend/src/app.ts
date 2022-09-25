@@ -1,6 +1,7 @@
 import koaBody from 'koa-body'
 import Koa from 'koa'
 import { getOAuthMiddleware } from './routers/oauth'
+import { getCardMiddleware } from './routers/card'
 
 declare class BigInt {
   toJSON(): string
@@ -13,11 +14,11 @@ BigInt.prototype.toJSON = function () {
 const app = new Koa()
 app.use(koaBody())
 //app.use(authorization)
-//app.use(getAuthMiddleware())
 app.use(getOAuthMiddleware())
+app.use(getCardMiddleware())
 //app.use(getUserApiMiddleware())
 
-console.log(
+console.log(cd 
   '########################\n Eachstar server start!!\n########################\n\n',
 )
 

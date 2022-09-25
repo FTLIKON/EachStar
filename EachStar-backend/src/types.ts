@@ -1,38 +1,43 @@
 import { Pool } from 'pg'
-export interface Profile {
-  id: string
-  name: string
-}
-
-export interface OAuth<T = any> {
-  getAuthorizeUrl(redirectUrl: string): string | Promise<string>
-  getUserInfo(code: string, state: string): Promise<T>
-  getProfile(userInfo: T): Promise<Profile>
-  onSuccess?(user: any): Promise<void>
-}
-
-type UserId = bigint
 
 export interface User {
-  id: UserId
-  username: string
-  displayName: string
-  email: string
-  emailVerified: boolean
+  id: bigint
+  githubName: string
+  price: bigint
   createdAt: Date
   updatedAt: Date
 }
 
-export interface AccountRepository {
-  pool: Pool
-  createUser(data: Partial<User & { password: string }>): Promise<User>
-  updateUser(
-    id: UserId,
-    data: Partial<User & { password: string }>,
-  ): Promise<User | undefined>
-  getUserById(id: UserId): Promise<User | undefined>
-  checkUserPassword(id: UserId, password: string): Promise<boolean>
-  getUserByEmail(email: string): Promise<User | undefined>
-  getUserByUsername(username: string): Promise<User | undefined>
+export interface Card {
+  id: bigint
+  userId: bigint
+  title: string
+  context: string
+  starPrice: bigint
+  expireTime: Date
+  createdAt: Date
+  updatedAt: Date
+}
 
+export interface UserStar {
+  id: bigint
+  userId: bigint
+  cardId: bigint
+  createdAt: Date
+}
+
+export interface RepositoryType {
+  pool: Pool
+  createUser(data: User): Promise<User>
+  getUserById(UserId: bigint): Promise<User | undefined>
+  changeUserPrice(UserId: bigint, newPrice: bigint): Promise<User>
+  createCard(
+    userId: bigint,
+    title: string,
+    context: string,
+    starPrice: bigint,
+    expireTime: Date,
+  ): Promise<Card>
+  updateCard(data: Card): Promise<Card>
+  getCardsByTimeSort(): Promise<Card>
 }
