@@ -18,7 +18,7 @@
       id="pagination"
       layout="prev, pager, next"
       @current-change="pageChange"
-      :total="total_page*10"/>
+      :total="totalPage*10"/>
     </div>
 
     <div class="aside-menu">
@@ -46,7 +46,7 @@ export default {
     },
     data() {
       return{
-        total_page: 10,
+        totalPage: 10,
         currentPage: 0,
         currentPageData: [
           {
@@ -70,8 +70,9 @@ export default {
         };
         axios(config)
         .then(function (response) {
-          console.log("JSON数据" + JSON.stringify(response.data));
-          console.log("原始数据" + response.data);
+          let pageData = JSON.stringify(response.data);
+          this.totalPage = pageData.count;
+          this.currentPageData = pageData.data;
         })
         .catch(function (error) {
           console.log(error);
