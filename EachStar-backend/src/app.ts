@@ -2,7 +2,8 @@ import koaBody from 'koa-body'
 import Koa from 'koa'
 import { getOAuthMiddleware } from './routers/oauth'
 import { getCardMiddleware } from './routers/card'
-
+import { Pool } from 'pg'
+import AccountServiceConfig from './config'
 declare class BigInt {
   toJSON(): string
 }
@@ -12,6 +13,10 @@ BigInt.prototype.toJSON = function () {
 }
 
 const app = new Koa()
+const connectionString = AccountServiceConfig.databaseUrl
+const pool = new Pool({
+  connectionString,
+})
 app.use(async (ctx, next) => {
   ctx.set('Access-Control-Allow-Origin', '*')
   ctx.set('Access-Control-Allow-Headers', 'Content-Type')
@@ -19,7 +24,6 @@ app.use(async (ctx, next) => {
   await next()
 })
 app.use(koaBody())
-//app.use(authorization)
 app.use(getOAuthMiddleware())
 app.use(getCardMiddleware())
 

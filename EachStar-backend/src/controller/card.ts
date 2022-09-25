@@ -1,10 +1,10 @@
 import { Context } from 'koa'
 import { RepositoryPostgres } from '../stores'
-
+import { Pool } from 'pg'
 export class CardController {
   repository
-  constructor() {
-    this.repository = new RepositoryPostgres()
+  constructor(pool: Pool) {
+    this.repository = new RepositoryPostgres(pool)
   }
 
   async createCard(ctx: Context) {
