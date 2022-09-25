@@ -113,14 +113,16 @@ export default {
       getPageData: function(){
         var that = this;
         var config = {
+          // get方法配置
           method: 'get',
           url: '/server/api/card?start=0',
         };
         axios(config)
+        // 返回数据response
         .then(function (response) {
-          // that.totalCard = parseInt(response.data["count"]);
-          // that.totalPage = Math.ceil(totalCard/10);
-          // that.cardData = response.data["data"];
+          that.totalCard = parseInt(response.data["count"]);
+          that.totalPage = Math.ceil(totalCard/10);
+          that.cardData = response.data["data"];
         })
         .catch(function (error) {
           console.log(error);
@@ -129,14 +131,12 @@ export default {
       setCurrentPageData: function(cardStart){
         var list = [];
 
-        var size = this.pageSize;
-        var start = cardStart;
+        var size = this.pageSize; // 限制页面最大上限
+        var start = cardStart; // 防止页面请求溢出
         while(size != 0 && start < this.totalCard){
           list.push(this.cardData[start]);
-          size--;
-          start++;
+          size--; start++;
         }
-        
         this.currentPageData = list;
       },
       pageChange: function(page){
