@@ -64,6 +64,7 @@ export default {
     },
     methods: {
       getPageData: function(){
+        var that = this;
         var config = {
           method: 'get',
           url: '/server/api/card?start=0',
@@ -71,8 +72,8 @@ export default {
         axios(config)
         .then(function (response) {
           let pageData = JSON.stringify(response.data);
-          this.totalPage = pageData.count;
-          this.currentPageData = pageData.data;
+          that.totalPage = pageData.count;
+          that.currentPageData = pageData.data;
         })
         .catch(function (error) {
           console.log(error);
