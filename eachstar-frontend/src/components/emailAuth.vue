@@ -1,56 +1,14 @@
 <template>
   <el-dialog v-model="dialogVisible" title="注册/登录">
-    <el-input
-      v-model="userEmail"
-      placeholder="请输入邮箱"
-      style="width: 70%"
-      clearable
-    />
+    <el-input class="long-input" v-model="userEmail" placeholder="请输入邮箱" clearable/>
+
+    <el-button slot="append" class="send-button" v-show="showTime" @click="sendEmail()">获取验证码</el-button>
+    <el-button slot="append" class="send-button" v-show="!showTime">{{ sendTime }} 秒</el-button>
+    <el-input class="emailcode-input" v-model="emailCode" placeholder="6位邮件验证码" clearable/>
     <span class="password-inputs">
-      <el-input
-        v-model="userPassword"
-        type="password"
-        placeholder="请输入密码"
-        show-password
-      />
-      <el-input
-        v-model="userPasswordTwice"
-        type="password"
-        placeholder="再次输入密码"
-        show-password
-      />
+      <el-input v-model="userPassword" type="password" placeholder="请输入密码" show-password/>
+      <el-input v-model="userPasswordTwice" type="password" placeholder="请再次输入密码" show-password/>
     </span>
-    <el-button
-      slot="append"
-      style="
-        color: white;
-        background-color: #3c8dbc;
-        width: 30%;
-        margin-top: 10px;
-        margin-right: 1%;
-      "
-      v-show="showTime"
-      @click="sendEmail()"
-      >获取邮件验证码</el-button
-    >
-    <el-button
-      slot="append"
-      style="
-        color: white;
-        background-color: #3c8dbc;
-        width: 30%;
-        margin-top: 10px;
-        margin-right: 1%;
-      "
-      v-show="!showTime"
-      >{{ sendTime }}秒</el-button
-    >
-    <el-input
-      v-model="emailCode"
-      style="width: 39%; margin-top: 10px"
-      placeholder="6位邮件验证码"
-      clearable
-    />
     <span class="dialog-footer">
       <el-button @click="dialogVisible = false">取消</el-button>
       <el-button type="primary" @click="dialogVisible = false">确认</el-button>
@@ -128,6 +86,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.long-input {
+  width: 70%;
+}
+
+.send-button {
+  color: white;
+  background-color: #409EFF;
+  width: 30%;
+  margin-top: 10px;
+  margin-right: 1%;
+}
+
+.emailcode-input {
+  width: 38%; 
+  margin-right: 2%;
+  margin-top: 10px;
+
+  text-align: left;
+}
 .dialog-footer {
   display: flex;
   width: 100%;

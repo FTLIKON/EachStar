@@ -1,12 +1,17 @@
 <template>
   <div id="app">
+<<<<<<< HEAD
+    <top-nav />
+    <router-view />
+=======
     <el-container>
       <!-- header -->
       <el-header><top-nav /></el-header>
 
       <!-- main content -->
-      <el-main><router-view /></el-main>
+      <router-view />
     </el-container>
+>>>>>>> 23d6608 (update: card-box)
   </div>
 </template>
 
@@ -25,14 +30,11 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #121921;
 }
 
-body {
+html, body {
   margin: 0;
+  padding: 0;
 }
 
-.el-header {
-  box-shadow: var(--el-box-shadow-lighter);
-}
 </style>
