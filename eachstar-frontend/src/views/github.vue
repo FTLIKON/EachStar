@@ -45,15 +45,10 @@ export default {
       that.getPageData();
     },
     data() {
-      return{
-        // 设定量
+      return {
         pageSize: 10,
-
-        // 统计数据
         totalPage: 4,
         totalCard: 35,
-
-        // 当前数据
         currentPage: 0,
         currentPageData: [
           {
@@ -67,8 +62,6 @@ export default {
             cardRank: 3,
           },
         ],
-
-        // 全部数据
         cardData: [
           {title: "x",discription: "y",cardRank: 2,},
           {title: "x",discription: "y",cardRank: 2,},
@@ -106,7 +99,7 @@ export default {
           {title: "x",discription: "y",cardRank: 2,},
           {title: "x",discription: "y",cardRank: 2,},
           {title: "x",discription: "y",cardRank: 2,},
-        ]
+        ],
       }
     },
     methods: {
@@ -121,7 +114,7 @@ export default {
         // 返回数据response
         .then(function (response) {
           that.totalCard = parseInt(response.data["count"]);
-          that.totalPage = Math.ceil(totalCard/10);
+          that.totalPage = Math.ceil(that.totalCard/10);
           that.cardData = response.data["data"];
         })
         .catch(function (error) {
