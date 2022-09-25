@@ -101,8 +101,8 @@ export default {
   color: white;
   background-color: #409EFF;
   
-  margin: auto 1%;
-  margin-left: auto;
+  margin-right: 5%;
+  margin-left: 30%;
 
   border: none;
   border-radius: 6px;
