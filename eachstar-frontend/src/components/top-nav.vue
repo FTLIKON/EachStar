@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import authPage from "./components/emailAuth.vue";
 export default {
   components: { authPage },
   data() {
