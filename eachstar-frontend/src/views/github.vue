@@ -113,9 +113,10 @@ export default {
         axios(config)
         // 返回数据response
         .then(function (response) {
-          that.totalCard = parseInt(response.data["count"]);
+          console.log(response.data.count);
+          that.totalCard = parseInt(response.data.count);
           that.totalPage = Math.ceil(that.totalCard/10);
-          that.cardData = response.data["data"];
+          that.cardData = response.data.data;
         })
         .catch(function (error) {
           console.log(error);
