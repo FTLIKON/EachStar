@@ -131,8 +131,8 @@ export default {
 
         var size = this.pageSize;
         var start = cardStart;
-        while(size != 0 && start < totalCard){
-          list.push(cardData[start]);
+        while(size != 0 && start < this.totalCard){
+          list.push(this.cardData[start]);
         }
         
         this.currentPageData = list;
