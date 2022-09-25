@@ -40,12 +40,12 @@ export default {
     },
     mounted() {
       let that = this;
-      that.getPageData();
+      that.pageChange(1);
     },
     data() {
       return {
         pageSize: 10,
-        totalPage: 4,
+        totalPage: 0,
         totalCard: 35,
         currentPage: 0,
         currentPageData: [
@@ -60,83 +60,39 @@ export default {
             cardRank: 3,
           },
         ],
-        cardData: [
-          {title: "x",discription: "y",cardRank: 2,},
-          {title: "x",discription: "y",cardRank: 2,},
-          {title: "x",discription: "y",cardRank: 2,},
-          {title: "x",discription: "y",cardRank: 2,},
-          {title: "x",discription: "y",cardRank: 2,},
-          {title: "x",discription: "y",cardRank: 2,},
-          {title: "x",discription: "y",cardRank: 2,},
-          {title: "x",discription: "y",cardRank: 2,},
-          {title: "x",discription: "y",cardRank: 2,},
-          {title: "x",discription: "y",cardRank: 2,},
-          {title: "x",discription: "y",cardRank: 2,},
-          {title: "x",discription: "y",cardRank: 2,},
-          {title: "x",discription: "y",cardRank: 2,},
-          {title: "x",discription: "y",cardRank: 2,},
-          {title: "x",discription: "y",cardRank: 2,},
-          {title: "x",discription: "y",cardRank: 2,},
-          {title: "x",discription: "y",cardRank: 2,},
-          {title: "x",discription: "y",cardRank: 2,},
-          {title: "x",discription: "y",cardRank: 2,},
-          {title: "x",discription: "y",cardRank: 2,},
-          {title: "x",discription: "y",cardRank: 2,},
-          {title: "x",discription: "y",cardRank: 2,},
-          {title: "x",discription: "y",cardRank: 2,},
-          {title: "x",discription: "y",cardRank: 2,},
-          {title: "x",discription: "y",cardRank: 2,},
-          {title: "x",discription: "y",cardRank: 2,},
-          {title: "x",discription: "y",cardRank: 2,},
-          {title: "x",discription: "y",cardRank: 2,},
-          {title: "x",discription: "y",cardRank: 2,},
-          {title: "x",discription: "y",cardRank: 2,},
-          {title: "x",discription: "y",cardRank: 2,},
-          {title: "x",discription: "y",cardRank: 2,},
-          {title: "x",discription: "y",cardRank: 2,},
-          {title: "x",discription: "y",cardRank: 2,},
-          {title: "x",discription: "y",cardRank: 2,},
-          {title: "x",discription: "y",cardRank: 2,},
-        ],
       }
     },
     methods: {
-      getPageData: function(){
+      getPageData: function(page){
+        // get 数据
         var that = this;
         var config = {
-          // get方法配置
           method: 'get',
-          url: '/server/api/card?start=0',
+          url: '/server/api/card?start='+page*pageSize,
         };
         axios(config)
-        // 返回数据response
         .then(function (response) {
+          // 处理count
           that.totalCard = parseInt(response.data.count);
           that.totalPage = Math.ceil(that.totalCard/10);
-          that.cardData = response.data.data;
-          that.pageChange(1);
+
+          var list = [];
+          var index = 0; // 限制页面最大上限
+          var start = cardStart; // 防止页面请求溢出
+          while(index < that.pageSize && start < that.totalCard){
+            list.push(response.data.data[index]);
+            index++; start++;
+          }
+          this.currentPageData = list;
         })
         .catch(function (error) {
           console.log(error);
         });
       },
-      setCurrentPageData: function(cardStart){
-        var list = [];
-
-        var size = this.pageSize; // 限制页面最大上限
-        var start = cardStart; // 防止页面请求溢出
-        while(size != 0 && start < this.totalCard){
-          list.push(this.cardData[start]);
-          size--; start++;
-        }
-        this.currentPageData = list;
-      },
       pageChange: function(page){
         this.currentPage = page-1;
-        console.log("切换到: " + this.currentPage + " 页");
-        console.log(this.cardData[0]);
 
-        this.setCurrentPageData(this.currentPage*10);
+        this.getPageData(this.currentPage);
       }
     },
 };
