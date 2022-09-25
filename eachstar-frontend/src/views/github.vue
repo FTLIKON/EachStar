@@ -33,9 +33,15 @@
 
 <script>
 import axios from "axios";
+import { onMounted } from 'vue-demi';
 export default {
     name: "github",
     components: { 
+    },
+    setup() {
+      onMounted(() => {
+        console.log("created");
+      });
     },
     data() {
       return{
