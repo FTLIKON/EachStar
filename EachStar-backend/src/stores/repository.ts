@@ -1,5 +1,5 @@
 import type { RepositoryType, User, Card, UserStar } from '../types'
-import { Pool } from 'pg'
+import { Pool, PoolClient, Client } from 'pg'
 import * as bcrypt from 'bcryptjs'
 import AccountServiceConfig from '../config'
 export enum VerificationStatus {
@@ -36,17 +36,17 @@ interface UserStarPO {
 }
 
 export class RepositoryPostgres implements RepositoryType {
-  pool: Pool
+  client: Client
   constructor(poolconn: Pool) {
-    this.pool = poolconn
+    const connectionString = AccountServiceConfig.databaseUrl
+    this.client = new Client({
+      connectionString,
+    })
+    this.client.connect()
   }
 
   genId() {
     return BigInt((Math.random() * Number.MAX_SAFE_INTEGER) << 0)
-  }
-
-  protected async getClient() {
-    return await this.pool.connect()
   }
 
   protected formatUserPo({
@@ -203,9 +203,7 @@ export class RepositoryPostgres implements RepositoryType {
   }
 
   async getCardsByTimeSort(start: number): Promise<any> {
-    const client = await this.getClient()
-
-    const result = await client.query<CardPO>(
+    const result = await this.client.query<CardPO>(
       `--sql
       SELECT * FROM cards ORDER BY updated_at DESC limit 10 offset $1
     `,
@@ -215,12 +213,12 @@ export class RepositoryPostgres implements RepositoryType {
     for (let index in result.rows) {
       cards.push(this.formatCardPo(result.rows[index]))
     }
-    const resCount = await client.query(
+    const resCount = await this.client.query(
       `--sql
       SELECT count(*) FROM cards
     `,
     )
-    
+
     return { count: BigInt(resCount.rows[0].count), data: cards }
   }
 }
