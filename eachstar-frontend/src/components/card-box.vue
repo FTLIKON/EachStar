@@ -1,12 +1,12 @@
 <template>
   <el-space class="card-space" fill direction="vertical">
     <!-- 卡片列表 -->
-    <el-card v-for="i in card_data" :key="i" class="box-card">
+    <el-card v-for="i in current_page_data" :key="i" class="box-card">
       <!-- card data -->
       <div class="card-header">
         <div class="card-title">{{i.title}}</div>
         <div class="card-discription">{{i.discription}}</div>
-        <el-button id="card-button" type="success" size="large" plain>Star</el-button>
+        <el-button id="card-button" type="success" plain>☆ Star</el-button>
       </div>
     </el-card>
   </el-space>
@@ -15,30 +15,58 @@
     type="success"
     size="large"
     id="issue-button"
+    @click="issue()"
   >发布卡片</el-button>
+  <el-pagination id="pagination" layout="prev, pager, next" :total="800" />
+  
 </template>
 
-<script setup>
+<script>
 import { reactive } from "@vue/reactivity";
-  const total_data = reactive({
-    card_num: 3, //卡片总数
-  });
-  const card_data = [
-  {
+import { getCurrentInstance, onMounted } from "@vue/runtime-core";
+export default {
+  data() {
+    return {
+      total_page: 1,
+      current_page: 1,
+      page_size: 5,
+      
+      current_page_data: [],
+    }
+  },
+
+  setup() {
+    const ins = getCurrentInstance();
+    onMounted(() => {
+    });
+  },
+
+  methods: {
+    appCard: function(data){
+      this.current_page_data.push(data);
+    },
+
+    issue: function(){
+      this.appCard(card_1);
+    }
+  },
+};
+
+  const card_1 = {
     title: "ZLMediaKit",
     link: "github.com",
     discription: "实现RTSP/RTMP/HLS/HTTP协议的轻量级流媒体框架，支持大并发连接请求",
-  },
-  {
+  };
+  const card_2 = {
     title: "Qml_CustomControl",
     link: "github.com",
     discription: "QtQml控件展示，提供控件案例，惠州地铁动态地图案例",
-  },
-  {
+  };
+  const card_3 = {
     title: "洪学习笔记",
     link: "github.com",
     discription: "这是@hongjilin的学习笔记(小部分是各种博客及官方资料的摘录或整合),旨在方便自己或身边同学的使用与查阅.",
-  }]
+  };
 </script>
 
 <style>
@@ -71,6 +99,9 @@ import { reactive } from "@vue/reactivity";
 #card-button {
   width: 18%;
   margin-left: 82%;
+
+  font-size: large;
+  font-weight: bold;
 }
 
 #issue-button {
@@ -84,6 +115,8 @@ import { reactive } from "@vue/reactivity";
   border-radius: 15px;
 }
 
-
-
+#pagination {
+  margin-top: 2%;
+  justify-content: center;
+}
 </style>
