@@ -36,9 +36,9 @@ export default {
     };
   },
   methods: {
-    // openPage() {
-    //   this.dialogVisible = true;
-    // },
+    openPage() {
+      this.dialogVisible = true;
+    },
     // sendEmail() {
     //   if (this.userPassword != this.userPasswordTwice) {
     //     ElMessage({

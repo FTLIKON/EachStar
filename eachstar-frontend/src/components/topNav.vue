@@ -40,7 +40,7 @@ export default {
     },
     methods: {
         authButton() {
-            this.$.refs.authPage.openPage();
+            this.$.refs.EmailAuth.openPage();
         },
         menuSelect(key, keyPath) {
             console.log(key);
