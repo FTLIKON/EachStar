@@ -3,8 +3,9 @@
     id="menu"
     mode="horizontal"
     default-active="1"
-    :ellipsis="false"
     @select="menuSelect"
+    
+    :ellipsis="false"
   >
     <div class="left-block">
       <div class="logo">EachStar</div>
@@ -14,13 +15,13 @@
       <el-menu-item index="1">
         <router-link to="/github" class="link">发现仓库</router-link>
       </el-menu-item>
+      <el-divider direction="vertical" />
       <el-menu-item index="2">
         <router-link to="/test" class="link">你的仓库</router-link>
       </el-menu-item>
     </div>
 
     <div class="right-block">
-      <span id="rank">积分 0/100</span>
       <el-button @click="authButton()" id="auth-button">注册 / 登录</el-button>
     </div>
   </el-menu>
@@ -45,30 +46,45 @@ export default {
 
 <style>
 #menu {
-  background-color: slategray;
+  background-color: none;
 
   display: flex;
 }
 
 .left-block {
-  background-color: beige;
+  background-color: none;
 
   width: 30%;
   display: flex;
   justify-content: start;
+  align-items: center;
 }
-
 .mid-block {
-  background-color: burlywood;
+  background-color: none;
 
   width: 40%;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
-
 .right-block {
-  background-color: yellow;
+  background-color: none;
 
   width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.logo {
+  color: #303133;
+
+  margin-left: 10%
+}
+
+.link {
+  text-decoration: none;
+  color: #303133;
 }
 </style>
