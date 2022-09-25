@@ -72,8 +72,10 @@ export default {
         axios(config)
         .then(function (response) {
           let pageData = JSON.stringify(response.data);
-          that.totalPage = pageData.count;
+          that.totalPage = parseInt(pageData.count);
           that.currentPageData = pageData.data;
+
+          console.log(that.totalPage, that.currentPageData);
         })
         .catch(function (error) {
           console.log(error);
