@@ -37,11 +37,8 @@ interface UserStarPO {
 
 export class RepositoryPostgres implements RepositoryType {
   pool: Pool
-  constructor() {
-    const connectionString = AccountServiceConfig.databaseUrl
-    this.pool = new Pool({
-      connectionString,
-    })
+  constructor(poolconn: Pool) {
+    this.pool = poolconn
   }
 
   genId() {
@@ -223,7 +220,7 @@ export class RepositoryPostgres implements RepositoryType {
       SELECT count(*) FROM cards
     `,
     )
-
+    
     return { count: BigInt(resCount.rows[0].count), data: cards }
   }
 }
