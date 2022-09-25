@@ -1,12 +1,7 @@
 <template>
   <div id="app">
-    <el-container>
-      <!-- header -->
-      <el-header><top-nav /></el-header>
-
-      <!-- main content -->
-      <router-view />
-    </el-container>
+    <top-nav />
+    <router-view />
   </div>
 </template>
 
@@ -28,7 +23,7 @@ export default {
   color: #121921;
 }
 
-body {
+html, body {
   margin: 0;
   padding: 0;
 }

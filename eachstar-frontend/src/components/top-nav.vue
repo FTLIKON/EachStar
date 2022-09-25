@@ -1,19 +1,25 @@
 <template>
   <el-menu
-    class="top-menu"
+    id="menu"
     mode="horizontal"
     default-active="1"
+    :ellipsis="false"
     @select="menuSelect"
   >
-    <div id="logo">EachStar</div>
-    <div class="menu-left-flow"></div>
-    <el-menu-item index="1">
-      <router-link to="/github" class="link">发现仓库</router-link>
-    </el-menu-item>
-    <el-menu-item index="2">
-      <router-link to="/test" class="link">你的仓库</router-link>
-    </el-menu-item>
-    <div class="menu-right-flow">
+    <div class="left-block">
+      <div class="logo">EachStar</div>
+    </div>
+
+    <div class="mid-block">
+      <el-menu-item index="1">
+        <router-link to="/github" class="link">发现仓库</router-link>
+      </el-menu-item>
+      <el-menu-item index="2">
+        <router-link to="/test" class="link">你的仓库</router-link>
+      </el-menu-item>
+    </div>
+
+    <div class="right-block">
       <span id="rank">积分 0/100</span>
       <el-button @click="authButton()" id="auth-button">注册 / 登录</el-button>
     </div>
@@ -22,7 +28,6 @@
 </template>
 
 <script>
-import { ArrowLeft } from "@element-plus/icons-vue";
 import authPage from "./auth.vue";
 
 export default {
@@ -39,50 +44,31 @@ export default {
 </script>
 
 <style>
-.menu-left-flow {
-  margin-left: auto;
+#menu {
+  background-color: slategray;
+
+  display: flex;
 }
 
-.menu-right-flow {
-  margin-top: auto;
-  margin-bottom: auto;
-  margin-left: auto;
-  flex-direction: row;
+.left-block {
+  background-color: beige;
+
+  width: 30%;
+  display: flex;
+  justify-content: start;
 }
 
-.link {
-  font-weight: 700;
-  color: white;
-  text-decoration: none;
+.mid-block {
+  background-color: burlywood;
+
+  width: 40%;
+  display: flex;
+  justify-content: center;
 }
 
-#rank {
-  margin-right: 10px;
-  font-weight: bold;
-  text-decoration: none;
-}
-#auth-button {
-  font-weight: bold;
-  color: white;
-  background-color: #409EFF;
-  
-  margin-left: auto;
+.right-block {
+  background-color: yellow;
 
-  border: none;
-  border-radius: 6px;
-  text-shadow: 0px 0px 1px #303133; 
-}
-
-#logo {
-  font-weight: bold;
-  font-size: x-large;
-  color: white;
-  
-  margin-right: 1%;
-  margin-left: 1%;
-  margin-top: auto;
-  margin-bottom: auto;
-
-  text-shadow: 1px 1px 2px #303133, 0px 0px 3px #303133; 
+  width: 30%;
 }
 </style>
