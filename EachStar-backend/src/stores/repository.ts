@@ -1,7 +1,5 @@
 import type { RepositoryType, User, Card, UserStar } from '../types'
 import { Pool } from 'pg'
-import * as bcrypt from 'bcryptjs'
-import AccountServiceConfig from '../config'
 export enum VerificationStatus {
   valid = 'valid',
   used = 'used',
@@ -37,11 +35,8 @@ interface UserStarPO {
 
 export class RepositoryPostgres implements RepositoryType {
   pool: Pool
-  constructor() {
-    const connectionString = AccountServiceConfig.databaseUrl
-    this.pool = new Pool({
-      connectionString,
-    })
+  constructor(pool: Pool) {
+    this.pool = pool
   }
 
   genId() {

@@ -1,11 +1,11 @@
 import Router = require('koa-router')
 import CardController from '../controller/card'
-
-export const getCardMiddleware = () => {
+import { Pool } from 'pg'
+export const getCardMiddleware = (pool: Pool) => {
   const router = new Router({
     prefix: '/api',
   })
-  const cardController = new CardController()
+  const cardController = new CardController(pool)
   router.post('/card', cardController.createCard.bind(cardController))
   router.get('/card', cardController.getCard.bind(cardController))
 
