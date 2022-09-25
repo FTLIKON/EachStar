@@ -70,7 +70,8 @@ export default {
         };
         axios(config)
         .then(function (response) {
-          console.log(JSON.stringify(response.data));
+          console.log("JSON数据" + JSON.stringify(response.data));
+          console.log("原始数据" + data);
         })
         .catch(function (error) {
           console.log(error);
