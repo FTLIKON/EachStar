@@ -41,7 +41,6 @@ export default {
     mounted() {
       let that = this;
       that.getPageData();
-      that.pageChange(1);
     },
     data() {
       return {
@@ -115,6 +114,7 @@ export default {
           that.totalCard = parseInt(response.data.count);
           that.totalPage = Math.ceil(that.totalCard/10);
           that.cardData = response.data.data;
+          that.pageChange(1);
         })
         .catch(function (error) {
           console.log(error);
