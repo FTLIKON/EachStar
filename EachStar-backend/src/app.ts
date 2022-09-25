@@ -18,7 +18,7 @@ app.use(getOAuthMiddleware())
 app.use(getCardMiddleware())
 //app.use(getUserApiMiddleware())
 
-console.log(cd 
+console.log(
   '########################\n Eachstar server start!!\n########################\n\n',
 )
 

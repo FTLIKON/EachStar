@@ -1,11 +1,5 @@
 import type { Context } from 'koa'
-import { GoogleOAuth } from './common/oauth/provider/google'
-import { GoogleOAuthOption } from './common/oauth/provider/google'
 
-const googleOAuthOption: GoogleOAuthOption = {
-  clientId: '',
-  clientSecret: '',
-}
 
 const authConfig = {
   tokenAge: '7d',
@@ -39,17 +33,10 @@ const verificationConfig = {
     context: `<html><h1>您的验证码是：$$code$$</h1></html>`,
   },
 }
-const googleProvider = (ctx: Context) => {
-  return new GoogleOAuth(googleOAuthOption)
-}
-const oAuthConfig = {
-  providers: { googleProvider },
-}
 
 const accountServiceConfig = {
   auth: authConfig,
-  oauth: oAuthConfig,
   verification: verificationConfig,
-  databaseUrl :'postgresql://postgres:nes816224@localhost:5432/components-account'
+  databaseUrl :'postgresql://postgres:nes816224@localhost:5432/eachstar'
 }
 export default accountServiceConfig

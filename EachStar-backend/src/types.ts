@@ -14,6 +14,7 @@ export interface Card {
   title: string
   context: string
   starPrice: bigint
+  starNum: bigint
   expireTime: Date
   createdAt: Date
   updatedAt: Date
@@ -36,8 +37,9 @@ export interface RepositoryType {
     title: string,
     context: string,
     starPrice: bigint,
+    starNum: bigint,
     expireTime: Date,
   ): Promise<Card>
   updateCard(data: Card): Promise<Card>
-  getCardsByTimeSort(): Promise<Card>
+  getCardsByTimeSort(start: number): Promise<any>
 }

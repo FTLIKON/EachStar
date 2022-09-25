@@ -13,6 +13,7 @@ CREATE TABLE "cards" (
 "title" TEXT NOT NULL,
 "context" TEXT NOT NULL,
 "star_price" BIGINT NOT NULL,
+"star_num" BIGINT NOT NULL,
 "expire_time" TIMESTAMP(3) NOT NULL,
 "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 "updated_at" TIMESTAMP(3) NOT NULL

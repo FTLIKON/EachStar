@@ -22,6 +22,7 @@ interface CardPO {
   title: string
   context: string
   star_price: bigint
+  star_num: bigint
   expire_time: Date
   created_at: Date
   updated_at: Date
@@ -73,6 +74,7 @@ export class RepositoryPostgres implements RepositoryType {
     title,
     context,
     star_price,
+    star_num,
     expire_time,
     created_at,
     updated_at,
@@ -83,6 +85,7 @@ export class RepositoryPostgres implements RepositoryType {
       title: title,
       context: context,
       starPrice: BigInt(star_price),
+      starNum: BigInt(star_num),
       expireTime: expire_time,
       createdAt: created_at,
       updatedAt: updated_at,
@@ -145,6 +148,7 @@ export class RepositoryPostgres implements RepositoryType {
     title: string,
     context: string,
     starPrice: bigint,
+    starNum: bigint,
     expireTime: Date,
   ): Promise<Card> {
     const id = this.genId()
@@ -158,6 +162,7 @@ export class RepositoryPostgres implements RepositoryType {
         "title",
         "context",
         "star_price",
+        "star_num",
         "expire_time",
         "created_at",
         "updated_at"
@@ -168,13 +173,14 @@ export class RepositoryPostgres implements RepositoryType {
         $4,
         $5,
         $6,
+        $7,
         NOW(),
         NOW()
       ) RETURNING *
     `,
-      [id, userId, title, context, starPrice, expireTime],
+      [id, userId, title, context, starPrice, starNum, expireTime],
     )
-
+    console.log(result.rows[0])
     return this.formatCardPo(result.rows[0])
   }
   async updateCard(data: Card): Promise<Card> {
@@ -199,15 +205,24 @@ export class RepositoryPostgres implements RepositoryType {
     return this.formatCardPo(result.rows[0])
   }
 
-  async getCardsByTimeSort(): Promise<Card> {
+  async getCardsByTimeSort(start: number): Promise<any> {
     const client = await this.getClient()
 
     const result = await client.query<CardPO>(
       `--sql
-      SELECT * FROM cards ORDER BY updated_at DESC
+      SELECT * FROM cards ORDER BY updated_at DESC limit 10 offset $1
+    `,
+      [start],
+    )
+    let cards = []
+    for (let index in result.rows) {
+      cards.push(this.formatCardPo(result.rows[index]))
+    }
+    const resCount = await client.query(
+      `--sql
+      SELECT count(*) FROM cards
     `,
     )
-
-    return this.formatCardPo(result.rows[0])
+    return { count: BigInt(resCount.rows[0].count), data: cards }
   }
 }
