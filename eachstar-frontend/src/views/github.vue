@@ -82,10 +82,20 @@ export default {
         });
       },
       setCurrentPageData: function(pageStart){
-        console.log(pageStart);
-        console.log(this.currentPageData);
-        this.currentPageData = [];
-        this.currentPageData.join(pageStart);
+        var list = [{
+            title: "初始的",
+            discription: "Java Hotspot Debuger(Java Hotspot调试器), 是一款基于服务性代理实现的进程外调试工具",
+            cardRank: pageStart,
+        }];
+        list.push({
+            title: "这是一个标题",
+            discription: "Java Hotspot Debuger(Java Hotspot调试器), 是一款基于服务性代理实现的进程外调试工具",
+            cardRank: pageStart,
+        });
+
+        this.currentPageData = list;
+
+        console.log(this.currentPageData)
       },
       pageChange: function(page){
         this.currentPage = page-1;
