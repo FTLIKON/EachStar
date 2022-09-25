@@ -38,13 +38,11 @@ export default {
     name: "github",
     components: { 
     },
-    setup() {
-      onMounted(() => {
-        console.log("created");
-
-        let that = this;
-        that.getPageData();
-      });
+    mounted() {
+      console.log("created");
+      
+      let that = this;
+      that.getPageData();
     },
     data() {
       return{
