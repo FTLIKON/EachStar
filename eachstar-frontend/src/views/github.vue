@@ -23,8 +23,10 @@
 
     <div class="aside-menu">
       <el-button type="success" id="public-button">
-        发布卡片
-      </el-button>
+        发布卡片</el-button>
+
+      <el-button type="primary" id="public-button">
+        我的积分</el-button>
     </div>
   </div>
 </template>
@@ -36,18 +38,24 @@ export default {
     },
     data() {
       return{
+        total_page: 10,
         currentPageData: [
           {
-            title: "qwq",
-            discription: "this is true",
+            title: "这是一个标题",
+            discription: "Java Hotspot Debuger(Java Hotspot调试器), 是一款基于服务性代理实现的进程外调试工具",
             cardRank: 2,
           },
           {
-            title: "another",
-            discription: "this is false",
+            title: "我是火车王",
+            discription: "让学习变得更简单",
             cardRank: 3,
           },
         ]
+      }
+    },
+    methods: {
+      pageChange: function(page){
+        console.log(page);
       }
     },
 };
@@ -85,8 +93,14 @@ export default {
 #public-button {
   width: 70%;
   height: 50px;
-  margin-bottom: 4%;
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-bottom: 5%;
   font-size: medium;
+  font-weight: bolder;
+  text-shadow: 0px 0px 2px #303133; 
+
+  border-radius: 15px;
 }
 
 .card-block {
@@ -106,43 +120,36 @@ export default {
   color: #606266;
   text-align: left;
 
-  margin-bottom: 2%;
+  margin-bottom: 3%;
   margin-left: 3%;
+  margin-right: 3%;
 }
 .card-valueblock{
-  background-color: sandybrown;
+  background-color: none;
 
   width: 100%;
   display: flex;
 }
 .card-rank {
-  background-color: seashell;
+  color: #b88230;
+  background-color: none;
   
   width: 80%;
+  margin-left: 3%;
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: left;
+  font-size: small;
 }
 #card-button {
   font-size: large;
   font-weight: bold;
 
-  width: 18%;
-}
-/* 
-
-#public-button {
-  width: 16%;
-  margin-left: 2%;
-  margin-right: 2%;
-  
-  font-weight: bolder;
-  font-size: large;
-  text-shadow: 0px 0px 2px #303133; 
-
-  border-radius: 15px;
+  width: 20%;
 }
 
 #pagination {
-  margin-top: 2%;
+  margin-top: 3%;
   justify-content: center;
 }
-*/
 </style>
