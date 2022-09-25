@@ -40,7 +40,7 @@ export default {
     },
     mounted() {
       console.log("created");
-      
+
       let that = this;
       that.getPageData();
     },
@@ -67,6 +67,7 @@ export default {
         var config = {
           method: 'get',
           url: 'http://119.91.192.183:3050/api/card?start=0',
+          withCredentials: true,
         };
         axios(config)
         .then(function (response) {
