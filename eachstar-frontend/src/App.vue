@@ -1,17 +1,7 @@
 <template>
   <div id="app">
-<<<<<<< HEAD
     <top-nav />
     <router-view />
-=======
-    <el-container>
-      <!-- header -->
-      <el-header><top-nav /></el-header>
-
-      <!-- main content -->
-      <router-view />
-    </el-container>
->>>>>>> 23d6608 (update: card-box)
   </div>
 </template>
 

@@ -4,7 +4,6 @@
     mode="horizontal"
     default-active="1"
     @select="menuSelect"
-    
     :ellipsis="false"
   >
     <div class="left-block">
@@ -29,8 +28,6 @@
 </template>
 
 <script>
-import authPage from "./auth.vue";
-
 export default {
   components: { authPage },
   data() {
