@@ -82,11 +82,7 @@ export default {
         });
       },
       setCurrentPageData: function(pageStart){
-        var list = [{
-            title: "初始的",
-            discription: "Java Hotspot Debuger(Java Hotspot调试器), 是一款基于服务性代理实现的进程外调试工具",
-            cardRank: pageStart,
-        }];
+        var list = [];
         list.push({
             title: "这是一个标题",
             discription: "Java Hotspot Debuger(Java Hotspot调试器), 是一款基于服务性代理实现的进程外调试工具",
