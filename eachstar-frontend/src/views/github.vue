@@ -46,7 +46,14 @@ export default {
     },
     data() {
       return{
-        totalPage: 10,
+        // 设定量
+        pageSize: 10,
+
+        // 统计数据
+        totalPage: 4,
+        totalCard: 35,
+
+        // 当前数据
         currentPage: 0,
         currentPageData: [
           {
@@ -59,6 +66,46 @@ export default {
             discription: "让学习变得更简单",
             cardRank: 3,
           },
+        ],
+
+        // 全部数据
+        cardData: [
+          {title: "x",discription: "y",cardRank: 2,},
+          {title: "x",discription: "y",cardRank: 2,},
+          {title: "x",discription: "y",cardRank: 2,},
+          {title: "x",discription: "y",cardRank: 2,},
+          {title: "x",discription: "y",cardRank: 2,},
+          {title: "x",discription: "y",cardRank: 2,},
+          {title: "x",discription: "y",cardRank: 2,},
+          {title: "x",discription: "y",cardRank: 2,},
+          {title: "x",discription: "y",cardRank: 2,},
+          {title: "x",discription: "y",cardRank: 2,},
+          {title: "x",discription: "y",cardRank: 2,},
+          {title: "x",discription: "y",cardRank: 2,},
+          {title: "x",discription: "y",cardRank: 2,},
+          {title: "x",discription: "y",cardRank: 2,},
+          {title: "x",discription: "y",cardRank: 2,},
+          {title: "x",discription: "y",cardRank: 2,},
+          {title: "x",discription: "y",cardRank: 2,},
+          {title: "x",discription: "y",cardRank: 2,},
+          {title: "x",discription: "y",cardRank: 2,},
+          {title: "x",discription: "y",cardRank: 2,},
+          {title: "x",discription: "y",cardRank: 2,},
+          {title: "x",discription: "y",cardRank: 2,},
+          {title: "x",discription: "y",cardRank: 2,},
+          {title: "x",discription: "y",cardRank: 2,},
+          {title: "x",discription: "y",cardRank: 2,},
+          {title: "x",discription: "y",cardRank: 2,},
+          {title: "x",discription: "y",cardRank: 2,},
+          {title: "x",discription: "y",cardRank: 2,},
+          {title: "x",discription: "y",cardRank: 2,},
+          {title: "x",discription: "y",cardRank: 2,},
+          {title: "x",discription: "y",cardRank: 2,},
+          {title: "x",discription: "y",cardRank: 2,},
+          {title: "x",discription: "y",cardRank: 2,},
+          {title: "x",discription: "y",cardRank: 2,},
+          {title: "x",discription: "y",cardRank: 2,},
+          {title: "x",discription: "y",cardRank: 2,},
         ]
       }
     },
@@ -71,27 +118,24 @@ export default {
         };
         axios(config)
         .then(function (response) {
-          let pageData = JSON.stringify(response.data);
-          that.totalPage = parseInt(response.data["count"]);
-          that.currentPageData = response.data["data"];
-
-          console.log(pageData);
+          that.totalCard = parseInt(response.data["count"]);
+          that.totalPage = Math.ceil(totalCard/10);
+          that.cardData = response.data["data"];
         })
         .catch(function (error) {
           console.log(error);
         });
       },
-      setCurrentPageData: function(pageStart){
+      setCurrentPageData: function(cardStart){
         var list = [];
-        list.push({
-            title: "这是一个标题",
-            discription: "Java Hotspot Debuger(Java Hotspot调试器), 是一款基于服务性代理实现的进程外调试工具",
-            cardRank: pageStart,
-        });
 
+        var size = this.pageSize;
+        var start = cardStart;
+        while(size != 0 && start < totalCard){
+          list.push(cardData[start]);
+        }
+        
         this.currentPageData = list;
-
-        console.log(this.currentPageData)
       },
       pageChange: function(page){
         this.currentPage = page-1;
