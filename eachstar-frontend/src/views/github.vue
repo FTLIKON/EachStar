@@ -68,7 +68,7 @@ export default {
         var that = this;
         var config = {
           method: 'get',
-          url: '/server/api/card?start='+page*pageSize,
+          url: '/server/api/card?start='+page*that.pageSize,
         };
         axios(config)
         .then(function (response) {
