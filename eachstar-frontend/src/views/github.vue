@@ -59,7 +59,7 @@ export default {
       getPageData: function(){
         var config = {
           method: 'get',
-          url: 'http://119.91.192.183:3050/api/card?start=0',
+          url: 'http://127.0.0.1:3050/api/card?start=0',
         };
         axios(config)
         .then(function (response) {
