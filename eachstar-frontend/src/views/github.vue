@@ -39,10 +39,9 @@ export default {
     components: { 
     },
     mounted() {
-      console.log("created");
-
       let that = this;
       that.getPageData();
+      that.pageChange(1);
     },
     data() {
       return {
