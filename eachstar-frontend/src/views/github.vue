@@ -118,9 +118,9 @@ export default {
         };
         axios(config)
         .then(function (response) {
-          that.totalCard = parseInt(response.data["count"]);
-          that.totalPage = Math.ceil(totalCard/10);
-          that.cardData = response.data["data"];
+          // that.totalCard = parseInt(response.data["count"]);
+          // that.totalPage = Math.ceil(totalCard/10);
+          // that.cardData = response.data["data"];
         })
         .catch(function (error) {
           console.log(error);
