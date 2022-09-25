@@ -87,7 +87,7 @@ export default {
             discription: "Java Hotspot Debuger(Java Hotspot调试器), 是一款基于服务性代理实现的进程外调试工具",
             cardRank: pageStart,
         }];
-        list.join({
+        list.unshift({
             title: "这是一个标题",
             discription: "Java Hotspot Debuger(Java Hotspot调试器), 是一款基于服务性代理实现的进程外调试工具",
             cardRank: pageStart,
