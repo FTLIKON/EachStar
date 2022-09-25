@@ -115,7 +115,6 @@ export default {
           that.totalCard = parseInt(response.data.count);
           that.totalPage = Math.ceil(that.totalCard/10);
           that.cardData = response.data.data;
-          console.log(that.cardData[0].context);
         })
         .catch(function (error) {
           console.log(error);
@@ -135,6 +134,7 @@ export default {
       pageChange: function(page){
         this.currentPage = page-1;
         console.log("切换到: " + this.currentPage + " 页");
+        console(this.cardData[0]);
 
         this.setCurrentPageData(this.currentPage*10);
       }
