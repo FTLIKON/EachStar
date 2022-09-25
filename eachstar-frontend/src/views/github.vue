@@ -33,15 +33,16 @@
 
 <script>
 import axios from "axios";
-import { onMounted } from 'vue-demi';
+import { getCurrentInstance, onMounted } from 'vue-demi';
 export default {
     name: "github",
     components: { 
     },
     setup() {
+      const ins = getCurrentInstance();
       onMounted(() => {
         console.log("created");
-        this.getPageData();
+        ins.methods.getPageData();
       });
     },
     data() {
