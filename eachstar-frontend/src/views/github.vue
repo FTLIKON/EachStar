@@ -8,7 +8,7 @@
           <div class="card-discription">{{i.context}} {{i.updatedAt}}</div>
           <div class="card-valueblock">
             <span class="card-rank">积分价值{{i.starPrice}}</span>
-            <el-button id="card-button" type="success" plain>Star</el-button>
+            <el-button id="card-button" @click="console.log(i.starPrice)" type="success" plain>Star</el-button>
           </div>
         </div>
       </el-card>
