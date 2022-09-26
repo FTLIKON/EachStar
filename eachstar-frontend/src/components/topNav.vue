@@ -22,7 +22,7 @@
 
     <div class="right-block">
       <el-button v-show="!isLogin" @click="authButton()" id="auth-button">注册 / 登录</el-button>
-      <span v-show="isLogin" class="user-rank">剩余积分: {{ userPrice }}</span>
+      <span v-show="isLogin" class="user-rank">积分: {{ userPrice }}</span>
       <span v-show="isLogin" class="user-hello">你好, {{ userName }}!</span>
     </div>
   </el-menu>
@@ -135,11 +135,13 @@ export default {
   text-shadow: 0px 0px 1px #303133; 
 }
 .user-rank {
-
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 30%;
 }
 .user-hello {
   margin-right: 5%;
-  margin-left: 30%;
+  width: 45%;
 }
 
 #logo {
