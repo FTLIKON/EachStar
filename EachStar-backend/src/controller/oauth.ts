@@ -25,7 +25,7 @@ export class OAuthController {
       code: code,
     })
     //使用这个授权码，向 GitHub 请求令牌
-    let res = await axios({
+    let accessReq = await axios({
       method: 'post',
       url: 'https://github.com/login/oauth/access_token',
       headers: {
@@ -35,26 +35,21 @@ export class OAuthController {
       data: params,
     })
 
-    const accessToken = res.data.access_token
+    const accessToken = accessReq.data.access_token
 
     //再通过令牌获取用户信息
-    res = await axios({
+    let userData = await axios({
       method: 'get',
       url: 'https://api.github.com/user',
       headers: {
         Authorization: 'token ' + accessToken,
       },
     })
-    const userId = await res.data.id
-    console.log(userId)
-    if (!(await this.repository.getUserById(userId))) {
-      await this.repository.createUser(
-        await res.data.id,
-        await res.data.login,
-        BigInt(0),
-      )
+    console.log(userData.data.id)
+    ctx.cookies.set('userId', userData.data.id, { httpOnly: false }) //用户名称
+    if (!await this.repository.getUserById(BigInt(userData.data.id))) {
+      await this.repository.createUser(userData.data.id, userData.data.login, BigInt(0))
     }
-    ctx.cookies.set('userId', res.data.id, { httpOnly: false }) //用户名称
     ctx.status = 301
     ctx.redirect(serviceConfig.auth.redirectPath) //重定向到请求页面
   }
