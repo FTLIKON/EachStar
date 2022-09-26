@@ -174,9 +174,15 @@ export default {
   color: #606266;
 
   text-align: left;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
   overflow: hidden;    
+  letter-spacing: 0;
   text-overflow: ellipsis;
-  white-space: nowrap;
+
+
   width: 100%;
   margin-bottom: 3%;
   margin-left: 3%;
