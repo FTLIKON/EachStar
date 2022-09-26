@@ -23,7 +23,7 @@
     <div class="right-block">
       <el-button v-show="!userId" @click="authButton()" id="auth-button">注册 / 登录</el-button>
       <div v-show="userId" class="user-hello">你好, {{ userName }}!
-        <el-button @click="getUserInfo"></el-button>
+        <el-button @click="getNewPrice"></el-button>
       </div>
     </div>
   </el-menu>
