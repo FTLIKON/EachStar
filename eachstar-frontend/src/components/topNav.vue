@@ -55,7 +55,7 @@ export default {
       getUserInfo() {
         var config = {
           method: 'get',
-          url: 'http://119.91.192.183:3050/api/user/@me'
+          url: 'server/api/user/@me'
         };
         axios(config)
         .then(function (response) {
