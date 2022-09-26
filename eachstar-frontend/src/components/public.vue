@@ -92,7 +92,7 @@ export default {
         axios(config)
         .then(function (response) {
           console.log(response.data.price);
-          userPrice = response.data.price;
+          this.userPrice = response.data.price;
         })
         .catch(function (error) {
           console.log(error);
