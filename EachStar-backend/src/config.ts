@@ -3,7 +3,7 @@ import type { Context } from 'koa'
 const authConfig = {
   githubClientId: 'cc67a3235e881990831d',
   githubClientSecret: 'e003aa5159e7159c2f43b5d81244ac914a9cb0c0',
-  redirectPath: 'http://119.91.192.183:12377/',
+  redirectPath: 'http://119.91.192.183:80/',
 }
 
 const verificationConfig = {
