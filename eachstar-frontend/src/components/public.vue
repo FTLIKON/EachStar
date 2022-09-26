@@ -13,7 +13,10 @@
         :autosize="{ minRows: 4, maxRows: 8 }"
         type="textarea"
         clearable/>
-      <div class="rank-setting-block">qwq</div>
+      <div class="rank-setting-block">
+        <el-slider v-model="cardRank" show-input></el-slider>
+        <el-slider v-model="cardRankNum" show-input></el-slider>
+      </div>
       <span class="dialog-footer">
         <el-button @click="dialogVisible = false">取消</el-button>
         <el-button type="primary" @click="publicCard()">发布</el-button>
@@ -33,6 +36,8 @@ export default {
       dialogVisible: false,
       cardTitle: "",
       cardDiscription: "",
+      cardRank: "",
+      cardRankNum: "",
     };
   },
   methods: {  
