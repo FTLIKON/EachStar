@@ -22,9 +22,9 @@
 
     <div class="right-block">
       <el-button v-show="!userId" @click="authButton()" id="auth-button">注册 / 登录</el-button>
-      <div v-show="userId" class="user-hello">你好, {{ userName }}!
-        <el-button @click="getNewPrice"></el-button>
-      </div>
+      <span v-show="userId" class="user-rank">剩余积分: {{ userRank }}</span>
+      <span v-show="userId" class="user-hello">你好, {{ userName }}!</span>
+      <el-button @click="getUserInfo()">Info</el-button>
     </div>
   </el-menu>
   <GithubAuth ref="GithubAuth"/>
@@ -39,9 +39,8 @@ export default {
     },
     data() {
       return {
-        userId: this.$cookies.get("userId"),
-        userName: this.$cookies.get("userName"),
-        uesrIcon: this.$cookies.get("uesrIcon"),
+        userName: "",
+        userPrice: null,
       };
     },
     methods: {
@@ -66,30 +65,6 @@ export default {
           console.log(error);
         });
       },
-
-      getNewPrice() {
-        var data = JSON.stringify({
-          "newPrice": 1000
-        });
-
-        var config = {
-          method: 'post',
-          url: 'server/api/user/price',
-          headers: { 
-            'Content-Type': 'text/plain'
-          },
-          data : data
-        };
-
-        axios(config)
-        .then(function (response) {
-          console.log(JSON.stringify(response.data));
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-
-      }
     }
 };
 </script>
@@ -152,6 +127,9 @@ export default {
   border: none;
   border-radius: 6px;
   text-shadow: 0px 0px 1px #303133; 
+}
+.user-rank {
+
 }
 .user-hello {
   margin-right: 5%;
