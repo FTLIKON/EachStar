@@ -3,7 +3,7 @@
     <div class="input-block">
       <el-input class="title-input"
         v-model="cardTitle"
-        placeholder="请输入卡片标题"
+        placeholder="请输入卡片链接"
         clearable/>
       <el-input class="discription-input"
         v-model="cardDiscription"
@@ -59,29 +59,27 @@ export default {
     publicCard: function(){
       if (this.cardTitle == "") {
 
-
-
         // 验证填写title和描述的合法性
-
-
 
         ElMessage({
           message: "两次输入密码不一致",
           type: "warning",
         });
       } else {
-        this.dialogVisible = false;
-        this.$emit("publicCard",
-          {"title":this.cardTitle,
-          "context":this.cardDiscription,
-          "starPrice":this.cardRank,
-          "starNum":this.cardRankNum}
-        );
+        console.log(this.getExpireTime())
+        // publicCard Arguments -> title, context, starPrice, starNum, time
+        // this.dialogVisible = false;
+        // this.$emit("publicCard", 
+        //   this.cardTitle,
+        //   this.cardDiscription,
+        //   this.cardRank,
+        //   this.cardRankNum
+        // );
       }
 
     },
 
-    openPage() {
+    openPage() { // 打开发布页面->需要登录
       let userName = this.$cookies.get("userName");
       if(userName){
         this.dialogVisible = true;
@@ -105,7 +103,20 @@ export default {
           type: "warning",
         });
       }
-    }
+    },
+
+    getExpireTime() {
+      let now = new Date();
+      now = now.setDate(now.getDate()+10);
+      now = new Date(now);
+      let year = now.getFullYear();    
+      let month = now.getMonth()+1;    
+      let date = now.getDate();    
+      let hour = now.getHours();    
+      let minute = now.getMinutes();    
+      let second = now.getSeconds();    
+      return year+"-"+month+"-"+date+"   "+hour+":"+minute+":"+second;
+    },
   },
 }
 </script>

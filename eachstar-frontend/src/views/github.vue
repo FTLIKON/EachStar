@@ -36,6 +36,7 @@
 <script>
 import axios from "axios";
 import { getCurrentInstance, onMounted } from 'vue-demi';
+import { ElMessage } from "element-plus";
 import Public from "../components/public.vue";
 export default {
     name: "github",
@@ -83,7 +84,7 @@ export default {
         });
         var config = {
           method: 'post',
-          url: 'http://119.91.192.183:3050/api/card',
+          url: 'server/api/card',
           data : data
         };
         axios(config)
