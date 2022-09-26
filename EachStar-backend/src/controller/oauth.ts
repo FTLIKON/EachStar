@@ -48,7 +48,7 @@ export class OAuthController {
       },
     })
     // ctx.body = res.data
-    ctx.cookies.set('userId', res.data.id, { httpOnly: false }) //用户名称
+    ctx.cookies.set('userId', res.data.id, { httpOnly: false }) //用户id
     ctx.cookies.set('userName', res.data.login, { httpOnly: false }) //用户名称
     ctx.cookies.set('userIcon', res.data.avatar_url, { httpOnly: false }) //用户图片
 
