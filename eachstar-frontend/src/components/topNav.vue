@@ -24,7 +24,6 @@
       <el-button v-show="!userId" @click="authButton()" id="auth-button">注册 / 登录</el-button>
       <span v-show="userId" class="user-rank">剩余积分: {{ userRank }}</span>
       <span v-show="userId" class="user-hello">你好, {{ userName }}!</span>
-      <el-button @click="getUserInfo()">Info</el-button>
     </div>
   </el-menu>
   <GithubAuth ref="GithubAuth"/>
@@ -43,6 +42,9 @@ export default {
         userPrice: null,
       };
     },
+    mounted() {
+      this.getUserInfo();
+    },
     methods: {
       authButton() {
         this.$.refs.GithubAuth.openPage();
@@ -53,13 +55,15 @@ export default {
 
       // api
       getUserInfo() {
+        var that = this;
         var config = {
           method: 'get',
           url: 'server/api/user/@me'
         };
         axios(config)
         .then(function (response) {
-          console.log(JSON.stringify(response.data));
+          that.userName = response.data.githubName;
+          that.price = response.data.price;
         })
         .catch(function (error) {
           console.log(error);
