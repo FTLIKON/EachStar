@@ -74,8 +74,8 @@ export default {
         this.$emit("publicCard", 
           that.cardTitle,
           that.cardDiscription,
-          toString(that.starPrice),
-          toString(that.starNum),
+          that.starPrice,
+          that.starNum,
           that.getExpireTime()
         );
       }
