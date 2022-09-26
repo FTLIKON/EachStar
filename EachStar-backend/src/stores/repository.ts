@@ -120,7 +120,7 @@ export class RepositoryPostgres implements RepositoryType {
   async changeUserPrice(UserId: bigint, newPrice: bigint): Promise<User> {
     const result = await this.client.query<UserPO>(
       `--sql
-      UPDATE users SET star_price = $1,
+      UPDATE users SET price = $1,
       updated_at = NOW()
       WHERE id = $2
       RETURNING *
