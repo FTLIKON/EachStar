@@ -23,7 +23,7 @@
         悬赏次数: {{ cardRankNum }}<el-slider
         v-model="cardRankNum"
         class="slider"
-        step="1"
+        :step="1"
         :min="1"
         :max="50"></el-slider>
       </div>
