@@ -22,10 +22,7 @@
           max="5"></el-slider>
         <el-slider
           v-model="cardRankNum"
-          class="slider"
-          step="1"
-          min="1"
-          max="50"></el-slider>
+          class="slider"></el-slider>
       </div>
       <span class="dialog-footer">
         <el-button @click="dialogVisible = false">取消</el-button>
