@@ -71,8 +71,8 @@ export default {
         this.$emit("publicCard", 
           this.cardTitle,
           this.cardDiscription,
-          this.cardRank,
-          this.cardRankNum,
+          toString(this.cardRank),
+          toString(this.cardRankNum),
           this.getExpireTime()
         );
       }
