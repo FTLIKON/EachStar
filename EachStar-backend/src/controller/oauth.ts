@@ -45,9 +45,13 @@ export class OAuthController {
         Authorization: 'token ' + accessToken,
       },
     })
-    console.log(await this.repository.getUserById(BigInt(res.data.id)))
-    if (!(await this.repository.getUserById(BigInt(res.data.id)))) {
-      await this.repository.createUser(res.data.id, res.data.login, BigInt(0))
+    const userId = await res.data.id
+    if (!(await this.repository.getUserById(BigInt(userId)))) {
+      await this.repository.createUser(
+        await res.data.id,
+        await res.data.login,
+        BigInt(0),
+      )
     }
     ctx.cookies.set('userId', res.data.id, { httpOnly: false }) //用户名称
     ctx.status = 301
