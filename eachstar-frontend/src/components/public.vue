@@ -82,7 +82,7 @@ export default {
     },
 
     openPage() {
-      let userName = this.$cookies.get("user");
+      let userName = this.$cookies.get("userName");
       if(userName){
         this.dialogVisible = true;
 
