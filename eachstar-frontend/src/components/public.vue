@@ -66,6 +66,9 @@ export default {
           type: "warning",
         });
       } else {
+
+        // debug
+        console.log(toString(this.cardRank));
         // publicCard Arguments -> title, context, starPrice, starNum, time
         this.dialogVisible = false;
         this.$emit("publicCard", 
