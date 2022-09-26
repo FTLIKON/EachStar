@@ -64,7 +64,7 @@ export default {
         axios(config)
         .then(function (response) {
           that.userName = response.data.githubName;
-          that.price = response.data.price;
+          that.userPrice = response.data.price;
           that.isLogin = true;
         })
         .catch(function (error) {
