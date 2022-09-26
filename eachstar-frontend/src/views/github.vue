@@ -12,7 +12,7 @@
               <el-divider direction="vertical" />
               <span style="color: #409EFF">悬赏次数{{i.starNum}}</span> 
             </span>
-            <el-button id="card-button" @click="starButton(i.title)" type="success" plain>Star</el-button>
+            <el-button id="card-button" @click="starButton(i.id)" type="success" plain>Star</el-button>
           </div>
         </div>
       </el-card>
@@ -67,30 +67,53 @@ export default {
       }
     },
     methods: {
-      // 发布按钮
-      publicButton() {
+      // ---------- public相关 ---------- 
+      publicButton() { // 发布按钮->点击打开Public.vue
         this.$.refs.Public.openPage();
       },
-      // Star按钮
-      starButton: function(title){
-        console.log("try to star: "+title);
+      publicCard: function(title, context, starPrice, starNum, time){ // Post->向服务器请求发布data卡片
+        ElMessage('正在尝试发布, 请稍等');
+        var that = this;
+        var data = JSON.stringify({
+          "title": title,
+          "context": context,
+          "starPrice": starPrice,
+          "starNum": starNum,
+          "expireTime": time
+        });
+        var config = {
+          method: 'post',
+          url: 'http://119.91.192.183:3050/api/card',
+          data : data
+        };
+        axios(config)
+        .then(function (response) {
+          ElMessage({
+            message: '发布成功, 正在重定向至第一页!',
+            type: 'success',
+          })
+          that.getPageData(0);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
       },
+
+      // ---------- star-card相关 ----------
+      // Star按钮
+      starButton: function(id){
+        console.log("try to star: "+id);
+      },
+
+      // ========== github.vue 页面控制 ==========
       // 执行换页
       pageChange: function(page){
         this.currentPage = page-1;
 
         this.getPageData(this.currentPage);
       },
-
-
-      // 尝试发布page
-      publicCard: function(data){
-        this.currentPageData.push(data);
-      },
-
-      // 获取page页面数据
+      // 获取page页面数据->currentPageData
       getPageData: function(page){
-        // get 数据
         var that = this;
         var config = {
           method: 'get',
@@ -98,13 +121,12 @@ export default {
         };
         axios(config)
         .then(function (response) {
-          // 处理count
           that.totalCard = parseInt(response.data.count);
           that.totalPage = Math.ceil(that.totalCard/10);
 
           var list = [];
-          var index = 0; // 限制页面最大上限
-          var start = page*that.pageSize; // 防止页面请求溢出
+          var index = 0;
+          var start = page*that.pageSize;
           while(index < that.pageSize && start < that.totalCard){
             list.push(response.data.data[index]);
             index++; start++;
