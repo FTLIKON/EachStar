@@ -84,8 +84,25 @@ export class RepositoryPostgres implements RepositoryType {
     }
   }
 
-  async createUser(id: bigint, githubName: string, price: bigint): Promise<User> {
+  protected formatUserStarPo({
+    id,
+    user_id,
+    card_id,
+    created_at,
+  }: UserStarPO): UserStar {
+    return {
+      id: BigInt(id),
+      userId: BigInt(user_id),
+      cardId: BigInt(card_id),
+      createdAt: created_at,
+    }
+  }
 
+  async createUser(
+    id: bigint,
+    githubName: string,
+    price: bigint,
+  ): Promise<User> {
     const result = await this.client.query<UserPO>(
       `--sql
       INSERT INTO users (
@@ -207,5 +224,54 @@ export class RepositoryPostgres implements RepositoryType {
     )
 
     return { count: BigInt(resCount.rows[0].count), data: cards }
+  }
+
+  async starCard(userId: bigint, cardId: bigint): Promise<any> {
+    // 将用户star的动作入库
+    const userStarData = await this.client.query<UserStarPO>(
+      `--sql
+      INSERT INTO user_star (
+        "id",
+        "user_id",
+        "card_id",
+        "created_at"
+      ) VALUES (
+        $1,
+        $2,
+        $3,
+        NOW()
+      ) RETURNING *
+    `,
+      [this.genId(), userId, cardId],
+    )
+
+    //将卡片的悬赏星星-1
+    const cardData = await this.client.query<CardPO>(
+      `--sql
+      SELECT * from cards WHERE id = $1
+      `,
+      [cardId],
+    )
+    let oldCard = this.formatCardPo(cardData.rows[0])
+    oldCard.starNum -= BigInt(1)
+    const newCard = await this.updateCard(oldCard)
+
+    //将卡片作者的积分减去一个star price
+    const cardAuthor = await this.getUserById(newCard.userId)
+    if (cardAuthor) {
+      const cardAuthorId = cardAuthor.id
+      const authorNewPrice = cardAuthor.price - newCard.starPrice
+      this.changeUserPrice(cardAuthorId, authorNewPrice)
+    }
+
+    //将star卡片用户的积分加一个star price
+    const starUser = await this.getUserById(userId)
+    if (starUser) {
+      const starUserId = starUser.id
+      const starUserNewPrice = starUser.price + newCard.starPrice
+      this.changeUserPrice(starUserId, starUserNewPrice)
+    }
+    
+    return newCard
   }
 }

@@ -15,12 +15,6 @@ BigInt.prototype.toJSON = function () {
 
 const app = new Koa()
 
-app.use(async (ctx, next) => {
-  ctx.set('Access-Control-Allow-Origin', '*')
-  ctx.set('Access-Control-Allow-Headers', 'Content-Type')
-  ctx.set('Access-Control-Allow-Methods', 'POST')
-  await next()
-})
 app.use(koaBody())
 app.use(authorization)
 app.use(getOAuthMiddleware())
