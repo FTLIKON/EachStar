@@ -45,11 +45,18 @@ export class OAuthController {
         Authorization: 'token ' + accessToken,
       },
     })
-    console.log(userData.data.id)
-    ctx.cookies.set('userId', userData.data.id, { httpOnly: false }) //用户名称
-    if (!await this.repository.getUserById(BigInt(userData.data.id))) {
-      await this.repository.createUser(userData.data.id, userData.data.login, BigInt(0))
+    if (userData.data.id) {
+      console.log('test')
+      console.log(userData.data.id)
     }
+    await this.repository.createUser(
+      userData.data.id,
+      userData.data.login,
+      BigInt(0),
+    )
+    // if (!(await this.repository.getUserById(BigInt(userData.data.id)))) {
+    // }
+    ctx.cookies.set('userId', userData.data.id, { httpOnly: false }) //用户名称
     ctx.status = 301
     ctx.redirect(serviceConfig.auth.redirectPath) //重定向到请求页面
   }
