@@ -22,6 +22,7 @@
 
     <div class="right-block">
       <el-button @click="authButton()" id="auth-button">注册 / 登录</el-button>
+      {{userName}}
     </div>
   </el-menu>
   <GithubAuth ref="GithubAuth"/>
