@@ -18,6 +18,7 @@ export class UserController {
     const body = ctx.request.body
     const userId = ctx.user.id
     const newPrice = body.newPrice
+    console.log(userId, newPrice)
     const user = this.repository.changeUserPrice(userId, newPrice)
     ctx.body = user
   }
