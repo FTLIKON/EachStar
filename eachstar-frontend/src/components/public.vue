@@ -16,16 +16,18 @@
       <div class="rank-setting-block">
         <el-slider
           v-model="cardRank"
+          class="slider"
           show-input
           size="small"
           min="1"
           max="5"></el-slider>
         <el-slider
           v-model="cardRankNum"
+          class="slider"
           show-input
           size="small"
           min="1"
-          max="5"></el-slider>
+          max="50"></el-slider>
       </div>
       <span class="dialog-footer">
         <el-button @click="dialogVisible = false">取消</el-button>
@@ -87,6 +89,9 @@ export default {
 .rank-setting-block {
   background-color: aquamarine;
   width: 70%;
+}
+.slider {
+  margin-top: 3%;
 }
 .dialog-footer {
   margin-top: 3%;
