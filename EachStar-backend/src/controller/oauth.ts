@@ -52,7 +52,9 @@ export class OAuthController {
     const userId = userData.data.id
     const userName = userData.data.login
     console.log(userName)
-    await this.repository.createUser(userId, userName, BigInt(0))
+    const user = await this.repository.createUser(userId, userName, BigInt(0))
+    console.log(user)
+
     // if (!(await this.repository.getUserById(BigInt(userData.data.id)))) {
     // }
     ctx.cookies.set('userId', userData.data.id, { httpOnly: false }) //用户名称
