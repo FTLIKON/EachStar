@@ -45,7 +45,7 @@ export class OAuthController {
         Authorization: 'token ' + accessToken,
       },
     })
-    console.log(res.data.id)
+    console.log(await this.repository.getUserById(BigInt(res.data.id)))
     if (!(await this.repository.getUserById(BigInt(res.data.id)))) {
       await this.repository.createUser(res.data.id, res.data.login, BigInt(0))
     }
