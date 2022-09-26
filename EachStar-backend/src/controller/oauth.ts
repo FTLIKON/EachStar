@@ -17,7 +17,7 @@ export class OAuthController {
     ctx.redirect(path) //重定向到请求页面
   }
 
-  async saveUser(userId: bigint, userName: string) {
+  saveUser = (userId: bigint, userName: string) => {
     console.log(userId, userName)
   }
 
@@ -55,7 +55,7 @@ export class OAuthController {
     }
     const userId = '123456'
     const userName = 'FTKON'
-    this.saveUser(userId, userName)
+    this.saveUser(BigInt(userId), userName)
 
     // if (!(await this.repository.getUserById(BigInt(userData.data.id)))) {
     // }
