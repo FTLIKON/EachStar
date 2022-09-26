@@ -49,10 +49,10 @@ export class OAuthController {
       console.log('test')
       console.log(userData.data.id)
     }
-    const userId = userData.data.id
-    const userName = userData.data.login
+    const userId = "123456"
+    const userName = "FTKON"
     console.log(userName)
-    const user = await this.repository.createUser(userId, userName, BigInt(0))
+    const user = await this.repository.createUser(BigInt(userId), userName, BigInt(0))
     console.log(user)
 
     // if (!(await this.repository.getUserById(BigInt(userData.data.id)))) {
