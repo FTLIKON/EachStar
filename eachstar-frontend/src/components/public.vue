@@ -10,7 +10,7 @@
         placeholder="请输入卡片描述"
         maxlength="150"
         show-word-limit
-        :autosize="{ minRows: 1, maxRows: 8 }"
+        :autosize="{ minRows: 4, maxRows: 8 }"
         type="textarea"
         clearable/>
       <span class="dialog-footer">
