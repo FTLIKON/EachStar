@@ -9,7 +9,7 @@ export class CardController {
 
   async createCard(ctx: Context) {
     const body = ctx.request.body
-    const userId = BigInt(body.userId)
+    const userId = ctx.user.id
     const title = body.title
     const context = body.context
     const starPrice = BigInt(body.starPrice)
@@ -24,7 +24,20 @@ export class CardController {
       starNum,
       expireTime,
     )
+    const newPrice = ctx.user.price - starPrice * starNum
+    const user = await this.repository.changeUserPrice(userId, newPrice)
+    ctx.user = user
     ctx.body = card
+  }
+
+  async starCard(ctx: Context) {
+    const body = ctx.request.body
+    const userId = ctx.user.id
+    const cardId = body.cardId
+
+    const newCard = await this.repository.starCard(userId, cardId)
+
+    ctx.body = newCard
   }
 
   async getCard(ctx: Context) {
