@@ -75,7 +75,6 @@ export default {
       publicCard: function(title, context, starPrice, starNum, time){ // Post->向服务器请求发布data卡片
         ElMessage('正在尝试发布, 请稍等');
         var that = this;
-        console.log(starNum);
         var data = JSON.stringify({
           "title": title,
           "context": context,
@@ -88,6 +87,7 @@ export default {
           url: 'server/api/card',
           data : data
         };
+        console.log(config);
         axios(config)
         .then(function (response) {
           ElMessage({
