@@ -3,7 +3,7 @@ import { RepositoryPostgres } from '../stores'
 export const authorization = async (ctx: Context, next: Next) => {
   const repository = new RepositoryPostgres()
   const userId = ctx.cookies.get('userId')
-  if (userId) {
+  if (userId != undefined) {
     const user = await repository.getUserById(BigInt(userId))
     if (user) {
       ctx.user = user
