@@ -21,13 +21,17 @@
     </div>
 
     <div class="right-block">
-      <el-button @click="authButton()" id="auth-button">注册 / 登录</el-button>
+      <el-button v-show="!userName" @click="authButton()" id="auth-button">注册 / 登录</el-button>
+      <div v-show="userName" class="user-hello">你好, {{ userName }}!
+        <el-button @click="getUserInfo"></el-button>
+      </div>
     </div>
   </el-menu>
   <GithubAuth ref="GithubAuth"/>
 </template>
 
 <script>
+import axios from "axios";
 import GithubAuth from './githubAuth.vue';
 export default {
     components: { 
@@ -44,6 +48,21 @@ export default {
       },
       menuSelect(key, keyPath) {
         console.log(key);
+      },
+
+      getUserInfo() {
+        var config = {
+          method: 'get',
+          url: 'http://119.91.192.183:3050/api/user/@me'
+        };
+        axios(config)
+        .then(function (response) {
+          console.log(JSON.stringify(response.data));
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+
       },
     }
 };
@@ -107,6 +126,10 @@ export default {
   border: none;
   border-radius: 6px;
   text-shadow: 0px 0px 1px #303133; 
+}
+.user-hello {
+  margin-right: 5%;
+  margin-left: 30%;
 }
 
 #logo {
