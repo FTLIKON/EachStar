@@ -17,7 +17,7 @@
         积分价值: {{ cardRank }}<el-slider
         v-model="cardRank"
         class="slider"
-        step="1"
+        :step="1"
         :min="1"
         :max="5"></el-slider>
         悬赏次数: {{ cardRankNum }}<el-slider
@@ -82,12 +82,7 @@ export default {
     },
 
     openPage() {
-      
-
-
-      // 玩家需要先登录 >>>>>
-
-
+      console.log(this.$cookies.get("user"));
 
       this.dialogVisible = true;
     }
