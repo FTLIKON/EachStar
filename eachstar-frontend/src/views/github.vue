@@ -75,19 +75,18 @@ export default {
       publicCard: function(title, context, starPrice, starNum, time){ // Post->向服务器请求发布data卡片
         ElMessage('正在尝试发布, 请稍等');
         var that = this;
-        var data = JSON.stringify({
-          "title": title,
-          "context": context,
-          "starPrice": starPrice,
-          "starNum": starNum,
-          "expireTime": time
-        });
+        let param = new URLSearchParams();
+        param.append("title", title);
+        param.append("context", context);
+        param.append("starPrice", starPrice);
+        param.append("starNum", starNum);
+        param.append("expireTime", time);
         var config = {
           method: 'post',
           url: 'server/api/card',
-          data : data
+          data : param
         };
-        console.log(config);
+        
         axios(config)
         .then(function (response) {
           ElMessage({
