@@ -13,6 +13,7 @@
         :autosize="{ minRows: 4, maxRows: 8 }"
         type="textarea"
         clearable/>
+      <div class="rank-setting-block">qwq</div>
       <span class="dialog-footer">
         <el-button @click="dialogVisible = false">取消</el-button>
         <el-button type="primary" @click="publicCard()">发布</el-button>
@@ -64,12 +65,14 @@ export default {
   flex-direction: column;
   align-items: center;
 }
-.discription-input,
-.title-input{
+.discription-input, .title-input{
   width: 70%;
   margin-bottom: 10px;
 }
-
+.rank-setting-block {
+  background-color: aquamarine;
+  width: 70%;
+}
 .dialog-footer {
   margin-top: 3%;
   margin-bottom: 3%;
