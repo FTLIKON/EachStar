@@ -21,9 +21,9 @@
     </div>
 
     <div class="right-block">
-      <el-button v-show="!userName" @click="authButton()" id="auth-button">注册 / 登录</el-button>
-      <div v-show="userName" class="user-hello">你好, {{ userName }}!
-        <el-button @click="getUserInfo"></el-button>
+      <el-button v-show="!userId" @click="authButton()" id="auth-button">注册 / 登录</el-button>
+      <div v-show="userId" class="user-hello">你好, {{ userName }}!
+        <el-button @click="getNewPrice"></el-button>
       </div>
     </div>
   </el-menu>
@@ -39,7 +39,9 @@ export default {
     },
     data() {
       return {
-        userName: this.$cookies.get("user"),
+        userId: this.$cookies.get("userId"),
+        userName: this.$cookies.get("userName"),
+        uesrIcon: this.$cookies.get("uesrIcon"),
       };
     },
     methods: {
@@ -50,10 +52,11 @@ export default {
         console.log(key);
       },
 
+      // api
       getUserInfo() {
         var config = {
           method: 'get',
-          url: 'http://119.91.192.183:3050/api/user/@me'
+          url: 'server/api/user/@me'
         };
         axios(config)
         .then(function (response) {
@@ -62,8 +65,31 @@ export default {
         .catch(function (error) {
           console.log(error);
         });
-
       },
+
+      getNewPrice() {
+        var data = JSON.stringify({
+          "newPrice": 1000
+        });
+
+        var config = {
+          method: 'post',
+          url: 'server/api/user/price',
+          headers: { 
+            'Content-Type': 'text/plain'
+          },
+          data : data
+        };
+
+        axios(config)
+        .then(function (response) {
+          console.log(JSON.stringify(response.data));
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+
+      }
     }
 };
 </script>

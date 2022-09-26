@@ -28,7 +28,7 @@
         :max="50"></el-slider>
       </div>
       <div class="user-rank-calc">
-        消耗积分: {{ cardRank*cardRankNum }} <el-divider direction="vertical" /> 剩余积分: {{ userRank }}
+        消耗积分: {{ cardRank*cardRankNum }} <el-divider direction="vertical" /> 剩余积分: {{ userPrice }}
       </div>
       <span class="dialog-footer">
         <el-button @click="dialogVisible = false">取消</el-button>
@@ -52,7 +52,7 @@ export default {
       cardRank: 1,
       cardRankNum: 1,
 
-      userRank: "查询中...",
+      userPrice: "查询中...",
     };
   },
   methods: {  
@@ -82,9 +82,29 @@ export default {
     },
 
     openPage() {
-      console.log(this.$cookies.get("user"));
+      let userName = this.$cookies.get("userName");
+      if(userName){
+        this.dialogVisible = true;
 
-      this.dialogVisible = true;
+        var that = this;
+        var config = {
+          method: 'get',
+          url: 'server/api/user/@me'
+        };
+        axios(config)
+        .then(function (response) {
+          console.log(response.data.price);
+          that.userPrice = response.data.price;
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+      } else {
+        ElMessage({
+          message: "请先进行登录!",
+          type: "warning",
+        });
+      }
     }
   },
 }
