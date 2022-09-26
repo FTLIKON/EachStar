@@ -176,9 +176,7 @@ export default {
   text-align: left;
   overflow: hidden;    
   text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;  
-  -webkit-box-orient: vertical;
+  white-space: nowrap;
   width: 100%;
   margin-bottom: 3%;
   margin-left: 3%;
