@@ -1,19 +1,21 @@
 <template>
   <el-dialog v-model="dialogVisible" title="发布卡片">
-    <el-input class="title-input"
-      v-model="cardTitle"
-      placeholder="请输入卡片标题"
-      clearable/>
-    <el-input class="discription-input"
-      v-model="cardDiscription"
-      placeholder="请输入卡片描述"
-      maxlength="50"
-      autosize
-      clearable/>
-    <span class="dialog-footer">
-      <el-button @click="dialogVisible = false">取消</el-button>
-      <el-button type="primary" @click="publicCard()">发布</el-button>
-    </span>
+    <div class="input-block">
+      <el-input class="title-input"
+        v-model="cardTitle"
+        placeholder="请输入卡片标题"
+        clearable/>
+      <el-input class="discription-input"
+        v-model="cardDiscription"
+        placeholder="请输入卡片描述"
+        maxlength="50"
+        autosize
+        clearable/>
+      <span class="dialog-footer">
+        <el-button @click="dialogVisible = false">取消</el-button>
+        <el-button type="primary" @click="publicCard()">发布</el-button>
+      </span>
+    </div>
   </el-dialog>
 </template>
 
@@ -55,6 +57,11 @@ export default {
 </script>
   
 <style lang="scss" scoped>
+.input-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .discription-input,
 .title-input{
   width: 70%;
