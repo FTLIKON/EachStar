@@ -83,7 +83,7 @@ export default {
 
     openPage() {
       let userName = this.$cookies.get("user");
-      if(!userName){
+      if(userName){
         this.dialogVisible = true;
       } else {
         ElMessage({
