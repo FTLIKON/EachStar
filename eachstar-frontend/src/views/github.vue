@@ -22,11 +22,11 @@
     </div>
 
     <div class="aside-menu">
-      <el-button type="success" id="public-button">
+      <el-button @click="publicButton()" type="success" id="public-button">
         发布卡片</el-button>
     </div>
   </div>
-  <Public @publicCard="" ref="Public"/>
+  <Public @publicCard="publicCard" ref="Public"/>
 </template>
 
 <script>
@@ -36,8 +36,8 @@ import Public from "../components/public.vue";
 export default {
     name: "github",
     components: {
-    Public
-},
+      Public
+    },
     mounted() {
       let that = this;
       that.pageChange(1);
@@ -64,7 +64,7 @@ export default {
     },
     methods: {
       // 发布按钮
-      authButton() {
+      publicButton() {
         this.$.refs.Public.openPage();
       },
       // Star按钮
@@ -83,7 +83,7 @@ export default {
       publicCard: function(data){
         this.currentPageData.push(data);
       },
-      
+
       // 获取page页面数据
       getPageData: function(page){
         // get 数据
