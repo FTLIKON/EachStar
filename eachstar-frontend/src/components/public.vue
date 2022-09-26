@@ -10,7 +10,7 @@
         placeholder="请输入卡片描述"
         maxlength="50"
         show-word-limit
-        autosize
+        :autosize="{ minRows: 2, maxRows: 4 }"
         type="textarea"
         clearable/>
       <span class="dialog-footer">
@@ -68,5 +68,10 @@ export default {
 .title-input{
   width: 70%;
   margin-bottom: 10px;
+}
+
+.dialog-footer {
+  margin-top: 3%;
+  margin-bottom: 3%;
 }
 </style>
