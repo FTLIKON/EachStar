@@ -172,8 +172,13 @@ export default {
 }
 .card-discription {
   color: #606266;
+  
   text-align: left;
-
+  overflow: hidden;    
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;  
+  -webkit-box-orient: vertical;
   margin-bottom: 3%;
   margin-left: 3%;
   margin-right: 3%;
