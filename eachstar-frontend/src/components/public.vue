@@ -64,7 +64,9 @@ export default {
         this.dialogVisible = false;
         this.$emit("publicCard",
           {"title":this.cardTitle,
-          "context":this.cardDiscription}
+          "context":this.cardDiscription,
+          "starPrice":this.cardRank,
+          "starNum":this.cardRankNum}
         );
       }
 
