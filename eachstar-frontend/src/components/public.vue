@@ -66,15 +66,15 @@ export default {
           type: "warning",
         });
       } else {
-        console.log(this.getExpireTime())
         // publicCard Arguments -> title, context, starPrice, starNum, time
-        // this.dialogVisible = false;
-        // this.$emit("publicCard", 
-        //   this.cardTitle,
-        //   this.cardDiscription,
-        //   this.cardRank,
-        //   this.cardRankNum
-        // );
+        this.dialogVisible = false;
+        this.$emit("publicCard", 
+          this.cardTitle,
+          this.cardDiscription,
+          this.cardRank,
+          this.cardRankNum,
+          this.getExpireTime()
+        );
       }
 
     },
