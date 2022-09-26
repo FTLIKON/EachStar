@@ -22,7 +22,7 @@ app.use(async (ctx, next) => {
   await next()
 })
 app.use(koaBody())
-app.use(authorization)
+//app.use(authorization)
 app.use(getOAuthMiddleware())
 app.use(getCardMiddleware())
 app.use(getUserApiMiddleware())
