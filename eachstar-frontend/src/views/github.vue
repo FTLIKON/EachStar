@@ -7,8 +7,10 @@
           <div class="card-title">{{i.title}}</div>
           <div class="card-discription">{{i.context}} {{i.updatedAt}}</div>
           <div class="card-valueblock">
-            <span class="card-rank">积分价值{{i.starPrice}}</span>
-            <span class="card-rank-num">悬赏次数{{i.starNum}}</span>
+            <span class="card-rank">
+              <span>积分价值{{i.starPrice}}</span> 
+              <span style="color: aqua">悬赏次数{{i.starNum}}</span> 
+            </span>
             <el-button id="card-button" @click="starButton(i.title)" type="success" plain>Star</el-button>
           </div>
         </div>
@@ -202,17 +204,6 @@ export default {
   width: 80%;
   margin-left: 3%;
   margin-right: 3%;
-  margin-top: auto;
-  margin-bottom: auto;
-  text-align: left;
-  font-size: small;
-}
-.card-rank-num {
-  color: #337ecc;
-  background-color: none;
-  
-  width: 80%;
-  margin-left: 3%;
   margin-top: auto;
   margin-bottom: auto;
   text-align: left;
