@@ -28,7 +28,7 @@
         :max="50"></el-slider>
       </div>
       <div class="user-rank-calc">
-        消耗积分: {{ starPrice*starNum }} <el-divider direction="vertical" /> 剩余积分: {{ userPrice }}
+        消耗积分: {{ starPrice*starNum }} <el-divider direction="vertical" /> 剩余积分: {{ userPrice-starPrice*starNum }}
       </div>
       <span class="dialog-footer">
         <el-button @click="dialogVisible = false">取消</el-button>
