@@ -17,15 +17,11 @@
         <el-slider
           v-model="cardRank"
           class="slider"
-          show-input
-          size="small"
           min="1"
           max="5"></el-slider>
         <el-slider
           v-model="cardRankNum"
           class="slider"
-          show-input
-          size="small"
           min="1"
           max="50"></el-slider>
       </div>
