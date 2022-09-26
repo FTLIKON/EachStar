@@ -8,7 +8,7 @@
           <div class="card-discription">{{i.context}} {{i.updatedAt}}</div>
           <div class="card-valueblock">
             <span class="card-rank">积分价值{{i.starPrice}}</span>
-            <el-button id="card-button" @click="console.log(i.starPrice)" type="success" plain>Star</el-button>
+            <el-button id="card-button" @click="starButton(i.starPrice)" type="success" plain>Star</el-button>
           </div>
         </div>
       </el-card>
@@ -63,6 +63,18 @@ export default {
       }
     },
     methods: {
+      // Star按钮
+      starButton: function(id){
+        console.log(id);
+      },
+      // 执行换页
+      pageChange: function(page){
+        this.currentPage = page-1;
+
+        this.getPageData(this.currentPage);
+      },
+
+
       getPageData: function(page){
         // get 数据
         var that = this;
@@ -89,11 +101,6 @@ export default {
           console.log(error);
         });
       },
-      pageChange: function(page){
-        this.currentPage = page-1;
-
-        this.getPageData(this.currentPage);
-      }
     },
 };
 </script>
