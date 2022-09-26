@@ -1,7 +1,7 @@
 import type { RepositoryType, User, Card, UserStar } from '../types'
 import { Pool, PoolClient, Client } from 'pg'
 import * as bcrypt from 'bcryptjs'
-import AccountServiceConfig from '../config'
+import serviceConfig from '../config'
 
 interface UserPO {
   id: bigint
@@ -33,7 +33,7 @@ interface UserStarPO {
 export class RepositoryPostgres implements RepositoryType {
   client: Client
   constructor() {
-    const connectionString = AccountServiceConfig.databaseUrl
+    const connectionString = serviceConfig.databaseUrl
     this.client = new Client({
       connectionString,
     })
@@ -84,8 +84,7 @@ export class RepositoryPostgres implements RepositoryType {
     }
   }
 
-  async createUser(data: User): Promise<User> {
-    const { id, githubName, price = 0 } = data
+  async createUser(id: bigint, githubName: string, price: bigint): Promise<User> {
 
     const result = await this.client.query<UserPO>(
       `--sql

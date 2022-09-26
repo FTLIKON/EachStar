@@ -1,22 +1,9 @@
 import type { Context } from 'koa'
 
-
 const authConfig = {
-  tokenAge: '7d',
-  tokenKey: 'token',
-  jwtSecret: 'test',
-  jwtPrivateKey: '',
-  jwtPublicKey: '',
-  constrains: {
-    username: {
-      minLength: 1,
-      maxLength: 200,
-    },
-    password: {
-      minLength: 1,
-      maxLength: 200,
-    },
-  },
+  githubClientId: 'cc67a3235e881990831d',
+  githubClientSecret: 'e003aa5159e7159c2f43b5d81244ac914a9cb0c0',
+  redirectPath: 'http://119.91.192.183:12377/',
 }
 
 const verificationConfig = {
@@ -34,9 +21,9 @@ const verificationConfig = {
   },
 }
 
-const accountServiceConfig = {
+const serviceConfig = {
   auth: authConfig,
   verification: verificationConfig,
-  databaseUrl :'postgresql://postgres:nes816224@localhost:5432/eachstar'
+  databaseUrl: 'postgresql://postgres:nes816224@localhost:5432/eachstar',
 }
-export default accountServiceConfig
+export default serviceConfig

@@ -29,7 +29,7 @@ export interface UserStar {
 
 export interface RepositoryType {
   client: Client
-  createUser(data: User): Promise<User>
+  createUser(id: bigint, githubName: string, price: bigint): Promise<User>
   getUserById(UserId: bigint): Promise<User | undefined>
   changeUserPrice(UserId: bigint, newPrice: bigint): Promise<User>
   createCard(
