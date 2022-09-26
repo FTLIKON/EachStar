@@ -4,7 +4,7 @@
       type="primary"
       @click="
         goPage(
-          'http://119.91.192.183:3050/oauth/github/login?path=http://119.91.192.183:12377/'
+          'http://119.91.192.183:3050/oauth/github/login?path=http://119.91.192.183:80/'
         )
       "
       >点我</el-button
