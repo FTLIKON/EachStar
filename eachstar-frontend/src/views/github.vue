@@ -75,6 +75,7 @@ export default {
       publicCard: function(title, context, starPrice, starNum, time){ // Post->向服务器请求发布data卡片
         ElMessage('正在尝试发布, 请稍等');
         var that = this;
+        console.log(starPrice);
         var data = JSON.stringify({
           "title": title,
           "context": context,

@@ -68,7 +68,6 @@ export default {
       } else {
         var that = this;
         // debug
-        console.log(this.starPrice);
         // publicCard Arguments -> title, context, starPrice, starNum, time
         this.dialogVisible = false;
         this.$emit("publicCard", 
