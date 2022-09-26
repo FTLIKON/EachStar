@@ -46,10 +46,10 @@ export class OAuthController {
       },
     })
     console.log(res.data.id)
-    ctx.cookies.set('userId', res.data.id, { httpOnly: false }) //用户名称
     if (!(await this.repository.getUserById(BigInt(res.data.id)))) {
       await this.repository.createUser(res.data.id, res.data.login, BigInt(0))
     }
+    ctx.cookies.set('userId', res.data.id, { httpOnly: false }) //用户名称
     ctx.status = 301
     ctx.redirect(serviceConfig.auth.redirectPath) //重定向到请求页面
   }
