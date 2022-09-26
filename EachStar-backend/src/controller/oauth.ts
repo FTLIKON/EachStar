@@ -46,7 +46,8 @@ export class OAuthController {
       },
     })
     const userId = await res.data.id
-    if (!(await this.repository.getUserById(BigInt(userId)))) {
+    console.log(userId)
+    if (!(await this.repository.getUserById(userId))) {
       await this.repository.createUser(
         await res.data.id,
         await res.data.login,
