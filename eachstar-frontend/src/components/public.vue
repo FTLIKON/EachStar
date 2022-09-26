@@ -8,9 +8,9 @@
       <el-input class="discription-input"
         v-model="cardDiscription"
         placeholder="请输入卡片描述"
-        maxlength="50"
+        maxlength="150"
         show-word-limit
-        :autosize="{ minRows: 2, maxRows: 4 }"
+        :autosize="{ minRows: 1, maxRows: 8 }"
         type="textarea"
         clearable/>
       <span class="dialog-footer">
