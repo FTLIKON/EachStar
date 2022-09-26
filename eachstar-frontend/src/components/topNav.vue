@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import axios from "axios";
 import GithubAuth from './githubAuth.vue';
 export default {
     components: { 
