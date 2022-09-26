@@ -24,20 +24,20 @@
     <div class="aside-menu">
       <el-button type="success" id="public-button">
         发布卡片</el-button>
-
-      <el-button type="primary" id="public-button">
-        我的积分</el-button>
     </div>
   </div>
+  <Public ref="Public"/>
 </template>
 
 <script>
 import axios from "axios";
 import { getCurrentInstance, onMounted } from 'vue-demi';
+import Public from "../components/public.vue";
 export default {
     name: "github",
-    components: { 
-    },
+    components: {
+    Public
+},
     mounted() {
       let that = this;
       that.pageChange(1);
@@ -63,6 +63,10 @@ export default {
       }
     },
     methods: {
+      // 发布按钮
+      authButton() {
+        this.$.refs.Public.openPage();
+      },
       // Star按钮
       starButton: function(id){
         console.log(id);
