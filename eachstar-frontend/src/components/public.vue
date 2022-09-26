@@ -71,6 +71,13 @@ export default {
     },
 
     openPage() {
+      
+
+
+      // 玩家需要先登录 >>>>>
+
+
+
       this.dialogVisible = true;
     }
   },

@@ -34,17 +34,17 @@ export default {
       GithubAuth
     },
     data() {
-        return {
-            userName: this.$cookies.get("user"),
-        };
+      return {
+        userName: this.$cookies.get("user"),
+      };
     },
     methods: {
-        authButton() {
-            this.$.refs.GithubAuth.openPage();
-        },
-        menuSelect(key, keyPath) {
-            console.log(key);
-        },
+      authButton() {
+        this.$.refs.GithubAuth.openPage();
+      },
+      menuSelect(key, keyPath) {
+        console.log(key);
+      },
     }
 };
 </script>
