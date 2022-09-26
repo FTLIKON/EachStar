@@ -183,7 +183,7 @@ export default {
   text-overflow: ellipsis;
 
 
-  width: 80%;
+  width: 90%;
   margin-bottom: 3%;
   margin-left: 3%;
   margin-right: 3%;
