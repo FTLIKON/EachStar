@@ -28,7 +28,7 @@
         :max="50"></el-slider>
       </div>
       <div class="user-rank-calc">
-        消耗积分: {{ cardRank*cardRankNum }} <el-divider direction="vertical" /> 剩余积分: 123
+        消耗积分: {{ cardRank*cardRankNum }} <el-divider direction="vertical" /> 剩余积分: {{ userRank }}
       </div>
       <span class="dialog-footer">
         <el-button @click="dialogVisible = false">取消</el-button>
@@ -51,11 +51,20 @@ export default {
       cardDiscription: "",
       cardRank: 1,
       cardRankNum: 1,
+
+      userRank: "查询中...",
     };
   },
   methods: {  
     publicCard: function(){
       if (this.cardTitle == "") {
+
+
+
+        // 验证填写title和描述的合法性
+
+
+
         ElMessage({
           message: "两次输入密码不一致",
           type: "warning",
