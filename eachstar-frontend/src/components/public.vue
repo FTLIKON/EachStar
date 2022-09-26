@@ -14,8 +14,18 @@
         type="textarea"
         clearable/>
       <div class="rank-setting-block">
-        <el-slider v-model="cardRank" show-input></el-slider>
-        <el-slider v-model="cardRankNum" show-input></el-slider>
+        <el-slider
+          v-model="cardRank"
+          show-input
+          size="small"
+          min="1"
+          max="5"></el-slider>
+        <el-slider
+          v-model="cardRankNum"
+          show-input
+          size="small"
+          min="1"
+          max="5"></el-slider>
       </div>
       <span class="dialog-footer">
         <el-button @click="dialogVisible = false">取消</el-button>
