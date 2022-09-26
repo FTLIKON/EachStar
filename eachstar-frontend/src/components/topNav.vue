@@ -22,7 +22,7 @@
 
     <div class="right-block">
       <el-button v-show="!isLogin" @click="authButton()" id="auth-button">注册 / 登录</el-button>
-      <span v-show="isLogin" class="user-rank">剩余积分: {{ userRank }}</span>
+      <span v-show="isLogin" class="user-rank">剩余积分: {{ userPrice }}</span>
       <span v-show="isLogin" class="user-hello">你好, {{ userName }}!</span>
     </div>
   </el-menu>
