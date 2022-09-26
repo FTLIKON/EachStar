@@ -14,21 +14,21 @@
         type="textarea"
         clearable/>
       <div class="rank-setting-block">
-        积分价值: {{ cardRank }}<el-slider
-        v-model="cardRank"
+        积分价值: {{ starPrice }}<el-slider
+        v-model="starPrice"
         class="slider"
         :step="1"
         :min="1"
         :max="5"></el-slider>
-        悬赏次数: {{ cardRankNum }}<el-slider
-        v-model="cardRankNum"
+        悬赏次数: {{ starNum }}<el-slider
+        v-model="starNum"
         class="slider"
         :step="1"
         :min="1"
         :max="50"></el-slider>
       </div>
       <div class="user-rank-calc">
-        消耗积分: {{ cardRank*cardRankNum }} <el-divider direction="vertical" /> 剩余积分: {{ userPrice }}
+        消耗积分: {{ starPrice*starNum }} <el-divider direction="vertical" /> 剩余积分: {{ userPrice }}
       </div>
       <span class="dialog-footer">
         <el-button @click="dialogVisible = false">取消</el-button>
@@ -49,8 +49,8 @@ export default {
       dialogVisible: false,
       cardTitle: "",
       cardDiscription: "",
-      cardRank: 1,
-      cardRankNum: 1,
+      starPrice: 1,
+      starNum: 1,
 
       userPrice: "查询中...",
     };
@@ -66,17 +66,17 @@ export default {
           type: "warning",
         });
       } else {
-
+        var that = this;
         // debug
-        console.log(toString(this.cardRank));
+        console.log(toString(this.starPrice));
         // publicCard Arguments -> title, context, starPrice, starNum, time
         this.dialogVisible = false;
         this.$emit("publicCard", 
-          this.cardTitle,
-          this.cardDiscription,
-          toString(this.cardRank),
-          toString(this.cardRankNum),
-          this.getExpireTime()
+          that.cardTitle,
+          that.cardDiscription,
+          toString(that.starPrice),
+          toString(that.starNum),
+          that.getExpireTime()
         );
       }
 
