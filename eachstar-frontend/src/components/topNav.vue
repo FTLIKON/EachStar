@@ -21,8 +21,8 @@
     </div>
 
     <div class="right-block">
-      <el-button @click="authButton()" id="auth-button">注册 / 登录</el-button>
-      {{userName}}
+      <el-button v-show="userName" @click="authButton()" id="auth-button">注册 / 登录</el-button>
+      <div class="user-hello">{{ userName }}</div>
     </div>
   </el-menu>
   <GithubAuth ref="GithubAuth"/>
@@ -107,6 +107,15 @@ export default {
 
   border: none;
   border-radius: 6px;
+  text-shadow: 0px 0px 1px #303133; 
+}
+.user-hello {
+  font-weight: bold;
+  color: white;
+  
+  margin-right: 5%;
+  margin-left: 30%;
+
   text-shadow: 0px 0px 1px #303133; 
 }
 
