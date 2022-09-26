@@ -52,6 +52,7 @@ export default {
         console.log(key);
       },
 
+      // api
       getUserInfo() {
         var config = {
           method: 'get',
@@ -65,6 +66,30 @@ export default {
           console.log(error);
         });
       },
+
+      getNewPrice() {
+        var data = JSON.stringify({
+          "newPrice": 1000
+        });
+
+        var config = {
+          method: 'post',
+          url: 'server/api/user/price',
+          headers: { 
+            'Content-Type': 'text/plain'
+          },
+          data : data
+        };
+
+        axios(config)
+        .then(function (response) {
+          console.log(JSON.stringify(response.data));
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+
+      }
     }
 };
 </script>
