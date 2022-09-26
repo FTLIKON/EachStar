@@ -9,7 +9,9 @@
         v-model="cardDiscription"
         placeholder="请输入卡片描述"
         maxlength="50"
+        show-word-limit
         autosize
+        type="textarea"
         clearable/>
       <span class="dialog-footer">
         <el-button @click="dialogVisible = false">取消</el-button>
