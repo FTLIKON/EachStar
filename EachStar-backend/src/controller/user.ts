@@ -7,6 +7,8 @@ export class UserController {
     this.repository = new RepositoryPostgres()
   }
 
+  
+
   async getSelf(ctx: Context) {
     ctx.assert(ctx.user, 403, 'user not found', {
       code: 'USER_NOT_FOUND',

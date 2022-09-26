@@ -5,6 +5,7 @@ export const authorization = async (ctx: Context, next: Next) => {
   const userId = ctx.cookies.get('userId')
   if (userId != undefined) {
     const user = await repository.getUserById(BigInt(userId))
+    console.log(user)
     if (user) {
       ctx.user = user
       ctx.cookies.set('userId', userId, { httpOnly: false })
