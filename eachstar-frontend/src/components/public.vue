@@ -14,24 +14,18 @@
         type="textarea"
         clearable/>
       <div class="rank-setting-block">
-        <span class="rank-slider-value">
-          积分价值: {{ cardRank }}
           <el-slider
             v-model="cardRank"
             class="slider"
             step="1"
             :min="1"
-            :max="5"></el-slider>
-        </span>
-        <span class="rank-slider-num">
-          悬赏次数: {{ cardRankNum }}
+            :max="5">积分价值: {{ cardRank }}</el-slider>
           <el-slider
           v-model="cardRankNum"
           class="slider"
           step="1"
           :min="1"
-          :max="50"></el-slider>
-        </span>
+          :max="50">悬赏次数: {{ cardRankNum }}</el-slider>
       </div>
       <span class="dialog-footer">
         <el-button @click="dialogVisible = false">取消</el-button>
