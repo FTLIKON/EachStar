@@ -25,7 +25,10 @@ export default {
   methods: {  
     publicCard: function(){
       this.dialogVisible = false;
-      this.$emit("publicCard", {"title":this.cardTitle, "discription":this.cardDiscription});
+      this.$emit("publicCard",
+        {"title":this.cardTitle,
+        "context":this.cardDiscription}
+      );
     },
     
     openPage() {

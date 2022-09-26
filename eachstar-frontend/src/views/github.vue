@@ -26,7 +26,7 @@
         发布卡片</el-button>
     </div>
   </div>
-  <Public ref="Public"/>
+  <Public @publicCard="" ref="Public"/>
 </template>
 
 <script>
@@ -79,6 +79,12 @@ export default {
       },
 
 
+      // 尝试发布page
+      publicCard: function(data){
+        this.currentPageData.push(data);
+      },
+      
+      // 获取page页面数据
       getPageData: function(page){
         // get 数据
         var that = this;
