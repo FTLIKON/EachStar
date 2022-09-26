@@ -46,8 +46,8 @@ export default {
       dialogVisible: false,
       cardTitle: "",
       cardDiscription: "",
-      cardRank: "",
-      cardRankNum: "",
+      cardRank: 1,
+      cardRankNum: 1,
     };
   },
   methods: {  
