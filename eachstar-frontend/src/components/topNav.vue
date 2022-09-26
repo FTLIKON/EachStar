@@ -22,7 +22,9 @@
 
     <div class="right-block">
       <el-button v-show="!userName" @click="authButton()" id="auth-button">注册 / 登录</el-button>
-      <div v-show="userName" class="user-hello">你好, {{ userName }}!</div>
+      <div v-show="userName" class="user-hello">你好, {{ userName }}!
+        <el-button @click="getUserInfo"></el-button>
+      </div>
     </div>
   </el-menu>
   <GithubAuth ref="GithubAuth"/>
@@ -45,6 +47,21 @@ export default {
       },
       menuSelect(key, keyPath) {
         console.log(key);
+      },
+
+      getUserInfo() {
+        var config = {
+          method: 'get',
+          url: 'http://119.91.192.183:3050/api/user/@me'
+        };
+        axios(config)
+        .then(function (response) {
+          console.log(JSON.stringify(response.data));
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+
       },
     }
 };
