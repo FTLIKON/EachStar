@@ -17,6 +17,10 @@ export class OAuthController {
     ctx.redirect(path) //重定向到请求页面
   }
 
+  async saveUser(userId: bigint, userName: string) {
+    console.log(userId, userName)
+  }
+
   async githubCallBack(ctx: Context) {
     const code = ctx.query.code //返回的授权码
     const params = JSON.stringify({
@@ -51,16 +55,7 @@ export class OAuthController {
     }
     const userId = '123456'
     const userName = 'FTKON'
-    console.log(userName)
-    const user = await this.repository.createCard(
-      BigInt(123),
-      'asdasd',
-      'asdasdasd',
-      BigInt(123),
-      BigInt(123),
-      new Date(),
-    )
-    console.log(user)
+    this.saveUser(userId, userName)
 
     // if (!(await this.repository.getUserById(BigInt(userData.data.id)))) {
     // }
