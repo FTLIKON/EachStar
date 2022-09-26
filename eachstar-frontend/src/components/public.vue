@@ -85,6 +85,8 @@ export default {
       let userName = this.$cookies.get("user");
       if(userName){
         this.dialogVisible = true;
+
+        var that = this;
         var config = {
           method: 'get',
           url: 'server/api/user/@me'
@@ -92,7 +94,7 @@ export default {
         axios(config)
         .then(function (response) {
           console.log(response.data.price);
-          this.userPrice = response.data.price;
+          that.userPrice = response.data.price;
         })
         .catch(function (error) {
           console.log(error);
