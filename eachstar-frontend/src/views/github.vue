@@ -8,7 +8,8 @@
           <div class="card-discription">{{i.context}} {{i.updatedAt}}</div>
           <div class="card-valueblock">
             <span class="card-rank">
-              <span>积分价值{{i.starPrice}} </span> 
+              <span>积分价值{{i.starPrice}}</span> 
+              <el-divider direction="vertical" />
               <span style="color: #409EFF">悬赏次数{{i.starNum}}</span> 
             </span>
             <el-button id="card-button" @click="starButton(i.title)" type="success" plain>Star</el-button>
