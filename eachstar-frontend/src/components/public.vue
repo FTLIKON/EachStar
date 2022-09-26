@@ -82,9 +82,15 @@ export default {
     },
 
     openPage() {
-      console.log(this.$cookies.get("user"));
-
-      this.dialogVisible = true;
+      let userName = this.$cookies.get("user");
+      if(!userName){
+        this.dialogVisible = true;
+      } else {
+        ElMessage({
+          message: "请先进行登录!",
+          type: "warning",
+        });
+      }
     }
   },
 }
