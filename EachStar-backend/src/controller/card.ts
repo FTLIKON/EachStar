@@ -36,17 +36,19 @@ export class CardController {
     const cardId = body.cardId
 
     const newCard = await this.repository.starCard(userId, cardId)
-    const userStarred = await this.repository.getUserStarred(userId)
-    const userStarredCardId = userStarred.map((t:any)=>{t.cardId})
-    console.log(userStarredCardId)
     ctx.body = newCard
   }
 
   async getCard(ctx: Context) {
+    const userId = ctx.user.id
     const start = ctx.query.start
-
     const cards = await this.repository.getCardsByTimeSort(Number(start))
     console.log(cards.count)
+    const userStarred = await this.repository.getUserStarred(userId)
+    const userStarredCardId = userStarred.map((t: any) => {
+      t.cardId
+    })
+    console.log(userStarredCardId)
     ctx.body = cards
   }
 }
