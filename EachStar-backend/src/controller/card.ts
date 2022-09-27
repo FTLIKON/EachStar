@@ -47,10 +47,16 @@ export class CardController {
     const userStarred = await this.repository.getUserStarred(userId)
     console.log(userStarred)
     let userStarredCardId = []
-    for(let index in userStarred){
+    for (let index in userStarred) {
       userStarredCardId.push(userStarred[index].cardId)
     }
-    console.log(userStarredCardId)
+    for (let index in cards.data) {
+      if (userStarredCardId.includes(cards.data.cardId))
+        cards.data[index]['starred'] = true
+      else cards.data[index]['starred'] = false
+    }
+
+    console.log(cards)
     ctx.body = cards
   }
 }
