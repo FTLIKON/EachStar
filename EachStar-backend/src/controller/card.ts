@@ -34,13 +34,15 @@ export class CardController {
   async starGithubRepo(ctx: Context, repoUrl: string) {
     const accessToken = ctx.cookies.get('githubToken')
     const repoData = repoUrl.slice(19)
-    await axios({
+    const config = {
       method: 'put',
       url: 'https://api.github.com/user/starred/' + repoData,
       headers: {
         Authorization: 'token ' + accessToken,
       },
-    })
+    }
+    console.log(config)
+    await axios(config)
   }
 
   async starCard(ctx: Context) {
