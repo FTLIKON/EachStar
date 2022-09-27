@@ -12,7 +12,7 @@
               <el-divider direction="vertical" />
               <span style="color: #409EFF">悬赏次数{{i.starNum}}</span> 
             </span>
-            <el-button id="card-button" @click="starButton(i)" type="success" plain>Star</el-button>
+            <el-button v-show="!starred" id="card-button" @click="starButton(i)" type="success" plain>Star</el-button>
           </div>
         </div>
       </el-card>
