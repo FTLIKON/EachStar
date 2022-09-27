@@ -16,7 +16,7 @@
               v-show="!i.starred"
               id="card-button"
               @click="starButton(i)"
-              plain><span id="star-false">✨</span> Star</el-button>
+              plain><span id="star-false">❤</span> Star</el-button>
             <el-button
               v-show="i.starred"
               id="card-button"
