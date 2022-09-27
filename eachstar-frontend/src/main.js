@@ -14,10 +14,11 @@ router.beforeEach((to, from, next) => {
   }
   next();
 });
-Vue.prototype.$bus = new Vue(); // bus事件挂载
 
 const app = createApp(App);
 app.use(VueCookies);
 app.use(router);
 app.use(ElementPlus);
 app.mount("#app");
+
+Vue.prototype.$bus = new Vue(); // bus事件挂载
