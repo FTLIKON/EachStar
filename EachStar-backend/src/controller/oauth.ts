@@ -11,7 +11,8 @@ export class OAuthController {
   async redirectGithubAuth(ctx: Context) {
     //重定向到认证接口,并配置参数
     var path = 'https://github.com/login/oauth/authorize'
-    path += '?client_id=' + serviceConfig.auth.githubClientId + '&scope=repo'
+    path +=
+      '?client_id=' + serviceConfig.auth.githubClientId + '&scope=repo'
     //将地址及参数返回前端
     ctx.status = 301
     ctx.redirect(path) //重定向到请求页面

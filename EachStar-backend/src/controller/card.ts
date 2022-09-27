@@ -42,9 +42,8 @@ export class CardController {
         'Content-Length': 0,
       },
     }
-    console.log(config)
+
     const res = await axios(config)
-    console.log(res)
   }
 
   async starCard(ctx: Context) {
