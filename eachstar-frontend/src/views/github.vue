@@ -269,7 +269,7 @@ export default {
 #card-button {
   font-size: large;
 
-  width: 20%;
+  width: 30%;
   display: flex;
 }
 #star-false {
