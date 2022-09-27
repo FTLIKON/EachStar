@@ -43,6 +43,11 @@ export default {
         isLogin: false,
       };
     },
+    provide() {
+      return {
+        refreshUserInfo: this.getUserInfo,
+      }
+    },
     mounted() {
       this.getUserInfo();
     },
