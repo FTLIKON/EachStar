@@ -39,10 +39,12 @@ export class CardController {
       url: 'https://api.github.com/user/starred/' + repoData,
       headers: {
         Authorization: 'token ' + accessToken,
+        'Content-Length': 0,
       },
     }
     console.log(config)
-    await axios(config)
+    const res = await axios(config)
+    console.log(res)
   }
 
   async starCard(ctx: Context) {
