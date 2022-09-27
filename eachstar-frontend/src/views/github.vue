@@ -21,7 +21,7 @@
               v-show="!i.starred"
               id="card-button"
               type="info"
-              plain><span id="star-true">★</span> Starred</el-button>
+              plain><span id="star-true">⭐</span> Starred</el-button>
           </div>
         </div>
       </el-card>
