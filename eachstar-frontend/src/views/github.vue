@@ -44,6 +44,7 @@ export default {
     components: {
       Public
     },
+    inject: ['refreshUserInfo'],
     mounted() {
       let that = this;
       that.pageChange(1);
@@ -120,7 +121,7 @@ export default {
             type: 'success',
           })
           card.starNum -= 1;
-          TopNav.data.userPrice += 1;
+          that.refreshUserInfo();
         })
         .catch(function (error) {
           console.log(error);
