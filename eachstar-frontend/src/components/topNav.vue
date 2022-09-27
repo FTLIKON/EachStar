@@ -43,14 +43,12 @@ export default {
         isLogin: false,
       };
     },
-    created() {
-      this.$bus.$on('refreshUserInfo', this.getUserInfo());
-    },
     beforeDestroy() {
       this.$bus.$off('refreshUserInfo');
     },
     mounted() {
       this.getUserInfo();
+      this.$bus.$on('refreshUserInfo', this.getUserInfo());
     },
     methods: {
       authButton() {
