@@ -187,7 +187,7 @@ export class RepositoryPostgres implements RepositoryType {
     return this.formatCardPo(result.rows[0])
   }
   async updateCard(data: Card): Promise<Card> {
-    const { id, userId, title, context, starPrice, expireTime } = data
+    const { id, userId, title, context, starPrice, starNum, expireTime } = data
 
     const result = await this.client.query<CardPO>(
       `--sql
@@ -195,12 +195,13 @@ export class RepositoryPostgres implements RepositoryType {
       title = $1,
       context = $2,
       star_price = $3,
-      expire_time = $4,
+      star_num = $4,
+      expire_time = $5,
       updated_at = NOW()
-      WHERE id = $5
+      WHERE id = $6
       RETURNING *
     `,
-      [title, context, starPrice, expireTime, id],
+      [title, context, starPrice, starNum, expireTime, id],
     )
 
     return this.formatCardPo(result.rows[0])
