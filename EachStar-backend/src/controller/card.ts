@@ -44,6 +44,12 @@ export class CardController {
     }
 
     const res = await axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data))
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
   }
 
   async starCard(ctx: Context) {
