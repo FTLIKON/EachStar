@@ -271,7 +271,22 @@ export class RepositoryPostgres implements RepositoryType {
       const starUserNewPrice = starUser.price + newCard.starPrice
       this.changeUserPrice(starUserId, starUserNewPrice)
     }
-    
+
     return newCard
+  }
+
+  async getUserStarred(userId: bigint): Promise<any> {
+    const result = await this.client.query<UserStarPO>(
+      `--sql
+      SELECT * FROM user_star WHERE user_id = $1
+    `,
+      [userId],
+    )
+    let user_starred = []
+    for (let index in result.rows) {
+      user_starred.push(this.formatUserStarPo(result.rows[index]))
+    }
+
+    return user_starred
   }
 }

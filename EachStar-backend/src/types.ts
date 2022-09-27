@@ -43,4 +43,5 @@ export interface RepositoryType {
   updateCard(data: Card): Promise<Card>
   getCardsByTimeSort(start: number): Promise<any>
   starCard(userId: bigint, cardId: bigint): Promise<any>
+  getUserStarred(userId: bigint): Promise<any>
 }
