@@ -147,6 +147,8 @@ export default {
         .then(function (response) {
           that.totalCard = parseInt(response.data.count);
           that.totalPage = Math.ceil(that.totalCard/10);
+          
+          console.log("[DEBUGGER] 一共有"+response.data.count+"个card");
 
           var list = [];
           var index = 0;
@@ -258,7 +260,6 @@ export default {
 }
 #card-button {
   font-size: large;
-  font-weight: bold;
 
   width: 20%;
 }
