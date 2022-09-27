@@ -50,10 +50,14 @@ export class CardController {
     for (let index in userStarred) {
       userStarredCardId.push(userStarred[index].cardId)
     }
+    console.log(userStarredCardId)
+    console.log(userStarredCardId.includes(cards.data.cardId))
     for (let index in cards.data) {
-      if (userStarredCardId.includes(cards.data.cardId))
+      if (userStarredCardId.includes(cards.data[index].cardId)) {
         cards.data[index]['starred'] = true
-      else cards.data[index]['starred'] = false
+      } else {
+        cards.data[index]['starred'] = false
+      }
     }
 
     console.log(cards)
