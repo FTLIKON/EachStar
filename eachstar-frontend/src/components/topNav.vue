@@ -21,10 +21,9 @@
     </div>
 
     <div class="right-block">
-      <el-button v-show="!userId" @click="authButton()" id="auth-button">注册 / 登录</el-button>
-      <div v-show="userId" class="user-hello">你好, {{ userName }}!
-        <el-button @click="getNewPrice"></el-button>
-      </div>
+      <el-button v-show="!isLogin" @click="authButton()" id="auth-button">注册 / 登录</el-button>
+      <span v-show="isLogin" class="user-rank">积分: {{ userPrice }}</span>
+      <span v-show="isLogin" class="user-hello">你好, {{ userName }}!</span>
     </div>
   </el-menu>
   <GithubAuth ref="GithubAuth"/>
@@ -39,10 +38,13 @@ export default {
     },
     data() {
       return {
-        userId: this.$cookies.get("userId"),
-        userName: this.$cookies.get("userName"),
-        uesrIcon: this.$cookies.get("uesrIcon"),
+        userName: "",
+        userPrice: null,
+        isLogin: false,
       };
+    },
+    mounted() {
+      this.getUserInfo();
     },
     methods: {
       authButton() {
@@ -52,44 +54,23 @@ export default {
         console.log(key);
       },
 
-      // api
+      // 获取用户信息->data
       getUserInfo() {
+        var that = this;
         var config = {
           method: 'get',
           url: 'server/api/user/@me'
         };
         axios(config)
         .then(function (response) {
-          console.log(JSON.stringify(response.data));
+          that.userName = response.data.githubName;
+          that.userPrice = response.data.price;
+          that.isLogin = true;
         })
         .catch(function (error) {
           console.log(error);
         });
       },
-
-      getNewPrice() {
-        var data = JSON.stringify({
-          "newPrice": 1000
-        });
-
-        var config = {
-          method: 'post',
-          url: 'server/api/user/price',
-          headers: { 
-            'Content-Type': 'text/plain'
-          },
-          data : data
-        };
-
-        axios(config)
-        .then(function (response) {
-          console.log(JSON.stringify(response.data));
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-
-      }
     }
 };
 </script>
@@ -153,9 +134,14 @@ export default {
   border-radius: 6px;
   text-shadow: 0px 0px 1px #303133; 
 }
+.user-rank {
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 30%;
+}
 .user-hello {
   margin-right: 5%;
-  margin-left: 30%;
+  width: 45%;
 }
 
 #logo {
