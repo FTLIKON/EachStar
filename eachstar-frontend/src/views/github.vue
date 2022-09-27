@@ -35,6 +35,7 @@
 
 <script>
 import axios from "axios";
+import { Emitter } from 'mitt'
 import { getCurrentInstance, onMounted } from 'vue-demi';
 import { ElMessage } from "element-plus";
 import Public from "../components/public.vue";
@@ -120,7 +121,9 @@ export default {
             type: 'success',
           })
           card.starNum -= 1;
-          this.$bus.$emit('refreshUserInfo');
+          const {ctx: $this} = getCurrentInstance();
+          const bus = $this.$bus;
+          bus.emit('refreshUserInfo')
         })
         .catch(function (error) {
           console.log(error);
