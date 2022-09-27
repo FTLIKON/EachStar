@@ -14,9 +14,9 @@ router.beforeEach((to, from, next) => {
   }
   next();
 });
-Vue.prototype.$bus = new Vue(); // bus事件挂载
 
 const app = createApp(App);
+app.prototype.$bus = new Vue();
 app.use(VueCookies);
 app.use(router);
 app.use(ElementPlus);
