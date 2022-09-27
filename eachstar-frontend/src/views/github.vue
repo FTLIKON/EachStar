@@ -120,6 +120,7 @@ export default {
             type: 'success',
           })
           card.starNum -= 1;
+          card.starred = true;
           bus.emit('refreshUserInfo');
         })
         .catch(function (error) {
