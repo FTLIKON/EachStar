@@ -45,6 +45,7 @@ export class CardController {
     const cards = await this.repository.getCardsByTimeSort(Number(start))
     console.log(cards.count)
     const userStarred = await this.repository.getUserStarred(userId)
+    console.log(userStarred)
     const userStarredCardId = userStarred.map((t: any) => {
       t.cardId
     })
