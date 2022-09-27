@@ -12,8 +12,16 @@
               <el-divider direction="vertical" />
               <span style="color: #409EFF">悬赏次数{{i.starNum}}</span> 
             </span>
-            <el-button v-show="!i.starred" id="card-button" @click="starButton(i)" plain>Star</el-button>
-            <el-button v-show="i.starred" id="card-button" type="info" plain>Starred</el-button>
+            <el-button 
+              v-show="!i.starred"
+              id="card-button"
+              @click="starButton(i)"
+              plain>💫 Star</el-button>
+            <el-button
+              v-show="i.starred"
+              id="card-button"
+              type="info"
+              plain>⭐ Starred</el-button>
           </div>
         </div>
       </el-card>
@@ -261,9 +269,9 @@ export default {
 #card-button {
   font-size: large;
 
-  width: 20%;
+  width: 30%;
+  display: flex;
 }
-
 #pagination {
   margin-top: 3%;
   justify-content: center;
