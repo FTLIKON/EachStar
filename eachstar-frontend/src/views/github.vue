@@ -12,7 +12,8 @@
               <el-divider direction="vertical" />
               <span style="color: #409EFF">悬赏次数{{i.starNum}}</span> 
             </span>
-            <el-button v-show="!i.starred" id="card-button" @click="starButton(i)" type="success" plain>Star</el-button>
+            <el-button v-show="!i.starred" id="card-button" @click="starButton(i)" plain>Star</el-button>
+            <el-button v-show="i.starred" id="card-button" type="info" plain>Starred</el-button>
           </div>
         </div>
       </el-card>
@@ -146,6 +147,8 @@ export default {
         .then(function (response) {
           that.totalCard = parseInt(response.data.count);
           that.totalPage = Math.ceil(that.totalCard/10);
+          
+          console.log("[DEBUGGER] 一共有"+response.data.count+"个card");
 
           var list = [];
           var index = 0;
@@ -257,7 +260,6 @@ export default {
 }
 #card-button {
   font-size: large;
-  font-weight: bold;
 
   width: 20%;
 }
