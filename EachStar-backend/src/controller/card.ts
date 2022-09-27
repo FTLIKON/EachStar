@@ -46,9 +46,10 @@ export class CardController {
     console.log(cards.count)
     const userStarred = await this.repository.getUserStarred(userId)
     console.log(userStarred)
-    const userStarredCardId = userStarred.map((t: any) => {
-      t.cardId
-    })
+    let userStarredCardId = []
+    for(let index in userStarred){
+      userStarredCardId.push(userStarred[index].cardId)
+    }
     console.log(userStarredCardId)
     ctx.body = cards
   }
