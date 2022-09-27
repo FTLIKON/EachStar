@@ -104,6 +104,7 @@ export default {
             type: 'success',
           })
           that.getPageData(0);
+          bus.emit('refreshUserInfo');
         })
         .catch(function (error) {
           console.log(error);
