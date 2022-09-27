@@ -20,3 +20,5 @@ app.use(VueCookies);
 app.use(router);
 app.use(ElementPlus);
 app.mount("#app");
+
+Vue.prototpe.$bus = new Vue(); // bus事件挂载

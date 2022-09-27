@@ -43,13 +43,12 @@ export default {
         isLogin: false,
       };
     },
-    provide() {
-      return {
-        refreshUserInfo: this.getUserInfo,
-      }
+    beforeDestroy() {
+      this.$bus.$off('refreshUserInfo');
     },
     mounted() {
       this.getUserInfo();
+      this.$bus.$on('refreshUserInfo', this.getUserInfo());
     },
     methods: {
       authButton() {
@@ -59,7 +58,7 @@ export default {
         console.log(key);
       },
 
-      // 获取用户信息->data
+      // 刷新用户信息->data
       getUserInfo() {
         var that = this;
         var config = {
