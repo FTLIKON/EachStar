@@ -35,8 +35,6 @@ export class OAuthController {
       data: params,
     })
 
-    // const access_token = JSON.parse(res.data).access_token
-
     const accessToken = res.data.access_token
 
     //再通过令牌获取用户信息
@@ -47,10 +45,11 @@ export class OAuthController {
         Authorization: 'token ' + accessToken,
       },
     })
-    // ctx.body = res.data
+
     ctx.cookies.set('userId', res.data.id, { httpOnly: false }) //用户id
     ctx.cookies.set('userName', res.data.login, { httpOnly: false }) //用户名称
     ctx.cookies.set('userIcon', res.data.avatar_url, { httpOnly: false }) //用户图片
+    ctx.cookies.set('githubToken', accessToken, { httpOnly: false }) //用户githubToken
 
     ctx.status = 301
     ctx.redirect(serviceConfig.auth.redirectPath) //重定向到请求页面

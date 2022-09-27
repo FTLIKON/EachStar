@@ -1,6 +1,7 @@
 import { Context } from 'koa'
 import { RepositoryPostgres } from '../stores'
-import { Pool } from 'pg'
+import axios from 'axios'
+
 export class CardController {
   repository
   constructor() {
@@ -30,12 +31,25 @@ export class CardController {
     ctx.body = card
   }
 
+  async starGithubRepo(ctx: Context, repoUrl: string) {
+    const accessToken = ctx.cookies.get('githubToken')
+    const repoData = repoUrl.slice(19)
+    await axios({
+      method: 'put',
+      url: 'https://api.github.com/user/starred/' + repoData,
+      headers: {
+        Authorization: 'token ' + accessToken,
+      },
+    })
+  }
+
   async starCard(ctx: Context) {
     const body = ctx.request.body
     const userId = ctx.user.id
     const cardId = body.cardId
 
     const newCard = await this.repository.starCard(userId, cardId)
+    this.starGithubRepo(ctx, newCard.title)
     ctx.body = newCard
   }
 
