@@ -35,7 +35,7 @@
 
 <script>
 import axios from "axios";
-import { Emitter } from 'mitt'
+import bus from '../utils';
 import { getCurrentInstance, onMounted } from 'vue-demi';
 import { ElMessage } from "element-plus";
 import Public from "../components/public.vue";
@@ -44,7 +44,6 @@ export default {
     components: {
       Public
     },
-    inject: ['refreshUserInfo'],
     mounted() {
       let that = this;
       that.pageChange(1);
@@ -121,9 +120,7 @@ export default {
             type: 'success',
           })
           card.starNum -= 1;
-          const {ctx: $this} = getCurrentInstance();
-          const bus = $this.$bus;
-          bus.emit('refreshUserInfo')
+          bus.emit('refreshUserInfo');
         })
         .catch(function (error) {
           console.log(error);
