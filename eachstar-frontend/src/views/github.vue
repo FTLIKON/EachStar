@@ -12,7 +12,7 @@
               <el-divider direction="vertical" />
               <span style="color: #409EFF">悬赏次数{{i.starNum}}</span> 
             </span>
-            <el-button id="card-button" @click="starButton(i)" type="success" plain>Star</el-button>
+            <el-button v-show="!i.starred" id="card-button" @click="starButton(i)" type="success" plain>Star</el-button>
           </div>
         </div>
       </el-card>
@@ -35,7 +35,7 @@
 
 <script>
 import axios from "axios";
-import { Emitter } from 'mitt'
+import bus from '../utils/emitter';
 import { getCurrentInstance, onMounted } from 'vue-demi';
 import { ElMessage } from "element-plus";
 import Public from "../components/public.vue";
@@ -44,7 +44,6 @@ export default {
     components: {
       Public
     },
-    inject: ['refreshUserInfo'],
     mounted() {
       let that = this;
       that.pageChange(1);
@@ -121,9 +120,8 @@ export default {
             type: 'success',
           })
           card.starNum -= 1;
-          const {ctx: $this} = getCurrentInstance();
-          const bus = $this.$bus;
-          bus.emit('refreshUserInfo')
+          card.starred = true;
+          bus.emit('refreshUserInfo');
         })
         .catch(function (error) {
           console.log(error);

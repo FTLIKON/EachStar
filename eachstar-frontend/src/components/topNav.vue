@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import {Emitter} from 'mitt'
+import bus from '../utils/emitter';
 import { buildSlots } from "@vue/compiler-core";
 import axios from "axios";
 import GithubAuth from './githubAuth.vue';
@@ -48,11 +48,8 @@ export default {
     beforeDestroy() {
     },
     mounted() {
-      const {ctx: $this} = getCurrentInstance();
-      const bus = $this.$bus;
-
       this.getUserInfo();
-      bus.on('refreshUserInfo', this.getUserInfo());
+      bus.on('refreshUserInfo', this.getUserInfo);
     },
     methods: {
       authButton() {
