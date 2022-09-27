@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import bus from '../utils';
+import bus from '../utils/emitter';
 import { buildSlots } from "@vue/compiler-core";
 import axios from "axios";
 import GithubAuth from './githubAuth.vue';

@@ -35,7 +35,7 @@
 
 <script>
 import axios from "axios";
-import bus from '../utils';
+import bus from '../utils/emitter';
 import { getCurrentInstance, onMounted } from 'vue-demi';
 import { ElMessage } from "element-plus";
 import Public from "../components/public.vue";
