@@ -120,7 +120,7 @@ export default {
             type: 'success',
           })
           card.starNum -= 1;
-          that.refreshUserInfo();
+          this.$bus.$emit('refreshUserInfo');
         })
         .catch(function (error) {
           console.log(error);
