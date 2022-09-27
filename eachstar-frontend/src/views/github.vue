@@ -13,12 +13,12 @@
               <span style="color: #409EFF">悬赏次数{{i.starNum}}</span> 
             </span>
             <el-button 
-              v-show="i.starred"
+              v-show="!i.starred"
               id="card-button"
               @click="starButton(i)"
-              plain><span id="star-false">☆</span> Star</el-button>
+              plain><span id="star-false">✩</span> Star</el-button>
             <el-button
-              v-show="!i.starred"
+              v-show="i.starred"
               id="card-button"
               type="info"
               plain><span id="star-true">⭐</span> Starred</el-button>
