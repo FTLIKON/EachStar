@@ -38,7 +38,6 @@ import axios from "axios";
 import { getCurrentInstance, onMounted } from 'vue-demi';
 import { ElMessage } from "element-plus";
 import Public from "../components/public.vue";
-import TopNav from "../components/topNav.vue";
 export default {
     name: "github",
     components: {
