@@ -12,7 +12,7 @@
               <el-divider direction="vertical" />
               <span style="color: #409EFF">悬赏次数{{i.starNum}}</span> 
             </span>
-            <el-button id="card-button" @click="starButton(i.id)" type="success" plain>Star</el-button>
+            <el-button id="card-button" @click="starButton(i)" type="success" plain>Star</el-button>
           </div>
         </div>
       </el-card>
@@ -102,8 +102,28 @@ export default {
 
       // ---------- star-card相关 ----------
       // Star按钮
-      starButton: function(id){
-        console.log("try to star: "+id);
+      starButton: function(card){
+        card.starNum -= 1;
+        // var that = this;
+        // let param = new URLSearchParams();
+        // param.append("cardId", card.id);
+        // var config = {
+        //   method: 'post',
+        //   url: 'server/api/card/quickstar',
+        //   data : param
+        // };
+        
+        // axios(config)
+        // .then(function (response) {
+        //   ElMessage({
+        //     message: '已成功star, 获得积分!',
+        //     type: 'success',
+        //   })
+        //   card.starNum -= 1;
+        // })
+        // .catch(function (error) {
+        //   console.log(error);
+        // });
       },
 
       // ========== github.vue 页面控制 ==========
