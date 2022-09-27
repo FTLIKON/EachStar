@@ -227,6 +227,26 @@ export class RepositoryPostgres implements RepositoryType {
     return { count: BigInt(resCount.rows[0].count), data: cards }
   }
 
+  async getCardsByUserId(userId: bigint, start: number): Promise<any> {
+    const result = await this.client.query<CardPO>(
+      `--sql
+      SELECT * FROM cards WHERE user_id=$1 ORDER BY updated_at DESC limit 10 offset $2
+    `,
+      [userId, start],
+    )
+    let cards = []
+    for (let index in result.rows) {
+      cards.push(this.formatCardPo(result.rows[index]))
+    }
+    const resCount = await this.client.query(
+      `--sql
+      SELECT count(*) FROM cards WHERE user_id=$1 
+    `,
+      [userId],
+    )
+    return { count: BigInt(resCount.rows[0].count), data: cards }
+  }
+
   async starCard(userId: bigint, cardId: bigint): Promise<any> {
     // 将用户star的动作入库
     const userStarData = await this.client.query<UserStarPO>(
