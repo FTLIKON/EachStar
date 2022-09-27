@@ -16,12 +16,12 @@
               v-show="!i.starred"
               id="card-button"
               @click="starButton(i)"
-              plain><span id="star-false">💫</span> Star</el-button>
+              plain>💫 Star</el-button>
             <el-button
               v-show="i.starred"
               id="card-button"
               type="info"
-              plain><span id="star-true">⭐</span> Starred</el-button>
+              plain>⭐ Starred</el-button>
           </div>
         </div>
       </el-card>
@@ -271,14 +271,6 @@ export default {
 
   width: 30%;
   display: flex;
-}
-#star-false {
-  color: #303133;
-  font-weight: bold;
-}
-#star-true {
-  color: #E6A23C;
-  font-weight: bold;
 }
 #pagination {
   margin-top: 3%;
