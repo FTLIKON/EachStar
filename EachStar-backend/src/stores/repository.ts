@@ -256,13 +256,6 @@ export class RepositoryPostgres implements RepositoryType {
     let oldCard = this.formatCardPo(cardData.rows[0])
     oldCard.starNum = oldCard.starNum - BigInt(1)
     const newCard = await this.updateCard(oldCard)
-    //将卡片作者的积分减去一个star price
-    const cardAuthor = await this.getUserById(newCard.userId)
-    if (cardAuthor) {
-      const cardAuthorId = cardAuthor.id
-      const authorNewPrice = cardAuthor.price - newCard.starPrice
-      this.changeUserPrice(cardAuthorId, authorNewPrice)
-    }
 
     //将star卡片用户的积分加一个star price
     const starUser = await this.getUserById(userId)
