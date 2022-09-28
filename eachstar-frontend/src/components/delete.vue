@@ -89,10 +89,15 @@ export default {
   flex-direction: column;
   align-items: center;
 }
-.title {
-  
-}
 
+.title {
+  width: 100%;
+  font-weight: bold;
+  font-size: large;
+}
+.discription {
+  width: 100%;
+}
 .dialog-footer {
   margin-top: 8%;
   margin-bottom: 3%;
