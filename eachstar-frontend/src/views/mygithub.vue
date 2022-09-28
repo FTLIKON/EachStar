@@ -66,14 +66,11 @@ export default {
       
       if(card.removing != true){
         var that = this;
-        let param = new URLSearchParams();
-        param.append("cardId", card.id);
         var config = {
           method: 'delete',
-          url: 'server/api/card',
-          data : param
+          url: 'server/api/card?cardId='+card.id,
         };
-        
+
         card.removing != true;
         axios(config)
         .then(function (response) {
