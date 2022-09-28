@@ -53,7 +53,7 @@ export default {
     components: {
       Public
     },
-    mounted() {
+    created() {
       let that = this;
       that.pageChange(1);
     },
