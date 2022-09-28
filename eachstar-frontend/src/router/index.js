@@ -22,14 +22,14 @@ const router = createRouter({
         title: "EachStar",
       },
     },
-    {
-      path: "/mygithub",
-      name: "mygithub",
-      component: mygithub,
-      meta: {
-        title: "EachStar",
-      },
-    },
+    // {
+    //   path: "/mygithub",
+    //   name: "mygithub",
+    //   component: mygithub,
+    //   meta: {
+    //     title: "EachStar",
+    //   },
+    // },
   ],
 });
 
