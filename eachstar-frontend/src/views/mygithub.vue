@@ -62,12 +62,12 @@ export default {
   },
   methods: {
     // 删除star按钮
-    starButton: function(card){
+    deleteStar: function(card){
       
       // 防止反复点击
       console.log(card.removing);
       card.removing = true;
-      
+
       var that = this;
       let param = new URLSearchParams();
       param.append("cardId", card.id);
