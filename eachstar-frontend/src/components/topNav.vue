@@ -16,7 +16,7 @@
       </el-menu-item>
       <el-divider direction="vertical" />
       <el-menu-item index="2">
-        <router-link to="/test" class="link">你的仓库</router-link>
+        <router-link to="/mygithub" class="link">你的仓库</router-link>
       </el-menu-item>
     </div>
 
