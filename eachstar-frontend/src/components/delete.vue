@@ -77,7 +77,7 @@ export default {
       axios(config)
       .then(function (response) {
         console.log(response.data.price);
-        that.userPrice = response.data.price;
+        that.userPrice = parseInt(response.data.price);
       })
       .catch(function (error) {
         console.log(error);
