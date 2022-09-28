@@ -185,6 +185,8 @@ export default {
             index++; start++;
           }
           that.currentPageData = list;
+
+          console.log("[DEBUGGER] 卡片信息:"+list);
         })
         .catch(function (error) {
           console.log(error);
