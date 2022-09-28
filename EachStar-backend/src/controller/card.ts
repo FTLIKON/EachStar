@@ -42,6 +42,7 @@ export class CardController {
       this.repository.changeUserPrice(cardAuthor.id, authorNewPrice)
     }
     this.repository.deleteCardById(userId, card.id)
+    ctx.status = 204
   }
 
   async starGithubRepo(ctx: Context, repoUrl: string): Promise<Boolean> {
@@ -78,7 +79,7 @@ export class CardController {
       const newCard = await this.repository.starCard(userId, cardId)
       ctx.body = newCard
     } else {
-      ctx.state = 400
+      ctx.status = 400
       ctx.body = {}
     }
   }
