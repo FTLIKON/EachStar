@@ -38,7 +38,7 @@ export default {
   name: "mygithub",
   mounted() {
     let that = this;
-    that.pageChange(1);
+    // that.pageChange(1);
   },
   data() {
     return {
