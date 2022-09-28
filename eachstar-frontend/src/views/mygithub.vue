@@ -2,7 +2,7 @@
   <div class="mygithub">
     <div class="card-view">
       <!-- 卡片列表 -->
-      <el-card v-for="j in currentPageData" :key="j" class="card-list">
+      <el-card v-for="j of currentPageData" :key="j" class="card-list">
         <div class="card-block">
           <div class="card-title">{{j.title}}</div>
           <div class="card-discription">{{j.context}} {{j.updatedAt}}</div>
