@@ -15,7 +15,7 @@
             <el-button 
               id="card-button"
               @click="deleteStar(i)"
-              type="warning"
+              type="danger"
               plain>💥 删除</el-button>
           </div>
         </div>
