@@ -74,9 +74,11 @@ export class CardController {
     const cardId = body.cardId
 
     const card = await this.repository.getCardById(cardId)
-
-    if (await this.starGithubRepo(ctx, card.title)) {
+    const isStared = await this.starGithubRepo(ctx, card.title)
+    console.log(isStared)
+    if (isStared) {
       const newCard = await this.repository.starCard(userId, cardId)
+
       ctx.body = newCard
     } else {
       ctx.status = 400
