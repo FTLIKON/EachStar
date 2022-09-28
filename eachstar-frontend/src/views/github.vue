@@ -152,8 +152,6 @@ export default {
         axios(config)
         .then(function (response) {
           that.userId = response.data.id;
-
-          console.log(response.data.id+"qwq"+that.userId);
         })
         .catch(function (error) {
           console.log(error);
