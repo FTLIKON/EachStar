@@ -230,18 +230,17 @@ export class RepositoryPostgres implements RepositoryType {
   async getCardsByTimeSort(start: number): Promise<any> {
     const result = await this.client.query<CardPO>(
       `--sql
-      SELECT * FROM cards ORDER BY updated_at DESC limit 10 offset $1
+      SELECT * FROM cards WHERE star_num > 0 ORDER BY updated_at DESC limit 10 offset $1
     `,
       [start],
     )
     let cards = []
     for (let index in result.rows) {
-      if (result.rows[index].star_num > BigInt(0))
-        cards.push(this.formatCardPo(result.rows[index]))
+      cards.push(this.formatCardPo(result.rows[index]))
     }
     const resCount = await this.client.query(
       `--sql
-      SELECT count(*) FROM cards
+      SELECT count(*) FROM cards WHERE star_num > 0 
     `,
     )
 
