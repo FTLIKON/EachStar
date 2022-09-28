@@ -12,7 +12,7 @@
       </div>
       <span class="dialog-footer">
         <el-button @click="dialogVisible = false">取消</el-button>
-        <el-button type="primary" @click="deleteStar()" v-show="!cardRemoving">删除</el-button>
+        <el-button type="primary" @click="deleteStar" v-show="!cardRemoving">删除</el-button>
       </span>
     </div>
   </el-dialog>
@@ -28,6 +28,7 @@ export default {
   data() {
     return {
       dialogVisible: false,
+      cardId: 0,
       cardTitle: "",
       cardDiscription: "",
       cardRemoving: false,
@@ -51,7 +52,7 @@ export default {
           type: "warning",
         });
         bus.emit("refreshUserInfo");
-        that.$parent.getMyPageData(that.currentPage);
+        that.$parent.getMyPageData(that.$parent.currentPage);
         that.dialogVisible = false;
       })
       .catch(function (error) {
@@ -62,6 +63,7 @@ export default {
 
     openPage(card) { // 打开该卡片的发布页面
       this.dialogVisible = true;
+      this.cardId = card.id;
       this.cardTitle = card.title;
       this.cardDiscription = card.context;
       this.starPrice = card.starPrice;

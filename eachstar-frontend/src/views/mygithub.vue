@@ -14,7 +14,7 @@
             </span>
             <el-button 
               id="card-button"
-              @click="deleteStar(item)"
+              @click="deleteButton(item)"
               type="danger"
               plain>💥 删除</el-button>
           </div>
@@ -63,7 +63,7 @@ export default {
         };
     },
     methods: {
-        publicButton(card) { // 删除按钮->点击打开delete.vue
+        deleteButton(card) { // 删除按钮->点击打开delete.vue
           this.$.refs.Delete.openPage(card);
         },
         // 删除star
