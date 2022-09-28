@@ -86,6 +86,8 @@ export default {
 <style lang="scss" scoped>
 .delete-block {
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .title {
   
