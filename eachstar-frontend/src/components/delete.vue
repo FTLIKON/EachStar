@@ -46,7 +46,7 @@ export default {
       .then(function (response) {
         ElMessage({
           message: "成功删除" + that.cardTitle,
-          type: "warning",
+          type: "success",
         });
         bus.emit("refreshUserInfo");
         that.$parent.getMyPageData(that.$parent.currentPage);
