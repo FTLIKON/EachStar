@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import bus from '../utils/emitter';
 import { register } from "../api/auth";
 import { ElMessage } from "element-plus";
 import axios from "axios";
@@ -37,27 +38,27 @@ export default {
     };
   },
   methods: {  
-    // deleteStar: function(card){
-    //   this.dialogVisible = false;
-    //   var that = this;
-    //   var config = {
-    //     method: "delete",
-    //     url: "server/api/card?cardId=" + card.id,
-    //   };
-    //   axios(config)
-    //   .then(function (response) {
-    //     ElMessage({
-    //       message: "成功删除" + card.title,
-    //       type: "warning",
-    //     });
-    //     bus.emit("refreshUserInfo");
-    //     that.getMyPageData(that.currentPage);
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //     card.removing = false;
-    //   });
-    // },
+    deleteStar: function(card){
+      var that = this;
+      var config = {
+        method: "delete",
+        url: "server/api/card?cardId=" + card.id,
+      };
+      axios(config)
+      .then(function (response) {
+        ElMessage({
+          message: "成功删除" + card.title,
+          type: "warning",
+        });
+        bus.emit("refreshUserInfo");
+        that.$parent.getMyPageData(that.currentPage);
+        that.dialogVisible = false;
+      })
+      .catch(function (error) {
+        console.log(error);
+        card.removing = false;
+      });
+    },
 
     openPage(card) { // 打开该卡片的发布页面
       this.dialogVisible = true;
