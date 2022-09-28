@@ -96,104 +96,104 @@ export default {
 </script>
 
 <style scoped>
-  .github {
-    background-color: none;
+.mygithub {
+  background-color: none;
+
+  height: 600px;
+  margin-top: 1%;
+  display: flex;
+  justify-content: start;
+}
+
+.card-view {
+  background-color: none;
+
+  margin-left: 20%;
+  width: 60%;
+}
+.aside-menu {
+  background-color: none;
+
+  margin-top: 1%;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-list {
+  margin-top: 2%;
+}
+#public-button {
+  width: 70%;
+  height: 50px;
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-bottom: 5%;
+  font-size: medium;
+  font-weight: bolder;
+  text-shadow: 0px 0px 2px #303133; 
+
+  border-radius: 15px;
+}
+
+.card-block {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+.card-title {
+  color: #303133;
+  font-size: large;
+  font-weight: bold;
+
+  margin-bottom: 2%;
+  text-align: left;
+}
+.card-discription {
+  color: #606266;
+
+  text-align: left;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;    
+  letter-spacing: 0;
+  text-overflow: ellipsis;
+
+
+  width: 90%;
+  margin-bottom: 3%;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+.card-valueblock{
+  background-color: none;
+
+  width: 100%;
+  display: flex;
+}
+.card-rank {
+  color: #b88230;
+  background-color: none;
   
-    height: 600px;
-    margin-top: 1%;
-    display: flex;
-    justify-content: start;
-  }
-  
-  .card-view {
-    background-color: none;
-  
-    margin-left: 20%;
-    width: 60%;
-  }
-  .aside-menu {
-    background-color: none;
-  
-    margin-top: 1%;
-    width: 20%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .card-list {
-    margin-top: 2%;
-  }
-  #public-button {
-    width: 70%;
-    height: 50px;
-    margin-left: 15%;
-    margin-right: 15%;
-    margin-bottom: 5%;
-    font-size: medium;
-    font-weight: bolder;
-    text-shadow: 0px 0px 2px #303133; 
-  
-    border-radius: 15px;
-  }
-  
-  .card-block {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-  }
-  .card-title {
-    color: #303133;
-    font-size: large;
-    font-weight: bold;
-  
-    margin-bottom: 2%;
-    text-align: left;
-  }
-  .card-discription {
-    color: #606266;
-  
-    text-align: left;
-  
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;    
-    letter-spacing: 0;
-    text-overflow: ellipsis;
-  
-  
-    width: 90%;
-    margin-bottom: 3%;
-    margin-left: 3%;
-    margin-right: 3%;
-  }
-  .card-valueblock{
-    background-color: none;
-  
-    width: 100%;
-    display: flex;
-  }
-  .card-rank {
-    color: #b88230;
-    background-color: none;
-    
-    width: 80%;
-    margin-left: 3%;
-    margin-right: 3%;
-    margin-top: auto;
-    margin-bottom: auto;
-    text-align: left;
-    font-size: small;
-  }
-  #card-button {
-    font-size: large;
-  
-    width: 30%;
-    display: flex;
-  }
-  #pagination {
-    margin-top: 3%;
-    justify-content: center;
-  }
-  </style>
+  width: 80%;
+  margin-left: 3%;
+  margin-right: 3%;
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: left;
+  font-size: small;
+}
+#card-button {
+  font-size: large;
+
+  width: 30%;
+  display: flex;
+}
+#pagination {
+  margin-top: 3%;
+  justify-content: center;
+}
+</style>
