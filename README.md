@@ -15,3 +15,7 @@
 ## 环境部署
 
 -
+
+## 特别鸣谢
+
+[![Stargazers repo roster for @FTLIKON/EachStar](https://reporoster.com/stars/FTLIKON/EachStar)](https://github.com/FTLIKON/EachStar/stargazers)
