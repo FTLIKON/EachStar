@@ -3,7 +3,7 @@
     <div class="card-view">
       <!-- 卡片列表 -->
       <el-card v-for="item of currentPageData" :key="item" class="card-list">
-        <div class="card-block">
+        <div class="card-block" v-show="item!=undefined">
           <div class="card-title">{{item.title}}</div>
           <div class="card-discription">{{item.context}} {{item.updatedAt}}</div>
           <div class="card-valueblock">
