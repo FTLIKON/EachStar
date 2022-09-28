@@ -56,7 +56,6 @@ export default {
     mounted() {
       let that = this;
       that.pageChange(1);
-      that.getUserId();
     },
     data() {
       return {
