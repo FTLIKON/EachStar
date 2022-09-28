@@ -55,7 +55,7 @@ export default {
     },
     mounted() {
       let that = this;
-      that.getPageData(0);
+      that.pageChange(1);
     },
     data() {
       return {
@@ -123,6 +123,7 @@ export default {
           data : param
         };
         
+        card.starred = true;
         axios(config)
         .then(function (response) {
           ElMessage({
@@ -130,7 +131,6 @@ export default {
             type: 'success',
           })
           card.starNum -= 1;
-          card.starred = true;
           bus.emit('refreshUserInfo');
           if(card.starNum == 0){ // 如果悬赏次数为0->刷新页面
             that.getPageData(that.currentPage);
@@ -138,23 +138,24 @@ export default {
         })
         .catch(function (error) {
           console.log(error);
+          card.starred = false;
         });
       },
 
-      // getUserId() { // 获取用户id->判断是否可以star
-      //   var that = this;
-      //   var config = {
-      //     method: 'get',
-      //     url: 'server/api/user/@me'
-      //   };
-      //   axios(config)
-      //   .then(function (response) {
-      //     that.userId = response.data.id;
-      //   })
-      //   .catch(function (error) {
-      //     console.log(error);
-      //   });
-      // },
+      getUserId() { // 获取用户id->判断是否可以star
+        var that = this;
+        var config = {
+          method: 'get',
+          url: 'server/api/user/@me'
+        };
+        axios(config)
+        .then(function (response) {
+          that.userId = response.data.id;
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+      },
 
       // ========== github.vue 页面控制 ==========
       // 执行换页
