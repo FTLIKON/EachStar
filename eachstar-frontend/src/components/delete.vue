@@ -69,6 +69,19 @@ export default {
       this.cardDiscription = card.context;
       this.starPrice = card.starPrice;
       this.starNum = card.starNum;
+      var that = this;
+      var config = {
+        method: 'get',
+        url: 'server/api/user/@me'
+      };
+      axios(config)
+      .then(function (response) {
+        console.log(response.data.price);
+        that.userPrice = response.data.price;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
     },
   },
 }
