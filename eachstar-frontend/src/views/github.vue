@@ -2,23 +2,23 @@
   <div class="github">
     <div class="card-view">
       <!-- 卡片列表 -->
-      <el-card v-for="i in currentPageData" :key="i" class="card-list">
+      <el-card v-for="x in currentPageData" :key="x" class="card-list">
         <div class="card-block">
-          <div class="card-title">{{i.title}}</div>
-          <div class="card-discription">{{i.context}} {{i.updatedAt}}</div>
+          <div class="card-title">{{x.title}}</div>
+          <div class="card-discription">{{x.context}} {{x.updatedAt}}</div>
           <div class="card-valueblock">
             <span class="card-rank">
-              <span>积分价值{{i.starPrice}}</span> 
+              <span>积分价值{{x.starPrice}}</span> 
               <el-divider direction="vertical" />
-              <span style="color: #409EFF">悬赏次数{{i.starNum}}</span> 
+              <span style="color: #409EFF">悬赏次数{{x.starNum}}</span> 
             </span>
             <el-button 
-              v-show="!i.starred"
+              v-show="!x.starred"
               id="card-button"
-              @click="starButton(i)"
+              @click="starButton(x)"
               plain>💫 Star</el-button>
             <el-button
-              v-show="i.starred"
+              v-show="x.starred"
               id="card-button"
               type="info"
               plain>⭐ Starred</el-button>
@@ -55,12 +55,10 @@ export default {
     },
     mounted() {
       let that = this;
-      that.pageChange(1);
-      that.getUserId();
+      that.getPageData(0);
     },
     data() {
       return {
-        userId: 0,
         pageSize: 10,
         totalPage: 0,
         totalCard: 35,
@@ -143,20 +141,20 @@ export default {
         });
       },
 
-      getUserId() { // 获取用户id->判断是否可以star
-        var that = this;
-        var config = {
-          method: 'get',
-          url: 'server/api/user/@me'
-        };
-        axios(config)
-        .then(function (response) {
-          that.userId = response.data.id;
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-      },
+      // getUserId() { // 获取用户id->判断是否可以star
+      //   var that = this;
+      //   var config = {
+      //     method: 'get',
+      //     url: 'server/api/user/@me'
+      //   };
+      //   axios(config)
+      //   .then(function (response) {
+      //     that.userId = response.data.id;
+      //   })
+      //   .catch(function (error) {
+      //     console.log(error);
+      //   });
+      // },
 
       // ========== github.vue 页面控制 ==========
       // 执行换页
@@ -187,6 +185,8 @@ export default {
             index++; start++;
           }
           that.currentPageData = list;
+
+          console.log("[DEBUGGER] 卡片信息:"+list);
         })
         .catch(function (error) {
           console.log(error);

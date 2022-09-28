@@ -2,19 +2,19 @@
   <div class="mygithub">
     <div class="card-view">
       <!-- 卡片列表 -->
-      <el-card v-for="i in currentPageData" :key="i" class="card-list">
+      <el-card v-for="j of currentPageData" :key="j" class="card-list">
         <div class="card-block">
-          <div class="card-title">{{i.title}}</div>
-          <div class="card-discription">{{i.context}} {{i.updatedAt}}</div>
+          <div class="card-title">{{j.title}}</div>
+          <div class="card-discription">{{j.context}} {{j.updatedAt}}</div>
           <div class="card-valueblock">
             <span class="card-rank">
-              <span>积分价值{{i.starPrice}}</span> 
+              <span>积分价值{{j.starPrice}}</span> 
               <el-divider direction="vertical" />
-              <span style="color: #409EFF">悬赏次数{{i.starNum}}</span> 
+              <span style="color: #409EFF">悬赏次数{{j.starNum}}</span> 
             </span>
             <el-button 
               id="card-button"
-              @click="deleteStar(i)"
+              @click="deleteStar(j)"
               type="danger"
               plain>💥 删除</el-button>
           </div>
@@ -61,6 +61,32 @@ export default {
     }
   },
   methods: {
+    // 删除star按钮
+    // starButton: function(card){
+    //   var that = this;
+    //   let param = new URLSearchParams();
+    //   param.append("cardId", card.id);
+    //   var config = {
+    //     method: 'delete',
+    //     url: 'server/api/card',
+    //     data : param
+    //   };
+      
+    //   axios(config)
+    //   .then(function (response) {
+    //     ElMessage({
+    //       message: '正在删除Star!',
+    //       type: 'danger',
+    //     })
+    //     bus.emit('refreshUserInfo');
+    //     that.getPageData(that.currentPage);
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   });
+    // },
+
+    // page内容显示 
     pageChange: function(page){
         this.currentPage = page-1;
 
