@@ -236,7 +236,7 @@ export class RepositoryPostgres implements RepositoryType {
     )
     let cards = []
     for (let index in result.rows) {
-      if (result.rows[index].star_num != BigInt(0))
+      if (result.rows[index].star_num > BigInt(0))
         cards.push(this.formatCardPo(result.rows[index]))
     }
     const resCount = await this.client.query(
