@@ -28,7 +28,7 @@
       :total="totalPage*10"/>
     </div>
   </div>
-  <Delete @deleteStar="deleteStar" ref="Delete"/>
+  <Delete ref="Delete"/>
 </template>
 
 <script>
@@ -66,27 +66,6 @@ export default {
         deleteButton(card) { // 删除按钮->点击打开delete.vue
           this.$.refs.Delete.openPage(card);
         },
-        // 删除star
-        // deleteStar: function (card) {
-        //   var that = this;
-        //   var config = {
-        //     method: "delete",
-        //     url: "server/api/card?cardId=" + card.id,
-        //   };
-        //   axios(config)
-        //   .then(function (response) {
-        //     ElMessage({
-        //       message: "成功删除" + card.title,
-        //       type: "warning",
-        //     });
-        //     bus.emit("refreshUserInfo");
-        //     that.getMyPageData(that.currentPage);
-        //   })
-        //   .catch(function (error) {
-        //     console.log(error);
-        //     card.removing = false;
-        //   });
-        // },
 
         // ---------- page内容显示 ---------- 
         pageChange: function (page) {
