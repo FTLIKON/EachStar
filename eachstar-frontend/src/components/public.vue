@@ -63,6 +63,12 @@ export default {
           message: "您输入的似乎不是Github链接, 请检查",
           type: "warning",
         });
+      if (this.userPrice-this.starPrice*this.starNum < 0){
+        ElMessage({
+          message: "您的积分不够了, 请检查",
+          type: "warning",
+        });
+      }
       } else {
         var that = this;
         // debug
