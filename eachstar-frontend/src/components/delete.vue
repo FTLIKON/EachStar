@@ -97,9 +97,13 @@ export default {
 }
 .discription {
   width: 100%;
+  margin-top: 3%;
+}
+.user-rank-calc {
+  margin-top: 3%;
 }
 .dialog-footer {
-  margin-top: 8%;
+  margin-top: 3%;
   margin-bottom: 3%;
 }
 </style>
