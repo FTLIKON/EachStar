@@ -56,6 +56,7 @@ export default {
     mounted() {
       let that = this;
       that.pageChange(1);
+      console.log(that.currentPageData);
     },
     data() {
       return {
@@ -182,7 +183,6 @@ export default {
           var start = page*that.pageSize;
           while(index < that.pageSize && start < that.totalCard){
             list.push(response.data.data[index]);
-            console.log(response.data.data[index]);
             index++; start++;
           }
           that.currentPageData = list;
