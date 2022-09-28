@@ -59,7 +59,6 @@ export default {
     },
     data() {
       return {
-        userId: 0,
         pageSize: 10,
         totalPage: 0,
         totalCard: 35,
