@@ -3,7 +3,7 @@
     <div class="card-view">
       <!-- 卡片列表 -->
       <el-card v-for="item of currentPageData" :key="item" class="card-list">
-        <div class="card-block" v-show="item!=undefined">
+        <div class="card-block">
           <div class="card-title">{{item.title}}</div>
           <div class="card-discription">{{item.context}} {{item.updatedAt}}</div>
           <div class="card-valueblock">
@@ -181,12 +181,12 @@ export default {
           var index = 0;
           var start = page*that.pageSize;
           while(index < that.pageSize && start < that.totalCard){
-            list.push(response.data.data[index]);
+            if(response.data.data[index]!=undefined){
+              list.push(response.data.data[index]);
+            }
             index++; start++;
           }
           that.currentPageData = list;
-
-          console.log("[DEBUGGER] 卡片信息:"+list[1].title);
         })
         .catch(function (error) {
           console.log(error);
