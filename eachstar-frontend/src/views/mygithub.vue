@@ -62,29 +62,29 @@ export default {
   },
   methods: {
     // 删除star按钮
-    starButton: function(card){
-        var that = this;
-        let param = new URLSearchParams();
-        param.append("cardId", card.id);
-        var config = {
-          method: 'delete',
-          url: 'server/api/card',
-          data : param
-        };
-        
-        axios(config)
-        .then(function (response) {
-          ElMessage({
-            message: '正在删除Star!',
-            type: 'danger',
-          })
-          bus.emit('refreshUserInfo');
-          that.getPageData(that.currentPage);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-      },
+    // starButton: function(card){
+    //   var that = this;
+    //   let param = new URLSearchParams();
+    //   param.append("cardId", card.id);
+    //   var config = {
+    //     method: 'delete',
+    //     url: 'server/api/card',
+    //     data : param
+    //   };
+      
+    //   axios(config)
+    //   .then(function (response) {
+    //     ElMessage({
+    //       message: '正在删除Star!',
+    //       type: 'danger',
+    //     })
+    //     bus.emit('refreshUserInfo');
+    //     that.getPageData(that.currentPage);
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   });
+    // },
 
     // page内容显示 
     pageChange: function(page){
