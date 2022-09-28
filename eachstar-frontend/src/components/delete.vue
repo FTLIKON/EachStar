@@ -39,16 +39,17 @@ export default {
     };
   },
   methods: {  
-    deleteStar: function(card){
+    deleteStar: function(){
       var that = this;
+      that.cardRemoving = true;
       var config = {
         method: "delete",
-        url: "server/api/card?cardId=" + card.id,
+        url: "server/api/card?cardId=" + that.cardId,
       };
       axios(config)
       .then(function (response) {
         ElMessage({
-          message: "成功删除" + card.title,
+          message: "成功删除" + that.cardTitle,
           type: "warning",
         });
         bus.emit("refreshUserInfo");
@@ -57,7 +58,7 @@ export default {
       })
       .catch(function (error) {
         console.log(error);
-        card.removing = false;
+        cardRemoving = false;
       });
     },
 
