@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import test from "../views/test.vue";
+import mygithub from "../views/mygithub.vue";
 import github from "../views/github.vue";
 
 const router = createRouter({
@@ -13,18 +13,19 @@ const router = createRouter({
         title: "EachStar",
       },
     },
+
     {
-      path: "/test",
-      name: "test",
-      component: test,
+      path: "/github",
+      name: "github",
+      component: github,
       meta: {
         title: "EachStar",
       },
     },
     {
-      path: "/github",
-      name: "github",
-      component: github,
+      path: "/mygithub",
+      name: "mygithub",
+      component: mygithub,
       meta: {
         title: "EachStar",
       },
