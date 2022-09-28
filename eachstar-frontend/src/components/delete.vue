@@ -3,10 +3,6 @@
     <div class="input-block">
       <div class="title"> {{ cardTitle }} </div>
       <div class="discription"> {{cardDiscription }} </div>
-      <div class="rank-setting-block">
-        积分价值: {{ starPrice }}
-        悬赏次数: {{ starNum }}
-      </div>
       <div class="user-rank-calc">
         返回积分: {{ starPrice*starNum }} <el-divider direction="vertical" /> 剩余积分: {{ userPrice+starPrice*starNum }}
       </div>
@@ -88,21 +84,11 @@ export default {
 </script>
   
 <style lang="scss" scoped>
-.input-block {
-  display: flex;
-  flex-direction: column;
+.title {
+  
   align-items: center;
 }
-.discription-input, .title-input{
-  width: 70%;
-  margin-bottom: 10px;
-}
-.rank-setting-block {
-  width: 70%;
-}
-.slider {
-  margin-top: 3%;
-}
+
 .dialog-footer {
   margin-top: 3%;
   margin-bottom: 3%;
