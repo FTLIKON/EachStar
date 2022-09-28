@@ -64,31 +64,32 @@ export default {
     // 删除star按钮
     deleteStar: function(card){
       
-      // 防止反复点击
-      console.log(card.removing);
-      card.removing = true;
-
-      var that = this;
-      let param = new URLSearchParams();
-      param.append("cardId", card.id);
-      var config = {
-        method: 'delete',
-        url: 'server/api/card',
-        data : param
-      };
-      
-      axios(config)
-      .then(function (response) {
-        ElMessage({
-          message: '成功删除'+card.title,
-          type: 'danger',
+      if(card.removing != true){
+        var that = this;
+        let param = new URLSearchParams();
+        param.append("cardId", card.id);
+        var config = {
+          method: 'delete',
+          url: 'server/api/card',
+          data : param
+        };
+        
+        card.removing != true;
+        axios(config)
+        .then(function (response) {
+          ElMessage({
+            message: '成功删除'+card.title,
+            type: 'danger',
+          })
+          bus.emit('refreshUserInfo');
+          that.getPageData(that.currentPage);
         })
-        bus.emit('refreshUserInfo');
-        that.getPageData(that.currentPage);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+        .catch(function (error) {
+          console.log(error);
+          card.removing = false;
+        });
+      }
+
     },
 
     // page内容显示 
