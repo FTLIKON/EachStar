@@ -142,20 +142,20 @@ export default {
         });
       },
 
-      getUserId() { // 获取用户id->判断是否可以star
-        var that = this;
-        var config = {
-          method: 'get',
-          url: 'server/api/user/@me'
-        };
-        axios(config)
-        .then(function (response) {
-          that.userId = response.data.id;
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-      },
+      // getUserId() { // 获取用户id->判断是否可以star
+      //   var that = this;
+      //   var config = {
+      //     method: 'get',
+      //     url: 'server/api/user/@me'
+      //   };
+      //   axios(config)
+      //   .then(function (response) {
+      //     that.userId = response.data.id;
+      //   })
+      //   .catch(function (error) {
+      //     console.log(error);
+      //   });
+      // },
 
       // ========== github.vue 页面控制 ==========
       // 执行换页
