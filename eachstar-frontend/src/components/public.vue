@@ -41,6 +41,7 @@
 <script>
 import { register } from "../api/auth";
 import { ElMessage } from "element-plus";
+import { validateGithubUrl } from "../utils/validate.js"
 import axios from "axios";
 
 export default {
@@ -57,12 +58,9 @@ export default {
   },
   methods: {  
     publicCard: function(){
-      if (this.cardTitle == "") {
-
-        // 验证填写title和描述的合法性
-
+      if (validateGithubUrl(this.cardTitle)) {
         ElMessage({
-          message: "两次输入密码不一致",
+          message: "您输入的似乎不是Github链接, 请检查",
           type: "warning",
         });
       } else {
