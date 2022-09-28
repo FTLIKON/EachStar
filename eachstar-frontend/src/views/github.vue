@@ -2,23 +2,23 @@
   <div class="github">
     <div class="card-view">
       <!-- 卡片列表 -->
-      <el-card v-for="i in currentPageData" :key="i" class="card-list">
+      <el-card v-for="x in currentPageData" :key="x" class="card-list">
         <div class="card-block">
-          <div class="card-title">{{i.title}}</div>
-          <div class="card-discription">{{i.context}} {{i.updatedAt}}</div>
+          <div class="card-title">{{x.title}}</div>
+          <div class="card-discription">{{x.context}} {{x.updatedAt}}</div>
           <div class="card-valueblock">
             <span class="card-rank">
-              <span>积分价值{{i.starPrice}}</span> 
+              <span>积分价值{{x.starPrice}}</span> 
               <el-divider direction="vertical" />
-              <span style="color: #409EFF">悬赏次数{{i.starNum}}</span> 
+              <span style="color: #409EFF">悬赏次数{{x.starNum}}</span> 
             </span>
             <el-button 
-              v-show="!i.starred"
+              v-show="!x.starred"
               id="card-button"
               @click="starButton(i)"
               plain>💫 Star</el-button>
             <el-button
-              v-show="i.starred"
+              v-show="x.starred"
               id="card-button"
               type="info"
               plain>⭐ Starred</el-button>
