@@ -1,8 +1,8 @@
 <template>
   <el-dialog v-model="dialogVisible" title="删除卡片">
-    <div class="input-block">
+    <div class="delete-block">
       <div class="title"> {{ cardTitle }} </div>
-      <div class="discription"> {{cardDiscription }} </div>
+      <div class="discription"> {{ cardDiscription }} </div>
       <div class="user-rank-calc">
         返回积分: {{ starPrice*starNum }} <el-divider direction="vertical" /> 剩余积分: {{ userPrice+starPrice*starNum }}
       </div>
@@ -84,13 +84,15 @@ export default {
 </script>
   
 <style lang="scss" scoped>
+.delete-block {
+  display: flex;
+}
 .title {
   
-  align-items: center;
 }
 
 .dialog-footer {
-  margin-top: 3%;
+  margin-top: 8%;
   margin-bottom: 3%;
 }
 </style>
