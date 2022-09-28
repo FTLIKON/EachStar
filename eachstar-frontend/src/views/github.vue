@@ -132,6 +132,9 @@ export default {
           card.starNum -= 1;
           card.starred = true;
           bus.emit('refreshUserInfo');
+          if(card.starNum == 0){ // 如果悬赏次数为0->刷新页面
+            that.getPageData(that.currentPage);
+          }
         })
         .catch(function (error) {
           console.log(error);
