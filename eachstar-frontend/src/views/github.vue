@@ -56,9 +56,11 @@ export default {
     mounted() {
       let that = this;
       that.pageChange(1);
+      that.getUserId();
     },
     data() {
       return {
+        userId: 0,
         pageSize: 10,
         totalPage: 0,
         totalCard: 35,
@@ -135,6 +137,22 @@ export default {
           if(card.starNum == 0){ // 如果悬赏次数为0->刷新页面
             that.getPageData(that.currentPage);
           }
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+      },
+
+      getUserId() { // 获取用户id->判断是否可以star
+        var that = this;
+        var config = {
+          method: 'get',
+          url: 'server/api/user/@me'
+        };
+        axios(config)
+        .then(function (response) {
+          that.userId = response.data.id;
+          console.log(that.userId);
         })
         .catch(function (error) {
           console.log(error);
