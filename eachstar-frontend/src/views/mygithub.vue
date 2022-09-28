@@ -79,7 +79,7 @@ export default {
             type: 'danger',
           })
           bus.emit('refreshUserInfo');
-          that.getPageData(that.currentPage);
+          that.getMyPageData(that.currentPage);
         })
         .catch(function (error) {
           console.log(error);
