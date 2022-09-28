@@ -41,6 +41,7 @@ export interface RepositoryType {
     expireTime: Date,
   ): Promise<Card>
   updateCard(data: Card): Promise<Card>
+  getCardById(cardId: bigint): Promise<Card>
   getCardsByTimeSort(start: number): Promise<any>
   getCardsByUserId(userId: bigint, start: number): Promise<any>
   starCard(userId: bigint, cardId: bigint): Promise<any>

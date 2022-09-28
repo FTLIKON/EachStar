@@ -207,6 +207,16 @@ export class RepositoryPostgres implements RepositoryType {
     return this.formatCardPo(result.rows[0])
   }
 
+  async getCardById(cardId: bigint): Promise<Card> {
+    const result = await this.client.query<CardPO>(
+      `--sql
+      SELECT * FROM cards WHERE id=$1
+    `,
+      [cardId],
+    )
+    return this.formatCardPo(result.rows[0])
+  }
+
   async getCardsByTimeSort(start: number): Promise<any> {
     const result = await this.client.query<CardPO>(
       `--sql
@@ -216,7 +226,8 @@ export class RepositoryPostgres implements RepositoryType {
     )
     let cards = []
     for (let index in result.rows) {
-      cards.push(this.formatCardPo(result.rows[index]))
+      if (result.rows[index].star_num != BigInt(0))
+        cards.push(this.formatCardPo(result.rows[index]))
     }
     const resCount = await this.client.query(
       `--sql

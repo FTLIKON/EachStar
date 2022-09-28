@@ -31,7 +31,7 @@ export class CardController {
     ctx.body = card
   }
 
-  async starGithubRepo(ctx: Context, repoUrl: string) {
+  async starGithubRepo(ctx: Context, repoUrl: string): Promise<Boolean> {
     const accessToken = ctx.cookies.get('githubToken')
     const repoData = repoUrl.slice(19)
     const config = {
@@ -42,14 +42,16 @@ export class CardController {
         'Content-Length': 0,
       },
     }
-
+    let rep: any
     const res = await axios(config)
       .then(function (response) {
-        console.log(JSON.stringify(response.data))
+        rep = true
       })
       .catch(function (error) {
         console.log(error)
+        rep = false
       })
+    return rep
   }
 
   async starCard(ctx: Context) {
@@ -57,12 +59,18 @@ export class CardController {
     const userId = ctx.user.id
     const cardId = body.cardId
 
-    const newCard = await this.repository.starCard(userId, cardId)
-    this.starGithubRepo(ctx, newCard.title)
-    ctx.body = newCard
+    const card = await this.repository.getCardById(cardId)
+
+    if (await this.starGithubRepo(ctx, card.title)) {
+      const newCard = await this.repository.starCard(userId, cardId)
+      ctx.body = newCard
+    } else {
+      ctx.state = 400
+      ctx.body = {}
+    }
   }
 
-  async getCard(ctx: Context) {
+  async getCardsByTimeSort(ctx: Context) {
     const userId = ctx.user.id
     const start = ctx.query.start
     const cards = await this.repository.getCardsByTimeSort(Number(start))
@@ -78,6 +86,14 @@ export class CardController {
         cards.data[index]['starred'] = false
       }
     }
+
+    ctx.body = cards
+  }
+
+  async getSelfCards(ctx: Context) {
+    const userId = ctx.user.id
+    const start = ctx.query.start
+    const cards = await this.repository.getCardsByUserId(userId, Number(start))
 
     ctx.body = cards
   }

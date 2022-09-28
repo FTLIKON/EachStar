@@ -7,7 +7,8 @@ export const getCardMiddleware = () => {
   })
   const cardController = new CardController()
   router.post('/card', cardController.createCard.bind(cardController))
-  router.get('/card', cardController.getCard.bind(cardController))
+  router.get('/card', cardController.getCardsByTimeSort.bind(cardController))
+  router.get('/card/@me', cardController.getSelfCards.bind(cardController))
   router.post('/card/quickstar', cardController.starCard.bind(cardController))
 
   return router.routes()
