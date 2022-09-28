@@ -2,19 +2,19 @@
   <div class="mygithub">
     <div class="card-view">
       <!-- 卡片列表 -->
-      <el-card v-for="j of currentPageData" :key="j" class="card-list">
+      <el-card v-for="item of currentPageData" :key="item" class="card-list">
         <div class="card-block">
-          <div class="card-title">{{j.title}}</div>
-          <div class="card-discription">{{j.context}} {{j.updatedAt}}</div>
+          <div class="card-title">{{item.title}}</div>
+          <div class="card-discription">{{item.context}} {{item.updatedAt}}</div>
           <div class="card-valueblock">
             <span class="card-rank">
-              <span>积分价值{{j.starPrice}}</span> 
+              <span>积分价值{{item.starPrice}}</span> 
               <el-divider direction="vertical" />
-              <span style="color: #409EFF">悬赏次数{{j.starNum}}</span> 
+              <span style="color: #409EFF">悬赏次数{{item.starNum}}</span> 
             </span>
             <el-button 
               id="card-button"
-              @click="deleteStar(j)"
+              @click="deleteStar(item)"
               type="danger"
               plain>💥 删除</el-button>
           </div>
@@ -62,29 +62,34 @@ export default {
   },
   methods: {
     // 删除star按钮
-    // starButton: function(card){
-    //   var that = this;
-    //   let param = new URLSearchParams();
-    //   param.append("cardId", card.id);
-    //   var config = {
-    //     method: 'delete',
-    //     url: 'server/api/card',
-    //     data : param
-    //   };
+    starButton: function(card){
       
-    //   axios(config)
-    //   .then(function (response) {
-    //     ElMessage({
-    //       message: '正在删除Star!',
-    //       type: 'danger',
-    //     })
-    //     bus.emit('refreshUserInfo');
-    //     that.getPageData(that.currentPage);
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   });
-    // },
+      // 防止反复点击
+      console.log(card.removing);
+      card.removing = true;
+      
+      var that = this;
+      let param = new URLSearchParams();
+      param.append("cardId", card.id);
+      var config = {
+        method: 'delete',
+        url: 'server/api/card',
+        data : param
+      };
+      
+      axios(config)
+      .then(function (response) {
+        ElMessage({
+          message: '成功删除'+card.title,
+          type: 'danger',
+        })
+        bus.emit('refreshUserInfo');
+        that.getPageData(that.currentPage);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    },
 
     // page内容显示 
     pageChange: function(page){
