@@ -123,6 +123,7 @@ export default {
           data : param
         };
         
+        card.starred = true;
         axios(config)
         .then(function (response) {
           ElMessage({
@@ -130,7 +131,6 @@ export default {
             type: 'success',
           })
           card.starNum -= 1;
-          card.starred = true;
           bus.emit('refreshUserInfo');
           if(card.starNum == 0){ // 如果悬赏次数为0->刷新页面
             that.getPageData(that.currentPage);
@@ -138,6 +138,7 @@ export default {
         })
         .catch(function (error) {
           console.log(error);
+          card.starred = false;
         });
       },
 
