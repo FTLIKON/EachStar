@@ -207,6 +207,16 @@ export class RepositoryPostgres implements RepositoryType {
     return this.formatCardPo(result.rows[0])
   }
 
+  async deleteCardById(userId: bigint, cardId: bigint): Promise<any> {
+    const result = await this.client.query<CardPO>(
+      `--sql
+      DELETE FROM cards
+      WHERE user_id = $1 AND id = $2
+    `,
+      [userId, cardId],
+    )
+  }
+
   async getCardById(cardId: bigint): Promise<Card> {
     const result = await this.client.query<CardPO>(
       `--sql

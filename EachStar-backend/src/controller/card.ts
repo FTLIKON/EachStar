@@ -31,6 +31,19 @@ export class CardController {
     ctx.body = card
   }
 
+  async deleteCard(ctx: Context) {
+    const userId = ctx.user.id
+    const cardId = ctx.query.cardId
+    const card = await this.repository.getCardById(BigInt(Number(cardId)))
+    // 退还当前卡片的剩余积分
+    const cardAuthor = await this.repository.getUserById(card.userId)
+    if (cardAuthor) {
+      const authorNewPrice = cardAuthor?.price + card.starPrice * card.starNum
+      this.repository.changeUserPrice(cardAuthor.id, authorNewPrice)
+    }
+    this.repository.deleteCardById(userId, card.id)
+  }
+
   async starGithubRepo(ctx: Context, repoUrl: string): Promise<Boolean> {
     const accessToken = ctx.cookies.get('githubToken')
     const repoData = repoUrl.slice(19)
