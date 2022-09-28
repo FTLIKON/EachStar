@@ -15,7 +15,7 @@
             <el-button 
               v-show="!x.starred"
               id="card-button"
-              @click="starButton(i)"
+              @click="starButton(x)"
               plain>💫 Star</el-button>
             <el-button
               v-show="x.starred"
@@ -53,7 +53,7 @@ export default {
     components: {
       Public
     },
-    created() {
+    mounted() {
       let that = this;
       that.pageChange(1);
     },

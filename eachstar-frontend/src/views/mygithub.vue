@@ -2,19 +2,19 @@
   <div class="mygithub">
     <div class="card-view">
       <!-- 卡片列表 -->
-      <el-card v-for="i in currentPageData" :key="i" class="card-list">
+      <el-card v-for="j in currentPageData" :key="j" class="card-list">
         <div class="card-block">
-          <div class="card-title">{{i.title}}</div>
-          <div class="card-discription">{{i.context}} {{i.updatedAt}}</div>
+          <div class="card-title">{{j.title}}</div>
+          <div class="card-discription">{{j.context}} {{j.updatedAt}}</div>
           <div class="card-valueblock">
             <span class="card-rank">
-              <span>积分价值{{i.starPrice}}</span> 
+              <span>积分价值{{j.starPrice}}</span> 
               <el-divider direction="vertical" />
-              <span style="color: #409EFF">悬赏次数{{i.starNum}}</span> 
+              <span style="color: #409EFF">悬赏次数{{j.starNum}}</span> 
             </span>
             <el-button 
               id="card-button"
-              @click="deleteStar(i)"
+              @click="deleteStar(j)"
               type="danger"
               plain>💥 删除</el-button>
           </div>
