@@ -114,8 +114,10 @@ export default {
 
 
 .logo {
-  color: #303133;
-  text-shadow:2px 2px 4px #000000;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: larger;
+  text-shadow: 1px 1px 3px #000000;
 
   margin-left: 10%
 }
