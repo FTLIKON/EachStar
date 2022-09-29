@@ -19,7 +19,8 @@
       <el-divider direction="vertical"/>
       <el-menu-item index="2">
         <router-link to="/mygithub" class="link" v-show="isLogin">你的仓库</router-link>
-        <button class="link-noLogin" v-show="!isLogin">你的仓库</button>
+      <el-menu-item index="3">
+        <router-link @click="noLoginError" class="link" v-show="!isLogin">你的仓库</router-link>
       </el-menu-item>
     </div>
 
@@ -37,6 +38,7 @@ import bus from '../utils/emitter';
 import { buildSlots } from "@vue/compiler-core";
 import axios from "axios";
 import GithubAuth from './githubAuth.vue';
+import { ElMessage } from 'element-plus';
 export default {
     components: { 
       GithubAuth
@@ -47,8 +49,6 @@ export default {
         userPrice: null,
         isLogin: false,
       };
-    },
-    beforeDestroy() {
     },
     mounted() {
       this.getUserInfo();
@@ -62,6 +62,12 @@ export default {
         console.log(key);
       },
 
+      noLoginError() {
+        ElMessage({
+          message: "请先进行登录!",
+          type: "warning",
+        })
+      }
       // 刷新用户信息->data
       getUserInfo() {
         var that = this;
