@@ -4,7 +4,7 @@
       <!-- 卡片列表 -->
       <el-card v-for="item of currentPageData" :key="item" class="card-list">
         <div class="card-block">
-          <a class="card-title" :href="item.title" target="_blank">{{item.title}}</a>
+          <a class="card-title" :href="item.title" target="_blank">{{item.title.replace("https://github.com/", "")}}</a>
           <div class="card-discription">{{item.context}} {{item.updatedAt}}</div>
           <div class="card-valueblock">
             <span class="card-rank">
@@ -52,11 +52,6 @@ export default {
     name: "github",
     components: {
       Public
-    },
-    computed: {
-      title: function(){
-        return this.replace("https://github.com/", "");
-      },
     },
     mounted() {
       let that = this;
