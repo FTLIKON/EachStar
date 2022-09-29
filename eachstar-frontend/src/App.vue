@@ -2,8 +2,8 @@
   <div id="app">
     <top-nav />
     <router-view />
+    <bottom-line />
   </div>
-  <bottom-line />
 </template>
 
 <script>

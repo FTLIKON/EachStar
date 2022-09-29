@@ -12,6 +12,7 @@ export default {
 
 <style>
 .main {
+  bottom: 0;
   width: 100%;
   height: 30px;
   background-color: #303133;
