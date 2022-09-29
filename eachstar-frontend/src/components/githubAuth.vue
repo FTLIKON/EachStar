@@ -39,5 +39,6 @@ export default {
 
 .github-logo {
   width: 40%;
+  margin-bottom: 5%;
 }
 </style>
