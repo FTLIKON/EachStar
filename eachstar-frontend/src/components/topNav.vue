@@ -91,7 +91,7 @@ export default {
         });
       },      
       menuSelect(key, keyPath) { // 菜单选择
-        console.log(key);
+        // console.log('[DEBUGGER] '+key);
       },
     }
 };
