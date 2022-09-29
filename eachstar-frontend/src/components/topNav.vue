@@ -27,6 +27,7 @@
       <el-button v-show="!isLogin" @click="authButton()" id="auth-button">注册 / 登录</el-button>
       <span v-show="isLogin" class="user-rank">积分: {{ userPrice }}</span>
       <span v-show="isLogin" class="user-hello">您好, {{ userName }}!</span>
+      <img class="user-icon" src="https://avatars.githubusercontent.com/u/51710525?v=4" alt="">
     </div>
   </el-menu>
   <GithubAuth ref="GithubAuth"/>
