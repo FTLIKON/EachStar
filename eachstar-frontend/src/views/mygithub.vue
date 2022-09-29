@@ -26,7 +26,6 @@
       layout="prev, pager, next"
       @current-change="pageChange"
       :total="totalPage*10"/>
-      <BottomLine />
     </div>
     
     <el-backtop 
@@ -155,6 +154,7 @@ export default {
   background-color: none;
 
   height: auto;
+  min-height: 900px;
   margin-top: 1%;
   display: flex;
   justify-content: start;

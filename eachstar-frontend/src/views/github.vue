@@ -206,6 +206,7 @@ export default {
   background-color: none;
 
   height: auto;
+  min-height: 900px;
   margin-top: 1%;
   display: flex;
   justify-content: start;
