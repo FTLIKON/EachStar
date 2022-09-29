@@ -175,17 +175,8 @@ export default {
   margin-right: 5%;
   width: 45%;
 }
-
-#logo {
-  font-weight: bold;
-  font-size: x-large;
-  color: white;
-  
-  margin-right: 1%;
-  margin-left: 1%;
-  margin-top: auto;
-  margin-bottom: auto;
-
-  text-shadow: 1px 1px 2px #303133, 0px 0px 3px #303133; 
+.logo-icon {
+  width: 12%;
+  margin-right: 2%;
 }
 </style>
