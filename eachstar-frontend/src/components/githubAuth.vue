@@ -1,7 +1,7 @@
 <template>
   <el-dialog v-model="dialogVisible" title="">
     <div class="main-block">
-      <img src="githubLogo.webp" alt="未找到图片">
+      <img class="github-logo" src="githubLogo.webp" alt="未找到图片">
       <el-button
         type="primary"
         class="link-button"
@@ -35,5 +35,9 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.github-logo {
+  width: 40%;
 }
 </style>
