@@ -139,6 +139,7 @@ export default {
 .link-noLogin {
   text-decoration: none;
   color: #303133;
+  background-color: none;
   font-size: large;
   font-style: normal;
 
