@@ -175,7 +175,7 @@ export default {
   margin-right: 5%;
   width: 45%;
 }
-.logo-icon {
+.user-icon {
   width: 12%;
   margin-right: 2%;
 }
