@@ -9,7 +9,7 @@
   >
     <div class="left-block">
       <div class="logo">
-        <img class="logo-pic" src="logo.png">
+        <img class="logo-pic" src="icon.png">
         EachStar</div>
     </div>
 
