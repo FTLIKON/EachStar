@@ -1,14 +1,13 @@
 <template>
-  <el-dialog v-model="dialogVisible" title="github快捷登录">
-    <el-button
-      type="primary"
-      @click="
-        goPage(
-          'http://119.91.192.183:3050/oauth/github/login?path=http://119.91.192.183:80/'
-        )
-      "
-      >点我</el-button
-    >
+  <el-dialog v-model="dialogVisible" title="">
+    <div class="main-block">
+      <img class="github-logo" src="githubLogo.webp" alt="未找到图片">
+      <el-button
+        type="primary"
+        class="link-button"
+        @click="goPage('http://119.91.192.183:3050/oauth/github/login?path=http://119.91.192.183:80/')">
+        使用github快捷登录</el-button>
+    </div>
   </el-dialog>
 </template>
 
@@ -32,25 +31,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.dialog-footer {
+.main-block {
   display: flex;
-  width: 100%;
-  justify-content: center;
-  margin-top: 20px;
-  .el-button:first-child {
-    margin-right: 25px;
-  }
+  flex-direction: column;
+  align-items: center;
 }
 
-.password-inputs {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-
-  .el-input {
-    width: 70%;
-    margin-top: 10px;
-  }
+.github-logo {
+  width: 40%;
+  margin-bottom: 5%;
 }
 </style>

@@ -1,14 +1,14 @@
 <template>
-  <div class="github">
+  <div class="github" v-loading="loading">
     <div class="card-view">
       <!-- 卡片列表 -->
       <el-card v-for="item of currentPageData" :key="item" class="card-list">
         <div class="card-block">
-          <div class="card-title">{{item.title}}</div>
+          <a class="card-title" :href="item.title" target="_blank">{{item.title}}</a>
           <div class="card-discription">{{item.context}} {{item.updatedAt}}</div>
           <div class="card-valueblock">
             <span class="card-rank">
-              <span>可获得积分{{item.starPrice}}</span> 
+              <span>可获得积分: {{item.starPrice}}</span> 
               <el-divider direction="vertical" />
               <span style="color: #409EFF">悬赏次数{{item.starNum}}</span> 
             </span>
@@ -16,7 +16,7 @@
               v-show="!item.starred"
               id="card-button"
               @click="starButton(item)"
-              plain>💫 Star</el-button>
+              plain>💫 一键Star</el-button>
             <el-button
               v-show="item.starred"
               id="card-button"
@@ -59,21 +59,13 @@ export default {
     },
     data() {
       return {
+        loading: true,
+
         pageSize: 10,
         totalPage: 0,
         totalCard: 35,
         currentPage: 0,
         currentPageData: [
-          {
-            title: "这是一个标题",
-            discription: "Java Hotspot Debuger(Java Hotspot调试器), 是一款基于服务性代理实现的进程外调试工具",
-            cardRank: 2,
-          },
-          {
-            title: "我是火车王",
-            discription: "让学习变得更简单",
-            cardRank: 3,
-          },
         ],
       }
     },
@@ -188,6 +180,7 @@ export default {
             index++; start++;
           }
           that.currentPageData = list;
+          that.loading = false;
         })
         .catch(function (error) {
           console.log(error);
@@ -248,6 +241,7 @@ export default {
   color: #303133;
   font-size: large;
   font-weight: bold;
+  text-decoration: none;
 
   margin-bottom: 2%;
   text-align: left;
@@ -286,7 +280,7 @@ export default {
   margin-top: auto;
   margin-bottom: auto;
   text-align: left;
-  font-size: small;
+  font-size: medium;
 }
 #card-button {
   font-size: large;

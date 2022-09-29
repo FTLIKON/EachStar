@@ -7,23 +7,26 @@
     :ellipsis="false"
   >
     <div class="left-block">
-      <div class="logo">EachStar</div>
+      <div class="logo">
+        <img class="logo-pic" src="logo.png">
+        EachStar</div>
     </div>
 
     <div class="mid-block">
       <el-menu-item index="1">
         <router-link to="/github" class="link">发现仓库</router-link>
       </el-menu-item>
-      <el-divider direction="vertical" />
+      <el-divider direction="vertical"/>
       <el-menu-item index="2">
-        <router-link to="/mygithub" class="link">你的仓库</router-link>
+        <router-link to="/mygithub" class="link" v-show="isLogin">你的仓库</router-link>
+        <router-link to="/github" @click="noLoginError()" class="link" v-show="!isLogin">你的仓库</router-link>
       </el-menu-item>
     </div>
 
     <div class="right-block">
       <el-button v-show="!isLogin" @click="authButton()" id="auth-button">注册 / 登录</el-button>
       <span v-show="isLogin" class="user-rank">积分: {{ userPrice }}</span>
-      <span v-show="isLogin" class="user-hello">你好, {{ userName }}!</span>
+      <span v-show="isLogin" class="user-hello">您好, {{ userName }}!</span>
     </div>
   </el-menu>
   <GithubAuth ref="GithubAuth"/>
@@ -34,6 +37,7 @@ import bus from '../utils/emitter';
 import { buildSlots } from "@vue/compiler-core";
 import axios from "axios";
 import GithubAuth from './githubAuth.vue';
+import { ElMessage } from 'element-plus';
 export default {
     components: { 
       GithubAuth
@@ -44,8 +48,6 @@ export default {
         userPrice: null,
         isLogin: false,
       };
-    },
-    beforeDestroy() {
     },
     mounted() {
       this.getUserInfo();
@@ -58,7 +60,12 @@ export default {
       menuSelect(key, keyPath) {
         console.log(key);
       },
-
+      noLoginError() {
+        ElMessage({
+          message: "请先进行登录!",
+          type: "warning",
+        })
+      },
       // 刷新用户信息->data
       getUserInfo() {
         var that = this;
@@ -116,15 +123,31 @@ export default {
 .logo {
   color: #ffffff;
   font-weight: bold;
-  font-size: larger;
-  text-shadow: 1px 1px 3px #000000;
+  font-size: x-large;
+  text-shadow: 1px 1px 2px #303133, 0px 0px 3px #303133; 
 
+  display: flex;
+  align-items: center;
   margin-left: 10%
+}
+.logo-pic {
+  width: 12%;
+  margin-right: 2%;
 }
 
 .link {
   text-decoration: none;
   color: #303133;
+  font-size: large;
+}
+.link-noLogin {
+  text-decoration: none;
+  color: #303133;
+  background-color: none;
+  font-size: large;
+  font-style: normal;
+
+  border: none;
 }
 
 .divider {

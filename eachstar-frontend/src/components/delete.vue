@@ -1,10 +1,9 @@
 <template>
   <el-dialog v-model="dialogVisible" title="删除卡片">
     <div class="delete-block">
-      <div class="title"> {{ cardTitle }} </div>
-      <div class="discription"> {{ cardDiscription }} </div>
+      <div class="title"> 确认要删除卡片吗? </div>
       <div class="user-rank-calc">
-        返回积分: {{ starPrice*starNum }} <el-divider direction="vertical" /> 剩余积分: {{ userPrice+starPrice*starNum }}
+        将会返还积分: {{ starPrice*starNum }}
       </div>
       <span class="dialog-footer">
         <el-button @click="dialogVisible = false">取消</el-button>
