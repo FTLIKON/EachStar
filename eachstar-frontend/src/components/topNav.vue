@@ -17,8 +17,9 @@
         <router-link to="/github" class="link">发现仓库</router-link>
       </el-menu-item>
       <el-divider direction="vertical"/>
-      <el-menu-item index="2" :disabled="!isLogin">
-        <router-link to="/mygithub" class="link" :disabled="!isLogin">你的仓库</router-link>
+      <el-menu-item index="2">
+        <router-link to="/mygithub" class="link" v-show="isLogin">你的仓库</router-link>
+        <el-button class="link-nologin" v-show="!isLogin">你的仓库</el-button>
       </el-menu-item>
     </div>
 
@@ -134,6 +135,12 @@ export default {
   text-decoration: none;
   color: #303133;
   font-size: large;
+}
+.link-noLogin {
+  text-decoration: none;
+  color: #303133;
+  font-size: large;
+  border: none;
 }
 
 .divider {
