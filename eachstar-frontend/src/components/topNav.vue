@@ -27,7 +27,7 @@
       <el-button v-show="!isLogin" @click="authButton()" id="auth-button">注册 / 登录</el-button>
       <span v-show="isLogin" class="user-rank">积分: {{ userPrice }}</span>
       <span v-show="isLogin" class="user-hello">您好, {{ userName }}!</span>
-      <img class="user-icon" src="https://avatars.githubusercontent.com/u/51710525?v=4" alt="">
+      <img class="user-icon" :src="userIconURL" alt="">
     </div>
   </el-menu>
   <GithubAuth ref="GithubAuth"/>
@@ -47,6 +47,7 @@ export default {
       return {
         userName: "",
         userPrice: null,
+        userIconURL: null,
         isLogin: false,
       };
     },
@@ -78,6 +79,7 @@ export default {
         .then(function (response) {
           that.userName = response.data.githubName;
           that.userPrice = response.data.price;
+          that.userIconURL = response.data.userIconURL;
           that.isLogin = true;
         })
         .catch(function (error) {
