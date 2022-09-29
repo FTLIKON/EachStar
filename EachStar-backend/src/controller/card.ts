@@ -90,19 +90,24 @@ export class CardController {
     const userId = ctx.user.id
     const start = ctx.query.start
     const cards = await this.repository.getCardsByTimeSort(Number(start))
-    const userStarred = await this.repository.getUserStarred(userId)
-    let userStarredCardId = []
-    for (let index in userStarred) {
-      userStarredCardId.push(userStarred[index].cardId)
-    }
-    for (let index in cards.data) {
-      if (userStarredCardId.includes(cards.data[index].id)) {
-        cards.data[index]['starred'] = true
-      } else {
+    if (userId == undefined) {
+      for (let index in cards.data) {
         cards.data[index]['starred'] = false
       }
+    } else {
+      const userStarred = await this.repository.getUserStarred(userId)
+      let userStarredCardId = []
+      for (let index in userStarred) {
+        userStarredCardId.push(userStarred[index].cardId)
+      }
+      for (let index in cards.data) {
+        if (userStarredCardId.includes(cards.data[index].id)) {
+          cards.data[index]['starred'] = true
+        } else {
+          cards.data[index]['starred'] = false
+        }
+      }
     }
-
     ctx.body = cards
   }
 
