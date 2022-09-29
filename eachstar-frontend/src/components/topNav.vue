@@ -8,9 +8,9 @@
     :ellipsis="false"
   >
     <div class="left-block">
-      <div class="logo" @click="goEachStar()">
-        <img class="logo-pic" src="icon.png">
-        EachStar</div>
+      <div class="logo">
+        <img class="logo-pic" src="icon.png" @click="goEachStar()">
+        <span @click="goEachStar()">EachStar</span></div>
     </div>
 
     <div class="mid-block">
