@@ -50,10 +50,11 @@ export default {
         bus.emit("refreshUserInfo");
         that.$parent.getMyPageData(that.$parent.currentPage);
         that.dialogVisible = false;
+        that.cardRemoving = false;
       })
       .catch(function (error) {
         console.log(error);
-        cardRemoving = false;
+        that.cardRemoving = false;
       });
     },
 
