@@ -122,10 +122,11 @@ export default {
   text-shadow: 1px 1px 2px #303133, 0px 0px 3px #303133; 
 
   display: flex;
+  align-items: center;
   margin-left: 10%
 }
 .logo-pic {
-  width: 80%;
+  width: 20%;
 }
 
 .link {
