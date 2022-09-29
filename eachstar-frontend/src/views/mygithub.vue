@@ -86,14 +86,14 @@ export default {
               message: '发布成功, 正在重定向至第一页!',
               type: 'success',
             })
-            that.getPageData(0);
+            that.getMyPageData(0);
             bus.emit('refreshUserInfo');
           })
           .catch(function (error) {
             console.log(error);
           });
         },
-        
+
         // ---------- 删除相关 ----------
         deleteButton(card) { // 删除按钮->点击打开delete.vue
           this.$.refs.Delete.openPage(card);
