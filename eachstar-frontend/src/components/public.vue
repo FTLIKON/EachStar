@@ -3,11 +3,12 @@
     <div class="input-block">
       <el-input class="title-input"
         v-model="cardTitle"
-        placeholder="请输入卡片链接"
+        placeholder="请输入您的项目链接，
+        例如https://github.com/FTLIKON/EachStar"
         clearable/>
       <el-input class="discription-input"
         v-model="cardDiscription"
-        placeholder="请输入卡片描述"
+        placeholder="请用两句话，简要描述您的项目..."
         maxlength="150"
         show-word-limit
         :autosize="{ minRows: 4, maxRows: 8 }"

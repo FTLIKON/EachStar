@@ -125,7 +125,6 @@ export default {
 .link {
   text-decoration: none;
   color: #303133;
-  font-weight: bold;
   font-size: large;
 }
 
