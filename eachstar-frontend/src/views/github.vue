@@ -10,7 +10,7 @@
             <span class="card-rank">
               <span>可获得积分: {{item.starPrice}}</span> 
               <el-divider direction="vertical" />
-              <span style="color: #409EFF">悬赏次数{{item.starNum}}</span> 
+              <span style="color: #409EFF">悬赏次数: {{item.starNum}}</span> 
             </span>
             <el-button 
               v-show="!item.starred"
