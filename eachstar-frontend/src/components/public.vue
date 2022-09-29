@@ -3,7 +3,7 @@
     <div class="input-block">
       <el-input class="title-input"
         v-model="cardTitle"
-        placeholder="请输入您的项目链接， 例如https://github.com/FTLIKON/EachStar"
+        placeholder="您的项目链接， 如https://github.com/FTLIKON/EachStar"
         clearable/>
       <el-input class="discription-input"
         v-model="cardDiscription"
