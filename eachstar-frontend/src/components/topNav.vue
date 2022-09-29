@@ -176,7 +176,9 @@ export default {
   width: 45%;
 }
 .user-icon {
-  width: 12%;
-  margin-right: 2%;
+  width: 15%;
+  margin-right: 4%;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 </style>
