@@ -32,7 +32,9 @@
       layout="prev, pager, next"
       @current-change="pageChange"
       :total="totalPage*10"/>
+      <bottom-line />
     </div>
+
     <el-backtop 
       style="
         height: 60px;
@@ -47,7 +49,7 @@
       <el-button @click="publicButton()" type="success" id="public-button">
         发布卡片</el-button>
     </div>
-    <bottom-line />
+
   </div>
   <Public @publicCard="publicCard" ref="Public"/>
 </template>

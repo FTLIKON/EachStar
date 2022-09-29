@@ -26,7 +26,9 @@
       layout="prev, pager, next"
       @current-change="pageChange"
       :total="totalPage*10"/>
+      <BottomLine />
     </div>
+    
     <el-backtop 
       style="
         height: 60px;
@@ -42,7 +44,7 @@
         发布卡片</el-button>
     </div>
 
-    <BottomLine />
+  
   </div>
   <Delete ref="Delete"/>
   <Public @publicCard="publicCard" ref="Public"/>
