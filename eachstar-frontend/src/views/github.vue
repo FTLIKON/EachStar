@@ -33,7 +33,15 @@
       @current-change="pageChange"
       :total="totalPage*10"/>
     </div>
-    <el-backtop size="large" :right="100" :bottom="100" :visibility-height="0"/>
+    <el-backtop 
+      style="
+        height: 100%;
+        width: 100%;
+        box-shadow: var(--el-box-shadow-dark)
+        border-radius: 50%"
+      :right="100"
+      :bottom="100"
+      :visibility-height="0"/>
 
     <div class="aside-menu">
       <el-button @click="publicButton()" type="success" id="public-button">
