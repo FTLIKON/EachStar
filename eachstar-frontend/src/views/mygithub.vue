@@ -1,5 +1,5 @@
 <template>
-  <div class="mygithub">
+  <div class="mygithub" v-loading="loading">
     <div class="card-view">
       <!-- 卡片列表 -->
       <el-card v-for="item of currentPageData" :key="item" class="card-list">
@@ -44,6 +44,8 @@ export default {
     },
     data() {
         return {
+            loading: true,
+
             pageSize: 10,
             totalPage: 0,
             totalCard: 35,
@@ -92,6 +94,7 @@ export default {
               start++;
             }
             that.currentPageData = list;
+            that.loading = false;
           })
             .catch(function (error) {
             console.log(error);
