@@ -189,5 +189,8 @@ export default {
   margin-right: 4%;
   margin-top: auto;
   margin-bottom: auto;
+
+  border-radius: 50%;
+  border: 2px solid var(--el-border-color);
 }
 </style>
