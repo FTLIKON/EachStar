@@ -19,7 +19,7 @@
       <el-divider direction="vertical"/>
       <el-menu-item index="2">
         <router-link to="/mygithub" class="link" v-show="isLogin">你的仓库</router-link>
-        <router-link @click="noLoginError()" class="link" v-show="!isLogin">你的仓库</router-link>
+        <!-- <router-link @click="noLoginError()" class="link" v-show="!isLogin">你的仓库</router-link> -->
       </el-menu-item>
     </div>
 
@@ -60,7 +60,6 @@ export default {
       menuSelect(key, keyPath) {
         console.log(key);
       },
-
       noLoginError() {
         ElMessage({
           message: "请先进行登录!",
