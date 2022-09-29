@@ -11,7 +11,9 @@ export class UserController {
     ctx.assert(ctx.user, 403, 'user not found', {
       code: 'USER_NOT_FOUND',
     })
-    ctx.body = ctx.user
+    const user = ctx.user
+    user["icon"] = ctx.user.userIcon
+    ctx.body = user
   }
 
   async changeUserPrice(ctx: Context) {
