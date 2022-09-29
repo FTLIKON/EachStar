@@ -32,7 +32,6 @@
       layout="prev, pager, next"
       @current-change="pageChange"
       :total="totalPage*10"/>
-      <bottom-line />
     </div>
 
     <el-backtop 
