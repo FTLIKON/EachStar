@@ -8,7 +8,7 @@
           <div class="card-discription">{{item.context}} {{item.updatedAt}}</div>
           <div class="card-valueblock">
             <span class="card-rank">
-              <span>积分价值{{item.starPrice}}</span> 
+              <span>可获得积分: {{item.starPrice}}</span> 
               <el-divider direction="vertical" />
               <span style="color: #409EFF">悬赏次数{{item.starNum}}</span> 
             </span>
@@ -27,10 +27,10 @@
       @current-change="pageChange"
       :total="totalPage*10"/>
     </div>
-  </div>
-  <div class="aside-menu">
-    <el-button @click="publicButton()" type="success" id="public-button">
-      发布卡片</el-button>
+    <div class="aside-menu">
+      <el-button @click="publicButton()" type="success" id="public-button">
+        发布卡片</el-button>
+    </div>
   </div>
   <Delete ref="Delete"/>
   <Public @publicCard="publicCard" ref="Public"/>
@@ -224,7 +224,7 @@ export default {
   margin-top: auto;
   margin-bottom: auto;
   text-align: left;
-  font-size: small;
+  font-size: medium;
 }
 #card-button {
   font-size: large;
