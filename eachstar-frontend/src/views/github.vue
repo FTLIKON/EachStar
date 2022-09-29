@@ -4,7 +4,7 @@
       <!-- 卡片列表 -->
       <el-card v-for="item of currentPageData" :key="item" class="card-list">
         <div class="card-block">
-          <a class="card-title" :href="item.title">{{item.title}}</a>
+          <a class="card-title" :href="item.title" target="_blank">{{item.title}}</a>
           <div class="card-discription">{{item.context}} {{item.updatedAt}}</div>
           <div class="card-valueblock">
             <span class="card-rank">
@@ -248,6 +248,7 @@ export default {
   color: #303133;
   font-size: large;
   font-weight: bold;
+  text-decoration: none;
 
   margin-bottom: 2%;
   text-align: left;
