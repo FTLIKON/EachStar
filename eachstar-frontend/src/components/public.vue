@@ -139,11 +139,11 @@ export default {
   align-items: center;
 }
 .discription-input, .title-input{
-  width: 80%;
+  width: 90%;
   margin-bottom: 10px;
 }
 .rank-setting-block {
-  width: 80%;
+  width: 90%;
 }
 .slider {
   margin-top: 3%;
