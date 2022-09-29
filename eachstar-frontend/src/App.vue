@@ -3,6 +3,7 @@
     <top-nav />
     <router-view />
   </div>
+  <bottom-line />
 </template>
 
 <script>
