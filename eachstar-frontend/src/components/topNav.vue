@@ -7,7 +7,7 @@
     @select="menuSelect"
     :ellipsis="false"
   >
-    <div class="left-block">
+    <div class="left-block" @click="console.log(1)">
       <div class="logo">
         <img class="logo-pic" src="icon.png">
         EachStar</div>
