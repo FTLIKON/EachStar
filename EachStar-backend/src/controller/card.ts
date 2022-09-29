@@ -87,14 +87,14 @@ export class CardController {
   }
 
   async getCardsByTimeSort(ctx: Context) {
-    const userId = ctx.user.id
     const start = ctx.query.start
     const cards = await this.repository.getCardsByTimeSort(Number(start))
-    if (userId == undefined) {
+    if (!ctx.user) {
       for (let index in cards.data) {
         cards.data[index]['starred'] = false
       }
     } else {
+      const userId = ctx.user.id
       const userStarred = await this.repository.getUserStarred(userId)
       let userStarredCardId = []
       for (let index in userStarred) {
