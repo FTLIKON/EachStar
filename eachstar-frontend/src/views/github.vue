@@ -48,6 +48,7 @@
         发布卡片</el-button>
     </div>
   </div>
+  <bottom-line />
   <Public @publicCard="publicCard" ref="Public"/>
 </template>
 
@@ -57,10 +58,12 @@ import bus from '../utils/emitter';
 import { getCurrentInstance, onMounted } from 'vue-demi';
 import { ElMessage } from "element-plus";
 import Public from "../components/public.vue";
+import BottomLine from '../components/bottomLine.vue';
 export default {
     name: "github",
     components: {
-      Public
+      Public,
+        BottomLine
     },
     mounted() {
       let that = this;

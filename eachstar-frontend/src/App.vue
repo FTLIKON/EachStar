@@ -2,15 +2,13 @@
   <div id="app">
     <top-nav />
     <router-view />
-    <bottom-line />
   </div>
 </template>
 
 <script>
 import TopNav from './components/topNav.vue';
-import BottomLine from './components/bottomLine.vue';
 export default {
-    components: { TopNav, BottomLine }
+    components: { TopNav }
 };
 </script>
 

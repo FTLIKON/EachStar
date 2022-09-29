@@ -42,6 +42,7 @@
         发布卡片</el-button>
     </div>
   </div>
+  <BottomLine />
   <Delete ref="Delete"/>
   <Public @publicCard="publicCard" ref="Public"/>
 </template>
@@ -52,6 +53,7 @@ import bus from '../utils/emitter';
 import { ElMessage } from "element-plus";
 import Delete from "../components/delete.vue";
 import Public from "../components/public.vue";
+import BottomLine from "../components/bottomLine.vue";
 export default {
     name: "mygithub",
     mounted() {
@@ -141,7 +143,7 @@ export default {
           });
         },
     },
-    components: { Delete, Public }
+    components: { Delete, Public, BottomLine }
 };
 </script>
 
