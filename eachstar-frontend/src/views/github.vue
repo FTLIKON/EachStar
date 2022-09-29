@@ -8,7 +8,7 @@
           <div class="card-discription">{{item.context}} {{item.updatedAt}}</div>
           <div class="card-valueblock">
             <span class="card-rank">
-              <span>可获得积分{{item.starPrice}}</span> 
+              <span>可获得积分: {{item.starPrice}}</span> 
               <el-divider direction="vertical" />
               <span style="color: #409EFF">悬赏次数{{item.starNum}}</span> 
             </span>
@@ -280,7 +280,7 @@ export default {
   margin-top: auto;
   margin-bottom: auto;
   text-align: left;
-  font-size: small;
+  font-size: medium;
 }
 #card-button {
   font-size: large;
