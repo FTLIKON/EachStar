@@ -1,4 +1,5 @@
 <template>
+<el-affix :offset="120">
   <el-menu
     id="menu"
     mode="horizontal"
@@ -30,7 +31,8 @@
       <img class="user-icon" :src="userIconURL" alt="">
     </div>
   </el-menu>
-  <GithubAuth ref="GithubAuth"/>
+</el-affix>
+<GithubAuth ref="GithubAuth"/>
 </template>
 
 <script>
