@@ -230,6 +230,7 @@ export default {
   text-shadow: 1px 1px 2px #303133, 0px 0px 3px #303133; 
 
   border-radius: 15px;
+  box-shadow: var(--el-box-shadow);
 }
 
 .card-block {
