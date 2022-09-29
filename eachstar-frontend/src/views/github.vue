@@ -33,7 +33,8 @@
       @current-change="pageChange"
       :total="totalPage*10"/>
     </div>
-
+    <el-backtop :right="100" :bottom="100" />
+    
     <div class="aside-menu">
       <el-button @click="publicButton()" type="success" id="public-button">
         发布卡片</el-button>
