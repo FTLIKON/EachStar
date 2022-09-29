@@ -126,7 +126,8 @@ export default {
   margin-left: 10%
 }
 .logo-pic {
-  width: 20%;
+  width: 12%;
+  margin-right: 2%;
 }
 
 .link {
