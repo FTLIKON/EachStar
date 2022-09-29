@@ -7,7 +7,7 @@
     @select="menuSelect"
     :ellipsis="false"
   >
-    <div class="left-block" @click="console.log(1)">
+    <div class="left-block" @click="goEachStar()">
       <div class="logo">
         <img class="logo-pic" src="icon.png">
         EachStar</div>
@@ -58,20 +58,22 @@ export default {
       bus.on('refreshUserInfo', this.getUserInfo);
     },
     methods: {
+      // 注册按钮
       authButton() {
         this.$.refs.GithubAuth.openPage();
       },
-      menuSelect(key, keyPath) {
-        console.log(key);
-      },
+      // 未登录禁止打开我的仓库
       noLoginError() {
         ElMessage({
           message: "请先进行登录!",
           type: "warning",
         })
       },
-      // 刷新用户信息->data
-      getUserInfo() {
+
+      goEachStar() { // 切换到EachStar
+        window.location.href = 'https://github.com/FTLIKON/EachStar'; 
+      },
+      getUserInfo() { // 刷新用户信息->data
         var that = this;
         var config = {
           method: 'get',
@@ -87,6 +89,9 @@ export default {
         .catch(function (error) {
           console.log(error);
         });
+      },      
+      menuSelect(key, keyPath) { // 菜单选择
+        console.log(key);
       },
     }
 };
