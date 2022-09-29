@@ -12,7 +12,7 @@ export class UserController {
       code: 'USER_NOT_FOUND',
     })
     const user = ctx.user
-    user["icon"] = ctx.user.userIcon
+    user['icon'] = ctx.cookies.get('userIcon')
     ctx.body = user
   }
 
