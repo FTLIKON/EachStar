@@ -1,5 +1,5 @@
 <template>
-  <el-dialog v-model="dialogVisible" title="">
+  <el-dialog class="main-block" v-model="dialogVisible" title="">
     <img src="githubLogo.webp" alt="未找到图片">
     <el-button
       type="primary"
@@ -29,4 +29,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.main-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 </style>
