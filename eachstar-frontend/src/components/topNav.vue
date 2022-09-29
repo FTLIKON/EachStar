@@ -79,7 +79,7 @@ export default {
         .then(function (response) {
           that.userName = response.data.githubName;
           that.userPrice = response.data.price;
-          that.userIconURL = response.data.userIconURL;
+          that.userIconURL = response.data.icon;
           that.isLogin = true;
         })
         .catch(function (error) {
