@@ -42,7 +42,7 @@ import axios from "axios";
 import GithubAuth from './githubAuth.vue';
 import { ElMessage } from 'element-plus';
 export default {
-    components: { 
+    components: {
       GithubAuth
     },
     data() {
