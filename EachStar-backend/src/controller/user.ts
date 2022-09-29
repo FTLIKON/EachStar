@@ -11,9 +11,10 @@ export class UserController {
     ctx.assert(ctx.user, 403, 'user not found', {
       code: 'USER_NOT_FOUND',
     })
-    const user = ctx.user
-    user['icon'] = ctx.cookies.get('userIcon')
-    ctx.body = user
+    let nowUser = ctx.user
+    nowUser['icon'] = ctx.cookies.get('userIcon')
+    console.log(nowUser)
+    ctx.body = nowUser
   }
 
   async changeUserPrice(ctx: Context) {
