@@ -19,7 +19,7 @@
       <el-divider direction="vertical"/>
       <el-menu-item index="2">
         <router-link to="/mygithub" class="link" v-show="isLogin">你的仓库</router-link>
-        <button class="link-nologin" v-show="!isLogin">你的仓库</button>
+        <button class="link-noLogin" v-show="!isLogin">你的仓库</button>
       </el-menu-item>
     </div>
 
@@ -141,7 +141,7 @@ export default {
   color: #303133;
   font-size: large;
   font-style: normal;
-  
+
   border: none;
 }
 
