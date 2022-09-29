@@ -3,8 +3,7 @@
     <div class="input-block">
       <el-input class="title-input"
         v-model="cardTitle"
-        placeholder="请输入您的项目链接，
-        例如https://github.com/FTLIKON/EachStar"
+        placeholder="请输入您的项目链接， 例如https://github.com/FTLIKON/EachStar"
         clearable/>
       <el-input class="discription-input"
         v-model="cardDiscription"
@@ -140,11 +139,11 @@ export default {
   align-items: center;
 }
 .discription-input, .title-input{
-  width: 70%;
+  width: 80%;
   margin-bottom: 10px;
 }
 .rank-setting-block {
-  width: 70%;
+  width: 80%;
 }
 .slider {
   margin-top: 3%;
