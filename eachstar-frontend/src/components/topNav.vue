@@ -7,7 +7,9 @@
     :ellipsis="false"
   >
     <div class="left-block">
-      <div class="logo">EachStar</div>
+      <div class="logo">
+        <img class="logo-pic" src="logo.png">
+        EachStar</div>
     </div>
 
     <div class="mid-block">
