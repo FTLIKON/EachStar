@@ -18,7 +18,7 @@
       </el-menu-item>
       <el-divider direction="vertical"/>
       <el-menu-item index="2" :disabled="!isLogin">
-        <router-link to="/mygithub" class="link">你的仓库</router-link>
+        <router-link to="/mygithub" class="link" :disabled="!isLogin">你的仓库</router-link>
       </el-menu-item>
     </div>
 
