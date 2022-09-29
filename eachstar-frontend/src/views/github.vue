@@ -4,7 +4,7 @@
       <!-- 卡片列表 -->
       <el-card v-for="item of currentPageData" :key="item" class="card-list">
         <div class="card-block">
-          <div class="card-title">{{item.title}}</div>
+          <a class="card-title" :href="item.title">{{item.title}}</a>
           <div class="card-discription">{{item.context}} {{item.updatedAt}}</div>
           <div class="card-valueblock">
             <span class="card-rank">
