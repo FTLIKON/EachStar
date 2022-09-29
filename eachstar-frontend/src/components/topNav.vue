@@ -117,7 +117,7 @@ export default {
   color: #ffffff;
   font-weight: bold;
   font-size: larger;
-  text-shadow:2px 2px 4px #000000;
+  text-shadow: 1px 1px 3px #000000;
 
   margin-left: 10%
 }
