@@ -16,7 +16,7 @@
               v-show="!item.starred"
               id="card-button"
               @click="starButton(item)"
-              plain>💫 Star</el-button>
+              plain>💫 一键Star</el-button>
             <el-button
               v-show="item.starred"
               id="card-button"
@@ -33,7 +33,6 @@
       @current-change="pageChange"
       :total="totalPage*10"/>
     </div>
-
     <div class="aside-menu">
       <el-button @click="publicButton()" type="success" id="public-button">
         发布卡片</el-button>

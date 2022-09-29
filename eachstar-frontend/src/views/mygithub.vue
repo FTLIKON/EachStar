@@ -28,7 +28,12 @@
       :total="totalPage*10"/>
     </div>
   </div>
+  <div class="aside-menu">
+    <el-button @click="publicButton()" type="success" id="public-button">
+      发布卡片</el-button>
+  </div>
   <Delete ref="Delete"/>
+  <Public @publicCard="publicCard" ref="Public"/>
 </template>
 
 <script>
@@ -36,6 +41,7 @@ import axios from "axios";
 import bus from '../utils/emitter';
 import { ElMessage } from "element-plus";
 import Delete from "../components/delete.vue";
+import Public from "../components/public.vue";
 export default {
     name: "mygithub",
     mounted() {
@@ -55,6 +61,40 @@ export default {
         };
     },
     methods: {
+        // ---------- public相关 ---------- 
+        publicButton() { // 发布按钮->点击打开Public.vue
+          this.$.refs.Public.openPage();
+        },
+        publicCard: function(title, context, starPrice, starNum, time){ // Post->向服务器请求发布data卡片
+          ElMessage('正在尝试发布, 请稍等');
+          var that = this;
+          let param = new URLSearchParams();
+          param.append("title", title);
+          param.append("context", context);
+          param.append("starPrice", starPrice);
+          param.append("starNum", starNum);
+          param.append("expireTime", time);
+          var config = {
+            method: 'post',
+            url: 'server/api/card',
+            data : param
+          };
+          
+          axios(config)
+          .then(function (response) {
+            ElMessage({
+              message: '发布成功, 正在重定向至第一页!',
+              type: 'success',
+            })
+            that.getPageData(0);
+            bus.emit('refreshUserInfo');
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+        },
+        
+        // ---------- 删除相关 ----------
         deleteButton(card) { // 删除按钮->点击打开delete.vue
           this.$.refs.Delete.openPage(card);
         },
@@ -91,7 +131,7 @@ export default {
           });
         },
     },
-    components: { Delete }
+    components: { Delete, Public }
 };
 </script>
 
