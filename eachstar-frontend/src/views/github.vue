@@ -205,7 +205,7 @@ export default {
 .github {
   background-color: none;
 
-  height: 600px;
+  height: auto;
   margin-top: 1%;
   display: flex;
   justify-content: start;
