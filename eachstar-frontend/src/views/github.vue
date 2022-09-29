@@ -35,8 +35,8 @@
     </div>
     <el-backtop 
       style="
-        height: 100%;
-        width: 100%;
+        height: 10%;
+        width: 10%;
         box-shadow: var(--el-box-shadow-dark)
         border-radius: 50%"
       :right="100"
