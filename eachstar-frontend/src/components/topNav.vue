@@ -133,7 +133,7 @@ export default {
 
   display: flex;
   align-items: center;
-  margin-left: 10%
+  margin-left: 2%
 }
 .logo-pic {
   width: 12%;
