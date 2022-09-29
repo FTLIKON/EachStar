@@ -1,5 +1,5 @@
 <template>
-  <div class="github">
+  <div class="github" v-loading="loading">
     <div class="card-view">
       <!-- 卡片列表 -->
       <el-card v-for="item of currentPageData" :key="item" class="card-list">
@@ -59,21 +59,13 @@ export default {
     },
     data() {
       return {
+        loading: true,
+
         pageSize: 10,
         totalPage: 0,
         totalCard: 35,
         currentPage: 0,
         currentPageData: [
-          {
-            title: "这是一个标题",
-            discription: "Java Hotspot Debuger(Java Hotspot调试器), 是一款基于服务性代理实现的进程外调试工具",
-            cardRank: 2,
-          },
-          {
-            title: "我是火车王",
-            discription: "让学习变得更简单",
-            cardRank: 3,
-          },
         ],
       }
     },
@@ -188,6 +180,7 @@ export default {
             index++; start++;
           }
           that.currentPageData = list;
+          that.loading = false;
         })
         .catch(function (error) {
           console.log(error);
