@@ -132,7 +132,7 @@ export default {
         axios(config)
         .then(function (response) {
           ElMessage({
-            message: '一键star成功! 获得积分:'+toString(card.starPrice),
+            message: '一键star成功! 获得积分:'+card.starPrice,
             type: 'success',
           })
           card.starNum -= 1;
