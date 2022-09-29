@@ -12,7 +12,7 @@ export default {
 
 <style>
 .main {
-  width: 100%;
+  width: 2000px;
   height: 30px;
   background-color: #303133;
 }
