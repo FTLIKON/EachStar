@@ -186,6 +186,7 @@ export default {
   color: #303133;
   font-size: large;
   font-weight: bold;
+  text-decoration: none;
 
   margin-bottom: 2%;
   text-align: left;
