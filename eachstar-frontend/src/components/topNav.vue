@@ -7,8 +7,8 @@
     @select="menuSelect"
     :ellipsis="false"
   >
-    <div class="left-block" @click="goEachStar()">
-      <div class="logo">
+    <div class="left-block">
+      <div class="logo" @click="goEachStar()">
         <img class="logo-pic" src="icon.png">
         EachStar</div>
     </div>
