@@ -36,13 +36,14 @@
       :right="80"
       :bottom="80"
       :visibility-height="0"/>
-
+    
     <div class="aside-menu">
       <el-button @click="publicButton()" type="success" id="public-button">
         发布卡片</el-button>
     </div>
+
+    <BottomLine />
   </div>
-  <BottomLine />
   <Delete ref="Delete"/>
   <Public @publicCard="publicCard" ref="Public"/>
 </template>

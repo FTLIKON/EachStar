@@ -47,8 +47,8 @@
       <el-button @click="publicButton()" type="success" id="public-button">
         发布卡片</el-button>
     </div>
+    <bottom-line />
   </div>
-  <bottom-line />
   <Public @publicCard="publicCard" ref="Public"/>
 </template>
 
