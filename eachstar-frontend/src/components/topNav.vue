@@ -1,5 +1,5 @@
 <template>
-<el-affix :offset="120">
+<el-affix :offset="0">
   <el-menu
     id="menu"
     mode="horizontal"
