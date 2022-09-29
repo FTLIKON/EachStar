@@ -217,7 +217,6 @@ export default {
 
   margin-left: 20%;
   width: 60%;
-  display: flex;
 }
 .aside-menu {
   background-color: none;
