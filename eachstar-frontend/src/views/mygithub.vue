@@ -51,16 +51,6 @@ export default {
             totalCard: 35,
             currentPage: 0,
             currentPageData: [
-                {
-                    title: "页面是我的卡片",
-                    discription: "Java Hotspot Debuger(Java Hotspot调试器), 是一款基于服务性代理实现的进程外调试工具",
-                    cardRank: 2,
-                },
-                {
-                    title: "我是火车王",
-                    discription: "让学习变得更简单",
-                    cardRank: 3,
-                },
             ],
         };
     },

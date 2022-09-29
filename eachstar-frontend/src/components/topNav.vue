@@ -17,7 +17,7 @@
         <router-link to="/github" class="link">发现仓库</router-link>
       </el-menu-item>
       <el-divider direction="vertical" />
-      <el-menu-item index="2">
+      <el-menu-item index="2" v-show="isLogin">
         <router-link to="/mygithub" class="link">你的仓库</router-link>
       </el-menu-item>
     </div>
