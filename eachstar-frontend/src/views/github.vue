@@ -53,6 +53,11 @@ export default {
     components: {
       Public
     },
+    computed: {
+      title: function(){
+        return this.replace("https://github.com/", "");
+      },
+    },
     mounted() {
       let that = this;
       that.pageChange(1);
