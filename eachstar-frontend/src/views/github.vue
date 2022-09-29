@@ -35,12 +35,12 @@
     </div>
     <el-backtop 
       style="
-        height: 10%;
-        width: 10%;
+        height: 60px;
+        width: 60px;
         box-shadow: var(--el-box-shadow-dark)
         border-radius: 50%"
-      :right="100"
-      :bottom="100"
+      :right="80"
+      :bottom="80"
       :visibility-height="0"/>
 
     <div class="aside-menu">
