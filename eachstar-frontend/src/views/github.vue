@@ -247,6 +247,7 @@ export default {
 
 .card-block {
   display: flex;
+  border-radius: 10%;
   flex-direction: column;
   align-items: start;
 }

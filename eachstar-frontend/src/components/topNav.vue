@@ -78,7 +78,7 @@ export default {
     // 未登录禁止打开我的仓库
     noLoginError() {
       ElMessage({
-        message: "请先进行登录!",
+        message: "请先进行注册/登录!",
         type: "warning",
       });
     },
@@ -200,7 +200,7 @@ export default {
   width: 45%;
 }
 .user-icon {
-  width: 12%;
+  width: 10%;
   margin-right: 4%;
   margin-top: auto;
   margin-bottom: auto;
