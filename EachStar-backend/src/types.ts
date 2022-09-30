@@ -1,4 +1,4 @@
-import { Client } from 'pg'
+import { Pool } from 'pg'
 
 export interface User {
   id: bigint
@@ -28,7 +28,7 @@ export interface UserStar {
 }
 
 export interface RepositoryType {
-  client: Client
+  pool: Pool
   createUser(id: bigint, githubName: string, price: bigint): Promise<User>
   getUserById(UserId: bigint): Promise<User | undefined>
   changeUserPrice(UserId: bigint, newPrice: bigint): Promise<User>

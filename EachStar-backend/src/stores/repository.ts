@@ -31,16 +31,15 @@ interface UserStarPO {
 }
 
 export class RepositoryPostgres implements RepositoryType {
-  client: Client
+  pool: Pool
   constructor() {
     const connectionString = serviceConfig.databaseUrl
-    this.client = new Client({
+    this.pool = new Pool({
       connectionString,
     })
-    this.client.connect()
   }
 
-  genId() {
+  get genId() {
     return BigInt((Math.random() * Number.MAX_SAFE_INTEGER) << 0)
   }
 
@@ -103,7 +102,8 @@ export class RepositoryPostgres implements RepositoryType {
     githubName: string,
     price: bigint,
   ): Promise<User> {
-    const result = await this.client.query<UserPO>(
+    const client = await this.pool.connect()
+    const result = await client.query<UserPO>(
       `--sql
       INSERT INTO users (
         "id",
@@ -121,23 +121,25 @@ export class RepositoryPostgres implements RepositoryType {
     `,
       [id, githubName, price],
     )
-    this.client.end()
+    client.release()
     return this.formatUserPo(result.rows[0])
   }
 
   async getUserById(id: bigint): Promise<User | undefined> {
-    const result = await this.client.query<UserPO>(
+    const client = await this.pool.connect()
+    const result = await client.query<UserPO>(
       `--sql
       SELECT * FROM users WHERE id = $1
       `,
       [id],
     )
-    this.client.end()
+    client.release()
     return result.rows[0] && this.formatUserPo(result.rows[0])
   }
 
   async changeUserPrice(UserId: bigint, newPrice: bigint): Promise<User> {
-    const result = await this.client.query<UserPO>(
+    const client = await this.pool.connect()
+    const result = await client.query<UserPO>(
       `--sql
       UPDATE users SET price = $1,
       updated_at = NOW()
@@ -146,6 +148,7 @@ export class RepositoryPostgres implements RepositoryType {
       `,
       [newPrice, UserId],
     )
+    client.release()
     return this.formatUserPo(result.rows[0])
   }
 
@@ -157,9 +160,9 @@ export class RepositoryPostgres implements RepositoryType {
     starNum: bigint,
     expireTime: Date,
   ): Promise<Card> {
-    const id = this.genId()
-
-    const result = await this.client.query<CardPO>(
+    const id = this.genId
+    const client = await this.pool.connect()
+    const result = await client.query<CardPO>(
       `--sql
       INSERT INTO cards (
         "id",
@@ -185,13 +188,13 @@ export class RepositoryPostgres implements RepositoryType {
     `,
       [id, userId, title, context, starPrice, starNum, expireTime],
     )
-    console.log(result.rows[0])
+    client.release()
     return this.formatCardPo(result.rows[0])
   }
   async updateCard(data: Card): Promise<Card> {
     const { id, userId, title, context, starPrice, starNum, expireTime } = data
-
-    const result = await this.client.query<CardPO>(
+    const client = await this.pool.connect()
+    const result = await client.query<CardPO>(
       `--sql
       UPDATE cards SET 
       title = $1,
@@ -205,32 +208,38 @@ export class RepositoryPostgres implements RepositoryType {
     `,
       [title, context, starPrice, starNum, expireTime, id],
     )
-
+    client.release()
     return this.formatCardPo(result.rows[0])
   }
 
   async deleteCardById(userId: bigint, cardId: bigint): Promise<any> {
-    const result = await this.client.query<CardPO>(
+    const client = await this.pool.connect()
+    const result = await client.query<CardPO>(
       `--sql
       DELETE FROM cards
       WHERE user_id = $1 AND id = $2
     `,
       [userId, cardId],
     )
+    client.release()
   }
 
   async getCardById(cardId: bigint): Promise<Card> {
-    const result = await this.client.query<CardPO>(
+    const client = await this.pool.connect()
+    const result = await client.query<CardPO>(
       `--sql
       SELECT * FROM cards WHERE id=$1
     `,
       [cardId],
     )
+    client.release()
     return this.formatCardPo(result.rows[0])
   }
 
   async getCardsByTimeSort(start: number): Promise<any> {
-    const result = await this.client.query<CardPO>(
+    const client = await this.pool.connect()
+
+    const result = await client.query<CardPO>(
       `--sql
       SELECT * FROM cards WHERE star_num > 0 ORDER BY updated_at DESC limit 10 offset $1
     `,
@@ -240,17 +249,20 @@ export class RepositoryPostgres implements RepositoryType {
     for (let index in result.rows) {
       cards.push(this.formatCardPo(result.rows[index]))
     }
-    const resCount = await this.client.query(
+    const resCount = await client.query(
       `--sql
       SELECT count(*) FROM cards WHERE star_num > 0 
     `,
     )
+    client.release()
 
     return { count: BigInt(resCount.rows[0].count), data: cards }
   }
 
   async getCardsByUserId(userId: bigint, start: number): Promise<any> {
-    const result = await this.client.query<CardPO>(
+    const client = await this.pool.connect()
+
+    const result = await client.query<CardPO>(
       `--sql
       SELECT * FROM cards WHERE user_id=$1 ORDER BY updated_at DESC limit 10 offset $2
     `,
@@ -260,18 +272,20 @@ export class RepositoryPostgres implements RepositoryType {
     for (let index in result.rows) {
       cards.push(this.formatCardPo(result.rows[index]))
     }
-    const resCount = await this.client.query(
+    const resCount = await client.query(
       `--sql
       SELECT count(*) FROM cards WHERE user_id=$1 
     `,
       [userId],
     )
+    client.release()
     return { count: BigInt(resCount.rows[0].count), data: cards }
   }
 
   async starCard(userId: bigint, cardId: bigint): Promise<any> {
+    const client = await this.pool.connect()
     // 将用户star的动作入库
-    const userStarData = await this.client.query<UserStarPO>(
+    const userStarData = await client.query<UserStarPO>(
       `--sql
       INSERT INTO user_star (
         "id",
@@ -285,11 +299,11 @@ export class RepositoryPostgres implements RepositoryType {
         NOW()
       ) RETURNING *
     `,
-      [this.genId(), userId, cardId],
+      [this.genId, userId, cardId],
     )
 
     //将卡片的悬赏星星-1
-    const cardData = await this.client.query<CardPO>(
+    const cardData = await client.query<CardPO>(
       `--sql
       SELECT * from cards WHERE id = $1
       `,
@@ -306,12 +320,15 @@ export class RepositoryPostgres implements RepositoryType {
       const starUserNewPrice = starUser.price + newCard.starPrice
       this.changeUserPrice(starUserId, starUserNewPrice)
     }
+    client.release()
 
     return newCard
   }
 
   async getUserStarred(userId: bigint): Promise<any> {
-    const result = await this.client.query<UserStarPO>(
+    const client = await this.pool.connect()
+
+    const result = await client.query<UserStarPO>(
       `--sql
       SELECT * FROM user_star WHERE user_id = $1
     `,
@@ -321,6 +338,7 @@ export class RepositoryPostgres implements RepositoryType {
     for (let index in result.rows) {
       user_starred.push(this.formatUserStarPo(result.rows[index]))
     }
+    client.release()
 
     return user_starred
   }
