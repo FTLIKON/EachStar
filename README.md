@@ -1,5 +1,5 @@
 <div align="center">
-    <img align="center" src="https://github.com/FTLIKON/EachStar/blob/main/imgs/EachStar.png" alt="logo" width="200">
+    <img align="center" src="https://github.com/FTLIKON/EachStar/blob/main/imgs/EachStar.png" alt="logo" width="500">
     <h1 align="center">Pixeval</h1>
     <p align="center">基于.NET 6 和 Windows UI 3的强大、快速、漂亮的Pixiv桌面程序</p>
     <p align="center">
