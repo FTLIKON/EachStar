@@ -11,7 +11,7 @@
             <img src="https://img.shields.io/static/v1?label=chatting&message=qq&color=blue&style=flat-square">
         </a>
         <a href="https://github.com/FTLIKON/EachStar/blob/master/LICENSE" target="_blank">
-            <img src="https://img.shields.io/github/license/FTLIKON/EachStar?style=flat-square">
+            <img src="https://img.shields.io/static/v1?label=license&message=GPL-3.0&color=orange&style=flat-square">
         </a>
         <a href="https://github.com/FTLIKON/EachStar/issues/new/choose" target="_blank">
             <img src="https://img.shields.io/static/v1?label=feedback&message=issues&color=pink&style=flat-square">
