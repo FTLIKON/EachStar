@@ -121,6 +121,7 @@ export class RepositoryPostgres implements RepositoryType {
     `,
       [id, githubName, price],
     )
+    this.client.end()
     return this.formatUserPo(result.rows[0])
   }
 
@@ -131,6 +132,7 @@ export class RepositoryPostgres implements RepositoryType {
       `,
       [id],
     )
+    this.client.end()
     return result.rows[0] && this.formatUserPo(result.rows[0])
   }
 
