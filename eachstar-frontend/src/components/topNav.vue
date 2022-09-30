@@ -41,7 +41,7 @@
           >可用积分: {{ userPrice }}</span
         >
         <span v-show="isLogin" class="user-hello">您好, {{ userName }}</span>
-        <img class="user-icon" :src="userIconURL" alt="" />
+        <img class="user-icon" v-show="isLogin" :src="userIconURL" alt="" />
       </div>
     </el-menu>
   </el-affix>
@@ -200,10 +200,10 @@ export default {
   width: 45%;
 }
 .user-icon {
-  width: 13%;
+  width: 12%;
   margin-right: 4%;
-  margin-top: 5%;
-  margin-bottom: 5%;
+  margin-top: auto;
+  margin-bottom: auto;
 
   border-radius: 50%;
   border: 2px solid var(--el-border-color);
