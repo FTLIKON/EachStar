@@ -1,7 +1,7 @@
 <div align="center">
     <img align="center" src="https://github.com/FTLIKON/EachStar/blob/main/imgs/EachStar.png" alt="logo" width="600">
     <h1 href="www.each-star.com" align="center">each-star.com</h1>
-    <p align="center">· 基于 Github API 和 element-plus 的在线互助 Star 平台 ·</p>
+    <p align="center">· 基于 Github API 和 Element Plus 的在线互助 Star 平台 ·</p>
     <p align="center">
         <img src="https://img.shields.io/github/stars/FTLIKON/EachStar?color=red&style=flat-square">
         <a href="mailto:3147983767@qq.com">
