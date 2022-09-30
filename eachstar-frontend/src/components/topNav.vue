@@ -1,85 +1,100 @@
 <template>
-<el-affix :offset="0">
-  <el-menu
-    id="menu"
-    mode="horizontal"
-    default-active="1"
-    @select="menuSelect"
-    :ellipsis="false"
-  >
-    <div class="left-block">
-      <div class="logo">
-        <img class="logo-pic" src="icon.png" @click="goEachStar()">
-        <span @click="goEachStar()">EachStar</span></div>
-    </div>
+  <el-affix :offset="0">
+    <el-menu
+      id="menu"
+      mode="horizontal"
+      default-active="1"
+      @select="menuSelect"
+      :ellipsis="false"
+    >
+      <div class="left-block">
+        <div class="logo">
+          <img class="logo-pic" src="icon.png" @click="goEachStar()" />
+          <span @click="goEachStar()">EachStar</span>
+        </div>
+      </div>
 
-    <div class="mid-block">
-      <el-menu-item index="1">
-        <router-link to="/github" class="link">发现仓库</router-link>
-      </el-menu-item>
-      <el-divider direction="vertical"/>
-      <el-menu-item index="2">
-        <router-link to="/mygithub" class="link" v-show="isLogin">你的仓库</router-link>
-        <router-link to="/github" @click="noLoginError()" class="link" v-show="!isLogin">你的仓库</router-link>
-      </el-menu-item>
-    </div>
+      <div class="mid-block">
+        <el-menu-item index="1">
+          <router-link to="/github" class="link">发现仓库</router-link>
+        </el-menu-item>
+        <el-divider direction="vertical" />
+        <el-menu-item index="2">
+          <router-link to="/mygithub" class="link" v-show="isLogin"
+            >你的仓库</router-link
+          >
+          <router-link
+            to="/github"
+            @click="noLoginError()"
+            class="link"
+            v-show="!isLogin"
+            >你的仓库</router-link
+          >
+        </el-menu-item>
+      </div>
 
-    <div class="right-block">
-      <el-button v-show="!isLogin" @click="authButton()" id="auth-button">注册 / 登录</el-button>
-      <span v-show="isLogin" class="user-rank">积分: {{ userPrice }}</span>
-      <span v-show="isLogin" class="user-hello">您好, {{ userName }}!</span>
-      <img class="user-icon" :src="userIconURL" alt="">
-    </div>
-  </el-menu>
-</el-affix>
-<GithubAuth ref="GithubAuth"/>
+      <div class="right-block">
+        <el-button v-show="!isLogin" @click="authButton()" id="auth-button"
+          >注册 / 登录</el-button
+        >
+        <span v-show="isLogin" class="user-rank"
+          >可用积分: {{ userPrice }}</span
+        >
+        <span v-show="isLogin" class="user-hello">您好, {{ userName }}</span>
+        <img class="user-icon" :src="userIconURL" alt="" />
+      </div>
+    </el-menu>
+  </el-affix>
+  <GithubAuth ref="GithubAuth" />
 </template>
 
 <script>
-import bus from '../utils/emitter';
+import bus from "../utils/emitter";
 import { buildSlots } from "@vue/compiler-core";
 import axios from "axios";
-import GithubAuth from './githubAuth.vue';
-import { ElMessage } from 'element-plus';
+import GithubAuth from "./githubAuth.vue";
+import { ElMessage } from "element-plus";
 export default {
-    components: {
-      GithubAuth
+  components: {
+    GithubAuth,
+  },
+  data() {
+    return {
+      userName: "",
+      userPrice: null,
+      userIconURL: null,
+      isLogin: false,
+    };
+  },
+  mounted() {
+    this.getUserInfo();
+    bus.on("refreshUserInfo", this.getUserInfo);
+  },
+  methods: {
+    // 注册按钮
+    authButton() {
+      this.$.refs.GithubAuth.openPage();
     },
-    data() {
-      return {
-        userName: "",
-        userPrice: null,
-        userIconURL: null,
-        isLogin: false,
-      };
+    // 未登录禁止打开我的仓库
+    noLoginError() {
+      ElMessage({
+        message: "请先进行登录!",
+        type: "warning",
+      });
     },
-    mounted() {
-      this.getUserInfo();
-      bus.on('refreshUserInfo', this.getUserInfo);
-    },
-    methods: {
-      // 注册按钮
-      authButton() {
-        this.$.refs.GithubAuth.openPage();
-      },
-      // 未登录禁止打开我的仓库
-      noLoginError() {
-        ElMessage({
-          message: "请先进行登录!",
-          type: "warning",
-        })
-      },
 
-      goEachStar() { // 切换到EachStar
-        window.location.href = 'https://github.com/FTLIKON/EachStar'; 
-      },
-      getUserInfo() { // 刷新用户信息->data
-        var that = this;
-        var config = {
-          method: 'get',
-          url: 'server/api/user/@me'
-        };
-        axios(config)
+    goEachStar() {
+      // 切换到EachStar
+      window.location.href = "https://github.com/FTLIKON/EachStar";
+    },
+    getUserInfo() {
+      // 刷新用户信息->data
+      var that = this;
+      var config = {
+        method: "get",
+        url: "server/api/user/@me",
+      };
+      axios(config)
         .then(function (response) {
           that.userName = response.data.githubName;
           that.userPrice = response.data.price;
@@ -89,11 +104,12 @@ export default {
         .catch(function (error) {
           console.log(error);
         });
-      },      
-      menuSelect(key, keyPath) { // 菜单选择
-        // console.log('[DEBUGGER] '+key);
-      },
-    }
+    },
+    menuSelect(key, keyPath) {
+      // 菜单选择
+      // console.log('[DEBUGGER] '+key);
+    },
+  },
 };
 </script>
 
@@ -129,16 +145,15 @@ export default {
   align-items: center;
 }
 
-
 .logo {
   color: #ffffff;
   font-weight: bold;
   font-size: x-large;
-  text-shadow: 1px 1px 2px #303133, 0px 0px 3px #303133; 
+  text-shadow: 1px 1px 2px #303133, 0px 0px 3px #303133;
 
   display: flex;
   align-items: center;
-  margin-left: 2%
+  margin-left: 2%;
 }
 .logo-pic {
   width: 12%;
@@ -166,14 +181,14 @@ export default {
 #auth-button {
   font-weight: bold;
   color: white;
-  background-color: #409EFF;
-  
+  background-color: #409eff;
+
   margin-right: 5%;
   margin-left: 30%;
 
   border: none;
   border-radius: 6px;
-  text-shadow: 0px 0px 1px #303133; 
+  text-shadow: 0px 0px 1px #303133;
 }
 .user-rank {
   margin-left: 10%;
@@ -185,10 +200,10 @@ export default {
   width: 45%;
 }
 .user-icon {
-  width: 15%;
+  width: 13%;
   margin-right: 4%;
-  margin-top: auto;
-  margin-bottom: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
 
   border-radius: 50%;
   border: 2px solid var(--el-border-color);
