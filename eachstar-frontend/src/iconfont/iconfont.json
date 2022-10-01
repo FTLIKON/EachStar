@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "5288587",
+      "name": "垃圾桶",
+      "font_class": "lajitong",
+      "unicode": "e66b",
+      "unicode_decimal": 58987
+    },
+    {
       "icon_id": "566213",
       "name": "发布",
       "font_class": "fabu",

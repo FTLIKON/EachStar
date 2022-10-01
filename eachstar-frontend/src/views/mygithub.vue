@@ -15,10 +15,20 @@
           </div>
           <div class="card-valueblock">
             <span class="card-rank">
-              <span>🪙星星价值: {{ item.starPrice }}</span>
+              <span
+                ><svg class="fronticon" aria-hidden="true">
+                  <use xlink:href="#icon-bonus-line"></use></svg
+                >星星价值: {{ item.starPrice }}</span
+              >
               <el-divider direction="vertical" />
               <span style="color: #409eff"
-                >👤剩余悬赏次数: {{ item.starNum }}</span
+                ><svg
+                  class="fronticon"
+                  style="width: 23px; height: 23px; vertical-align: -0.42em"
+                  aria-hidden="true"
+                >
+                  <use xlink:href="#icon-cishu"></use></svg
+                >剩余悬赏次数: {{ item.starNum }}</span
               >
             </span>
             <el-button
@@ -26,7 +36,10 @@
               @click="deleteButton(item)"
               type="danger"
               plain
-              >🗑️ 删除</el-button
+              ><svg class="icon svg-icon" aria-hidden="true">
+                <use xlink:href="#icon-lajitong"></use>
+              </svg>
+              删除</el-button
             >
           </div>
         </div>
@@ -53,7 +66,9 @@
 
     <div class="aside-menu">
       <el-button @click="publicButton()" type="success" id="public-button">
-        📝发布卡片</el-button
+        <svg class="fronticon" aria-hidden="true">
+          <use xlink:href="#icon-fabu"></use></svg
+        >发布卡片</el-button
       >
     </div>
   </div>
@@ -68,6 +83,7 @@ import { ElMessage } from "element-plus";
 import Delete from "../components/delete.vue";
 import Public from "../components/public.vue";
 import BottomLine from "../components/bottomLine.vue";
+import "../iconfont/iconfont";
 export default {
   name: "mygithub",
   mounted() {
@@ -110,8 +126,7 @@ export default {
       axios(config)
         .then(function (response) {
           ElMessage({
-            message:
-              "发布成功! 为您重定向至第一页...",
+            message: "发布成功! 为您重定向至第一页...",
             type: "success",
           });
           that.getMyPageData(0);
@@ -183,6 +198,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.fronticon {
+  width: 25px;
+  height: 25px;
+  vertical-align: -0.45em;
+  fill: currentColor;
+  overflow: hidden;
+  margin-bottom: auto;
+}
+
 .mygithub {
   background-color: none;
 

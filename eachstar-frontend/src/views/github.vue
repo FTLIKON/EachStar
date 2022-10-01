@@ -25,7 +25,7 @@
               <span style="color: #409eff">
                 <svg
                   class="fronticon"
-                  style="width: 23px; height: 23px; vertical-align: -0.43em"
+                  style="width: 23px; height: 23px; vertical-align: -0.42em"
                   aria-hidden="true"
                 >
                   <use xlink:href="#icon-cishu"></use>
