@@ -350,6 +350,8 @@ export default {
   display: flex;
 }
 .card-rank {
+  display: flex;
+  align-items: center;
   color: #b88230;
   background-color: none;
 
