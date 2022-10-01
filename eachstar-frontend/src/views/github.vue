@@ -261,15 +261,17 @@ export default {
   flex-direction: column;
   align-items: start;
 }
-.card-title {
+.card-titleblock {
   color: #303133;
+  margin-bottom: 2%;
+  width: 100%;
+}
+.card-title {
+  width: 70%;
+  text-align: left;
   font-size: large;
   font-weight: bold;
   text-decoration: none;
-
-  margin-bottom: 2%;
-  width: 70%;
-  text-align: left;
 }
 .card-time {
   width: 30%;
