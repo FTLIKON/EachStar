@@ -18,7 +18,11 @@
         clearable
       />
       <div class="rank-block">
-        <span class="slider-text">🪙积分价值: {{ starPrice }}</span>
+        <span class="slider-text"
+          ><svg class="fronticon" aria-hidden="true">
+            <use xlink:href="#icon-bonus-line"></use></svg
+          >积分价值: {{ starPrice }}</span
+        >
         <el-slider
           v-model="starPrice"
           class="slider"
@@ -28,7 +32,15 @@
         ></el-slider>
       </div>
       <div class="rank-num-block">
-        <span class="slider-text">👤悬赏次数: {{ starNum }}</span>
+        <span class="slider-text"
+          ><svg
+            class="fronticon"
+            style="width: 23px; height: 23px; vertical-align: -0.42em"
+            aria-hidden="true"
+          >
+            <use xlink:href="#icon-cishu"></use></svg
+          >悬赏次数: {{ starNum }}</span
+        >
         <el-slider
           v-model="starNum"
           class="slider"
@@ -67,7 +79,7 @@ import { register } from "../api/auth";
 import { ElMessage } from "element-plus";
 import { validateGithubUrl } from "../utils/validate.js";
 import axios from "axios";
-
+import "../iconfont/iconfont";
 export default {
   data() {
     return {
@@ -171,6 +183,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.fronticon {
+  width: 25px;
+  height: 25px;
+  vertical-align: -0.45em;
+  fill: currentColor;
+  overflow: hidden;
+  margin-bottom: auto;
+}
+
 .publicConfirm-block {
   .title {
     width: 100%;
@@ -178,7 +199,6 @@ export default {
     margin-bottom: 5%;
     font-size: large;
   }
-
 }
 
 .input-block {
