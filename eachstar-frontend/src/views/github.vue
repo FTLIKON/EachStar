@@ -6,7 +6,7 @@
         <div class="card-block">
           <div class="card-titleblock">
             <a class="card-title" :href="item.title" target="_blank">{{
-              item.title
+              item.title.replace("https://github.com/", "")
             }}</a>
             <span class="card-time">{{ item.updatedAt }}</span>
           </div>
@@ -225,7 +225,7 @@ export default {
             if (response.data.data[index] != undefined) {
               let nowData = response.data.data[index];
               nowData.updatedAt = that.parseTimeString(nowData.updatedAt);
-              nowData.title = nowData.title.replace("https://github.com/", "");
+              
               list.push(nowData);
             }
             index++;
