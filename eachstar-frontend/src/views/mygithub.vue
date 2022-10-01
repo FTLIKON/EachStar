@@ -36,7 +36,7 @@
               @click="deleteButton(item)"
               type="danger"
               plain
-              ><svg class="icon svg-icon" aria-hidden="true">
+              ><svg class="fronticon" aria-hidden="true">
                 <use xlink:href="#icon-lajitong"></use>
               </svg>
               删除</el-button
