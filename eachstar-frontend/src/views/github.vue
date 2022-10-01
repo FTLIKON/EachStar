@@ -188,13 +188,13 @@ export default {
       let nowTime = new Date();
       let diffTime = nowTime.getTime() - cardTime.getTime();
       if (diffTime < 60 * 1000) {
-        resTime = Math.floor(diffTime) + "秒前";
+        resTime = Math.floor(diffTime / 1000) + "秒前";
       } else if (diffTime < 3600 * 1000) {
-        resTime = Math.floor(diffTime / 60) + "分钟前";
+        resTime = Math.floor((diffTime / 60) * 1000) + "分钟前";
       } else if (diffTime < 3600 * 24 * 1000) {
-        resTime = Math.floor(diffTime / 3600) + "小时前";
+        resTime = Math.floor((diffTime / 3600) * 1000) + "小时前";
       } else {
-        resTime = Math.floor(diffTime / (3600 * 24)) + "天前";
+        resTime = Math.floor(diffTime / (3600 * 24 * 1000)) + "天前";
       }
       return resTime;
     },
