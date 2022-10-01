@@ -174,11 +174,10 @@ export default {
   .title {
     width: 100%;
     font-weight: bold;
+    margin-bottom: 100px;
     font-size: large;
   }
-  .dialog-footer {
-    margin-top: 100px;
-  }
+
 }
 
 .input-block {
