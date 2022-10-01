@@ -38,7 +38,7 @@
           >注册 / 登录</el-button
         >
         <span v-show="isLogin" class="user-rank"
-          ><svg class="fronticon" style="color: #b88230" aria-hidden="true">
+          ><svg class="fronticon" style="color: #b88230;vertical-align: -0.1em;" aria-hidden="true">
             <use xlink:href="#icon-bonus-line"></use></svg
           >可用积分: {{ userPrice }}</span
         >
