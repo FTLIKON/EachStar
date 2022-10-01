@@ -284,13 +284,12 @@ export default {
   align-items: start;
 }
 .card-titleblock {
-  color: #303133;
   margin-bottom: 2%;
   width: 100%;
-
   display: flex;
 }
 .card-title {
+  color: #303133;
   width: 70%;
   text-align: left;
   font-size: large;
