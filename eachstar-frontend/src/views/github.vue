@@ -1,7 +1,7 @@
 <template>
   <div class="github" v-loading="loading">
     <div class="card-view">
-      <transition name="el-zoom-in-top">
+      <transition name="el-fade-in">
         <!-- 卡片列表 -->
         <el-card v-for="item of currentPageData" :key="item" class="card-list">
           <div class="card-block">
