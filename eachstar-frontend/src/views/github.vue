@@ -15,7 +15,11 @@
           </div>
           <div class="card-valueblock">
             <span class="card-rank">
-              <span>🪙可获得积分: {{ item.starPrice }}</span>
+              <span>
+                <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#icon-bonus-line"></use></svg
+                >可获得积分: {{ item.starPrice }}</span
+              >
               <el-divider direction="vertical" />
               <span style="color: #409eff">👤悬赏次数: {{ item.starNum }}</span>
             </span>
@@ -69,6 +73,8 @@ import { getCurrentInstance, onMounted } from "vue-demi";
 import { ElMessage } from "element-plus";
 import Public from "../components/public.vue";
 import BottomLine from "../components/bottomLine.vue";
+import "../iconfont/iconfont";
+
 export default {
   name: "github",
   components: {
@@ -225,7 +231,7 @@ export default {
             if (response.data.data[index] != undefined) {
               let nowData = response.data.data[index];
               nowData.updatedAt = that.parseTimeString(nowData.updatedAt);
-              
+
               list.push(nowData);
             }
             index++;
@@ -243,6 +249,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
 .github {
   background-color: none;
 
