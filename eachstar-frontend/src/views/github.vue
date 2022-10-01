@@ -16,7 +16,7 @@
           <div class="card-valueblock">
             <span class="card-rank">
               <span>
-                <svg class="PriceIcon" aria-hidden="true">
+                <svg class="priceIcon" aria-hidden="true">
                   <use xlink:href="#icon-bonus-line"></use></svg
                 >可获得积分: {{ item.starPrice }}</span
               >
