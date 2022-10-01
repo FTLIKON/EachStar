@@ -40,7 +40,7 @@
         <span v-show="isLogin" class="user-rank"
           ><svg
             class="fronticon"
-            style="color: #b88230; vertical-align: 1em"
+            style="color: #b88230; vertical-align: 1em; margin-top: 10%"
             aria-hidden="true"
           >
             <use xlink:href="#icon-bonus-line"></use></svg
