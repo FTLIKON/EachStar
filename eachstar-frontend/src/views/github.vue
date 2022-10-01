@@ -194,7 +194,7 @@ export default {
       } else if (diffTime < 3600 * 24) {
         resTime = diffTime / 3600 + "小时前";
       } else {
-        resTime = (diffTime / 3600) * 24 + "天前";
+        resTime = diffTime / (3600 * 24) + "天前";
       }
       return resTime;
     },
