@@ -174,7 +174,7 @@ export default {
   .title {
     width: 100%;
     font-weight: bold;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
     font-size: large;
   }
 
