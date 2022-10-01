@@ -8,7 +8,7 @@
             <a class="card-title" :href="item.title" target="_blank">{{
               item.title
             }}</a>
-            <span class="card-time">{{ item.updatedAt }}</span>
+            <span class="card-time">{{ item.createdAt }}</span>
           </div>
           <div class="card-discription">
             {{ item.context }}
@@ -180,7 +180,7 @@ export default {
           var start = page * that.pageSize;
           while (index < that.pageSize && start < that.totalCard) {
             let nowData = response.data.data[index];
-            nowData.updatedAt = that.parseTimeString(nowData.updatedAt);
+            nowData.createdAt = that.parseTimeString(nowData.createdAt);
             list.push(nowData);
             index++;
             start++;
