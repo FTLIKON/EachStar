@@ -5,9 +5,9 @@
       <el-card v-for="item of currentPageData" :key="item" class="card-list">
         <div class="card-block">
           <div class="card-titleblock">
-            <a class="card-title" :href="item.title" target="_blank">{{
-              item.title.replace("https://github.com/", "")
-            }}</a>
+            <a class="card-title" :href="item.title" target="_blank">
+              {{ item.title.replace("https://github.com/", "") }}</a
+            >
             <span class="card-time">{{ item.updatedAt }}</span>
           </div>
           <div class="card-discription">
@@ -17,9 +17,10 @@
             <span class="card-rank">
               <span>
                 <svg class="priceIcon" aria-hidden="true">
-                  <use xlink:href="#icon-bonus-line"></use></svg
-                >可获得积分: {{ item.starPrice }}</span
-              >
+                  <use xlink:href="#icon-bonus-line"></use>
+                </svg>
+                可获得积分: {{ item.starPrice }}
+              </span>
               <el-divider direction="vertical" />
               <span style="color: #409eff">👤悬赏次数: {{ item.starNum }}</span>
             </span>
@@ -252,7 +253,6 @@ export default {
 .priceIcon {
   width: 25px;
   height: 25px;
-  vertical-align: -0.15em;
   fill: currentColor;
   overflow: hidden;
   margin-bottom: auto;
@@ -358,7 +358,7 @@ export default {
   margin-left: 3%;
   margin-right: 3%;
   margin-top: auto;
-  margin-bottom: 10%;
+  margin-bottom: auto;
   text-align: left;
   font-size: medium;
 }
