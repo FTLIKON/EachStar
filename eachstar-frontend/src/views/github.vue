@@ -1,73 +1,66 @@
 <template>
   <div class="github" v-loading="loading">
-    <transition name="el-zoom-in-top">
-      <div class="card-view">
-        <!-- 卡片列表 -->
-        <el-card v-for="item of currentPageData" :key="item" class="card-list">
-          <div class="card-block">
-            <div class="card-titleblock">
-              <a class="card-title" :href="item.title" target="_blank">
-                {{ item.title.replace("https://github.com/", "") }}</a
-              >
-              <span class="card-time">{{ item.createdAt }}</span>
-            </div>
-            <div class="card-discription">
-              {{ item.context }}
-            </div>
-            <div class="card-valueblock">
-              <span class="card-rank">
-                <span>
-                  <svg class="fronticon" aria-hidden="true">
-                    <use xlink:href="#icon-bonus-line"></use>
-                  </svg>
-                  可获得积分: {{ item.starPrice }}
-                </span>
-                <el-divider direction="vertical" />
-                <span style="color: #409eff">
-                  <svg
-                    class="fronticon"
-                    style="width: 23px; height: 23px; vertical-align: -0.42em"
-                    aria-hidden="true"
-                  >
-                    <use xlink:href="#icon-cishu"></use>
-                  </svg>
-                  悬赏次数: {{ item.starNum }}</span
-                >
-              </span>
-              <el-button
-                v-show="!item.starred"
-                id="card-button"
-                @click="starButton(item)"
-                plain
-              >
-                <svg class="fronticon" aria-hidden="true">
-                  <use xlink:href="#icon-xingxing"></use>
-                </svg>
-                一键Star</el-button
-              >
-              <el-button
-                v-show="item.starred"
-                id="card-button"
-                type="info"
-                plain
-              >
-                <svg class="fronticon" aria-hidden="true">
-                  <use xlink:href="#icon-xingxing1"></use>
-                </svg>
-                Starred</el-button
-              >
-            </div>
+    <div class="card-view">
+      <!-- 卡片列表 -->
+      <el-card v-for="item of currentPageData" :key="item" class="card-list">
+        <div class="card-block">
+          <div class="card-titleblock">
+            <a class="card-title" :href="item.title" target="_blank">
+              {{ item.title.replace("https://github.com/", "") }}</a
+            >
+            <span class="card-time">{{ item.createdAt }}</span>
           </div>
-        </el-card>
-        <!-- 卡片换页 -->
-        <el-pagination
-          id="pagination"
-          layout="prev, pager, next"
-          @current-change="pageChange"
-          :total="totalPage * 10"
-        />
-      </div>
-    </transition>
+          <div class="card-discription">
+            {{ item.context }}
+          </div>
+          <div class="card-valueblock">
+            <span class="card-rank">
+              <span>
+                <svg class="fronticon" aria-hidden="true">
+                  <use xlink:href="#icon-bonus-line"></use>
+                </svg>
+                可获得积分: {{ item.starPrice }}
+              </span>
+              <el-divider direction="vertical" />
+              <span style="color: #409eff">
+                <svg
+                  class="fronticon"
+                  style="width: 23px; height: 23px; vertical-align: -0.42em"
+                  aria-hidden="true"
+                >
+                  <use xlink:href="#icon-cishu"></use>
+                </svg>
+                悬赏次数: {{ item.starNum }}</span
+              >
+            </span>
+            <el-button
+              v-show="!item.starred"
+              id="card-button"
+              @click="starButton(item)"
+              plain
+            >
+              <svg class="fronticon" aria-hidden="true">
+                <use xlink:href="#icon-xingxing"></use>
+              </svg>
+              一键Star</el-button
+            >
+            <el-button v-show="item.starred" id="card-button" type="info" plain>
+              <svg class="fronticon" aria-hidden="true">
+                <use xlink:href="#icon-xingxing1"></use>
+              </svg>
+              Starred</el-button
+            >
+          </div>
+        </div>
+      </el-card>
+      <!-- 卡片换页 -->
+      <el-pagination
+        id="pagination"
+        layout="prev, pager, next"
+        @current-change="pageChange"
+        :total="totalPage * 10"
+      />
+    </div>
 
     <el-backtop
       style="
