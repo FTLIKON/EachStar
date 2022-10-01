@@ -38,7 +38,7 @@
           >注册 / 登录</el-button
         >
         <span v-show="isLogin" class="user-rank"
-          >可用积分: {{ userPrice }}</span
+          >🪙可用积分: {{ userPrice }}</span
         >
         <span v-show="isLogin" class="user-hello">您好, {{ userName }}</span>
         <img class="user-icon" v-show="isLogin" :src="userIconURL" alt="" />
@@ -199,10 +199,6 @@ export default {
   margin-right: 10%;
   width: 25%;
   height: 80%;
-  border-radius: 12px;
-  background-color: white;
-  color: black;
-  border: 2px solid #555555;
 }
 .user-hello {
   width: 45%;
