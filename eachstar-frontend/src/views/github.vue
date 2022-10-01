@@ -116,7 +116,7 @@ export default {
         .then(function (response) {
           ElMessage({
             message:
-              "请确认您的github仓库是否公开, 不公开其他人无法给您star哦~",
+              "发布成功! 为您重定向至第一页...",
             type: "success",
           });
           that.getPageData(0);
