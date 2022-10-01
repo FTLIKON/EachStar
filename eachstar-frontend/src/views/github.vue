@@ -271,6 +271,10 @@ export default {
   width: 70%;
   text-align: left;
 }
+.card-time {
+  width: 30%;
+  text-align: right;
+}
 .card-discription {
   color: #606266;
 
