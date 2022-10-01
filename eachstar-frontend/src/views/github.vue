@@ -260,7 +260,7 @@ export default {
   flex-direction: column;
   align-items: center;
   .el-button {
-    background-color: #4073ff;
+    background-color: #04d37d;
   }
 }
 
