@@ -105,11 +105,13 @@ export default {
           message: "您当前积分不足~ 快去star别人的卡片吧!",
           type: "warning",
         });
+        this.publicConfirm = false;
       } else if (validateGithubUrl(this.cardTitle)) {
         ElMessage({
           message: "您输入的似乎不是Github链接, 请检查",
           type: "warning",
         });
+        this.publicConfirm = false;
       } else {
         var that = this;
         // debug
