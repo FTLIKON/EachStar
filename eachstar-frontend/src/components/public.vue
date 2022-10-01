@@ -21,6 +21,8 @@
         :step="1"
         :min="1"
         :max="5"></el-slider>
+      </div>
+      <div class="rank-setting-block">
         <span class="slider-text">悬赏次数: {{ starNum }}</span>
         <el-slider
         v-model="starNum"
