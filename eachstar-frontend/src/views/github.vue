@@ -1,9 +1,9 @@
 <template>
   <div class="github" v-loading="loading">
     <div class="card-view">
-      <transition name="el-fade-in">
-        <!-- 卡片列表 -->
-        <el-card v-for="item of currentPageData" :key="item" class="card-list">
+      <!-- 卡片列表 -->
+      <el-card v-for="item of currentPageData" :key="item" class="card-list">
+        <transition name="el-fade-in">
           <div class="card-block">
             <div class="card-titleblock">
               <a class="card-title" :href="item.title" target="_blank">
@@ -58,8 +58,8 @@
               >
             </div>
           </div>
-        </el-card>
-      </transition>
+        </transition>
+      </el-card>
       <!-- 卡片换页 -->
       <el-pagination
         id="pagination"
