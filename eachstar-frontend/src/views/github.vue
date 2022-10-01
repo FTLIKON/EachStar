@@ -182,6 +182,10 @@ export default {
 
       this.getPageData(this.currentPage);
     },
+    parseTimeString: function (timeString) {
+      timeObj = new Date(timeString).format("yyyy-MM-dd");
+      return timeObj;
+    },
     // 获取page页面数据->currentPageData
     getPageData: function (page) {
       var that = this;
@@ -213,10 +217,6 @@ export default {
         .catch(function (error) {
           console.log(error);
         });
-    },
-    parseTimeString: function (timeString) {
-      timeObj = new Date(timeString).format("yyyy-MM-dd");
-      return timeObj;
     },
   },
 };
