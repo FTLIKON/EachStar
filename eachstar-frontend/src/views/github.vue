@@ -115,8 +115,7 @@ export default {
       axios(config)
         .then(function (response) {
           ElMessage({
-            message:
-              "发布成功! 为您重定向至第一页...",
+            message: "发布成功! 为您重定向至第一页...",
             type: "success",
           });
           that.getPageData(0);
@@ -130,33 +129,42 @@ export default {
     // ---------- star-card相关 ----------
     // Star按钮
     starButton: function (card) {
-      var that = this;
-      let param = new URLSearchParams();
-      param.append("cardId", card.id);
-      var config = {
-        method: "post",
-        url: "server/api/card/quickstar",
-        data: param,
-      };
+      // 打开发布页面->需要登录
+      let userName = this.$cookies.get("userName");
+      if (userName) {
+        var that = this;
+        let param = new URLSearchParams();
+        param.append("cardId", card.id);
+        var config = {
+          method: "post",
+          url: "server/api/card/quickstar",
+          data: param,
+        };
 
-      card.starred = true;
-      axios(config)
-        .then(function (response) {
-          ElMessage({
-            message: "一键star成功! 获得积分:" + card.starPrice,
-            type: "success",
+        card.starred = true;
+        axios(config)
+          .then(function (response) {
+            ElMessage({
+              message: "一键star成功! 获得积分:" + card.starPrice,
+              type: "success",
+            });
+            card.starNum -= 1;
+            bus.emit("refreshUserInfo");
+            if (card.starNum == 0) {
+              // 如果悬赏次数为0->刷新页面
+              that.getPageData(that.currentPage);
+            }
+          })
+          .catch(function (error) {
+            console.log(error.status);
+            card.starred = false;
           });
-          card.starNum -= 1;
-          bus.emit("refreshUserInfo");
-          if (card.starNum == 0) {
-            // 如果悬赏次数为0->刷新页面
-            that.getPageData(that.currentPage);
-          }
-        })
-        .catch(function (error) {
-          console.log(error.status);
-          card.starred = false;
+      } else {
+        ElMessage({
+          message: "请先进行 注册/登录!",
+          type: "warning",
         });
+      }
     },
 
     getUserId() {

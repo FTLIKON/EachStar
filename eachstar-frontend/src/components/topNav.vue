@@ -78,7 +78,7 @@ export default {
     // 未登录禁止打开我的仓库
     noLoginError() {
       ElMessage({
-        message: "请先进行注册/登录!",
+        message: "请先进行 注册/登录!",
         type: "warning",
       });
     },
