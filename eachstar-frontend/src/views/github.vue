@@ -186,7 +186,7 @@ export default {
       let resTime;
       let cardTime = new Date(timeString);
       let nowTime = new Date();
-      let diffTime = nowTime.getTime() + 10000 - cardTime.getTime();
+      let diffTime = nowTime.getTime() + 9000 - cardTime.getTime();
       if (diffTime < 60 * 1000) {
         resTime = Math.floor(diffTime / 1000) + "秒前";
       } else if (diffTime < 3600 * 1000) {
