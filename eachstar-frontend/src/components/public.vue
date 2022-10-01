@@ -14,13 +14,15 @@
         type="textarea"
         clearable/>
       <div class="rank-setting-block">
-        积分价值: {{ starPrice }}<el-slider
+        <span class="slider-text">积分价值: {{ starPrice }}</span>
+        <el-slider
         v-model="starPrice"
         class="slider"
         :step="1"
         :min="1"
         :max="5"></el-slider>
-        悬赏次数: {{ starNum }}<el-slider
+        <span class="slider-text">悬赏次数: {{ starNum }}</span>
+        <el-slider
         v-model="starNum"
         class="slider"
         :step="1"
