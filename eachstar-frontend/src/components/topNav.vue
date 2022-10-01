@@ -194,8 +194,8 @@ export default {
   font-family: "微软雅黑";
   margin-left: 10%;
   margin-right: 10%;
-  width: 30%;
-  height: 30%;
+  width: 25%;
+  height: 40%;
   border-radius: 12px;
   background-color: white;
   color: black;
