@@ -26,7 +26,7 @@
               @click="deleteButton(item)"
               type="danger"
               plain
-              >💥 删除</el-button
+              >🗑️ 删除</el-button
             >
           </div>
         </div>
@@ -53,7 +53,7 @@
 
     <div class="aside-menu">
       <el-button @click="publicButton()" type="success" id="public-button">
-        发布卡片</el-button
+        📝发布卡片</el-button
       >
     </div>
   </div>
