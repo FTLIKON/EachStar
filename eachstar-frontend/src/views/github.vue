@@ -24,10 +24,10 @@
               id="card-button"
               @click="starButton(item)"
               plain
-              >💫 一键Star</el-button
+              >⭐ 一键Star</el-button
             >
             <el-button v-show="item.starred" id="card-button" type="info" plain
-              >⭐ Starred</el-button
+              >🌟 Starred</el-button
             >
           </div>
         </div>
