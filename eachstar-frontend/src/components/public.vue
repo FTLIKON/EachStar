@@ -50,7 +50,7 @@
   </el-dialog>
 
   <el-dialog v-model="publicConfirm" title="确认发布">
-    <div class="delete-block">
+    <div class="publicConfirm-block">
       <div class="title">请确认您的github仓库已公开，其他人才能给您star哦~</div>
       <span class="dialog-footer">
         <el-button @click="publicConfirm = false">取消</el-button>
@@ -170,6 +170,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.publicConfirm-block {
+  .title {
+    width: 100%;
+    font-weight: bold;
+    font-size: large;
+  }
+}
+
 .input-block {
   display: flex;
   flex-direction: column;
