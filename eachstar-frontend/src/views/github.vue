@@ -200,7 +200,7 @@ export default {
           while (index < that.pageSize && start < that.totalCard) {
             if (response.data.data[index] != undefined) {
               let nowData = response.data.data[index];
-              nowData.updatedAt = parseTimeString(nowData.updatedAt);
+              nowData.updatedAt = this.parseTimeString(nowData.updatedAt);
               nowData.title = nowData.title.replace("https://github.com/", "");
               list.push(nowData);
             }
