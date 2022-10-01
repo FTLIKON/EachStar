@@ -192,6 +192,7 @@ export default {
 }
 .user-rank {
   display: flex;
+  justify-content: center; /* 水平居中 */
   align-items: center; /*垂直居中*/
   font-family: "微软雅黑";
   margin-left: 10%;
