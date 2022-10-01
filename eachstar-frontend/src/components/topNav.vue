@@ -191,12 +191,13 @@ export default {
   text-shadow: 0px 0px 1px #303133;
 }
 .user-rank {
+  display: flex;
+  align-items: center; /*垂直居中*/
   font-family: "微软雅黑";
   margin-left: 10%;
   margin-right: 10%;
   width: 25%;
   height: 80%;
-  text-align: center;
   border-radius: 12px;
   background-color: white;
   color: black;
