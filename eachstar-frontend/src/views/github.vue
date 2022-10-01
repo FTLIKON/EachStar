@@ -114,11 +114,11 @@ export default {
 
       axios(config)
         .then(function (response) {
-          ElMessage({
-            message:
-              "请确认您的github仓库是否公开, 不公开其他人无法给您star哦~",
-            type: "success",
-          });
+          // ElMessage({
+          //   message:
+          //     "请确认您的github仓库是否公开, 不公开其他人无法给您star哦~",
+          //   type: "success",
+          // });
           that.getPageData(0);
           bus.emit("refreshUserInfo");
         })
