@@ -16,7 +16,7 @@
           <div class="card-valueblock">
             <span class="card-rank">
               <span>
-                <svg class="icon" aria-hidden="true">
+                <svg class="PriceIcon" aria-hidden="true">
                   <use xlink:href="#icon-bonus-line"></use></svg
                 >可获得积分: {{ item.starPrice }}</span
               >
@@ -249,11 +249,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.icon {
-  width: 1em;
-  height: 1em;
+.priceIcon {
+  width: 25px;
+  height: 25px;
   vertical-align: -0.15em;
-  fill: currentColor;
+  fill: #343435;
   overflow: hidden;
 }
 
