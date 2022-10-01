@@ -158,12 +158,12 @@ export default {
 .slider {
   margin-top: auto;
   margin-bottom: auto;
-  width: 70%
+  width: 67%
 }
 .slider-text {
   margin-top: auto;
   margin-bottom: auto;
-  width: 20%
+  width: 25%
 }
 .dialog-footer {
   margin-top: 3%;
