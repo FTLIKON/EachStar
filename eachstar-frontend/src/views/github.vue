@@ -255,6 +255,7 @@ export default {
   vertical-align: -0.15em;
   fill: currentColor;
   overflow: hidden;
+  margin-bottom: auto;
 }
 
 .github {
@@ -350,8 +351,6 @@ export default {
   display: flex;
 }
 .card-rank {
-  display: flex;
-  align-items: center;
   color: #b88230;
   background-color: none;
 
