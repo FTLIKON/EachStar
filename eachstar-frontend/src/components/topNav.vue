@@ -19,7 +19,7 @@
           <router-link to="/github" class="link">
             <svg
               class="fronticon"
-              style="vertical-align: -0.4em"
+              style="margin-top: 10%"
               aria-hidden="true"
             >
               <use xlink:href="#icon-fangdajing"></use>
