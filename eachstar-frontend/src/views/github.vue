@@ -183,8 +183,17 @@ export default {
       this.getPageData(this.currentPage);
     },
     parseTimeString: function (timeString) {
-      let timeObj = new Date(timeString).toString();
-      return timeObj;
+      let cardTime = new Date(timeString);
+      let nowTime = new Date();
+      let diffTime = nowTime.getTime() - cardTime.getTime();
+      let leaveHour = Math.floor(
+        (diffTime % (24 * 3600 * 1000)) / (3600 * 1000)
+      );
+      let resTime;
+      if(leaveHour<=24){
+        resTime = leaveHour+'小时前'；
+      }
+      return resTime;
     },
     // 获取page页面数据->currentPageData
     getPageData: function (page) {
