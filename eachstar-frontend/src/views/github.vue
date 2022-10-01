@@ -23,7 +23,11 @@
               </span>
               <el-divider direction="vertical" />
               <span style="color: #409eff">
-                <svg class="fronticon" aria-hidden="true">
+                <svg
+                  class="fronticon"
+                  style="width: 22px; height: 22px"
+                  aria-hidden="true"
+                >
                   <use xlink:href="#icon-cishu"></use>
                 </svg>
                 悬赏次数: {{ item.starNum }}</span
