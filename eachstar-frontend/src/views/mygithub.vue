@@ -182,7 +182,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .mygithub {
   background-color: none;
 
@@ -207,6 +207,9 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  .el-button {
+    background-color: #24d64b;
+  }
 }
 
 .card-list {

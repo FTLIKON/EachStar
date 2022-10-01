@@ -191,9 +191,13 @@ export default {
   text-shadow: 0px 0px 1px #303133;
 }
 .user-rank {
+  font-family: "微软雅黑";
   margin-left: 10%;
   margin-right: 10%;
   width: 30%;
+  background-color: white;
+  color: black;
+  border: 2px solid #555555;
 }
 .user-hello {
   width: 45%;
