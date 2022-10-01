@@ -114,11 +114,11 @@ export default {
 
       axios(config)
         .then(function (response) {
-          // ElMessage({
-          //   message:
-          //     "请确认您的github仓库是否公开, 不公开其他人无法给您star哦~",
-          //   type: "success",
-          // });
+          ElMessage({
+            message:
+              "请确认您的github仓库是否公开, 不公开其他人无法给您star哦~",
+            type: "success",
+          });
           that.getPageData(0);
           bus.emit("refreshUserInfo");
         })
@@ -191,6 +191,7 @@ export default {
       };
       axios(config)
         .then(function (response) {
+          that.loading = false;
           that.totalCard = parseInt(response.data.count);
           that.totalPage = Math.ceil(that.totalCard / 10);
 
@@ -205,7 +206,6 @@ export default {
             start++;
           }
           that.currentPageData = list;
-          that.loading = false;
         })
         .catch(function (error) {
           console.log(error);
