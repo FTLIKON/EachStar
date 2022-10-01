@@ -265,6 +265,8 @@ export default {
   color: #303133;
   margin-bottom: 2%;
   width: 100%;
+
+  display: flex;
 }
 .card-title {
   width: 70%;
