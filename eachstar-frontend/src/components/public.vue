@@ -176,6 +176,9 @@ export default {
     font-weight: bold;
     font-size: large;
   }
+  .dialog-footer {
+    margin-top: 20%;
+  }
 }
 
 .input-block {
