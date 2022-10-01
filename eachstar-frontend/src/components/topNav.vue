@@ -195,7 +195,7 @@ export default {
   margin-left: 10%;
   margin-right: 10%;
   width: 30%;
-  height: 90%;
+  height: 50%;
   border-radius: 12px;
   background-color: white;
   color: black;
