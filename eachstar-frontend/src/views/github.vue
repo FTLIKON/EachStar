@@ -38,10 +38,17 @@
               id="card-button"
               @click="starButton(item)"
               plain
-              >⭐ 一键Star</el-button
             >
-            <el-button v-show="item.starred" id="card-button" type="info" plain
-              >🌟 Starred</el-button
+              <svg class="fronticon" aria-hidden="true">
+                <use xlink:href="#icon-xingxing"></use>
+              </svg>
+              一键Star</el-button
+            >
+            <el-button v-show="item.starred" id="card-button" type="info" plain>
+              <svg class="fronticon" aria-hidden="true">
+                <use xlink:href="#icon-xingxing1"></use>
+              </svg>
+              Starred</el-button
             >
           </div>
         </div>
