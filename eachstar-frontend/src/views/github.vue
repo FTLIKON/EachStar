@@ -208,6 +208,7 @@ export default {
           that.currentPageData = list;
         })
         .catch(function (error) {
+          console.log("test")
           console.log(error);
         });
     },
