@@ -250,10 +250,10 @@ export default {
 
 <style lang="scss" scoped>
 .priceIcon {
-  width: 25px;
-  height: 25px;
+  width: 5px;
+  height: 5px;
   vertical-align: -0.15em;
-  fill: #343435;
+  fill: #5d5d5f;
   overflow: hidden;
 }
 
