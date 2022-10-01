@@ -144,9 +144,17 @@ export default {
 }
 .rank-setting-block {
   width: 90%;
+
+  display: flex;
 }
 .slider {
   margin-top: 3%;
+  width: 70%
+}
+
+.slider {
+  margin-top: 3%;
+  width: 30%
 }
 .dialog-footer {
   margin-top: 3%;
