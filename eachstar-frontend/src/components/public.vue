@@ -156,12 +156,13 @@ export default {
   display: flex;
 }
 .slider {
-  margin-top: 3%;
+  margin-top: auto;
+  margin-bottom: auto;
   width: 70%
 }
-
-.slider {
-  margin-top: 3%;
+.slider-text {
+  margin-top: auto;
+  margin-bottom: auto;
   width: 30%
 }
 .dialog-footer {
