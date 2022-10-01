@@ -15,10 +15,10 @@
           </div>
           <div class="card-valueblock">
             <span class="card-rank">
-              <span>星星价值: {{ item.starPrice }}</span>
+              <span>🪙星星价值: {{ item.starPrice }}</span>
               <el-divider direction="vertical" />
               <span style="color: #409eff"
-                >剩余悬赏次数: {{ item.starNum }}</span
+                >👤剩余悬赏次数: {{ item.starNum }}</span
               >
             </span>
             <el-button

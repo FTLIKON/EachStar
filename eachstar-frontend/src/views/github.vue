@@ -15,9 +15,9 @@
           </div>
           <div class="card-valueblock">
             <span class="card-rank">
-              <span>可获得积分: {{ item.starPrice }}</span>
+              <span>🪙可获得积分: {{ item.starPrice }}</span>
               <el-divider direction="vertical" />
-              <span style="color: #409eff">悬赏次数: {{ item.starNum }}</span>
+              <span style="color: #409eff">👤悬赏次数: {{ item.starNum }}</span>
             </span>
             <el-button
               v-show="!item.starred"

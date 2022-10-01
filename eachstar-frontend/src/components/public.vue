@@ -18,7 +18,7 @@
         clearable
       />
       <div class="rank-block">
-        <span class="slider-text">积分价值: {{ starPrice }}</span>
+        <span class="slider-text">🪙积分价值: {{ starPrice }}</span>
         <el-slider
           v-model="starPrice"
           class="slider"
@@ -28,7 +28,7 @@
         ></el-slider>
       </div>
       <div class="rank-num-block">
-        <span class="slider-text">悬赏次数: {{ starNum }}</span>
+        <span class="slider-text">👤悬赏次数: {{ starNum }}</span>
         <el-slider
           v-model="starNum"
           class="slider"
