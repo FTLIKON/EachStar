@@ -16,13 +16,18 @@
           <div class="card-valueblock">
             <span class="card-rank">
               <span>
-                <svg class="priceIcon" aria-hidden="true">
+                <svg class="fronticon" aria-hidden="true">
                   <use xlink:href="#icon-bonus-line"></use>
                 </svg>
                 可获得积分: {{ item.starPrice }}
               </span>
               <el-divider direction="vertical" />
-              <span style="color: #409eff">👤悬赏次数: {{ item.starNum }}</span>
+              <span style="color: #409eff">
+                <svg class="fronticon" aria-hidden="true">
+                  <use xlink:href="#icon-cishu"></use>
+                </svg>
+                悬赏次数: {{ item.starNum }}</span
+              >
             </span>
             <el-button
               v-show="!item.starred"
@@ -250,7 +255,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.priceIcon {
+.fronticon {
   width: 25px;
   height: 25px;
   vertical-align: -0.45em;
