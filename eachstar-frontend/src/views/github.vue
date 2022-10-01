@@ -234,7 +234,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .github {
   background-color: none;
 
@@ -259,6 +259,9 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  .el-button {
+    background-color: #4073ff;
+  }
 }
 
 .card-list {
