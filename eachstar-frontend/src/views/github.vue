@@ -4,10 +4,10 @@
       <!-- 卡片列表 -->
       <el-card v-for="item of currentPageData" :key="item" class="card-list">
         <div class="card-block">
-          <a class="card-title" :href="item.title" target="_blank">{{
-            item.title.replace("https://github.com/", "")
-          }}</a>
-          <span class="card-time">{{ item.updatedAt }}</span>
+          <div class="card-titleblock">
+            <a class="card-title" :href="item.title" target="_blank">{{item.title.replace("https://github.com/", "")}}</a>
+            <span class="card-time">{{ item.updatedAt }}</span>
+          </div>
           <div class="card-discription">
             {{ item.context }}
           </div>
@@ -268,6 +268,7 @@ export default {
   text-decoration: none;
 
   margin-bottom: 2%;
+  width: 70%;
   text-align: left;
 }
 .card-discription {
