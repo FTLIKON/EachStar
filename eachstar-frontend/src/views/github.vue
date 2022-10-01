@@ -358,7 +358,7 @@ export default {
   margin-left: 3%;
   margin-right: 3%;
   margin-top: auto;
-  margin-bottom: auto;
+  margin-bottom: 10%;
   text-align: left;
   font-size: medium;
 }
