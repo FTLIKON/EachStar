@@ -297,6 +297,7 @@ export default {
   text-decoration: none;
 }
 .card-time {
+  color: #606266;
   width: 30%;
   text-align: right;
 }

@@ -11,7 +11,7 @@
             <span class="card-time">{{ item.updatedAt }}</span>
           </div>
           <div class="card-discription">
-            {{ item.context }} {{ item.updatedAt }}
+            {{ item.context }}
           </div>
           <div class="card-valueblock">
             <span class="card-rank">
@@ -246,6 +246,7 @@ export default {
   text-decoration: none;
 }
 .card-time {
+  color: #606266;
   width: 30%;
   text-align: right;
 }
