@@ -8,7 +8,7 @@
             item.title.replace("https://github.com/", "")
           }}</a>
           <div class="card-discription">
-            {{ item.context }} {{ item.updatedAt }}
+            {{ item.context }} {{ item.updatedAt.getTime() }}
           </div>
           <div class="card-valueblock">
             <span class="card-rank">
