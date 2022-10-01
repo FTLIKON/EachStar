@@ -177,7 +177,7 @@ export default {
     font-size: large;
   }
   .dialog-footer {
-    margin-top: 20%;
+    margin-top: 100px;
   }
 }
 
