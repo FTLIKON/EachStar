@@ -183,7 +183,7 @@ export default {
       this.getPageData(this.currentPage);
     },
     parseTimeString: function (timeString) {
-      timeObj = new Date(timeString).toString();
+      let timeObj = new Date(timeString).toString();
       return timeObj;
     },
     // 获取page页面数据->currentPageData
