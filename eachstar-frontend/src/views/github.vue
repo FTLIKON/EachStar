@@ -191,7 +191,7 @@ export default {
       );
       let resTime;
       if(leaveHour<=24){
-        resTime = leaveHour+'小时前'；
+        resTime = leaveHour+'小时前';
       }
       return resTime;
     },
