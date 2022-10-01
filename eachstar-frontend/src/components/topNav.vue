@@ -195,6 +195,8 @@ export default {
   margin-left: 10%;
   margin-right: 10%;
   width: 30%;
+  height: 90%;
+  border-radius: 12px;
   background-color: white;
   color: black;
   border: 2px solid #555555;
