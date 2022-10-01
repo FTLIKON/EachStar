@@ -7,8 +7,9 @@
           <a class="card-title" :href="item.title" target="_blank">{{
             item.title.replace("https://github.com/", "")
           }}</a>
+          <span class="card-time">{{ item.updatedAt }}</span>
           <div class="card-discription">
-            {{ item.context }} {{ item.updatedAt }}
+            {{ item.context }}
           </div>
           <div class="card-valueblock">
             <span class="card-rank">
