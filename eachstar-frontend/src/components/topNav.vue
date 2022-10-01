@@ -196,7 +196,6 @@ export default {
   width: 30%;
 }
 .user-hello {
-  margin-right: 5%;
   width: 45%;
 }
 .user-icon {
