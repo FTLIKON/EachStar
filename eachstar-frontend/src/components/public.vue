@@ -98,6 +98,7 @@ export default {
         // debug
         // publicCard Arguments -> title, context, starPrice, starNum, time
         this.dialogVisible = false;
+        this.publicConfirm = false;
         this.$emit(
           "publicCard",
           that.cardTitle,
