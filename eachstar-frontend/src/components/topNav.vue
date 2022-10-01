@@ -19,6 +19,7 @@
           <router-link to="/github" class="link">
             <svg
               class="fronticon"
+              style="vertical-align: -0.4em"
               aria-hidden="true"
             >
               <use xlink:href="#icon-fangdajing"></use>
@@ -29,10 +30,7 @@
         <el-divider direction="vertical" />
         <el-menu-item index="2">
           <router-link to="/mygithub" class="link" v-show="isLogin">
-            <svg
-              class="fronticon"
-              aria-hidden="true"
-            >
+            <svg class="fronticon" aria-hidden="true">
               <use xlink:href="#icon-geren"></use>
             </svg>
             你的仓库</router-link
