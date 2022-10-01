@@ -5,10 +5,8 @@
       <el-card v-for="item of currentPageData" :key="item" class="card-list">
         <div class="card-block">
           <div class="card-titleblock">
-            <a class="card-title" :href="item.title" target="_blank">{{
-              item.title.replace("https://github.com/", "")
-            }}</a>
-            <span class="card-time">{{ parseTimeString(item.updatedAt) }}</span>
+            <a class="card-title" :href="item.title" target="_blank">{{item.title.replace("https://github.com/", "")}}</a>
+            <span class="card-time">{{ item.updatedAt }}</span>
           </div>
           <div class="card-discription">
             {{ item.context }}
@@ -81,7 +79,7 @@ export default {
   },
   data() {
     return {
-      loading: false,
+      loading: true,
 
       pageSize: 10,
       totalPage: 0,
@@ -115,8 +113,7 @@ export default {
       axios(config)
         .then(function (response) {
           ElMessage({
-            message:
-              "请确认您的github仓库是否公开, 不公开其他人无法给您star哦~",
+            message: "请确认您的github仓库是否公开, 不公开其他人无法给您star哦~",
             type: "success",
           });
           that.getPageData(0);
@@ -191,7 +188,6 @@ export default {
       };
       axios(config)
         .then(function (response) {
-          that.loading = false;
           that.totalCard = parseInt(response.data.count);
           that.totalPage = Math.ceil(that.totalCard / 10);
 
@@ -206,16 +202,16 @@ export default {
             start++;
           }
           that.currentPageData = list;
+          that.loading = false;
         })
         .catch(function (error) {
-          console.log("test")
           console.log(error);
         });
     },
-    parseTimeString: function (timeString) {
-      timeObj = new Date(timeString).format("yyyy-MM-dd");
-      return timeObj;
-    },
+    parseTimeString: function(timeString){
+      timeObj = new Date(timeString).format("yyyy-MM-dd")
+      return timeObj
+    }
   },
 };
 </script>
