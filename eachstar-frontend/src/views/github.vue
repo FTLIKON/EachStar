@@ -253,7 +253,7 @@ export default {
 .priceIcon {
   width: 25px;
   height: 25px;
-  vertical-align: -0.5em;
+  vertical-align: -0.45em;
   fill: currentColor;
   overflow: hidden;
   margin-bottom: auto;
