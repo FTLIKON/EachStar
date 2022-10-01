@@ -163,7 +163,7 @@ export default {
 .slider-text {
   margin-top: auto;
   margin-bottom: auto;
-  width: 30%
+  width: 20%
 }
 .dialog-footer {
   margin-top: 3%;
