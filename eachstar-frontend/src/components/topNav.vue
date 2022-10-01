@@ -16,12 +16,26 @@
 
       <div class="mid-block">
         <el-menu-item index="1">
-          <router-link to="/github" class="link">发现仓库</router-link>
+          <router-link to="/github" class="link">
+            <svg
+              class="fronticon"
+              aria-hidden="true"
+            >
+              <use xlink:href="#icon-fangdajing"></use>
+            </svg>
+            发现仓库</router-link
+          >
         </el-menu-item>
         <el-divider direction="vertical" />
         <el-menu-item index="2">
-          <router-link to="/mygithub" class="link" v-show="isLogin"
-            >你的仓库</router-link
+          <router-link to="/mygithub" class="link" v-show="isLogin">
+            <svg
+              class="fronticon"
+              aria-hidden="true"
+            >
+              <use xlink:href="#icon-geren"></use>
+            </svg>
+            你的仓库</router-link
           >
           <router-link
             to="/github"
@@ -40,7 +54,7 @@
         <span v-show="isLogin" class="user-rank"
           ><svg
             class="fronticon"
-            style="color: #b88230; vertical-align: 1em; margin-top: 10%"
+            style="color: #b88230; margin-top: 12%"
             aria-hidden="true"
           >
             <use xlink:href="#icon-bonus-line"></use></svg
