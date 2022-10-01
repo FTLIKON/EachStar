@@ -38,7 +38,9 @@
           >注册 / 登录</el-button
         >
         <span v-show="isLogin" class="user-rank"
-          >🪙可用积分: {{ userPrice }}</span
+          ><svg class="fronticon" style="color: #b88230" aria-hidden="true">
+            <use xlink:href="#icon-bonus-line"></use></svg
+          >可用积分: {{ userPrice }}</span
         >
         <span v-show="isLogin" class="user-hello">您好, {{ userName }}</span>
         <img class="user-icon" v-show="isLogin" :src="userIconURL" alt="" />
@@ -54,6 +56,8 @@ import { buildSlots } from "@vue/compiler-core";
 import axios from "axios";
 import GithubAuth from "./githubAuth.vue";
 import { ElMessage } from "element-plus";
+import "../iconfont/iconfont";
+
 export default {
   components: {
     GithubAuth,
@@ -114,6 +118,15 @@ export default {
 </script>
 
 <style scoped>
+.fronticon {
+  width: 25px;
+  height: 25px;
+  vertical-align: -0.45em;
+  fill: currentColor;
+  overflow: hidden;
+  margin-bottom: auto;
+}
+
 #menu {
   background-color: none;
 

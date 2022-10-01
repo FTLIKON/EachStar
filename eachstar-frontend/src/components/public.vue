@@ -19,7 +19,7 @@
       />
       <div class="rank-block">
         <span class="slider-text"
-          ><svg class="fronticon" aria-hidden="true">
+          ><svg class="fronticon" style="color: #b88230" aria-hidden="true">
             <use xlink:href="#icon-bonus-line"></use></svg
           >积分价值: {{ starPrice }}</span
         >
@@ -35,7 +35,12 @@
         <span class="slider-text"
           ><svg
             class="fronticon"
-            style="width: 23px; height: 23px; vertical-align: -0.45em"
+            style="
+              color: #409eff;
+              width: 23px;
+              height: 23px;
+              vertical-align: -0.47em;
+            "
             aria-hidden="true"
           >
             <use xlink:href="#icon-cishu"></use></svg
