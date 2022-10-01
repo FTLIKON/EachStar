@@ -182,6 +182,10 @@ export default {
 
       this.getPageData(this.currentPage);
     },
+    parseTimeString: function (timeString) {
+      timeObj = new Date(timeString).toString();
+      return timeObj;
+    },
     // 获取page页面数据->currentPageData
     getPageData: function (page) {
       var that = this;
@@ -200,7 +204,7 @@ export default {
           while (index < that.pageSize && start < that.totalCard) {
             if (response.data.data[index] != undefined) {
               let nowData = response.data.data[index];
-              nowData.updatedAt = new Date(nowData.updatedAt).format("yyyy-MM-dd");
+              nowData.updatedAt = that.parseTimeString(nowData.updatedAt);
               nowData.title = nowData.title.replace("https://github.com/", "");
               list.push(nowData);
             }
