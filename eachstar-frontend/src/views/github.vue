@@ -183,15 +183,18 @@ export default {
       this.getPageData(this.currentPage);
     },
     parseTimeString: function (timeString) {
+      let resTime;
       let cardTime = new Date(timeString);
       let nowTime = new Date();
-      let diffTime = nowTime.getTime() - cardTime.getTime();
-      let leaveHour = Math.floor(
-        (diffTime % (24 * 3600 * 1000)) / (3600 * 1000)
-      );
-      let resTime;
-      if(leaveHour<=24){
-        resTime = diffTime+'小时前';
+      let diffTime = (nowTime.getTime() - cardTime.getTime()) / 1000;
+      if (diffTime < 60) {
+        resTime = diffTime + "秒前";
+      } else if (diffTime < 3600) {
+        resTime = diffTime / 60 + "分钟前";
+      } else if (diffTime < 3600 * 24) {
+        resTime = diffTime / 3600 + "小时前";
+      } else {
+        resTime = (diffTime / 3600) * 24 + "天前";
       }
       return resTime;
     },
