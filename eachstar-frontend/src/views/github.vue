@@ -190,8 +190,8 @@ export default {
         (diffTime % (24 * 3600 * 1000)) / (3600 * 1000)
       );
       let resTime;
-      if(leaveHour<=24){
-        resTime = leaveHour+'小时前';
+      if(diffTime<=24){
+        resTime = diffTime+'小时前';
       }
       return resTime;
     },
