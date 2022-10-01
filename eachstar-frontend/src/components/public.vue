@@ -13,7 +13,7 @@
         :autosize="{ minRows: 4, maxRows: 8 }"
         type="textarea"
         clearable/>
-      <div class="rank-setting-block">
+      <div class="rank-block">
         <span class="slider-text">积分价值: {{ starPrice }}</span>
         <el-slider
         v-model="starPrice"
@@ -22,7 +22,7 @@
         :min="1"
         :max="5"></el-slider>
       </div>
-      <div class="rank-setting-block">
+      <div class="rank-num-block">
         <span class="slider-text">悬赏次数: {{ starNum }}</span>
         <el-slider
         v-model="starNum"
@@ -144,7 +144,13 @@ export default {
   width: 90%;
   margin-bottom: 10px;
 }
-.rank-setting-block {
+
+.rank-block {
+  width: 90%;
+
+  display: flex;
+}
+.rank-num-block {
   width: 90%;
 
   display: flex;
