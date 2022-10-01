@@ -35,7 +35,7 @@
         <span class="slider-text"
           ><svg
             class="fronticon"
-            style="width: 23px; height: 23px; vertical-align: -0.42em"
+            style="width: 23px; height: 23px; vertical-align: -0.45em"
             aria-hidden="true"
           >
             <use xlink:href="#icon-cishu"></use></svg
@@ -186,7 +186,7 @@ export default {
 .fronticon {
   width: 25px;
   height: 25px;
-  vertical-align: -0.45em;
+  vertical-align: -0.5em;
   fill: currentColor;
   overflow: hidden;
   margin-bottom: auto;
