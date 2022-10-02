@@ -60,6 +60,7 @@
 
     <el-backtop
       style="
+        right: 15%;
         height: 60px;
         width: 60px;
         box-shadow: var(--el-box-shadow-dark)
@@ -244,17 +245,18 @@ export default {
 .card-list {
   width: 80%;
   max-width: 800px;
-  margin-top: 2%;
+  margin-bottom: 2%;
   margin-left: 15%;
   margin-right: 10%;
   border-radius: 15px;
 }
 #public-button {
-  width: 70%;
+  width: 50%;
   height: 50px;
-  margin-left: 15%;
+  min-width: 110px;
+  margin-left: -50%;
   margin-right: 15%;
-  margin-bottom: 5%;
+  margin-top: -5%;
   font-size: larger;
   font-weight: bolder;
   text-shadow: 1px 1px 2px #303133, 0px 0px 2px #303133;

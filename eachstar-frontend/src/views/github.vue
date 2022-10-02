@@ -44,7 +44,7 @@
               @click="starButton(item)"
               plain
             >
-              <svg class="fronticon" aria-hidden="true">
+              <svg class="fronticon" style="color: #b88230" aria-hidden="true">
                 <use xlink:href="#icon-xingxing"></use>
               </svg>
               一键Star</el-button
@@ -66,9 +66,9 @@
         :total="totalPage * 10"
       />
     </div>
-
     <el-backtop
       style="
+        right: 15%;
         height: 60px;
         width: 60px;
         box-shadow: var(--el-box-shadow-dark)
@@ -315,16 +315,17 @@ export default {
   border-radius: 15px;
   width: 80%;
   max-width: 800px;
-  margin-top: 2%;
+  margin-bottom: 2%;
   margin-left: 15%;
-  margin-right: 10%;
+  margin-right: 5%;
 }
 #public-button {
-  width: 70%;
+  width: 50%;
   height: 50px;
-  margin-left: 15%;
+  min-width: 110px;
+  margin-left: -50%;
   margin-right: 15%;
-  margin-bottom: 5%;
+  margin-top: -5%;
   font-size: larger;
   font-weight: bolder;
   text-shadow: 1px 1px 2px #303133, 0px 0px 2px #303133;
@@ -358,16 +359,13 @@ export default {
 }
 .card-discription {
   color: #606266;
-
   text-align: left;
-
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   letter-spacing: 0;
   text-overflow: ellipsis;
-
   width: 90%;
   margin-bottom: 3%;
   margin-left: 3%;
@@ -392,8 +390,8 @@ export default {
   font-size: medium;
 }
 #card-button {
+  color: #303133;
   font-size: large;
-
   width: 30%;
   display: flex;
 }
