@@ -68,7 +68,7 @@
 
   <el-dialog
     v-model="publicConfirm"
-    style="width: 40%; margin-top: 300px"
+    style="width: 40%; margin-top: 270px"
     title="确认发布"
   >
     <div class="publicConfirm-block">
