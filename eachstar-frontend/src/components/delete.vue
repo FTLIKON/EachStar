@@ -3,7 +3,7 @@
     <div class="delete-block">
       <div class="title"> 确认要删除卡片吗? </div>
       <div class="user-rank-calc">
-        将会返还积分: {{ starPrice*starNum }}
+        将会返还星币: {{ starPrice*starNum }}
       </div>
       <span class="dialog-footer">
         <el-button @click="dialogVisible = false">取消</el-button>

@@ -21,7 +21,7 @@
         <span class="slider-text"
           ><svg class="fronticon" style="color: #b88230" aria-hidden="true">
             <use xlink:href="#icon-bonus-line"></use></svg
-          >积分价值: {{ starPrice }}</span
+          >星币价值: {{ starPrice }}</span
         >
         <el-slider
           v-model="starPrice"
@@ -55,8 +55,8 @@
         ></el-slider>
       </div>
       <div class="user-rank-calc">
-        消耗积分: {{ starPrice * starNum }}
-        <el-divider direction="vertical" /> 剩余积分:
+        消耗星币: {{ starPrice * starNum }}
+        <el-divider direction="vertical" /> 剩余星币:
         {{ userPrice - starPrice * starNum }}
       </div>
       <span class="dialog-footer">
@@ -106,7 +106,7 @@ export default {
     publicCard: function () {
       if (this.userPrice - this.starPrice * this.starNum < 0) {
         ElMessage({
-          message: "您当前积分不足~ 快去star别人的卡片吧!",
+          message: "您当前星币不足~ 快去star别人的卡片吧!",
           type: "warning",
         });
         this.publicConfirm = false;

@@ -24,7 +24,7 @@
                 <svg class="fronticon" aria-hidden="true">
                   <use xlink:href="#icon-bonus-line"></use>
                 </svg>
-                可获得积分: {{ item.starPrice }}
+                可获得星币: {{ item.starPrice }}
               </span>
               <el-divider direction="vertical" />
               <span style="color: #409eff">
@@ -175,7 +175,7 @@ export default {
         axios(config)
           .then(function (response) {
             ElMessage({
-              message: "一键star成功! 获得积分:" + card.starPrice,
+              message: "一键star成功! 获得星币:" + card.starPrice,
               type: "success",
             });
             card.starNum -= 1;
