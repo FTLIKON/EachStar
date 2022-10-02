@@ -5,7 +5,7 @@
       <el-card
         v-for="item of currentPageData"
         :key="item"
-        style="border-radius: 15px; box-shadow: 0px 0px 5px 5px #cdd0d6"
+        style="box-shadow: 0px 0px 5px 5px #cdd0d6"
         class="card-list"
       >
         <div class="card-block">
@@ -312,7 +312,12 @@ export default {
 }
 
 .card-list {
+  border-radius: 15px;
+  width: 80%;
+  max-width: 800px;
   margin-top: 2%;
+  margin-left: 15%;
+  margin-right: 10%;
 }
 #public-button {
   width: 70%;
