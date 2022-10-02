@@ -29,7 +29,7 @@
             <svg class="fronticon" aria-hidden="true">
               <use xlink:href="#icon-geren"></use>
             </svg>
-            你的仓库</router-link
+            我的仓库</router-link
           >
           <router-link
             to="/github"
@@ -40,7 +40,7 @@
             <svg class="fronticon" aria-hidden="true">
               <use xlink:href="#icon-geren"></use>
             </svg>
-            你的仓库</router-link
+            我的仓库</router-link
           >
         </el-menu-item>
       </div>
@@ -177,7 +177,7 @@ export default {
 .logo {
   color: #ffffff;
   font-weight: bold;
-  font-size: x-large;
+  font-size: 40px;
   text-shadow: 1px 1px 2px #303133, 0px 0px 3px #303133;
 
   display: flex;
@@ -186,6 +186,7 @@ export default {
 }
 .logo-pic {
   width: 12%;
+  min-width: 50px;
   margin-right: 2%;
 }
 

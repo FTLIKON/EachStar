@@ -1,7 +1,7 @@
 <template>
   <el-dialog
     v-model="dialogVisible"
-    style="width: 25%"
+    style="width: 25%; margin-top: 300px"
     id="githubAuth"
     title=""
   >
@@ -50,13 +50,13 @@ export default {
 }
 
 .github-logo {
-  width: 150px;
-  height: 100px;
+  width: 45%;
+  height: 30%;
   margin-bottom: 5%;
 }
 .link-button {
-  width: 200px;
-  height: 50px;
+  min-width: 200px;
+  min-height: 50px;
   margin-left: 15%;
   margin-right: 15%;
   margin-bottom: 5%;
