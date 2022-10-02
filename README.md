@@ -40,7 +40,7 @@
 2. 后端：对 Koa 以及 node-postgres 的基础运用，要了解更多相关信息请看 [【Koa 文档】](https://koa.bootcss.com/) [【node-postgres 手册】](https://node-postgres.com/)
 3. 具有不依赖文档阅读代码的能力
 
-## 开发
+## 开发环境配置
 
 1. 克隆本项目
 2. 访问：[申请 GitHub OAuth APP](https://github.com/settings/applications/new)，保留 GitHub 提供的 Id 和 Secret
@@ -54,7 +54,7 @@
    1. 进入目录`EachStar-frontend`
    2. 执行`yarn install`安装依赖环境
    3. 执行`npm run dev` 开启本地测试环境
-5. 如果以上步骤成功，访问您本地的测试环境：`http://localhost:80`
+5. 如果以上步骤成功，访问您本地的开发环境：`http://localhost:80`
 
 ## 项目版本控制须知
 
