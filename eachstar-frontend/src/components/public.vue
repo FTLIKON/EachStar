@@ -1,5 +1,5 @@
 <template>
-  <el-dialog v-model="dialogVisible" title="发布卡片">
+  <el-dialog v-model="dialogVisible" style="width: 60%" title="发布卡片">
     <div class="input-block">
       <el-input
         class="title-input"
