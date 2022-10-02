@@ -1,12 +1,24 @@
 <template>
-  <el-dialog v-model="dialogVisible" title="">
+  <el-dialog
+    v-model="dialogVisible"
+    style="width: 25%"
+    id="githubAuth"
+    title=""
+  >
     <div class="main-block">
-      <img class="github-logo" src="githubLogo.webp" alt="未找到图片">
+      <img class="github-logo" src="githubLogo.webp" alt="未找到图片" />
+
       <el-button
         type="primary"
         class="link-button"
-        @click="goPage('http://119.91.192.183:3050/oauth/github/login?path=http://119.91.192.183:80/')">
-        使用github快捷登录</el-button>
+        @click="
+          goPage(
+            'http://119.91.192.183:3050/oauth/github/login?path=http://119.91.192.183:80/'
+          )
+        "
+      >
+        使用GitHub快捷登录</el-button
+      >
     </div>
   </el-dialog>
 </template>
@@ -38,7 +50,25 @@ export default {
 }
 
 .github-logo {
-  width: 40%;
+  width: 150px;
+  height: 100px;
   margin-bottom: 5%;
+}
+.link-button {
+  width: 200px;
+  height: 50px;
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-bottom: 5%;
+  font-size: larger;
+  font-weight: bolder;
+  text-shadow: 1px 1px 2px #303133, 0px 0px 2px #303133;
+
+  border-radius: 15px;
+  box-shadow: var(--el-box-shadow-dark);
+}
+#githubAuth {
+  width: 500px;
+  height: 30%;
 }
 </style>

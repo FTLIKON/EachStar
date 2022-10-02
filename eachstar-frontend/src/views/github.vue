@@ -2,7 +2,12 @@
   <div class="github" v-loading="loading">
     <div class="card-view">
       <!-- 卡片列表 -->
-      <el-card v-for="item of currentPageData" :key="item" class="card-list">
+      <el-card
+        v-for="item of currentPageData"
+        :key="item"
+        style="border-radius: 15px; box-shadow: 0px 0px 5px 5px #cdd0d6"
+        class="card-list"
+      >
         <div class="card-block">
           <div class="card-titleblock">
             <a class="card-title" :href="item.title" target="_blank">

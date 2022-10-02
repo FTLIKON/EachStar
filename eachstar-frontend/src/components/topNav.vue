@@ -17,11 +17,7 @@
       <div class="mid-block">
         <el-menu-item index="1">
           <router-link to="/github" class="link">
-            <svg
-              class="fronticon"
-              style="margin-top: 10%"
-              aria-hidden="true"
-            >
+            <svg class="fronticon" style="margin-top: 10%" aria-hidden="true">
               <use xlink:href="#icon-fangdajing"></use>
             </svg>
             发现仓库</router-link
@@ -40,14 +36,18 @@
             @click="noLoginError()"
             class="link"
             v-show="!isLogin"
-            >你的仓库</router-link
+          >
+            <svg class="fronticon" aria-hidden="true">
+              <use xlink:href="#icon-geren"></use>
+            </svg>
+            你的仓库</router-link
           >
         </el-menu-item>
       </div>
 
       <div class="right-block">
         <el-button v-show="!isLogin" @click="authButton()" id="auth-button"
-          >注册 / 登录</el-button
+          >登录 / 注册</el-button
         >
         <span v-show="isLogin" class="user-rank"
           ><svg
@@ -214,10 +214,10 @@ export default {
 
   margin-right: 5%;
   margin-left: 30%;
-
+  font-size: medium;
   border: none;
   border-radius: 6px;
-  text-shadow: 0px 0px 1px #303133;
+  text-shadow: 1px 1px 2px #303133, 0px 0px 2px #303133;
 }
 .user-rank {
   display: flex;
