@@ -22,7 +22,7 @@
 
 ---
 
-**支持 Fork & Watch 以及更酷炫的 EachStar2.0 正在开发中**
+**更酷炫且支持 Fork & Watch 的 EachStar2.0 正在开发中**
 
 **如果您想参与讨论 EachStar 欢迎加入：[【QQ 群】](https://qm.qq.com/cgi-bin/qm/qr?k=r2jN9fZaagH6qcLVb-QglnYWNPpKMPA6&jump_from=webapi&authKey=Ye43FWw3UiCdZ4bar3EY+qerAgjLHm3uC5xs2DWmeuuO9QeBV26bxaxCPC3YxM6H)**
 
@@ -83,9 +83,10 @@
 
 - [@moyeyuexiao](https://github.com/moyeyuexiao)
 
-**以及 EachStar 的支持者们...**
+**特别鸣谢 Star 过本项目的支持者们...**  
+(以下列表实时更新，排名不分先后)
 
-[![Stargazers repo roster for @FTLIKON/EachStar](https://reporoster.com/stars/FTLIKON/EachStar)](https://github.com/FTLIKON/EachStar/stargazers)
+[![Stargazers repo roster for @FTLIKON/EachStar](https://reporoster.com/stars/notext/FTLIKON/EachStar)](https://github.com/FTLIKON/EachStar/stargazers)
 
 ## JetBrains 开源许可
 
