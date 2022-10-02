@@ -47,13 +47,13 @@
 3. 后端配置：
    1. 进入目录`EachStar-backend`
    2. 配置 postgres 数据库，命令参考`createTables.sql`
-   3. 修改`src/config.ts`，配置 GitHubApp 和后端数据库连接
-   4. 执行`yarn install`安装依赖环境
-   5. 执行`yarn start` 开启本地测试环境
+   3. 修改`src/config.ts`，配置 GitHubApp 和 数据库连接
+   4. 执行`yarn install`安装依赖库
+   5. 执行`yarn start` 开启本地开发环境
 4. 前端配置：
    1. 进入目录`EachStar-frontend`
-   2. 执行`yarn install`安装依赖环境
-   3. 执行`npm run dev` 开启本地测试环境
+   2. 执行`yarn install`安装依赖库
+   3. 执行`npm run dev` 开启本地开发环境
 5. 如果以上步骤成功，访问您本地的开发环境：`http://localhost:80`
 
 ## 项目版本控制须知
