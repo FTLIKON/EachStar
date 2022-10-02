@@ -66,7 +66,11 @@
     </div>
   </el-dialog>
 
-  <el-dialog v-model="publicConfirm" title="确认发布">
+  <el-dialog
+    v-model="publicConfirm"
+    style="width: 40%; margin-top: 300px"
+    title="确认发布"
+  >
     <div class="publicConfirm-block">
       <div class="title">请确认您的github仓库已公开，其他人才能给您star哦~</div>
       <span class="dialog-footer">
