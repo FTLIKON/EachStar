@@ -50,7 +50,7 @@
    3. 修改`src/config.ts`，配置 GitHubApp 和后端数据库连接
    4. 执行`yarn install`安装依赖环境
    5. 执行`yarn start` 开启本地测试环境
-4. 前端：
+4. 前端配置：
    1. 进入目录`EachStar-frontend`
    2. 执行`yarn install`安装依赖环境
    3. 执行`npm run dev` 开启本地测试环境
