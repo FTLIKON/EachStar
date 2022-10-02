@@ -15,7 +15,7 @@ const verificationConfig = {
       user: '3147983767@qq.com',
       pass: 'uyifftxjfooodgdi',
     },
-    sender: '"mew-server" <3147983767@qq.com>',
+    sender: '"EachStar-server" <3147983767@qq.com>',
     title: '注册验证邮件',
     context: `<html><h1>您的验证码是：$$code$$</h1></html>`,
   },
