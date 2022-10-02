@@ -1,5 +1,5 @@
 <template>
-  <el-dialog v-model="dialogVisible" style="width: 60%" title="发布卡片">
+  <el-dialog v-model="dialogVisible" style="width: 45%" title="发布卡片">
     <div class="input-block">
       <el-input
         class="title-input"
@@ -68,7 +68,7 @@
 
   <el-dialog
     v-model="publicConfirm"
-    style="width: 40%; margin-top: 270px"
+    style="width: 35%; margin-top: 270px"
     title="确认发布"
   >
     <div class="publicConfirm-block">
