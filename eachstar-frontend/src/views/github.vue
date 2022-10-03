@@ -314,15 +314,17 @@ export default {
 .card-list {
   border-radius: 15px;
   width: 80%;
+  min-width: 600px;
   max-width: 800px;
   margin-bottom: 2%;
-  margin-left: 15%;
-  margin-right: 5%;
+  margin-left: 25%;
+  margin-right: 15%;
+  float: right;
 }
 #public-button {
   width: 50%;
   height: 50px;
-  min-width: 110px;
+  min-width: 120px;
   margin-left: -50%;
   margin-right: 15%;
   margin-top: -5%;
