@@ -30,7 +30,7 @@
 
 1. 在 [github](https://github.com/FTLIKON/EachStar/issues/new) 提交新的 Issue
 2. 给开发者发送邮件以咨询问题：
-   - 前端：
+   - 前端：[Littlelumos@foxmail.com](mailto:Littlelumos@foxmail.com)
    - 后端：[binlyliu@foxmail.com](mailto:binlyliu@foxmail.com)
 3. 加入 QQ 群： 184109839 来面对面的和开发者反馈问题
 
