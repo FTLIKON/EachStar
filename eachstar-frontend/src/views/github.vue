@@ -42,6 +42,7 @@
               v-show="!item.starred"
               id="card-button"
               @click="starButton(item)"
+              :loading="buttonLoading"
               plain
             >
               <svg class="fronticon" style="color: #b88230" aria-hidden="true">
@@ -112,6 +113,7 @@ export default {
   data() {
     return {
       loading: true,
+      buttonLoading: false,
 
       pageSize: 10,
       totalPage: 0,
@@ -172,6 +174,7 @@ export default {
         };
 
         card.starred = true;
+        that.buttonLoading = true;
         axios(config)
           .then(function (response) {
             ElMessage({
@@ -200,6 +203,10 @@ export default {
           type: "warning",
         });
       }
+
+      setTimeout(()=>{
+        that.buttonLoading = false;
+      }, 3000);
     },
 
     getUserId() {
