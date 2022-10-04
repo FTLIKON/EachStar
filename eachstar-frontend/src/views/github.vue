@@ -186,7 +186,12 @@ export default {
             }
           })
           .catch(function (error) {
-            console.log(error.response.status);
+            if(error.response.status==400){
+              ElMessage({
+                message: "一键star失败, 请稍后再试试~",
+                type: "warning",
+              });
+            };
             card.starred = false;
           });
       } else {
