@@ -25,6 +25,7 @@ export default {
 html, body {
   margin: 0;
   padding: 0;
+  filter: invert(1) hue-rotate(180deg);
 }
 
 </style>
