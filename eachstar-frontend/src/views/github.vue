@@ -195,17 +195,19 @@ export default {
         card.starring = true;
         axios(config)
         .then(function (response) {
-          ElMessage({
-            message: "一键star成功! 获得星币:" + card.starPrice,
-            type: "success",
-          });
-          card.starNum -= 1;
-          card.starred = true;
-          bus.emit("refreshUserInfo");
-          if (card.starNum == 0) {
-            // 如果悬赏次数为0->刷新页面
-            that.getPageData(that.currentPage);
-          }
+          setTimeout(()=>{
+            ElMessage({
+              message: "一键star成功! 获得星币:" + card.starPrice,
+              type: "success",
+            });
+            card.starNum -= 1;
+            card.starred = true;
+            bus.emit("refreshUserInfo");
+            if (card.starNum == 0) {
+              // 如果悬赏次数为0->刷新页面
+              that.getPageData(that.currentPage);
+            }
+          }, 2000)
         })
         .catch(function (error) {
           if(error.response.status==400){
