@@ -125,7 +125,7 @@
 import axios from "axios";
 import bus from "../utils/emitter";
 import { getCurrentInstance, onMounted } from "vue-demi";
-import { ElMessage } from "element-plus";
+import { ElAffix, ElMessage } from "element-plus";
 import Public from "../components/public.vue";
 import BottomLine from "../components/bottomLine.vue";
 import "../iconfont/iconfont";
@@ -139,6 +139,7 @@ export default {
   mounted() {
     let that = this;
     that.pageChange(1);
+    ElAffix.update();
   },
   data() {
     return {
