@@ -80,6 +80,8 @@ export class CardController {
       const newCard = await this.repository.starCard(userId, cardId)
 
       ctx.body = newCard
+      ctx.status = 400
+      ctx.body = {}
     } else {
       ctx.status = 400
       ctx.body = {}
