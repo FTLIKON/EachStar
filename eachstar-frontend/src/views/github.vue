@@ -189,6 +189,9 @@ export default {
         };
 
         that.buttonLoading = true;
+        setTimeout(()=>{
+          that.buttonLoading = false;
+        }, 3000);
         card.starring = true;
         axios(config)
         .then(function (response) {
@@ -213,9 +216,6 @@ export default {
           };
           card.starred = false;
         });
-        setTimeout(()=>{
-          that.buttonLoading = false;
-        }, 3000);
       } else {
         ElMessage({
           message: "请先进行 注册/登录!",
