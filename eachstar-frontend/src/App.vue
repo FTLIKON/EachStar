@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="dark">
     <top-nav />
     <router-view />
     <bottom-line />
@@ -25,7 +25,6 @@ export default {
 html, body {
   margin: 0;
   padding: 0;
-  filter: invert(1) hue-rotate(180deg);
 }
 
 </style>
