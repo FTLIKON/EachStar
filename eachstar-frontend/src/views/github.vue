@@ -100,7 +100,7 @@
         width: 120px;"
       position="top"
       :right="80"
-      :offset="30"
+      :top="20"
       :visibility-height="0"
     ><el-button @click="publicButton()" type="success" id="public-button">
       <svg class="fronticon" aria-hidden="true">
