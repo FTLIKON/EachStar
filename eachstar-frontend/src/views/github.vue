@@ -186,7 +186,7 @@ export default {
             }
           })
           .catch(function (error) {
-            console.log(error.status);
+            console.log(error.response.status);
             card.starred = false;
           });
       } else {
