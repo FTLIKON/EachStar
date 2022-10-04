@@ -103,6 +103,7 @@
       position="top"
       :visibility-height="0"
       :offset="0"
+      update
     ><el-button @click="publicButton()" type="success" id="public-button">
       <svg class="fronticon" aria-hidden="true">
         <use xlink:href="#icon-fabu"></use>
@@ -139,7 +140,6 @@ export default {
   mounted() {
     let that = this;
     that.pageChange(1);
-    ElAffix.update();
   },
   data() {
     return {
