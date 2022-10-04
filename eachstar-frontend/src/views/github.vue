@@ -59,7 +59,7 @@
               Star请求中...</el-button
             >
             <el-button
-              v-show="(!item.starred)&&(!item.starring)&&(item.buttonLoading)"
+              v-show="(!item.starred)&&(!item.starring)&&(buttonLoading)"
               id="card-button"
               loading
               plain
