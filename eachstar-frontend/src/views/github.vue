@@ -39,7 +39,7 @@
               >
             </span>
             <el-button
-              v-show="!item.starred"
+              v-show="(!item.starred)&&(!item.starring)"
               id="card-button"
               @click="starButton(item)"
               :loading="buttonLoading"
@@ -49,6 +49,22 @@
                 <use xlink:href="#icon-xingxing"></use>
               </svg>
               一键Star</el-button
+            >
+            <el-button
+              v-show="(!item.starred)&&(item.starring)"
+              id="card-button"
+              loading
+              plain
+            >
+              Star请求中...</el-button
+            >
+            <el-button
+              v-show="(!item.starred)&&(!item.starring)&&(item.buttonLoading)"
+              id="card-button"
+              loading
+              plain
+            >
+              等待中...</el-button
             >
             <el-button v-show="item.starred" id="card-button" type="info" plain>
               <svg class="fronticon" aria-hidden="true">
@@ -173,8 +189,8 @@ export default {
           data: param,
         };
 
-        card.starred = true;
         that.buttonLoading = true;
+        card.starring = true;
         axios(config)
         .then(function (response) {
           ElMessage({
@@ -182,6 +198,7 @@ export default {
             type: "success",
           });
           card.starNum -= 1;
+          card.starred = true;
           bus.emit("refreshUserInfo");
           if (card.starNum == 0) {
             // 如果悬赏次数为0->刷新页面
@@ -266,6 +283,7 @@ export default {
             if (response.data.data[index] != undefined) {
               let nowData = response.data.data[index];
               nowData.createdAt = that.parseTimeString(nowData.createdAt);
+              nowData.cardStatus = 
 
               list.push(nowData);
             }
