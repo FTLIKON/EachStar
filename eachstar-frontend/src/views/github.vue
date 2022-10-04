@@ -97,9 +97,10 @@
       style="
         right: 15%;
         height: 60px;
-        width: 60px;"
+        width: 120px;"
+      position="buttom"
       :right="80"
-      :top="80"
+      :offset="30"
       :visibility-height="0"
     ><el-button @click="publicButton()" type="success" id="public-button">
       <svg class="fronticon" aria-hidden="true">
