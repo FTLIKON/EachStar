@@ -42,7 +42,7 @@
               v-show="!item.starred"
               id="card-button"
               @click="starButton(item)"
-              :loading="buttonLoading"
+              loading="buttonLoading"
               plain
             >
               <svg class="fronticon" style="color: #b88230" aria-hidden="true">
