@@ -191,7 +191,7 @@ export default {
         that.buttonLoading = true;
         setTimeout(()=>{
           that.buttonLoading = false;
-        }, 3000);
+        }, 2000);
         card.starring = true;
         axios(config)
         .then(function (response) {
@@ -207,7 +207,7 @@ export default {
               // 如果悬赏次数为0->刷新页面
               that.getPageData(that.currentPage);
             }
-          }, 2000)
+          }, 1000)
         })
         .catch(function (error) {
           if(error.response.status==400){
