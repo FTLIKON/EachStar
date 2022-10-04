@@ -93,14 +93,26 @@
       :bottom="80"
       :visibility-height="0"
     />
+    <el-backtop
+      style="
+        right: 15%;
+        height: 60px;
+        width: 60px;"
+      :right="80"
+      :top="80"
+      :visibility-height="0"
+    ><el-button @click="publicButton()" type="success" id="public-button">
+      <svg class="fronticon" aria-hidden="true">
+        <use xlink:href="#icon-fabu"></use>
+      </svg>
+      发布卡片</el-button></el-backtop>
 
     <div class="aside-menu">
       <el-button @click="publicButton()" type="success" id="public-button">
         <svg class="fronticon" aria-hidden="true">
           <use xlink:href="#icon-fabu"></use>
         </svg>
-        发布卡片</el-button
-      >
+        发布卡片</el-button>
     </div>
   </div>
   <Public @publicCard="publicCard" ref="Public" />
