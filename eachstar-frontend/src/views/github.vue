@@ -39,7 +39,7 @@
               >
             </span>
             <el-button
-              v-show="(!item.starred)&&(!item.starring)"
+              v-show="(!item.starred)&&(!item.starring)&&(!buttonLoading)"
               id="card-button"
               @click="starButton(item)"
               plain
