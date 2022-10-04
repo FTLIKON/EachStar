@@ -98,7 +98,7 @@
         right: 15%;
         height: 60px;
         width: 120px;"
-      position="buttom"
+      position="top"
       :right="80"
       :offset="30"
       :visibility-height="0"
