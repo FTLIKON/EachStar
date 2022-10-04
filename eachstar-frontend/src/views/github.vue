@@ -176,37 +176,36 @@ export default {
         card.starred = true;
         that.buttonLoading = true;
         axios(config)
-          .then(function (response) {
-            ElMessage({
-              message: "一键star成功! 获得星币:" + card.starPrice,
-              type: "success",
-            });
-            card.starNum -= 1;
-            bus.emit("refreshUserInfo");
-            if (card.starNum == 0) {
-              // 如果悬赏次数为0->刷新页面
-              that.getPageData(that.currentPage);
-            }
-          })
-          .catch(function (error) {
-            if(error.response.status==400){
-              ElMessage({
-                message: "一键star失败, 请稍后再试试~",
-                type: "warning",
-              });
-            };
-            card.starred = false;
+        .then(function (response) {
+          ElMessage({
+            message: "一键star成功! 获得星币:" + card.starPrice,
+            type: "success",
           });
+          card.starNum -= 1;
+          bus.emit("refreshUserInfo");
+          if (card.starNum == 0) {
+            // 如果悬赏次数为0->刷新页面
+            that.getPageData(that.currentPage);
+          }
+        })
+        .catch(function (error) {
+          if(error.response.status==400){
+            ElMessage({
+              message: "一键star失败, 请稍后再试试~",
+              type: "warning",
+            });
+          };
+          card.starred = false;
+        });
+        setTimeout(()=>{
+          that.buttonLoading = false;
+        }, 3000);
       } else {
         ElMessage({
           message: "请先进行 注册/登录!",
           type: "warning",
         });
       }
-
-      setTimeout(()=>{
-        that.buttonLoading = false;
-      }, 3000);
     },
 
     getUserId() {
