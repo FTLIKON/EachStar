@@ -95,12 +95,11 @@
     />
     <el-backtop
       style="
-        right: 15%;
-        height: 60px;
-        width: 120px;"
+        right: 16%;
+        top: 90px
+        height: 1px;
+        width: 1px;"
       position="top"
-      :right="80"
-      :top="20"
       :visibility-height="0"
     ><el-button @click="publicButton()" type="success" id="public-button">
       <svg class="fronticon" aria-hidden="true">
