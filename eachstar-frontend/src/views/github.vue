@@ -338,6 +338,7 @@ export default {
   align-items: center;
   .el-button {
     background-color: #24d64b;
+    position: relative;
   }
 }
 
