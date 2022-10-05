@@ -73,7 +73,6 @@ import axios from "axios";
 import bus from "../utils/emitter";
 import { ElMessage } from "element-plus";
 import Delete from "../components/dialog/delete.vue";
-import Public from "../components/dialog/public.vue";
 import BottomLine from "../components/bottomLine.vue";
 import "../iconfont/iconfont";
 
@@ -156,7 +155,7 @@ export default {
   },
   components: {
     Delete,
-    Public,
+    AsideMenu,
     BottomLine
   },
 };
@@ -210,21 +209,6 @@ export default {
   margin-right: 15%;
   float: right;
 }
-#public-button {
-  width: 50%;
-  height: 50px;
-  min-width: 120px;
-  margin-left: -50%;
-  margin-right: 15%;
-  margin-top: -5%;
-  font-size: larger;
-  font-weight: bolder;
-  text-shadow: 1px 1px 2px #303133, 0px 0px 2px #303133;
-
-  border-radius: 15px;
-  box-shadow: var(--el-box-shadow-dark);
-}
-
 .card-block {
   display: flex;
   flex-direction: column;

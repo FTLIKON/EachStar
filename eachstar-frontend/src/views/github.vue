@@ -301,21 +301,6 @@ export default {
   margin-bottom: 2%;
   float: right;
 }
-#public-button {
-  width: 50%;
-  height: 50px;
-  min-width: 120px;
-  margin-left: -50%;
-  margin-right: 15%;
-  margin-top: -5%;
-  font-size: larger;
-  font-weight: bolder;
-  text-shadow: 1px 1px 2px #303133, 0px 0px 2px #303133;
-
-  border-radius: 15px;
-  box-shadow: var(--el-box-shadow-dark);
-}
-
 .card-block {
   display: flex;
   flex-direction: column;
