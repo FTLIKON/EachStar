@@ -17,7 +17,7 @@ export default {
     },
   },
   components: {
-    Public,
+    PublicDialog,
   },
 }
 </script>
