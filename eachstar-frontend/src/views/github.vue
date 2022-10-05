@@ -1,7 +1,7 @@
 <template>
   <div class="github" v-loading="loading">
     <!-- 侧栏视图 -->
-    <el-affix :offset="70">
+    <el-affix :offset="100">
       <aside-menu />
     </el-affix>
 
