@@ -141,7 +141,7 @@ export default {
             type: "success",
           });
           bus.emit("refreshUserInfo");
-          bus.emit("refreshPageData");
+          bus.emit("refreshPageData", 1);
         })
         .catch(function (error) {
           console.log(error);
