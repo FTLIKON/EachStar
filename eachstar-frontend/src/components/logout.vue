@@ -30,8 +30,13 @@ export default {
         method: "get",
         url: "server/oauth/logout",
       };
-      await axios(config);
-      this.$router.go(0);
+      await axios(config).then(function (response) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+      //this.$router.go(0);
     },
   },
 };
