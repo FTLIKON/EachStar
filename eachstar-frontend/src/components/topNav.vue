@@ -136,6 +136,7 @@ export default {
       // 切换到EachStar
       window.location.href = "https://github.com/FTLIKON/EachStar";
     },
+
     getUserInfo() {
       // 刷新用户信息->data
       var that = this;
@@ -154,6 +155,7 @@ export default {
           console.log(error);
         });
     },
+    
     menuSelect(key, keyPath) {
       // 菜单选择
       // console.log('[DEBUGGER] '+key);

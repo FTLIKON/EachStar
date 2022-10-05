@@ -88,6 +88,7 @@ import { ElMessage } from "element-plus";
 import { validateGithubUrl } from "../../utils/validate.js";
 import axios from "axios";
 import "../../iconfont/iconfont";
+import bus from "../../utils/emitter";
 export default {
   data() {
     return {
@@ -117,18 +118,34 @@ export default {
         this.publicConfirm = false;
       } else {
         var that = this;
-        // debug
-        // publicCard Arguments -> title, context, starPrice, starNum, time
+        let param = new URLSearchParams();
+
         this.dialogVisible = false;
         this.publicConfirm = false;
-        this.$emit(
-          "publicCard",
-          that.cardTitle,
-          that.cardDiscription,
-          that.starPrice,
-          that.starNum,
-          that.getExpireTime()
-        );
+        ElMessage("正在尝试发布, 请稍等");
+
+        param.append("title", that.cardTitle);
+        param.append("context", that.cardDiscription);
+        param.append("starPrice", that.starPrice);
+        param.append("starNum", that.starNum);
+        param.append("expireTime", that.getExpireTime());
+        var config = {
+          method: "post",
+          url: "server/api/card",
+          data: param,
+        };
+        axios(config)
+        .then(function (response) {
+          ElMessage({
+            message: "发布成功! 为您重定向至第一页...",
+            type: "success",
+          });
+          bus.emit("refreshUserInfo");
+          bus.emit("refreshPageData");
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
       }
     },
 

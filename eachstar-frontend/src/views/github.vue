@@ -141,6 +141,7 @@ export default {
   },
   mounted() {
     this.pageChange(1);
+    bus.on("refreshPageData", this.pageChange(1));
   },
   data() {
     return {
@@ -160,35 +161,35 @@ export default {
     //   // 发布按钮->点击打开Public.vue
     //   this.$.refs.Public.openPage();
     // },
-    publicCard: function (title, context, starPrice, starNum, time) {
-      // Post->向服务器请求发布data卡片
-      ElMessage("正在尝试发布, 请稍等");
-      var that = this;
-      let param = new URLSearchParams();
-      param.append("title", title);
-      param.append("context", context);
-      param.append("starPrice", starPrice);
-      param.append("starNum", starNum);
-      param.append("expireTime", time);
-      var config = {
-        method: "post",
-        url: "server/api/card",
-        data: param,
-      };
+    // publicCard: function (title, context, starPrice, starNum, time) {
+    //   // Post->向服务器请求发布data卡片
+    //   ElMessage("正在尝试发布, 请稍等");
+    //   var that = this;
+    //   let param = new URLSearchParams();
+    //   param.append("title", title);
+    //   param.append("context", context);
+    //   param.append("starPrice", starPrice);
+    //   param.append("starNum", starNum);
+    //   param.append("expireTime", time);
+    //   var config = {
+    //     method: "post",
+    //     url: "server/api/card",
+    //     data: param,
+    //   };
 
-      axios(config)
-        .then(function (response) {
-          ElMessage({
-            message: "发布成功! 为您重定向至第一页...",
-            type: "success",
-          });
-          that.getPageData(0);
-          bus.emit("refreshUserInfo");
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-    },
+    //   axios(config)
+    //     .then(function (response) {
+    //       ElMessage({
+    //         message: "发布成功! 为您重定向至第一页...",
+    //         type: "success",
+    //       });
+    //       that.getPageData(0);
+    //       bus.emit("refreshUserInfo");
+    //     })
+    //     .catch(function (error) {
+    //       console.log(error);
+    //     });
+    // },
     // ---------- star-card相关 ----------
     // Star按钮
     starButton: function (card) {

@@ -1,9 +1,8 @@
 <template>
   <div id="menu">
     <el-button class="public-button" @click="openPublicDialog()" type="success">
-        发布卡片
+      发布卡片
     </el-button>
-
     <PublicDialog @publicCard="publicCard" ref="PublicDialog" />
   </div>
 </template>
@@ -11,9 +10,29 @@
 <script>
 import PublicDialog from "./dialog/public.vue";
 export default {
+  data() {
+    return {
+      userPrice: null,
+    }
+  },
   methods: {
     openPublicDialog() {
       this.$.refs.PublicDialog.openPage();
+    },
+
+    getUserPrice() { // 获取用户积分
+      var that = this;
+      var config = {
+        method: "get",
+        url: "server/api/user/@me",
+      };
+      axios(config)
+        .then(function (response) {
+          that.userPrice = response.data.price;
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
     },
   },
   components: {
