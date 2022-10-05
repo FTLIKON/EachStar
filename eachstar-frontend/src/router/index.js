@@ -7,7 +7,7 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      name: "gen",
+      name: "home",
       component: github,
       meta: {
         title: "EachStar",
@@ -28,6 +28,14 @@ const router = createRouter({
       component: mygithub,
       meta: {
         title: "EachStar",
+      },
+    },
+    {
+      path: "/develop",
+      name: "develop",
+      component: develop,
+      meta: {
+        title: "EachStar Develop",
       },
     },
   ],
