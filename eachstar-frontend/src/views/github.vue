@@ -448,6 +448,5 @@ export default {
 #pagination {
   margin-top: 3%;
   margin-bottom: 3%;
-  justify-content: center;
 }
 </style>
