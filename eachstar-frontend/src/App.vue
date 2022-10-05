@@ -47,13 +47,14 @@ html, body {
 }
 
 .aside-view {
-  width: 30%;
+  width: 20%;
   height: calc(100vh - 61px);
   overflow-y: hidden;
 }
 
 .main-view {
-  width: 70%;
+  margin-left: 20%;
+  width: 60%;
   height: calc(100vh - 61px);
   overflow-y: auto;
 }
