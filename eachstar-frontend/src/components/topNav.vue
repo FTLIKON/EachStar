@@ -93,7 +93,7 @@
 import bus from "../utils/emitter";
 import axios from "axios";
 import GithubAuth from "./githubAuth.vue";
-import Logout from "./logout.vue";
+import Logout from "./dialog/logout.vue";
 import { ElMessage } from "element-plus";
 import "../iconfont/iconfont";
 
