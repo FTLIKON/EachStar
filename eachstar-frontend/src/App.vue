@@ -6,16 +6,16 @@
         <top-nav />
       </el-header>
 
-      <!-- 卡片页面和侧边栏 -->
       <el-container>
-        <el-main><router-view /></el-main>
+        <!-- 卡片页面和底部栏 -->
+        <el-main>
+          <router-view />
+          <bottom-line />
+        </el-main>
+
+        <!-- 侧边菜单 -->
         <el-aisde><aside-menu /></el-aisde>
       </el-container>
-
-      <!-- 底部页面描述 -->
-      <el-footer>
-        <bottom-line />
-      </el-footer>
     </el-container>
   </div>
 </template>
