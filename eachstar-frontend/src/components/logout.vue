@@ -4,7 +4,7 @@
       <div class="title">确认要退出登录吗?QwQ</div>
       <span class="dialog-footer">
         <el-button @click="dialogVisible = false">取消</el-button>
-        <el-button type="primary" @click="userLogout()">确认</el-button>
+        <el-button type="primary" @click="userLogout">确认</el-button>
       </span>
     </div>
   </el-dialog>
@@ -25,7 +25,7 @@ export default {
     goPage(url) {
       window.location.href = url;
     },
-    userLogout(){
+    userLogout: function(){
       var config = {
         method: "get",
         url: "server/oauth/logout",
