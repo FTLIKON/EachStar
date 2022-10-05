@@ -53,7 +53,6 @@ export default {
   width: 80%;
   height: 50px;
   margin-top: 3%;
-  margin-left: 0px;
   font-size: larger;
   font-weight: bolder;
   text-shadow: 1px 1px 2px #303133, 0px 0px 2px #303133;
@@ -65,7 +64,7 @@ export default {
   width: 80%;
   height: 50px;
   margin-top: 3%;
-  margin-left: 0px;
+  margin-left: 0px !important;
   font-size: larger;
   font-weight: bolder;
   text-shadow: 1px 1px 2px #303133, 0px 0px 2px #303133;
