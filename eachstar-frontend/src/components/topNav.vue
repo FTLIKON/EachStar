@@ -86,7 +86,7 @@
     </el-menu>
   </el-affix>
   <GithubAuth ref="GithubAuth" />
-  <Logout ref="Logout" />
+
 </template>
 
 <script>
