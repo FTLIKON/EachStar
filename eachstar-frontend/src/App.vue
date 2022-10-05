@@ -47,12 +47,13 @@ html, body {
 }
 
 .el-aside {
-  width: 200px;
+  width: 30%;
   height: calc(100vh - 61px);
   overflow-y: hidden;
 }
 
 .el-main {
+  width: 70%;
   height: calc(100vh - 61px);
   overflow-y: auto;
 }
