@@ -13,6 +13,6 @@ export const getOAuthMiddleware = () => {
     '/github/callback',
     oAuthController.githubCallBack.bind(OAuthController),
   )
-
+  router.get('/logout', oAuthController.userLogout.bind(OAuthController))
   return router.routes()
 }
