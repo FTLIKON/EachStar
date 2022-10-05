@@ -7,14 +7,14 @@
       </el-header>
 
       <el-container>
+        <!-- 侧边菜单 -->
+        <el-aisde class="aside-view"><aside-menu /></el-aisde>
+
         <!-- 卡片页面和底部栏 -->
         <el-main class="main-view">
           <router-view />
           <bottom-line />
         </el-main>
-
-        <!-- 侧边菜单 -->
-        <el-aisde class="aside-view"><aside-menu /></el-aisde>
       </el-container>
     </el-container>
   </div>
@@ -53,7 +53,7 @@ html, body {
 }
 
 .main-view {
-  margin-left: 20%;
+  margin-right: 20%;
   width: 60%;
   height: calc(100vh - 61px);
   overflow-y: auto;
