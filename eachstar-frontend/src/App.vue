@@ -8,13 +8,13 @@
 
       <el-container>
         <!-- 卡片页面和底部栏 -->
-        <el-main>
+        <el-main class="main-view">
           <router-view />
           <bottom-line />
         </el-main>
 
         <!-- 侧边菜单 -->
-        <el-aisde><aside-menu /></el-aisde>
+        <el-aisde class="aside-view"><aside-menu /></el-aisde>
       </el-container>
     </el-container>
   </div>
@@ -46,13 +46,13 @@ html, body {
   padding: 0;
 }
 
-.el-aside {
+.aside-view {
   width: 30%;
   height: calc(100vh - 61px);
   overflow-y: hidden;
 }
 
-.el-main {
+.main-view {
   width: 70%;
   height: calc(100vh - 61px);
   overflow-y: auto;
