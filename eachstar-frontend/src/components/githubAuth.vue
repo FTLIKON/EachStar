@@ -1,7 +1,7 @@
 <template>
   <el-dialog
     v-model="dialogVisible"
-    style="width: 25%; margin-top: 300px"
+    style="width: 25%; margin-top: 250px"
     id="githubAuth"
     title=""
   >

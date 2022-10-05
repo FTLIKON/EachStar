@@ -1,5 +1,9 @@
 <template>
-  <el-dialog v-model="dialogVisible" title="退出登录">
+  <el-dialog
+    style="width: 30%; margin-top: 250px"
+    v-model="dialogVisible"
+    title="退出登录"
+  >
     <div class="logout-block">
       <div class="title">确认要退出登录吗?QwQ</div>
       <span class="dialog-footer">
@@ -25,18 +29,18 @@ export default {
     goPage(url) {
       window.location.href = url;
     },
-    userLogout: function(){
+    userLogout: function () {
       var config = {
         method: "get",
         url: "server/oauth/logout",
       };
       axios(config)
-      .then(function (response) {
-        console.log(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+        .then(function (response) {
+          console.log(response.data);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
       this.$router.go(0);
     },
   },

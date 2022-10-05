@@ -1,5 +1,5 @@
 <template>
-  <el-dialog v-model="dialogVisible" title="删除卡片">
+  <el-dialog style="width: 30%; margin-top: 300px" v-model="dialogVisible" title="删除卡片">
     <div class="delete-block">
       <div class="title"> 确认要删除卡片吗? </div>
       <div class="user-rank-calc">
