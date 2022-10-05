@@ -13,9 +13,10 @@
         <!-- 卡片页面和底部栏 -->
         <el-main class="main-view">
           <router-view />
-          <bottom-line />
         </el-main>
       </el-container>
+
+      <el-footer><bottom-line /></el-footer>
     </el-container>
   </div>
 </template>
