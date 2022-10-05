@@ -1,14 +1,24 @@
 <template>
-  <div class="menu">
+  <div id="menu">
     <el-button class="public-button" type="success">
         发布卡片
     </el-button>
+
+    <Public @publicCard="publicCard" ref="Public" />
   </div>
 </template>
 
 <script>
+import Public from "../components/public.vue";
 export default {
-
+  methods: {
+    openPublicDialog() {
+      this.$.refs.Public.openPage();
+    },
+  },
+  components: {
+    Public,
+  },
 }
 </script>
 

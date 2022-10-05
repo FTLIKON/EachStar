@@ -124,7 +124,6 @@
     </div> -->
 
   </div>
-  <Public @publicCard="publicCard" ref="Public" />
 </template>
 
 <script>
@@ -132,7 +131,6 @@ import axios from "axios";
 import bus from "../utils/emitter";
 import { getCurrentInstance, onMounted } from "vue-demi";
 import { ElAffix, ElMessage } from "element-plus";
-import Public from "../components/public.vue";
 import BottomLine from "../components/bottomLine.vue";
 import "../iconfont/iconfont";
 
@@ -143,8 +141,7 @@ export default {
     BottomLine,
   },
   mounted() {
-    let that = this;
-    that.pageChange(1);
+    this.pageChange(1);
   },
   data() {
     return {
@@ -160,10 +157,10 @@ export default {
   },
   methods: {
     // ---------- public相关 ----------
-    publicButton() {
-      // 发布按钮->点击打开Public.vue
-      this.$.refs.Public.openPage();
-    },
+    // publicButton() {
+    //   // 发布按钮->点击打开Public.vue
+    //   this.$.refs.Public.openPage();
+    // },
     publicCard: function (title, context, starPrice, starNum, time) {
       // Post->向服务器请求发布data卡片
       ElMessage("正在尝试发布, 请稍等");
