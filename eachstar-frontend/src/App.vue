@@ -1,11 +1,18 @@
 <template>
   <div id="app">
     <el-container>
-      <top-nav />
-      <router-view />
-      <bottom-line />
-    </el-container>
+      <el-header>
+        <top-nav />
+      </el-header>
 
+      <el-container>
+        <router-view />
+      </el-container>
+      
+      <el-footer>
+        <bottom-line />
+      </el-footer>
+    </el-container>
   </div>
 </template>
 
