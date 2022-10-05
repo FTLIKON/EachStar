@@ -53,8 +53,7 @@ html, body {
 }
 
 .main-view {
-  margin-right: 20%;
-  width: 60%;
+  width: 80%;
   height: calc(100vh - 61px);
   overflow-y: auto;
 }
