@@ -361,7 +361,7 @@ export default {
 
 .card-list {
   border-radius: 15px;
-  width: 80%;
+  width: 100%;
   min-width: 600px;
   max-width: 800px;
   margin-bottom: 2%;
