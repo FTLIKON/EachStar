@@ -73,8 +73,8 @@
           </template>
           <template #default>
             <el-button
+              @click="logoutButton()"
               id="card-button"
-
               type="danger"
               plain
             >
@@ -86,7 +86,7 @@
     </el-menu>
   </el-affix>
   <GithubAuth ref="GithubAuth" />
-
+  <Logout ref="Logout" />
 </template>
 
 <script>
