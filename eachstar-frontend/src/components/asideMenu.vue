@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import PublicDialog from "../components/publicDialog.vue";
+import PublicDialog from "./dialog/public.vue";
 export default {
   methods: {
     openPublicDialog() {
