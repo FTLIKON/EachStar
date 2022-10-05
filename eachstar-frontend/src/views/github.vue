@@ -83,53 +83,15 @@
         @current-change="pageChange"
         :total="totalPage * 10"
       />
+
+      
     </div>
-
-    <!-- 固钉 -->
-    <el-backtop
-      style="
-        right: 15%;
-        height: 60px;
-        width: 60px;
-        box-shadow: var(--el-box-shadow-dark)
-        border-radius: 50%"
-      :right="80"
-      :bottom="80"
-      :visibility-height="0"
-      :offset="0"
-    />
-    <!-- <el-backtop
-      style="
-        right: 16%;
-        top: 90px
-        height: 1px;
-        width: 1px;"
-      position="top"
-      :visibility-height="0"
-      :offset="0"
-      update
-    ><el-button @click="publicButton()" type="success" id="public-button">
-      <svg class="fronticon" aria-hidden="true">
-        <use xlink:href="#icon-fabu"></use>
-      </svg>
-      发布卡片</el-button>
-    </el-backtop> -->
-
-    <!-- <div class="aside-menu">
-      <el-button @click="publicButton()" type="success" id="public-button">
-        <svg class="fronticon" aria-hidden="true">
-          <use xlink:href="#icon-fabu"></use>
-        </svg>
-        发布卡片</el-button>
-    </div> -->
-
   </div>
 </template>
 
 <script>
 import axios from "axios";
 import bus from "../utils/emitter";
-import { getCurrentInstance, onMounted } from "vue-demi";
 import { ElAffix, ElMessage } from "element-plus";
 import BottomLine from "../components/bottomLine.vue";
 import "../iconfont/iconfont";

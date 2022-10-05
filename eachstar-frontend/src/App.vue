@@ -8,15 +8,15 @@
 
       <el-container>
         <!-- 侧边菜单 -->
-        <el-aisde class="aside-view"><aside-menu /></el-aisde>
+        <!-- <el-aisde class="aside-view"><aside-menu /></el-aisde> -->
 
         <!-- 卡片页面和底部栏 -->
         <el-main class="main-view">
           <router-view />
+          <bottom-line />
         </el-main>
+        
       </el-container>
-
-      <el-footer><bottom-line /></el-footer>
     </el-container>
   </div>
 </template>
