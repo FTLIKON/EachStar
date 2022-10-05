@@ -16,6 +16,7 @@ export default {
 .public-button {
     width: 50%;
     height: 50px;
+    margin-top: 3%;
     font-size: larger;
     font-weight: bolder;
     text-shadow: 1px 1px 2px #303133, 0px 0px 2px #303133;
