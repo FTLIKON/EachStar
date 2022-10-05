@@ -279,7 +279,7 @@ export default {
 .card-view {
   background-color: none;
 
-  width: 80%;
+  width: 60%;
 }
 .aside-menu {
   background-color: none;
