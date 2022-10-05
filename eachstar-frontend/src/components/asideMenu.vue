@@ -1,6 +1,8 @@
 <template>
   <div class="menu">
-    123
+    <el-button class="public-button">
+        发布卡片
+    </el-button>
   </div>
 </template>
 
@@ -11,5 +13,18 @@ export default {
 </script>
 
 <style scoped>
+.public-button {
+    width: 50%;
+    height: 50px;
+    min-width: 120px;
+    margin-left: -50%;
+    margin-right: 15%;
+    margin-top: -5%;
+    font-size: larger;
+    font-weight: bolder;
+    text-shadow: 1px 1px 2px #303133, 0px 0px 2px #303133;
 
+    border-radius: 15px;
+    box-shadow: var(--el-box-shadow-dark);
+}
 </style>
