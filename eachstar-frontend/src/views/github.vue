@@ -269,7 +269,7 @@ export default {
     },
     refreshPageData: function () {
       this.pageChange(1);
-    }
+    },
     parseTimeString: function (timeString) {
       let resTime;
       let cardTime = new Date(timeString);
