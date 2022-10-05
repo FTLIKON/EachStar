@@ -1,5 +1,6 @@
 <template>
   <div class="github" v-loading="loading">
+    <!-- 卡片视图 -->
     <div class="card-view">
       <!-- 卡片列表 -->
       <el-card
@@ -74,6 +75,7 @@
           </div>
         </div>
       </el-card>
+
       <!-- 卡片换页 -->
       <el-pagination
         id="pagination"
@@ -82,6 +84,8 @@
         :total="totalPage * 10"
       />
     </div>
+
+    <!-- 固钉 -->
     <el-backtop
       style="
         right: 15%;
@@ -111,13 +115,14 @@
       发布卡片</el-button>
     </el-backtop> -->
 
-    <div class="aside-menu">
+    <!-- <div class="aside-menu">
       <el-button @click="publicButton()" type="success" id="public-button">
         <svg class="fronticon" aria-hidden="true">
           <use xlink:href="#icon-fabu"></use>
         </svg>
         发布卡片</el-button>
-    </div>
+    </div> -->
+    
   </div>
   <Public @publicCard="publicCard" ref="Public" />
 </template>
