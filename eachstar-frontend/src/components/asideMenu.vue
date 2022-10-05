@@ -3,7 +3,7 @@
     <el-button class="public-button" @click="openPublicDialog()" type="success">
       发布卡片
     </el-button>
-    <el-button class="price-button" type="success">
+    <el-button class="price-button" type="primary">
       我的星币 {{ userPrice }}
     </el-button>
     <PublicDialog ref="PublicDialog" />
@@ -50,14 +50,25 @@ export default {
 
 <style scoped>
 .public-button {
-    width: 80%;
-    height: 50px;
-    margin-top: 3%;
-    font-size: larger;
-    font-weight: bolder;
-    text-shadow: 1px 1px 2px #303133, 0px 0px 2px #303133;
+  width: 80%;
+  height: 50px;
+  margin-top: 3%;
+  font-size: larger;
+  font-weight: bolder;
+  text-shadow: 1px 1px 2px #303133, 0px 0px 2px #303133;
 
-    border-radius: 15px;
-    box-shadow: var(--el-box-shadow-dark);
+  border-radius: 15px;
+  box-shadow: var(--el-box-shadow-dark);
+}
+.price-button {
+  width: 80%;
+  height: 50px;
+  margin-top: 3%;
+  font-size: larger;
+  font-weight: bolder;
+  text-shadow: 1px 1px 2px #303133, 0px 0px 2px #303133;
+
+  border-radius: 15px;
+  box-shadow: var(--el-box-shadow-dark);
 }
 </style>
