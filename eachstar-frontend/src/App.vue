@@ -1,20 +1,39 @@
 <template>
   <div id="app">
-    <top-nav />
-    <router-view />
-    <bottom-line />
+    <el-container>
+      <!-- 头部导航栏 -->
+      <el-header>
+        <top-nav />
+      </el-header>
+
+      <el-container>
+        <!-- 卡片页面和底部栏 -->
+        <el-main class="main-view">
+          <router-view />
+          <bottom-line />
+        </el-main>
+
+        <!-- 侧边菜单 -->
+        <el-aisde class="aside-view"><aside-menu /></el-aisde>
+      </el-container>
+    </el-container>
   </div>
 </template>
 
 <script>
 import TopNav from './components/topNav.vue';
 import BottomLine from './components/bottomLine.vue';
+import AsideMenu from './components/asideMenu.vue';
 export default {
-    components: { TopNav, BottomLine }
+  components: {
+    TopNav,
+    BottomLine,
+    AsideMenu
+  },
 };
 </script>
 
-<style>
+<style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -27,4 +46,16 @@ html, body {
   padding: 0;
 }
 
+.aside-view {
+  width: 20%;
+  height: calc(100vh - 61px);
+  overflow-y: hidden;
+}
+
+.main-view {
+  margin-left: 20%;
+  width: 60%;
+  height: calc(100vh - 61px);
+  overflow-y: auto;
+}
 </style>

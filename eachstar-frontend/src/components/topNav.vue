@@ -177,7 +177,7 @@ export default {
 .logo {
   color: #ffffff;
   font-weight: bold;
-  font-size: 40px;
+  font-size: 35px;
   text-shadow: 1px 1px 2px #303133, 0px 0px 3px #303133;
 
   display: flex;

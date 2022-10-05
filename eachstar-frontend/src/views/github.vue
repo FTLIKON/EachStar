@@ -1,5 +1,6 @@
 <template>
   <div class="github" v-loading="loading">
+    <!-- 卡片视图 -->
     <div class="card-view">
       <!-- 卡片列表 -->
       <el-card
@@ -39,7 +40,7 @@
               >
             </span>
             <el-button
-              v-show="!item.starred"
+              v-show="(!item.starred)&&(!item.starring)&&(!buttonLoading)"
               id="card-button"
               @click="starButton(item)"
               plain
@@ -48,6 +49,22 @@
                 <use xlink:href="#icon-xingxing"></use>
               </svg>
               一键Star</el-button
+            >
+            <el-button
+              v-show="(!item.starred)&&(item.starring)"
+              id="card-button"
+              loading
+              plain
+            >
+              Star请求中...</el-button
+            >
+            <el-button
+              v-show="(!item.starred)&&(!item.starring)&&(buttonLoading)"
+              id="card-button"
+              loading
+              plain
+            >
+              等待中...</el-button
             >
             <el-button v-show="item.starred" id="card-button" type="info" plain>
               <svg class="fronticon" aria-hidden="true">
@@ -58,6 +75,7 @@
           </div>
         </div>
       </el-card>
+
       <!-- 卡片换页 -->
       <el-pagination
         id="pagination"
@@ -66,6 +84,8 @@
         :total="totalPage * 10"
       />
     </div>
+
+    <!-- 固钉 -->
     <el-backtop
       style="
         right: 15%;
@@ -76,16 +96,33 @@
       :right="80"
       :bottom="80"
       :visibility-height="0"
+      :offset="0"
     />
+    <!-- <el-backtop
+      style="
+        right: 16%;
+        top: 90px
+        height: 1px;
+        width: 1px;"
+      position="top"
+      :visibility-height="0"
+      :offset="0"
+      update
+    ><el-button @click="publicButton()" type="success" id="public-button">
+      <svg class="fronticon" aria-hidden="true">
+        <use xlink:href="#icon-fabu"></use>
+      </svg>
+      发布卡片</el-button>
+    </el-backtop> -->
 
-    <div class="aside-menu">
+    <!-- <div class="aside-menu">
       <el-button @click="publicButton()" type="success" id="public-button">
         <svg class="fronticon" aria-hidden="true">
           <use xlink:href="#icon-fabu"></use>
         </svg>
-        发布卡片</el-button
-      >
-    </div>
+        发布卡片</el-button>
+    </div> -->
+
   </div>
   <Public @publicCard="publicCard" ref="Public" />
 </template>
@@ -94,7 +131,7 @@
 import axios from "axios";
 import bus from "../utils/emitter";
 import { getCurrentInstance, onMounted } from "vue-demi";
-import { ElMessage } from "element-plus";
+import { ElAffix, ElMessage } from "element-plus";
 import Public from "../components/public.vue";
 import BottomLine from "../components/bottomLine.vue";
 import "../iconfont/iconfont";
@@ -112,6 +149,7 @@ export default {
   data() {
     return {
       loading: true,
+      buttonLoading: false,
 
       pageSize: 10,
       totalPage: 0,
@@ -155,7 +193,6 @@ export default {
           console.log(error);
         });
     },
-
     // ---------- star-card相关 ----------
     // Star按钮
     starButton: function (card) {
@@ -171,29 +208,36 @@ export default {
           data: param,
         };
 
-        card.starred = true;
+        that.buttonLoading = true;
+        setTimeout(()=>{
+          that.buttonLoading = false;
+        }, 2000);
+        card.starring = true;
         axios(config)
-          .then(function (response) {
+        .then(function (response) {
+          setTimeout(()=>{
             ElMessage({
               message: "一键star成功! 获得星币:" + card.starPrice,
               type: "success",
             });
             card.starNum -= 1;
+            card.starred = true;
             bus.emit("refreshUserInfo");
             if (card.starNum == 0) {
               // 如果悬赏次数为0->刷新页面
               that.getPageData(that.currentPage);
             }
-          })
-          .catch(function (error) {
-            if(error.response.status==400){
-              ElMessage({
-                message: "一键star失败, 请稍后再试试~",
-                type: "warning",
-              });
-            };
-            card.starred = false;
-          });
+          }, 1000)
+        })
+        .catch(function (error) {
+          if(error.response.status==400){
+            ElMessage({
+              message: "一键star失败, 请稍后再试试~",
+              type: "warning",
+            });
+          };
+          card.starred = false;
+        });
       } else {
         ElMessage({
           message: "请先进行 注册/登录!",
@@ -260,6 +304,7 @@ export default {
             if (response.data.data[index] != undefined) {
               let nowData = response.data.data[index];
               nowData.createdAt = that.parseTimeString(nowData.createdAt);
+              nowData.cardStatus = 
 
               list.push(nowData);
             }
@@ -299,9 +344,6 @@ export default {
 
 .card-view {
   background-color: none;
-
-  margin-left: 20%;
-  width: 60%;
 }
 .aside-menu {
   background-color: none;
@@ -313,17 +355,14 @@ export default {
   align-items: center;
   .el-button {
     background-color: #24d64b;
+    position: relative;
   }
 }
 
 .card-list {
   border-radius: 15px;
-  width: 80%;
-  min-width: 600px;
-  max-width: 800px;
+  width: 100%;
   margin-bottom: 2%;
-  margin-left: 25%;
-  margin-right: 15%;
   float: right;
 }
 #public-button {
