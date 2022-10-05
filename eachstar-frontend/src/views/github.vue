@@ -122,7 +122,7 @@
         </svg>
         发布卡片</el-button>
     </div> -->
-    
+
   </div>
   <Public @publicCard="publicCard" ref="Public" />
 </template>
@@ -346,7 +346,6 @@ export default {
   background-color: none;
 
   margin-left: 20%;
-  width: 60%;
 }
 .aside-menu {
   background-color: none;
