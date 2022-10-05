@@ -8,8 +8,8 @@
 
       <!-- 卡片页面和侧边栏 -->
       <el-container>
-        <router-view />
-        <aside-menu />
+        <el-main><router-view /></el-main>
+        <el-aisde><aside-menu /></el-aisde>
       </el-container>
 
       <!-- 底部页面描述 -->
