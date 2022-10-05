@@ -137,7 +137,6 @@ import "../iconfont/iconfont";
 export default {
   name: "github",
   components: {
-    Public,
     BottomLine,
   },
   mounted() {
