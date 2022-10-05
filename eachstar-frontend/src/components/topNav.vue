@@ -72,7 +72,12 @@
             />
           </template>
           <template #default>
-            <el-button id="card-button" type="danger" plain>
+            <el-button
+              id="card-button"
+              @click="logoutButton()"
+              type="danger"
+              plain
+            >
               退出登录
             </el-button>
           </template>
@@ -81,6 +86,7 @@
     </el-menu>
   </el-affix>
   <GithubAuth ref="GithubAuth" />
+  <Logout ref="Logout" />
 </template>
 
 <script>
@@ -88,12 +94,14 @@ import bus from "../utils/emitter";
 import { buildSlots } from "@vue/compiler-core";
 import axios from "axios";
 import GithubAuth from "./githubAuth.vue";
+import Logout from "./logout.vue";
 import { ElMessage } from "element-plus";
 import "../iconfont/iconfont";
 
 export default {
   components: {
     GithubAuth,
+    Logout,
   },
   data() {
     return {
@@ -111,6 +119,10 @@ export default {
     // 注册按钮
     authButton() {
       this.$.refs.GithubAuth.openPage();
+    },
+    // 登出按钮
+    logoutButton() {
+      this.$.refs.Logout.openPage();
     },
     // 未登录禁止打开我的仓库
     noLoginError() {
