@@ -74,6 +74,7 @@ import bus from "../utils/emitter";
 import { ElMessage } from "element-plus";
 import Delete from "../components/dialog/delete.vue";
 import BottomLine from "../components/bottomLine.vue";
+import AsideMenu from "../components/asideMenu.vue";
 import "../iconfont/iconfont";
 
 export default {
