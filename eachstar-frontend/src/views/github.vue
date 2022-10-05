@@ -141,7 +141,7 @@ export default {
   },
   mounted() {
     this.pageChange(1);
-    bus.on("refreshPageData", this.pageChange);
+    bus.$on("refreshPageData", this.pageChange);
   },
   data() {
     return {
