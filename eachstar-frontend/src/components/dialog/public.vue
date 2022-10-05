@@ -87,7 +87,7 @@
 import { ElMessage } from "element-plus";
 import { validateGithubUrl } from "../../utils/validate.js";
 import axios from "axios";
-import "../iconfont/iconfont";
+import "../../iconfont/iconfont";
 export default {
   data() {
     return {
