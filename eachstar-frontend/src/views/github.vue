@@ -141,7 +141,7 @@ export default {
   },
   mounted() {
     this.pageChange(1);
-    bus.$on("refreshPageData", this.pageChange);
+    bus.on("refreshPageData", this.refreshPageData);
   },
   data() {
     return {
@@ -264,8 +264,12 @@ export default {
     pageChange: function (page) {
       this.currentPage = page - 1;
       console.log("切换至页面: "+this.currentPage);
+
       this.getPageData(this.currentPage);
     },
+    refreshPageData: function () {
+      this.pageChange(1);
+    }
     parseTimeString: function (timeString) {
       let resTime;
       let cardTime = new Date(timeString);
