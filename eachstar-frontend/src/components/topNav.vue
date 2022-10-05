@@ -74,7 +74,7 @@
           <template #default>
             <el-button
               id="card-button"
-              @click="logoutButton()"
+
               type="danger"
               plain
             >
