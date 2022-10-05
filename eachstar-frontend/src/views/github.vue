@@ -1,7 +1,9 @@
 <template>
   <div class="github" v-loading="loading">
     <!-- 侧栏视图 -->
-    <aside-menu />
+    <el-affix :offset="120">
+      <aside-menu />
+    </el-affix>
 
     <!-- 卡片视图 -->
     <div class="card-view">
