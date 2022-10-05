@@ -54,6 +54,6 @@ html, body {
 
 .el-main {
   height: calc(100vh - 61px);
-  overflow-y: hidden;
+  overflow-y: auto;
 }
 </style>
