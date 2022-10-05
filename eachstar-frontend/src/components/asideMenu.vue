@@ -15,11 +15,7 @@ export default {
 <style scoped>
 .public-button {
     width: 50%;
-    height: 50px;
-    min-width: 120px;
-    margin-left: -50%;
-    margin-right: 15%;
-    margin-top: -5%;
+    height: 20%;
     font-size: larger;
     font-weight: bolder;
     text-shadow: 1px 1px 2px #303133, 0px 0px 2px #303133;
