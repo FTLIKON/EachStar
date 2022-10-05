@@ -344,6 +344,8 @@ export default {
 
 .card-view {
   background-color: none;
+
+  width: 80%;
 }
 .aside-menu {
   background-color: none;
