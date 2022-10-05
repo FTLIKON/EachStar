@@ -66,6 +66,7 @@
         >
           <template #reference>
             <el-avatar
+              v-show="isLogin"
               :src="userIconURL"
               src="https://avatars.githubusercontent.com/u/72015883?v=4"
             />
