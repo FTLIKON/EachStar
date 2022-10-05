@@ -30,7 +30,8 @@ export default {
         method: "get",
         url: "server/oauth/logout",
       };
-      await axios(config).then(function (response) {
+      axios(config)
+      .then(function (response) {
         console.log(response.data);
       })
       .catch(function (error) {
