@@ -3,7 +3,7 @@
     <el-button class="public-button" @click="openPublicDialog()" type="success">
       发布卡片
     </el-button>
-    <PublicDialog @publicCard="publicCard" ref="PublicDialog" />
+    <PublicDialog ref="PublicDialog" />
   </div>
 </template>
 

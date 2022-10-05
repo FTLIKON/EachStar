@@ -263,7 +263,7 @@ export default {
     // 执行换页
     pageChange: function (page) {
       this.currentPage = page - 1;
-
+      console.log("切换至页面: "+this.currentPage);
       this.getPageData(this.currentPage);
     },
     parseTimeString: function (timeString) {
