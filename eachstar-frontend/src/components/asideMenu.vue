@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import axios from "axios";
 import PublicDialog from "./dialog/public.vue";
 export default {
   mounted() {

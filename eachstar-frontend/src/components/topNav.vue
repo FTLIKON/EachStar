@@ -91,7 +91,6 @@
 
 <script>
 import bus from "../utils/emitter";
-import { buildSlots } from "@vue/compiler-core";
 import axios from "axios";
 import GithubAuth from "./githubAuth.vue";
 import Logout from "./logout.vue";
