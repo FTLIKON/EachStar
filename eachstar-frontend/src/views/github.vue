@@ -1,5 +1,8 @@
 <template>
   <div class="github" v-loading="loading">
+    <!-- 侧栏视图 -->
+    <aside-menu />
+
     <!-- 卡片视图 -->
     <div class="card-view">
       <!-- 卡片列表 -->
@@ -83,8 +86,6 @@
         @current-change="pageChange"
         :total="totalPage * 10"
       />
-
-      
     </div>
   </div>
 </template>
@@ -95,11 +96,13 @@ import bus from "../utils/emitter";
 import { ElAffix, ElMessage } from "element-plus";
 import BottomLine from "../components/bottomLine.vue";
 import "../iconfont/iconfont";
+import AsideMenu from '../components/asideMenu.vue';
 
 export default {
   name: "github",
   components: {
     BottomLine,
+    AsideMenu,
   },
   mounted() {
     this.pageChange(1);
