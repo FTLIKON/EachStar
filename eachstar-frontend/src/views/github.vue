@@ -188,7 +188,6 @@ export default {
           console.log(error);
         });
     },
-
     // ---------- star-card相关 ----------
     // Star按钮
     starButton: function (card) {
