@@ -1,11 +1,11 @@
 <template>
   <el-dialog
-    style="width: 30%; margin-top: 250px"
+    style="width: 25%; margin-top: 250px"
     v-model="dialogVisible"
     title="退出登录"
   >
     <div class="logout-block">
-      <div class="title">确认要退出登录吗?QwQ</div>
+      <div class="title">确认要退出登录吗?</div>
       <span class="dialog-footer">
         <el-button @click="dialogVisible = false">取消</el-button>
         <el-button type="primary" @click="userLogout">确认</el-button>
