@@ -95,17 +95,13 @@
 <script>
 import axios from "axios";
 import bus from "../utils/emitter";
-import { ElAffix, ElMessage } from "element-plus";
+import { ElMessage } from "element-plus";
 import BottomLine from "../components/bottomLine.vue";
 import "../iconfont/iconfont";
 import AsideMenu from '../components/asideMenu.vue';
 
 export default {
   name: "github",
-  components: {
-    BottomLine,
-    AsideMenu,
-  },
   mounted() {
     this.pageChange(1);
     bus.on("refreshPageData", this.refreshPageData);
@@ -252,6 +248,10 @@ export default {
           console.log(error);
         });
     },
+  },
+  components: {
+    BottomLine,
+    AsideMenu,
   },
 };
 </script>

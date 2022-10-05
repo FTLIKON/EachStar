@@ -1,5 +1,11 @@
 <template>
   <div class="mygithub" v-loading="loading">
+    <!-- 侧栏视图 -->
+    <el-affix :offset="100">
+      <aside-menu />
+    </el-affix>
+
+    <!-- 卡片视图 -->
     <div class="card-view">
       <!-- 卡片列表 -->
       <el-card
@@ -50,6 +56,7 @@
         </div>
       </el-card>
 
+      <!-- 卡片换页 -->
       <el-pagination
         id="pagination"
         layout="prev, pager, next"
@@ -57,29 +64,8 @@
         :total="totalPage * 10"
       />
     </div>
-
-    <el-backtop
-      style="
-        right: 15%;
-        height: 60px;
-        width: 60px;
-        box-shadow: var(--el-box-shadow-dark)
-        border-radius: 50%"
-      :right="80"
-      :bottom="80"
-      :visibility-height="0"
-    />
-
-    <div class="aside-menu">
-      <el-button @click="publicButton()" type="success" id="public-button">
-        <svg class="fronticon" aria-hidden="true">
-          <use xlink:href="#icon-fabu"></use></svg
-        >发布卡片</el-button
-      >
-    </div>
   </div>
   <Delete ref="Delete" />
-  <Public @publicCard="publicCard" ref="Public" />
 </template>
 
 <script>
@@ -90,11 +76,12 @@ import Delete from "../components/dialog/delete.vue";
 import Public from "../components/dialog/public.vue";
 import BottomLine from "../components/bottomLine.vue";
 import "../iconfont/iconfont";
+
 export default {
   name: "mygithub",
   mounted() {
-    let that = this;
-    that.pageChange(1);
+    this.pageChange(1);
+    bus.on("refreshPageData", this.refreshPageData);
   },
   data() {
     return {
@@ -108,41 +95,6 @@ export default {
     };
   },
   methods: {
-    // ---------- public相关 ----------
-    publicButton() {
-      // 发布按钮->点击打开Public.vue
-      this.$.refs.Public.openPage();
-    },
-    publicCard: function (title, context, starPrice, starNum, time) {
-      // Post->向服务器请求发布data卡片
-      ElMessage("正在尝试发布, 请稍等");
-      var that = this;
-      let param = new URLSearchParams();
-      param.append("title", title);
-      param.append("context", context);
-      param.append("starPrice", starPrice);
-      param.append("starNum", starNum);
-      param.append("expireTime", time);
-      var config = {
-        method: "post",
-        url: "server/api/card",
-        data: param,
-      };
-
-      axios(config)
-        .then(function (response) {
-          ElMessage({
-            message: "发布成功! 为您重定向至第一页...",
-            type: "success",
-          });
-          that.getMyPageData(0);
-          bus.emit("refreshUserInfo");
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-    },
-
     // ---------- 删除相关 ----------
     deleteButton(card) {
       // 删除按钮->点击打开delete.vue
@@ -153,6 +105,9 @@ export default {
     pageChange: function (page) {
       this.currentPage = page - 1;
       this.getMyPageData(this.currentPage);
+    },
+    refreshPageData: function () {
+      this.pageChange(1);
     },
     parseTimeString: function (timeString) {
       let resTime;
@@ -199,7 +154,11 @@ export default {
         });
     },
   },
-  components: { Delete, Public, BottomLine },
+  components: {
+    Delete,
+    Public,
+    BottomLine
+  },
 };
 </script>
 
