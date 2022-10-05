@@ -4,16 +4,16 @@
         发布卡片
     </el-button>
 
-    <Public @publicCard="publicCard" ref="Public" />
+    <PublicDialog @publicCard="publicCard" ref="PublicDialog" />
   </div>
 </template>
 
 <script>
-import Public from "../components/public.vue";
+import PublicDialog from "../components/publicDialog.vue";
 export default {
   methods: {
     openPublicDialog() {
-      this.$.refs.Public.openPage();
+      this.$.refs.PublicDialog.openPage();
     },
   },
   components: {

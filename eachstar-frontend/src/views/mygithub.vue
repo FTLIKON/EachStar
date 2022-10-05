@@ -87,7 +87,7 @@ import axios from "axios";
 import bus from "../utils/emitter";
 import { ElMessage } from "element-plus";
 import Delete from "../components/delete.vue";
-import Public from "../components/public.vue";
+import Public from "../components/publicDialog.vue";
 import BottomLine from "../components/bottomLine.vue";
 import "../iconfont/iconfont";
 export default {
