@@ -49,11 +49,11 @@ html, body {
 .el-aside {
   width: 200px;
   height: calc(100vh - 61px);
-  overflow-y: auto;
+  overflow-y: hidden;
 }
 
 .el-main {
   height: calc(100vh - 61px);
-  overflow-y: auto;
+  overflow-y: hidden;
 }
 </style>
