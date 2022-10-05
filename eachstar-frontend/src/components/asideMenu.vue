@@ -3,6 +3,9 @@
     <el-button class="public-button" @click="openPublicDialog()" type="success">
       发布卡片
     </el-button>
+    <el-button class="price-button" type="success">
+      我的星币 {{ userPrice }}
+    </el-button>
     <PublicDialog ref="PublicDialog" />
   </div>
 </template>
@@ -10,6 +13,9 @@
 <script>
 import PublicDialog from "./dialog/public.vue";
 export default {
+  mounted() {
+    this.getUserPrice();
+  },
   data() {
     return {
       userPrice: null,
@@ -27,12 +33,12 @@ export default {
         url: "server/api/user/@me",
       };
       axios(config)
-        .then(function (response) {
-          that.userPrice = response.data.price;
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+      .then(function (response) {
+        that.userPrice = response.data.price;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
     },
   },
   components: {
