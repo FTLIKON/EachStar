@@ -54,6 +54,7 @@ html, body {
 
 .main-view {
   width: 80%;
+  padding-right: 20%;
   height: calc(100vh - 61px);
   overflow-y: auto;
 }
