@@ -1,6 +1,6 @@
 <template>
   <div id="menu">
-    <el-button class="public-button" type="success">
+    <el-button class="public-button" @click="openPublicDialog()" type="success">
         发布卡片
     </el-button>
 

@@ -84,7 +84,6 @@
 </template>
 
 <script>
-import { register } from "../api/auth";
 import { ElMessage } from "element-plus";
 import { validateGithubUrl } from "../utils/validate.js";
 import axios from "axios";
