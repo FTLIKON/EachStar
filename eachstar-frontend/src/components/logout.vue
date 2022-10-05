@@ -1,24 +1,12 @@
 <template>
-  <el-dialog
-    v-model="dialogVisible"
-    style="width: 25%; margin-top: 300px"
-    id="githubAuth"
-    title=""
-  >
-    <div class="main-block">
-      <img class="github-logo" src="githubLogo.webp" alt="未找到图片" />
-
-      <el-button
-        type="primary"
-        class="link-button"
-        @click="
-          goPage(
-            'http://119.91.192.183:3050/oauth/github/login?path=http://119.91.192.183:80/'
-          )
-        "
-      >
-        使用GitHub快捷登录</el-button
-      >
+  <el-dialog v-model="dialogVisible" title="退出登录">
+    <div class="delete-block">
+      <div class="title"> 确认要退出登录吗?QwQ </div>
+      </div>
+      <span class="dialog-footer">
+        <el-button @click="dialogVisible = false">取消</el-button>
+        <el-button type="primary" @click="userLogout()" >确认</el-button>
+      </span>
     </div>
   </el-dialog>
 </template>
@@ -37,6 +25,14 @@ export default {
     },
     goPage(url) {
       window.location.href = url;
+    },
+    userLogout(){
+      var config = {
+        method: "get",
+        url: "server/oauth/logout",
+      };
+      await axios(config);
+      this.$router.go(0);
     },
   },
 };
