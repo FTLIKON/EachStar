@@ -185,7 +185,6 @@ export default {
 .card-view {
   background-color: none;
 
-  margin-left: 20%;
   width: 60%;
 }
 .aside-menu {
