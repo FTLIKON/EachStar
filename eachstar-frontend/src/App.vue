@@ -25,15 +25,15 @@ import TopNav from './components/topNav.vue';
 import BottomLine from './components/bottomLine.vue';
 import AsideMenu from './components/asideMenu.vue';
 export default {
-    components: {
+  components: {
     TopNav,
     BottomLine,
     AsideMenu
-},
+  },
 };
 </script>
 
-<style>
+<style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -46,4 +46,14 @@ html, body {
   padding: 0;
 }
 
+.el-aside {
+  width: 200px;
+  height: calc(100vh - 61px);
+  overflow-y: auto;
+}
+
+.el-main {
+  height: calc(100vh - 61px);
+  overflow-y: auto;
+}
 </style>
