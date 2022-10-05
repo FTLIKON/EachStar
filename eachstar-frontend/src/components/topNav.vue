@@ -61,11 +61,11 @@
         <span v-show="isLogin" class="user-hello">您好, {{ userName }}</span>
 
         <el-popover
+          v-show="isLogin"
           popper-style="box-shadow: rgb(14 18 22 / 35%) 0px 10px 38px -10px, rgb(14 18 22 / 20%) 0px 10px 20px -15px; padding: 20px;"
         >
           <template #reference>
             <el-avatar
-              v-show="isLogin"
               :src="userIconURL"
               src="https://avatars.githubusercontent.com/u/72015883?v=4"
             />
