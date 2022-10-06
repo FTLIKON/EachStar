@@ -1,7 +1,7 @@
 <template>
   <div class="github" v-loading="loading">
     <!-- 侧栏视图 -->
-    <el-affix :offset="100">
+    <el-affix class="aside-menu" :offset="100">
       <aside-menu />
     </el-affix>
 
@@ -286,13 +286,6 @@ export default {
 
   margin-top: 1%;
   width: 20%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  .el-button {
-    background-color: #24d64b;
-    position: relative;
-  }
 }
 
 .card-list {
