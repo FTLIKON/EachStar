@@ -48,14 +48,14 @@ html, body {
 }
 
 .top-nav {
-  padding-left: 0px;
-  padding-right: 0px;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
 }
 
 .main-view {
   width: 80%;
-  padding-left: 0px;
-  padding-right: 0px;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
   overflow-y: auto;
 }
 </style>
