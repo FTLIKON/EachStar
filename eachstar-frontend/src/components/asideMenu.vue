@@ -3,9 +3,9 @@
     <el-button class="public-button" @click="openPublicDialog()" type="success">
       发布卡片
     </el-button>
-    <el-button class="price-button" type="primary">
-      我的星币 {{ userPrice }}
-    </el-button>
+    <span v-show="isLogin" class="user-rank">
+      可用星币: {{ userPrice }}
+    </span>
     <PublicDialog ref="PublicDialog" />
   </div>
 </template>
