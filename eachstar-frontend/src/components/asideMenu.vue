@@ -60,7 +60,7 @@ export default {
   border-radius: 15px;
   box-shadow: var(--el-box-shadow-dark);
 }
-.price-button {
+.user-price {
   width: 80%;
   height: 50px;
   margin-top: 3%;
@@ -71,5 +71,36 @@ export default {
 
   border-radius: 15px;
   box-shadow: var(--el-box-shadow-dark);
+
+  --el-button-text-color: var(--el-color-white);
+  --el-button-bg-color: var(--el-color-success);
+  --el-button-border-color: var(--el-color-success);
+  --el-button-outline-color: var(--el-color-success-light-5);
+  --el-button-active-color: var(--el-color-success-dark-2);
+  --el-button-hover-text-color: var(--el-color-white);
+  --el-button-hover-link-text-color: var(--el-color-success-light-5);
+  --el-button-hover-bg-color: var(--el-color-success-light-3);
+  --el-button-hover-border-color: var(--el-color-success-light-3);
+  --el-button-active-bg-color: var(--el-color-success-dark-2);
+  --el-button-active-border-color: var(--el-color-success-dark-2);
+  --el-button-disabled-text-color: var(--el-color-white);
+  --el-button-disabled-bg-color: var(--el-color-success-light-5);
+  --el-button-disabled-border-color: var(--el-color-success-light-5);
+
+  vertical-align: middle;
+  background-color: var(--el-button-bg-color);
+  border: var(--el-border);
+  border-color: var(--el-button-border-color);
+  padding: 8px 15px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  height: 32px;
+  color: var(--el-button-text-color);
+  text-align: center;
+  box-sizing: border-box;
+  outline: 0;
+  transition: .1s;
 }
 </style>
