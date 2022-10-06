@@ -56,6 +56,7 @@ html, body {
   width: 80%;
   padding-left: 0px !important;
   padding-right: 0px !important;
+  padding-bottom: 0px !important;
   overflow-y: auto;
 }
 </style>
