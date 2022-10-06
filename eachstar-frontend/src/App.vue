@@ -2,7 +2,7 @@
   <div id="app">
     <el-container>
       <!-- 头部导航栏 -->
-      <el-header>
+      <el-header class="top-nav">
         <top-nav />
       </el-header>
 
@@ -47,15 +47,17 @@ html, body {
   padding: 0;
 }
 
-.aside-view {
+.top-nav {
   width: 20%;
-  height: calc(100vh - 61px);
+  padding-left: 0px;
+  padding-right: 0px;
   overflow-y: hidden;
 }
 
 .main-view {
   width: 80%;
-  height: calc(100vh - 61px);
+  padding-left: 0px;
+  padding-right: 0px;
   overflow-y: auto;
 }
 </style>
