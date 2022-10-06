@@ -48,10 +48,8 @@ html, body {
 }
 
 .top-nav {
-  width: 20%;
   padding-left: 0px;
   padding-right: 0px;
-  overflow-y: hidden;
 }
 
 .main-view {
