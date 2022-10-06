@@ -3,7 +3,7 @@
     <el-button class="public-button" @click="openPublicDialog()" type="success">
       发布卡片
     </el-button>
-    <div class="user-price">
+    <div v-show="userPrice" class="user-price">
       可用星币: {{ userPrice }}
     </div>
     <PublicDialog ref="PublicDialog" />
