@@ -256,8 +256,7 @@ export default {
 
 <style lang="scss" scoped>
 .aside-menu {
-  background-color: none;
-  width: 20%;
+  width: 20% !important;
 }
 
 .fronticon {
@@ -270,8 +269,6 @@ export default {
 }
 
 .github {
-  background-color: none;
-
   height: auto;
   min-height: 900px;
   margin-top: 1%;
