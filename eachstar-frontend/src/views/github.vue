@@ -284,7 +284,7 @@ export default {
   }
 
   #pagination {
-    margin: 3% 20% 3%;
+    margin: 3% 20% 3% 0%;
     justify-content: center;
   }
 }
