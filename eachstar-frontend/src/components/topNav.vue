@@ -174,17 +174,9 @@ export default {
 }
 
 #menu {
-  background-color: none;
-
-  display: flex;
-
   .left-block {
-    background-color: none;
-  
     width: 30%;
     display: flex;
-    justify-content: start;
-    align-items: center;
     .logo {
       color: #ffffff;
       font-weight: bold;
@@ -202,12 +194,9 @@ export default {
     }
   }
   .mid-block {
-    background-color: none;
-  
     width: 40%;
     display: flex;
     justify-content: center;
-    align-items: center;
 
     .link {
       text-decoration: none;
@@ -228,11 +217,8 @@ export default {
     }
   }
   .right-block {
-    background-color: none;
-  
     width: 30%;
     display: flex;
-    justify-content: center;
     align-items: center;
 
     #auth-button {
@@ -251,7 +237,6 @@ export default {
       display: flex;
       justify-content: center; /* 水平居中 */
       align-items: center; /*垂直居中*/
-      font-family: "微软雅黑";
       margin-left: 10%;
       margin-right: 10%;
       width: 25%;
@@ -259,15 +244,6 @@ export default {
     }
     .user-hello {
       width: 45%;
-    }
-    .user-icon {
-      width: 10%;
-      margin-right: 4%;
-      margin-top: auto;
-      margin-bottom: auto;
-    
-      border-radius: 50%;
-      border: 2px solid var(--el-border-color);
     }
   }
 }
