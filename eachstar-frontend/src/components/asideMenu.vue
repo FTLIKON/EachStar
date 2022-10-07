@@ -4,7 +4,13 @@
       发布卡片
     </el-button>
     <div v-show="userPrice" class="user-price">
-      可用星币: {{ userPrice }}
+      <svg
+        class="fronticon"
+        style="color: #b88230; margin-top: 12%"
+        aria-hidden="true"
+      >
+        <use xlink:href="#icon-bonus-line"></use></svg
+      >可用星币: {{ userPrice }}
     </div>
     <PublicDialog ref="PublicDialog" />
   </div>
@@ -20,32 +26,33 @@ export default {
   data() {
     return {
       userPrice: null,
-    }
+    };
   },
   methods: {
     openPublicDialog() {
       this.$.refs.PublicDialog.openPage();
     },
 
-    getUserPrice() { // 获取用户积分
+    getUserPrice() {
+      // 获取用户积分
       var that = this;
       var config = {
         method: "get",
         url: "server/api/user/@me",
       };
       axios(config)
-      .then(function (response) {
-        that.userPrice = response.data.price;
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+        .then(function (response) {
+          that.userPrice = response.data.price;
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
     },
   },
   components: {
     PublicDialog,
   },
-}
+};
 </script>
 
 <style scoped>
@@ -62,34 +69,13 @@ export default {
   box-shadow: var(--el-box-shadow-dark);
 }
 .user-price {
-  width: 80%;
-  height: 50px;
-  margin-top: 3%;
-  margin-left: 0px !important;
-  font-size: larger;
-  font-weight: bolder;
-  text-shadow: 1px 1px 2px #303133, 0px 0px 2px #303133;
-  border-radius: 15px;
-  box-shadow: var(--el-box-shadow-dark);
-
-  --el-button-text-color: var(--el-color-white);
-  --el-button-bg-color: var(--el-color-primary);
-  --el-button-border-color: var(--el-color-primary);
-  --el-button-outline-color: var(--el-color-primary-light-5);
-
-  vertical-align: middle;
-  background-color: var(--el-button-bg-color);
-  border: var(--el-border);
-  border-color: var(--el-button-border-color);
-  padding: 8px 15px;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  line-height: 1;
-  color: var(--el-button-text-color);
-  text-align: center;
-  box-sizing: border-box;
-  outline: 0;
-  transition: .1s;
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center; /*垂直居中*/
+  font-family: "微软雅黑";
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 25%;
+  height: 80%;
 }
 </style>

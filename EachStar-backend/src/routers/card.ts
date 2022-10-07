@@ -11,7 +11,6 @@ export const getCardMiddleware = () => {
   router.get('/card', cardController.getCardsByTimeSort.bind(cardController))
   router.get('/card/@me', cardController.getSelfCards.bind(cardController))
   router.post('/card/quickstar', cardController.starCard.bind(cardController))
-  router.post('/card/quickstar', cardController.starCard.bind(cardController))
 
   return router.routes()
 }
