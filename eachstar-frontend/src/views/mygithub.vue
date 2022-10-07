@@ -163,6 +163,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.aside-menu {
+  width: 20% !important;
+}
+  
 .fronticon {
   width: 25px;
   height: 25px;
@@ -173,100 +177,79 @@ export default {
 }
 
 .mygithub {
-  background-color: none;
-
-  height: auto;
-  min-height: 900px;
-  margin-top: 1%;
   display: flex;
-  justify-content: start;
 }
 
 .card-view {
-  background-color: none;
-
-  width: 60%;
-}
-.aside-menu {
-  background-color: none;
-  margin-top: 1%;
-  width: 20%;
-}
-
-.card-list {
-  border-radius: 15px;
-  width: 100%;
-  margin-bottom: 2%;
-  float: right;
-}
-.card-block {
   display: flex;
   flex-direction: column;
-  align-items: start;
-}
-
-.card-titleblock {
-  margin-bottom: 2%;
-  width: 100%;
-  display: flex;
-}
-.card-title {
-  color: #303133;
-  width: 70%;
-  text-align: left;
-  font-size: large;
-  font-weight: bold;
-  text-decoration: none;
-}
-.card-time {
-  color: #606266;
-  width: 30%;
-  text-align: right;
-}
-.card-discription {
-  color: #606266;
-
-  text-align: left;
-
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  letter-spacing: 0;
-  text-overflow: ellipsis;
-
-  width: 90%;
-  margin-bottom: 3%;
-  margin-left: 3%;
-  margin-right: 3%;
-}
-.card-valueblock {
-  background-color: none;
-
-  width: 100%;
-  display: flex;
-}
-.card-rank {
-  color: #b88230;
-  background-color: none;
-
   width: 80%;
-  margin-left: 3%;
-  margin-right: 3%;
-  margin-top: auto;
-  margin-bottom: auto;
-  text-align: left;
-  font-size: medium;
+  min-width: 760px;
+  .card-list {
+    border-radius: 15px;
+    width: 60%;
+    margin-bottom: 2%;
+    margin-left: 10%;
+  }
+  #pagination {
+    margin: 3% 20% 3% 0%;
+    justify-content: center;
+  }
 }
-#card-button {
-  font-size: large;
 
-  width: 30%;
-  display: flex;
+.card-block {
+  .card-titleblock {
+    margin-bottom: 2%;
+    width: 100%;
+    display: flex;
+    .card-title {
+      color: #303133;
+      width: 70%;
+      text-align: left;
+      font-size: large;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .card-time {
+      color: #606266;
+      width: 30%;
+      text-align: right;
+    }
+  }
+  
+  .card-discription {
+    color: #606266;
+    text-align: left;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    letter-spacing: 0;
+    text-overflow: ellipsis;
+    width: 90%;
+    margin: 0% 3% 3% 3%;
+  }
+
+  .card-valueblock {
+    width: 100%;
+    display: flex;
+
+    .card-rank {
+      color: #b88230;
+      background-color: none;
+
+      width: 80%;
+      margin: auto 3% auto 3%;
+      text-align: left;
+    }
+
+    #card-button {
+      color: #303133;
+      font-size: large;
+      width: 30%;
+    }
+  }
 }
-#pagination {
-  margin-top: 3%;
-  margin-bottom: 3%;
-  justify-content: center;
-}
+
 </style>
