@@ -163,7 +163,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .fronticon {
   width: 25px;
   height: 25px;
@@ -177,99 +177,98 @@ export default {
   background-color: none;
 
   display: flex;
-}
 
-.left-block {
-  background-color: none;
+  .left-block {
+    background-color: none;
+  
+    width: 30%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    .logo {
+      color: #ffffff;
+      font-weight: bold;
+      font-size: 35px;
+      text-shadow: 1px 1px 2px #303133, 0px 0px 3px #303133;
+    
+      display: flex;
+      align-items: center;
+      margin-left: 2%;
+    }
+    .logo-pic {
+      width: 12%;
+      min-width: 50px;
+      margin-right: 2%;
+    }
+  }
+  .mid-block {
+    background-color: none;
+  
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-  width: 30%;
-  display: flex;
-  justify-content: start;
-  align-items: center;
-}
-.mid-block {
-  background-color: none;
+    .link {
+      text-decoration: none;
+      color: #303133;
+      font-size: large;
+    }
+    .link-noLogin {
+      text-decoration: none;
+      color: #303133;
+      background-color: none;
+      font-size: large;
+      font-style: normal;
+    
+      border: none;
+    }
+    .divider {
+      margin-top: 2%;
+    }
+  }
+  .right-block {
+    background-color: none;
+  
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-  width: 40%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.right-block {
-  background-color: none;
-
-  width: 30%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.logo {
-  color: #ffffff;
-  font-weight: bold;
-  font-size: 35px;
-  text-shadow: 1px 1px 2px #303133, 0px 0px 3px #303133;
-
-  display: flex;
-  align-items: center;
-  margin-left: 2%;
-}
-.logo-pic {
-  width: 12%;
-  min-width: 50px;
-  margin-right: 2%;
-}
-
-.link {
-  text-decoration: none;
-  color: #303133;
-  font-size: large;
-}
-.link-noLogin {
-  text-decoration: none;
-  color: #303133;
-  background-color: none;
-  font-size: large;
-  font-style: normal;
-
-  border: none;
-}
-
-.divider {
-  margin-top: 2%;
-}
-#auth-button {
-  font-weight: bold;
-  color: white;
-  background-color: #409eff;
-
-  margin-right: 5%;
-  margin-left: 30%;
-  font-size: medium;
-  border: none;
-  border-radius: 6px;
-  text-shadow: 1px 1px 2px #303133, 0px 0px 2px #303133;
-}
-.user-rank {
-  display: flex;
-  justify-content: center; /* 水平居中 */
-  align-items: center; /*垂直居中*/
-  font-family: "微软雅黑";
-  margin-left: 10%;
-  margin-right: 10%;
-  width: 25%;
-  height: 80%;
-}
-.user-hello {
-  width: 45%;
-}
-.user-icon {
-  width: 10%;
-  margin-right: 4%;
-  margin-top: auto;
-  margin-bottom: auto;
-
-  border-radius: 50%;
-  border: 2px solid var(--el-border-color);
+    #auth-button {
+      font-weight: bold;
+      color: white;
+      background-color: #409eff;
+    
+      margin-right: 5%;
+      margin-left: 30%;
+      font-size: medium;
+      border: none;
+      border-radius: 6px;
+      text-shadow: 1px 1px 2px #303133, 0px 0px 2px #303133;
+    }
+    .user-rank {
+      display: flex;
+      justify-content: center; /* 水平居中 */
+      align-items: center; /*垂直居中*/
+      font-family: "微软雅黑";
+      margin-left: 10%;
+      margin-right: 10%;
+      width: 25%;
+      height: 80%;
+    }
+    .user-hello {
+      width: 45%;
+    }
+    .user-icon {
+      width: 10%;
+      margin-right: 4%;
+      margin-top: auto;
+      margin-bottom: auto;
+    
+      border-radius: 50%;
+      border: 2px solid var(--el-border-color);
+    }
+  }
 }
 </style>
