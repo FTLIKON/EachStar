@@ -275,6 +275,7 @@ export default {
   display: flex;
   flex-direction: column;
   width: 80%;
+  min-width: 760px;
   .card-list {
     box-shadow: 0px 0px 3px 3px #cdd0d6;
     border-radius: 15px;
@@ -282,7 +283,6 @@ export default {
     margin-bottom: 2%;
     margin-left: 10%;
   }
-
   #pagination {
     margin: 3% 20% 3% 0%;
     justify-content: center;

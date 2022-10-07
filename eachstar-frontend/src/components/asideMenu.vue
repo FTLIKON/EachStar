@@ -58,12 +58,13 @@ export default {
 <style scoped>
 #menu{
   width: 100%;
+  min-width: 85px;
 }
 
 .public-button {
   width: 50%;
+  min-width: 85px;
   height: 50px;
-  margin-left: 0px !important;
   font-size: larger;
   font-weight: bolder;
   text-shadow: 1px 1px 2px #303133, 0px 0px 2px #303133;
