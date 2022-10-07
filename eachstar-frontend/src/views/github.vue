@@ -11,7 +11,6 @@
       <el-card
         v-for="item of currentPageData"
         :key="item"
-        style="box-shadow: 0px 0px 5px 5px #cdd0d6"
         class="card-list"
       >
         <div class="card-block">
@@ -269,38 +268,28 @@ export default {
 }
 
 .github {
-  height: auto;
-  min-height: 900px;
-  margin-top: 1%;
   display: flex;
-  justify-content: start;
 }
 
 .card-view {
   display: flex;
   flex-direction: column;
-  background-color: none;
   width: 80%;
   .card-list {
+    box-shadow: 0px 0px 3px 3px #cdd0d6;
     border-radius: 15px;
     width: 60%;
     margin-bottom: 2%;
     margin-left: 10%;
-    float: left;
   }
 
   #pagination {
-    margin-top: 3%;
-    margin-bottom: 3%;
+    margin: 3% 20% 3%;
     justify-content: center;
   }
 }
 
 .card-block {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-
   .card-titleblock {
     margin-bottom: 2%;
     width: 100%;
@@ -332,13 +321,10 @@ export default {
     letter-spacing: 0;
     text-overflow: ellipsis;
     width: 90%;
-    margin-bottom: 3%;
-    margin-left: 3%;
-    margin-right: 3%;
+    margin: 0% 3% 3% 3%;
   }
 
   .card-valueblock {
-    background-color: none;
     width: 100%;
     display: flex;
 
@@ -347,19 +333,14 @@ export default {
       background-color: none;
 
       width: 80%;
-      margin-left: 3%;
-      margin-right: 3%;
-      margin-top: auto;
-      margin-bottom: auto;
+      margin: auto 3% auto 3%;
       text-align: left;
-      font-size: medium;
     }
 
     #card-button {
       color: #303133;
       font-size: large;
       width: 30%;
-      display: flex;
     }
   }
 }
