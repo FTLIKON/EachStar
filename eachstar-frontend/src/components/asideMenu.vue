@@ -56,10 +56,13 @@ export default {
 </script>
 
 <style scoped>
+#menu{
+  width: 100%;
+}
+
 .public-button {
-  width: 80%;
+  width: 50%;
   height: 50px;
-  margin-top: 3%;
   margin-left: 0px !important;
   font-size: larger;
   font-weight: bolder;

@@ -45,7 +45,7 @@
               >
             </span>
             <el-button
-              v-show="(!item.starred)&&(!item.starring)&&(!buttonLoading)"
+              v-show="!item.starred && !item.starring && !buttonLoading"
               id="card-button"
               @click="starButton(item)"
               plain
@@ -56,7 +56,7 @@
               一键Star</el-button
             >
             <el-button
-              v-show="(!item.starred)&&(item.starring)"
+              v-show="!item.starred && item.starring"
               id="card-button"
               loading
               plain
@@ -64,7 +64,7 @@
               Star请求中...</el-button
             >
             <el-button
-              v-show="(!item.starred)&&(!item.starring)&&(buttonLoading)"
+              v-show="!item.starred && !item.starring && buttonLoading"
               id="card-button"
               loading
               plain
@@ -98,7 +98,7 @@ import bus from "../utils/emitter";
 import { ElMessage } from "element-plus";
 import BottomLine from "../components/bottomLine.vue";
 import "../iconfont/iconfont";
-import AsideMenu from '../components/asideMenu.vue';
+import AsideMenu from "../components/asideMenu.vue";
 
 export default {
   name: "github",
@@ -135,35 +135,35 @@ export default {
         };
 
         that.buttonLoading = true;
-        setTimeout(()=>{
+        setTimeout(() => {
           that.buttonLoading = false;
         }, 2000);
         card.starring = true;
         axios(config)
-        .then(function (response) {
-          setTimeout(()=>{
-            ElMessage({
-              message: "一键star成功! 获得星币:" + card.starPrice,
-              type: "success",
-            });
-            card.starNum -= 1;
-            card.starred = true;
-            bus.emit("refreshUserInfo");
-            if (card.starNum == 0) {
-              // 如果悬赏次数为0->刷新页面
-              that.getPageData(that.currentPage);
+          .then(function (response) {
+            setTimeout(() => {
+              ElMessage({
+                message: "一键star成功! 获得星币:" + card.starPrice,
+                type: "success",
+              });
+              card.starNum -= 1;
+              card.starred = true;
+              bus.emit("refreshUserInfo");
+              if (card.starNum == 0) {
+                // 如果悬赏次数为0->刷新页面
+                that.getPageData(that.currentPage);
+              }
+            }, 1000);
+          })
+          .catch(function (error) {
+            if (error.response.status == 400) {
+              ElMessage({
+                message: "一键star失败, 请稍后再试试~",
+                type: "warning",
+              });
             }
-          }, 1000)
-        })
-        .catch(function (error) {
-          if(error.response.status==400){
-            ElMessage({
-              message: "一键star失败, 请稍后再试试~",
-              type: "warning",
-            });
-          };
-          card.starred = false;
-        });
+            card.starred = false;
+          });
       } else {
         ElMessage({
           message: "请先进行 注册/登录!",
@@ -192,7 +192,7 @@ export default {
     // 执行换页
     pageChange: function (page) {
       this.currentPage = page - 1;
-      console.log("切换至页面: "+this.currentPage);
+      console.log("切换至页面: " + this.currentPage);
 
       this.getPageData(this.currentPage);
     },
@@ -234,9 +234,7 @@ export default {
             if (response.data.data[index] != undefined) {
               let nowData = response.data.data[index];
               nowData.createdAt = that.parseTimeString(nowData.createdAt);
-              nowData.cardStatus = 
-
-              list.push(nowData);
+              nowData.cardStatus = list.push(nowData);
             }
             index++;
             start++;
@@ -257,6 +255,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.aside-menu {
+  background-color: none;
+  width: 20%;
+}
+
 .fronticon {
   width: 25px;
   height: 25px;
@@ -277,87 +280,90 @@ export default {
 }
 
 .card-view {
+  display: flex;
+  flex-direction: column;
   background-color: none;
+  width: 80%;
+  .card-list {
+    border-radius: 15px;
+    width: 60%;
+    margin-bottom: 2%;
+    margin-left: 10%;
+    float: left;
+  }
 
-  width: 60%;
-}
-.aside-menu {
-  background-color: none;
-
-  margin-top: 1%;
-  width: 20%;
+  #pagination {
+    margin-top: 3%;
+    margin-bottom: 3%;
+    justify-content: center;
+  }
 }
 
-.card-list {
-  border-radius: 15px;
-  width: 100%;
-  margin-bottom: 2%;
-  float: right;
-}
 .card-block {
   display: flex;
   flex-direction: column;
   align-items: start;
-}
-.card-titleblock {
-  margin-bottom: 2%;
-  width: 100%;
-  display: flex;
-}
-.card-title {
-  color: #303133;
-  width: 70%;
-  text-align: left;
-  font-size: large;
-  font-weight: bold;
-  text-decoration: none;
-}
-.card-time {
-  color: #606266;
-  width: 30%;
-  text-align: right;
-}
-.card-discription {
-  color: #606266;
-  text-align: left;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  letter-spacing: 0;
-  text-overflow: ellipsis;
-  width: 90%;
-  margin-bottom: 3%;
-  margin-left: 3%;
-  margin-right: 3%;
-}
-.card-valueblock {
-  background-color: none;
 
-  width: 100%;
-  display: flex;
-}
-.card-rank {
-  color: #b88230;
-  background-color: none;
+  .card-titleblock {
+    margin-bottom: 2%;
+    width: 100%;
+    display: flex;
 
-  width: 80%;
-  margin-left: 3%;
-  margin-right: 3%;
-  margin-top: auto;
-  margin-bottom: auto;
-  text-align: left;
-  font-size: medium;
-}
-#card-button {
-  color: #303133;
-  font-size: large;
-  width: 30%;
-  display: flex;
-}
-#pagination {
-  margin-top: 3%;
-  margin-bottom: 3%;
-  justify-content: center;
+    .card-title {
+      color: #303133;
+      width: 70%;
+      text-align: left;
+      font-size: large;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .card-time {
+      color: #606266;
+      width: 30%;
+      text-align: right;
+    }
+  }
+
+  .card-discription {
+    color: #606266;
+    text-align: left;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    letter-spacing: 0;
+    text-overflow: ellipsis;
+    width: 90%;
+    margin-bottom: 3%;
+    margin-left: 3%;
+    margin-right: 3%;
+  }
+
+  .card-valueblock {
+    background-color: none;
+    width: 100%;
+    display: flex;
+
+    .card-rank {
+      color: #b88230;
+      background-color: none;
+
+      width: 80%;
+      margin-left: 3%;
+      margin-right: 3%;
+      margin-top: auto;
+      margin-bottom: auto;
+      text-align: left;
+      font-size: medium;
+    }
+
+    #card-button {
+      color: #303133;
+      font-size: large;
+      width: 30%;
+      display: flex;
+    }
+  }
 }
 </style>

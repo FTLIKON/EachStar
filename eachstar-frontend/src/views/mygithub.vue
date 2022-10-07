@@ -189,15 +189,8 @@ export default {
 }
 .aside-menu {
   background-color: none;
-
   margin-top: 1%;
   width: 20%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  .el-button {
-    background-color: #24d64b;
-  }
 }
 
 .card-list {
