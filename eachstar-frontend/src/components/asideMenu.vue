@@ -78,7 +78,7 @@ export default {
 }
 .public-button {
   width: 50%;
-  min-width: 85px;
+  min-width: 110px;
   height: 50px;
   font-size: larger;
   font-weight: bolder;
