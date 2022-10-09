@@ -56,7 +56,7 @@ export default {
 </script>
 
 <style scoped>
-#menu{
+#menu {
   width: 100%;
   min-width: 85px;
 }
@@ -78,5 +78,6 @@ export default {
   justify-content: center; /* 水平居中 */
   align-items: center; /*垂直居中*/
   font-family: "微软雅黑";
+  margin-top: 5%;
 }
 </style>
