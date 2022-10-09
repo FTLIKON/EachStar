@@ -67,7 +67,7 @@ export default {
   margin-top: 3%;
 }
 .dialog-footer {
-  margin-top: 3%;
+  margin-top: 10%;
   margin-bottom: 3%;
 }
 </style>
