@@ -94,6 +94,6 @@ export default {
   align-items: center; /*垂直居中*/
   font-family: "微软雅黑";
   margin-top: 2%;
-  margin-left: 10%;
+  margin-left: 5%;
 }
 </style>
