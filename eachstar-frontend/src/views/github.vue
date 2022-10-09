@@ -8,11 +8,7 @@
     <!-- 卡片视图 -->
     <div class="card-view">
       <!-- 卡片列表 -->
-      <el-card
-        v-for="item of currentPageData"
-        :key="item"
-        class="card-list"
-      >
+      <el-card v-for="item of currentPageData" :key="item" class="card-list">
         <div class="card-block">
           <div class="card-titleblock">
             <a class="card-title" :href="item.title" target="_blank">
@@ -275,16 +271,16 @@ export default {
   display: flex;
   flex-direction: column;
   width: 80%;
-  min-width: 760px;
+  min-width: 960px;
+  margin-left: min(20%,200px);
   .card-list {
     box-shadow: 0px 0px 3px 3px #cdd0d6;
     border-radius: 15px;
     width: 60%;
     margin-bottom: 2%;
-    margin-left: 10%;
   }
   #pagination {
-    margin: 3% 20% 3% 0%;
+    margin: 3% 40% 3% 0%;
     justify-content: center;
   }
 }

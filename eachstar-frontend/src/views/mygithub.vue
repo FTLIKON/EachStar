@@ -157,7 +157,7 @@ export default {
   components: {
     Delete,
     AsideMenu,
-    BottomLine
+    BottomLine,
   },
 };
 </script>
@@ -166,7 +166,7 @@ export default {
 .aside-menu {
   width: 20% !important;
 }
-  
+
 .fronticon {
   width: 25px;
   height: 25px;
@@ -184,15 +184,16 @@ export default {
   display: flex;
   flex-direction: column;
   width: 80%;
-  min-width: 760px;
+  min-width: 960px;
+  margin-left: min(20%, 200px);
   .card-list {
+    box-shadow: 0px 0px 3px 3px #cdd0d6;
     border-radius: 15px;
     width: 60%;
     margin-bottom: 2%;
-    margin-left: 10%;
   }
   #pagination {
-    margin: 3% 20% 3% 0%;
+    margin: 3% 40% 3% 0%;
     justify-content: center;
   }
 }
@@ -217,7 +218,7 @@ export default {
       text-align: right;
     }
   }
-  
+
   .card-discription {
     color: #606266;
     text-align: left;
@@ -251,5 +252,4 @@ export default {
     }
   }
 }
-
 </style>
