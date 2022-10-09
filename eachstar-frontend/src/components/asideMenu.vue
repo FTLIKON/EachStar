@@ -1,6 +1,13 @@
 <template>
   <div id="menu">
     <el-button class="public-button" @click="openPublicDialog()" type="success">
+      <svg
+        class="fronticon"
+        style="width: 23px; height: 23px"
+        aria-hidden="true"
+      >
+        <use xlink:href="#icon-fabu"></use>
+      </svg>
       发布卡片
     </el-button>
     <div v-show="userPrice" class="user-price">
@@ -61,6 +68,14 @@ export default {
   min-width: 85px;
 }
 
+.fronticon {
+  width: 25px;
+  height: 25px;
+  vertical-align: -0.45em;
+  fill: currentColor;
+  overflow: hidden;
+  margin-bottom: auto;
+}
 .public-button {
   width: 50%;
   min-width: 85px;
@@ -78,6 +93,6 @@ export default {
   justify-content: center; /* 水平居中 */
   align-items: center; /*垂直居中*/
   font-family: "微软雅黑";
-  margin-top: 5%;
+  margin-top: 2%;
 }
 </style>
