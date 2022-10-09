@@ -6,7 +6,7 @@
     <div v-show="userPrice" class="user-price">
       <svg
         class="fronticon"
-        style="color: #b88230; width: 23px; height: 23px; margin-top: 12%"
+        style="color: #b88230; width: 23px; height: 23px"
         aria-hidden="true"
       >
         <use xlink:href="#icon-bonus-line"></use></svg
@@ -72,6 +72,7 @@ export default {
   border-radius: 15px;
   box-shadow: var(--el-box-shadow-dark);
 }
+
 .user-price {
   display: flex;
   justify-content: center; /* 水平居中 */
