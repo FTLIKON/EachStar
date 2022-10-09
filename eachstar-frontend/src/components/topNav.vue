@@ -56,7 +56,7 @@
             aria-hidden="true"
           >
             <use xlink:href="#icon-bonus-line"></use></svg
-          >可用星币: {{ userPrice }}</span
+          >星币: {{ userPrice }}</span
         >
         <span v-show="isLogin" class="user-hello">您好, {{ userName }}</span>
 
