@@ -24,7 +24,7 @@
 
 **更酷炫且支持 Fork & Watch 的 EachStar2.0 正在开发中**
 
-**如果您想参与讨论 EachStar 欢迎加入：[【QQ 群】](https://qm.qq.com/cgi-bin/qm/qr?k=r2jN9fZaagH6qcLVb-QglnYWNPpKMPA6&jump_from=webapi&authKey=Ye43FWw3UiCdZ4bar3EY+qerAgjLHm3uC5xs2DWmeuuO9QeBV26bxaxCPC3YxM6H)**
+**如果您想参与讨论 EachStar， 欢迎加入：[【QQ 群】](https://qm.qq.com/cgi-bin/qm/qr?k=r2jN9fZaagH6qcLVb-QglnYWNPpKMPA6&jump_from=webapi&authKey=Ye43FWw3UiCdZ4bar3EY+qerAgjLHm3uC5xs2DWmeuuO9QeBV26bxaxCPC3YxM6H)**
 
 ## 如果遇到任何问题(按照推荐程度优先级排序)
 
