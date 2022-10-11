@@ -85,7 +85,7 @@ export class CardController {
       method: 'put',
       url: 'https://gitee.com/api/v5/user/starred/' + repoData,
       headers: {
-        Authorization: 'token ' + accessToken,
+        Authorization: 'Bearer ' + accessToken,
         'Content-Length': 0,
       },
     }
