@@ -170,7 +170,7 @@ export default {
           });
       } else {
         ElMessage({
-          message: "请先进行 注册/登录!",
+          message: "请先进行 登录/注册!",
           type: "warning",
         });
       }

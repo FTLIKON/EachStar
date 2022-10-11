@@ -56,7 +56,7 @@
             aria-hidden="true"
           >
             <use xlink:href="#icon-bonus-line"></use></svg
-          >可用星币: {{ userPrice }}</span
+          >星币: {{ userPrice }}</span
         >
         <span v-show="isLogin" class="user-hello">您好, {{ userName }}</span>
 
@@ -126,7 +126,7 @@ export default {
     // 未登录禁止打开我的仓库
     noLoginError() {
       ElMessage({
-        message: "请先进行 注册/登录!",
+        message: "请先进行 登录/注册!",
         type: "warning",
       });
     },
