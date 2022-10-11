@@ -37,7 +37,7 @@ export const authorization = async (ctx: Context, next: Next) => {
     if (!user) {
       user = await repository.createUser(
         BigInt(giteeId),
-        'GitHub',
+        'Gitee',
         giteeName,
         giteeAvatar,
         BigInt(0),
