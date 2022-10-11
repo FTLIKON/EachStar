@@ -8,12 +8,11 @@ export class UserController {
   }
 
   async getSelf(ctx: Context) {
-    ctx.assert(ctx.user, 403, 'user not found', {
+    const type = ctx.query.type
+    const nowUser = type == 'GitHub' ? ctx.github_user : ctx.gitee_user
+    ctx.assert(nowUser, 403, 'user not found', {
       code: 'USER_NOT_FOUND',
     })
-    let nowUser = ctx.user
-    nowUser['icon'] = ctx.cookies.get('userIcon')
-    console.log(nowUser)
     ctx.body = nowUser
   }
 
