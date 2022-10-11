@@ -25,6 +25,7 @@
 
 <script>
 import axios from "axios";
+import bus from "../utils/emitter";
 import PublicDialog from "./dialog/public.vue";
 export default {
   mounted() {
