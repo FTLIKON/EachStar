@@ -10,6 +10,8 @@ export class UserController {
   async getSelf(ctx: Context) {
     const type = ctx.query.type
     console.log(type)
+    console.log(ctx.github_user)
+    console.log(ctx.gitee_user)
     const nowUser = type == 'GitHub' ? ctx.github_user : ctx.gitee_user
     console.log(nowUser)
     ctx.assert(nowUser, 403, 'user not found', {
