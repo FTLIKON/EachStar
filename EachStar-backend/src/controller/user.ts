@@ -9,11 +9,7 @@ export class UserController {
 
   async getSelf(ctx: Context) {
     const type = ctx.query.type
-    console.log(type)
-    console.log(ctx.github_user)
-    console.log(ctx.gitee_user)
     const nowUser = type == 'GitHub' ? ctx.github_user : ctx.gitee_user
-    console.log(nowUser)
     ctx.assert(nowUser, 403, 'user not found', {
       code: 'USER_NOT_FOUND',
     })
@@ -25,7 +21,6 @@ export class UserController {
     const type = body.type
     const userId = type == 'GitHub' ? ctx.github_user.id : ctx.gitee_user.id
     const newPrice = body.newPrice
-    console.log(userId, newPrice)
     const user = await this.repository.changeUserPrice(type, userId, newPrice)
     ctx.body = user
   }
