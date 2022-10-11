@@ -33,7 +33,7 @@ export const authorization = async (ctx: Context, next: Next) => {
     giteeName != undefined &&
     giteeAvatar != undefined
   ) {
-    let user = await repository.getUserById('GitHub', BigInt(giteeId))
+    let user = await repository.getUserById('Gitee', BigInt(giteeId))
     if (!user) {
       user = await repository.createUser(
         BigInt(giteeId),
