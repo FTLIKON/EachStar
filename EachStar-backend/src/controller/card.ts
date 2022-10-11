@@ -11,8 +11,8 @@ export class CardController {
   async createCard(ctx: Context) {
     const body = ctx.request.body
     const type = body.type
-    const userId = type == 'GitHub' ? ctx.github_user.id : ctx.gitee_user.id
     console.log(ctx.github_user.id)
+    const userId = type == 'GitHub' ? ctx.github_user.id : ctx.gitee_user.id
     const title = body.title
     const context = body.context
     const starPrice = BigInt(body.starPrice)
