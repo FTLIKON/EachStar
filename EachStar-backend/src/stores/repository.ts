@@ -209,6 +209,7 @@ export class RepositoryPostgres implements RepositoryType {
         $5,
         $6,
         $7,
+        $8,
         NOW(),
         NOW()
       ) RETURNING *
