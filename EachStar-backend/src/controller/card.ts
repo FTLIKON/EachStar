@@ -84,7 +84,10 @@ export class CardController {
     const config = {
       method: 'put',
       url: 'https://gitee.com/api/v5/user/starred/' + repoData,
-      headers: { access_token: accessToken, 'Content-Length': 0 },
+      headers: {
+        Authorization: 'token ' + accessToken,
+        'Content-Length': 0,
+      },
     }
     let rep: any
     const res = await axios(config)
