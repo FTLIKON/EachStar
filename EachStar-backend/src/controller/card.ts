@@ -79,7 +79,7 @@ export class CardController {
   }
 
   async starGiteeRepo(ctx: Context, repoUrl: string): Promise<Boolean> {
-    const accessToken = ctx.cookies.get('githubToken')
+    const accessToken = ctx.cookies.get('giteeToken')
     const repoData = repoUrl.slice(18)
     const config = {
       method: 'put',
