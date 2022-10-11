@@ -28,7 +28,9 @@ export class CardController {
       starNum,
       expireTime,
     )
-    const newPrice = ctx.user.price - starPrice * starNum
+    const userPrice =
+      type == 'GitHub' ? ctx.github_user.price : ctx.gitee_user.price
+    const newPrice = userPrice - starPrice * starNum
     const user = await this.repository.changeUserPrice(type, userId, newPrice)
     if (type == 'GitHub') {
       ctx.github_user = user
