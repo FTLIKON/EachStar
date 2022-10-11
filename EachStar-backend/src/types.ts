@@ -2,7 +2,9 @@ import { Pool } from 'pg'
 
 export interface User {
   id: bigint
-  githubName: string
+  type: string
+  name: string
+  avatar: string
   price: bigint
   createdAt: Date
   updatedAt: Date
@@ -10,6 +12,7 @@ export interface User {
 
 export interface Card {
   id: bigint
+  type: string
   userId: bigint
   title: string
   context: string
@@ -22,18 +25,27 @@ export interface Card {
 
 export interface UserStar {
   id: bigint
+  type: string
   userId: bigint
   cardId: bigint
+  authorId: bigint
   createdAt: Date
 }
 
 export interface RepositoryType {
   pool: Pool
-  createUser(id: bigint, githubName: string, price: bigint): Promise<User>
-  getUserById(UserId: bigint): Promise<User | undefined>
-  changeUserPrice(UserId: bigint, newPrice: bigint): Promise<User>
+  createUser(
+    id: bigint,
+    type: string,
+    name: string,
+    avatar: string,
+    price: bigint,
+  ): Promise<User>
+  getUserById(type: string, UserId: bigint): Promise<User | undefined>
+  changeUserPrice(type: string, UserId: bigint, newPrice: bigint): Promise<User>
   createCard(
     userId: bigint,
+    type: string,
     title: string,
     context: string,
     starPrice: bigint,
@@ -41,10 +53,10 @@ export interface RepositoryType {
     expireTime: Date,
   ): Promise<Card>
   updateCard(data: Card): Promise<Card>
-  deleteCardById(userId: bigint, cardId: bigint): Promise<any>
-  getCardById(cardId: bigint): Promise<Card>
-  getCardsByTimeSort(start: number): Promise<any>
-  getCardsByUserId(userId: bigint, start: number): Promise<any>
-  starCard(userId: bigint, cardId: bigint): Promise<any>
-  getUserStarred(userId: bigint): Promise<any>
+  deleteCardById(type: string, userId: bigint, cardId: bigint): Promise<any>
+  getCardById(type: string, cardId: bigint): Promise<Card>
+  getCardsByTimeSort(type: string, start: number): Promise<any>
+  getCardsByUserId(type: string, userId: bigint, start: number): Promise<any>
+  starCard(type: string, userId: bigint, cardId: bigint): Promise<any>
+  getUserStarred(type: string, userId: bigint): Promise<any>
 }

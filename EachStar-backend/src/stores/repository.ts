@@ -5,7 +5,9 @@ import serviceConfig from '../config'
 
 interface UserPO {
   id: bigint
-  github_name: string
+  type: string
+  name: string
+  avatar: string
   price: bigint
   created_at: Date
   updated_at: Date
@@ -13,6 +15,7 @@ interface UserPO {
 
 interface CardPO {
   id: bigint
+  type: string
   user_id: bigint
   title: string
   context: string
@@ -25,8 +28,10 @@ interface CardPO {
 
 interface UserStarPO {
   id: bigint
+  type: string
   user_id: bigint
   card_id: bigint
+  author_id: bigint
   created_at: Date
 }
 
