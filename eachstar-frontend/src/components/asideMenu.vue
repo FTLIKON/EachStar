@@ -22,6 +22,7 @@ import PublicDialog from "./dialog/public.vue";
 export default {
   mounted() {
     this.getUserPrice();
+    bus.on("refreshUserInfo", this.getUserPrice);
   },
   data() {
     return {
