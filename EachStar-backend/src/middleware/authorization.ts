@@ -24,8 +24,8 @@ export const authorization = async (ctx: Context, next: Next) => {
         githubAvatar,
         BigInt(0),
       )
-      ctx.github_user = user
     }
+    ctx.github_user = user
   }
 
   if (
@@ -42,8 +42,10 @@ export const authorization = async (ctx: Context, next: Next) => {
         giteeAvatar,
         BigInt(0),
       )
-      ctx.gitee_user = user
     }
+    ctx.gitee_user = user
   }
+  console.log(ctx.gitee_user)
+  console.log(ctx.github_user)
   await next()
 }
