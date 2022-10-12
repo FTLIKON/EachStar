@@ -8,7 +8,7 @@ const authConfig = {
   giteeClientSecret:
     '3152a3d1d35572c122807c550d5b2ede3612f79e9a61955167c035738e678fec',
   redirectPath: 'http://www.each-star.com/',
-  giteeCallbackPath: 'http://119.91.192.183:3050/oauth/gitee/callback',
+  giteeCallbackPath: 'http://www.each-star.com:3050/oauth/gitee/callback',
 }
 
 const verificationConfig = {
