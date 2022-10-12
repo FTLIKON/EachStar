@@ -1,6 +1,10 @@
 /**
  * 日期字符串
  */
+export function parseTimeString(){
+
+}
+
 export function timestampToTime(timestamp) {
     let now = new Date(timestamp*1000);
     let year = now.getFullYear();    

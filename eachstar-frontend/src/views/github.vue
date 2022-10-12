@@ -94,6 +94,7 @@ import { ElMessage } from "element-plus";
 import BottomLine from "../components/bottomLine.vue";
 import "../iconfont/iconfont";
 import AsideMenu from "../components/asideMenu.vue";
+import { getPageData } from "../api/getPageData.js"
 
 export default {
   name: "github",
@@ -189,7 +190,7 @@ export default {
       this.currentPage = page - 1;
       console.log("切换至页面: " + this.currentPage);
 
-      this.getPageData(this.currentPage);
+      this.updatePageData("GitHub", this.currentPage);
     },
     refreshPageData: function () {
       this.pageChange(1);
@@ -210,41 +211,48 @@ export default {
       }
       return resTime;
     },
-    // 获取page页面数据->currentPageData
-    getPageData: function (page) {
-      var that = this;
-      var config = {
-        method: "get",
-        url: "/server/api/card?" + 
-        "type=" + "GitHub" + "&" +
-        "start=" + page * that.pageSize,
-      };
-      axios(config)
-        .then(function (response) {
-          console.log(response)
+    
+    updatePageData(type, page) {
+      var data = await getPageData(type, page)
+      this.totalCard = data.count;
+      this.totalPage = Math.ceil(data.count / 10);
+      this.currentPageData = data.data;
+      this.loading = false;
+    }
+    // getPageData: function (page) {
+    //   var that = this;
+    //   var config = {
+    //     method: "get",
+    //     url: "/server/api/card?" + 
+    //     "type=" + "GitHub" + "&" +
+    //     "start=" + page * that.pageSize,
+    //   };
+    //   axios(config)
+    //     .then(function (response) {
+    //       console.log(response)
 
-          that.totalCard = parseInt(response.data.count);
-          that.totalPage = Math.ceil(that.totalCard / 10);
+    //       that.totalCard = parseInt(response.data.count);
+    //       that.totalPage = Math.ceil(that.totalCard / 10);
 
-          var list = [];
-          var index = 0;
-          var start = page * that.pageSize;
-          while (index < that.pageSize && start < that.totalCard) {
-            if (response.data.data[index] != undefined) {
-              let nowData = response.data.data[index];
-              nowData.createdAt = that.parseTimeString(nowData.createdAt);
-              nowData.cardStatus = list.push(nowData);
-            }
-            index++;
-            start++;
-          }
-          that.currentPageData = list;
-          that.loading = false;
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-    },
+    //       var list = [];
+    //       var index = 0;
+    //       var start = page * that.pageSize;
+    //       while (index < that.pageSize && start < that.totalCard) {
+    //         if (response.data.data[index] != undefined) {
+    //           let nowData = response.data.data[index];
+    //           nowData.createdAt = that.parseTimeString(nowData.createdAt);
+    //           nowData.cardStatus = list.push(nowData);
+    //         }
+    //         index++;
+    //         start++;
+    //       }
+    //       that.currentPageData = list;
+    //       that.loading = false;
+    //     })
+    //     .catch(function (error) {
+    //       console.log(error);
+    //     });
+    // },
   },
   components: {
     BottomLine,

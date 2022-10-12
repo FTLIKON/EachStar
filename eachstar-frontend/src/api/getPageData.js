@@ -1,3 +1,5 @@
+import { parseTimeString } from "../utils/common";
+
 /**
  * 获取页面信息
  * type = GitHub/Gitee
@@ -10,27 +12,24 @@ export async function getPageData(type, page) {
         "type" + type +
         "start=" + page * that.pageSize,
     };
-    // axios(config)   
-    // .then(function (response) {
-    //     that.totalCard = parseInt(response.data.count);
-    //     that.totalPage = Math.ceil(that.totalCard / 10);
+    var res = await axios(config);
+    
+    countCard = res.data.count; // 卡片数量
+    countPage = Math.ceil(countCard / 10); // 卡片页数
 
-    //     var list = [];
-    //     var index = 0;
-    //     var start = page * that.pageSize;
-    //     while (index < that.pageSize && start < that.totalCard) {
-    //         if (response.data.data[index] != undefined) {
-    //         let nowData = response.data.data[index];
-    //         nowData.createdAt = that.parseTimeString(nowData.createdAt);
-    //         nowData.cardStatus = list.push(nowData);
-    //         }
-    //         index++;
-    //         start++;
-    //     }
-    //     that.currentPageData = list;
-    //     that.loading = false;
-    // })
-    // .catch(function (error) {
-    //     console.log(error);
-    // });
+    var list = [];
+    var index = 0;
+    var start = page * 10;
+    // 一页只刷新10个卡片 && 防止下标越界
+    while (index < 10 && start < countCard) {
+        if(res.data.data[index]){
+            let nowData = res.data.data[index];
+            nowData.createdAt = parseTimeString(nowData.createdAt);
+            list.push(nowData);
+        }
+        index++; start++;
+    }
+    res.data.data = list;
+
+    return res.data;
 }
