@@ -101,7 +101,7 @@ import { starCard } from "../api/starCard.js";
 export default {
   name: "github",
   mounted() {
-    this.refreshPageData(1);
+    this.refreshPageData();
     bus.on("refreshPageData", this.refreshPageData);
   },
   data() {
@@ -112,7 +112,7 @@ export default {
       pageSize: 10,
       totalPage: 0,
       totalCard: 35,
-      currentPage: 0,
+      currentPage: 1,
       currentPageData: [],
     };
   },
