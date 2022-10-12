@@ -145,7 +145,7 @@ export default {
       };
       axios(config)
         .then(function (response) {
-          that.userName = response.data.githubName;
+          that.userName = response.data.name;
           that.userPrice = response.data.price;
           that.userIconURL = response.data.icon;
           that.isLogin = true;
