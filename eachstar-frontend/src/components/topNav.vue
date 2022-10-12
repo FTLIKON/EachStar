@@ -95,6 +95,7 @@ import axios from "axios";
 import GithubAuth from "./githubAuth.vue";
 import Logout from "./dialog/logout.vue";
 import { ElMessage } from "element-plus";
+import { goEachStar } from "../api/goEachStar.js"
 import "../iconfont/iconfont";
 
 export default {
@@ -129,11 +130,6 @@ export default {
         message: "请先进行 登录/注册!",
         type: "warning",
       });
-    },
-
-    goEachStar() {
-      // 切换到EachStar
-      window.location.href = "https://github.com/FTLIKON/EachStar";
     },
 
     getUserInfo() {
