@@ -10,7 +10,9 @@ export class CardController {
 
   async createCard(ctx: Context) {
     const body = ctx.request.body
-    const userId = ctx.user.id
+    const type = body.type
+    console.log(ctx.github_user.id)
+    const userId = type == 'GitHub' ? ctx.github_user.id : ctx.gitee_user.id
     const title = body.title
     const context = body.context
     const starPrice = BigInt(body.starPrice)
@@ -19,29 +21,37 @@ export class CardController {
 
     const card = await this.repository.createCard(
       userId,
+      type,
       title,
       context,
       starPrice,
       starNum,
       expireTime,
     )
-    const newPrice = ctx.user.price - starPrice * starNum
-    const user = await this.repository.changeUserPrice(userId, newPrice)
-    ctx.user = user
+    const userPrice =
+      type == 'GitHub' ? ctx.github_user.price : ctx.gitee_user.price
+    const newPrice = userPrice - starPrice * starNum
+    const user = await this.repository.changeUserPrice(type, userId, newPrice)
+    if (type == 'GitHub') {
+      ctx.github_user = user
+    } else {
+      ctx.gitee_user = user
+    }
     ctx.body = card
   }
 
   async deleteCard(ctx: Context) {
-    const userId = ctx.user.id
     const cardId = ctx.query.cardId
-    const card = await this.repository.getCardById(BigInt(Number(cardId)))
+    const type = ctx.query.type
+    const userId = type == 'GitHub' ? ctx.github_user.id : ctx.gitee_user.id
+    const card = await this.repository.getCardById(type, BigInt(Number(cardId)))
     // 退还当前卡片的剩余积分
-    const cardAuthor = await this.repository.getUserById(card.userId)
+    const cardAuthor = await this.repository.getUserById(type, card.userId)
     if (cardAuthor) {
       const authorNewPrice = cardAuthor?.price + card.starPrice * card.starNum
-      this.repository.changeUserPrice(cardAuthor.id, authorNewPrice)
+      this.repository.changeUserPrice(type, cardAuthor.id, authorNewPrice)
     }
-    this.repository.deleteCardById(userId, card.id)
+    this.repository.deleteCardById(type, userId, card.id)
     ctx.status = 204
   }
 
@@ -68,18 +78,45 @@ export class CardController {
     return rep
   }
 
+  async starGiteeRepo(ctx: Context, repoUrl: string): Promise<Boolean> {
+    const accessToken = ctx.cookies.get('giteeToken')
+    const repoData = repoUrl.slice(18)
+    const config = {
+      method: 'put',
+      url: 'https://gitee.com/api/v5/user/starred/' + repoData,
+      headers: {
+        Authorization: 'Bearer ' + accessToken,
+        'Content-Length': 0,
+      },
+    }
+    let rep: any
+    const res = await axios(config)
+      .then(function (response) {
+        rep = true
+      })
+      .catch(function (error) {
+        console.log(error)
+        rep = false
+      })
+    return rep
+  }
 
   async starCard(ctx: Context) {
     const body = ctx.request.body
-    const userId = ctx.user.id
+    const type = body.type
+    const userId = type == 'GitHub' ? ctx.github_user.id : ctx.gitee_user.id
     const cardId = body.cardId
 
-    const card = await this.repository.getCardById(cardId)
-    const isStared = await this.starGithubRepo(ctx, card.title)
+    const card = await this.repository.getCardById(type, cardId)
+    let isStared
+    if (type == 'GitHub') {
+      isStared = await this.starGithubRepo(ctx, card.title)
+    } else {
+      isStared = await this.starGiteeRepo(ctx, card.title)
+    }
     console.log(isStared)
     if (isStared) {
-      const newCard = await this.repository.starCard(userId, cardId)
-
+      const newCard = await this.repository.starCard(type, userId, cardId)
       ctx.body = newCard
     } else {
       ctx.status = 400
@@ -89,14 +126,15 @@ export class CardController {
 
   async getCardsByTimeSort(ctx: Context) {
     const start = ctx.query.start
-    const cards = await this.repository.getCardsByTimeSort(Number(start))
+    const type = ctx.query.type
+    const cards = await this.repository.getCardsByTimeSort(type, Number(start))
     if (!ctx.user) {
       for (let index in cards.data) {
         cards.data[index]['starred'] = false
       }
     } else {
-      const userId = ctx.user.id
-      const userStarred = await this.repository.getUserStarred(userId)
+      const userId = type == 'GitHub' ? ctx.github_user.id : ctx.gitee_user.id
+      const userStarred = await this.repository.getUserStarred(type, userId)
       let userStarredCardId = []
       for (let index in userStarred) {
         userStarredCardId.push(userStarred[index].cardId)
@@ -113,9 +151,14 @@ export class CardController {
   }
 
   async getSelfCards(ctx: Context) {
-    const userId = ctx.user.id
+    const type = ctx.query.type
+    const userId = type == 'GitHub' ? ctx.github_user.id : ctx.gitee_user.id
     const start = ctx.query.start
-    const cards = await this.repository.getCardsByUserId(userId, Number(start))
+    const cards = await this.repository.getCardsByUserId(
+      type,
+      userId,
+      Number(start),
+    )
 
     ctx.body = cards
   }

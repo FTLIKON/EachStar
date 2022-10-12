@@ -1,18 +1,36 @@
 import Router = require('koa-router')
-import OAuthController from '../controller/oauth'
+import GitHubAuthController from '../controller/github_auth'
+import GiteeAuthController from '../controller/gitee_auth'
 export const getOAuthMiddleware = () => {
   const router = new Router({
     prefix: '/oauth',
   })
-  const oAuthController = new OAuthController()
+  const gitHubAuthController = new GitHubAuthController()
   router.get(
     '/github/login',
-    oAuthController.redirectGithubAuth.bind(OAuthController),
+    gitHubAuthController.redirectGithubAuth.bind(gitHubAuthController),
   )
   router.get(
     '/github/callback',
-    oAuthController.githubCallBack.bind(OAuthController),
+    gitHubAuthController.githubCallBack.bind(gitHubAuthController),
   )
-  router.get('/logout', oAuthController.userLogout.bind(OAuthController))
+  router.get(
+    '/github/logout',
+    gitHubAuthController.userLogout.bind(gitHubAuthController),
+  )
+
+  const giteeAuthController = new GiteeAuthController()
+  router.get(
+    '/gitee/login',
+    giteeAuthController.redirectGithubAuth.bind(giteeAuthController),
+  )
+  router.get(
+    '/gitee/callback',
+    giteeAuthController.giteeCallBack.bind(giteeAuthController),
+  )
+  router.get(
+    '/gitee/logout',
+    giteeAuthController.userLogout.bind(giteeAuthController),
+  )
   return router.routes()
 }

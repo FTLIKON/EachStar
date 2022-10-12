@@ -2,16 +2,16 @@ import axios from 'axios'
 import { Context } from 'koa'
 import { RepositoryPostgres } from '../stores'
 import serviceConfig from '../config'
-export class OAuthController {
+export class GitHubAuthController {
   repository
   constructor() {
     this.repository = new RepositoryPostgres()
   }
 
   async userLogout(ctx: Context) {
-    ctx.cookies.set('userId', '', { maxAge: 0 })
-    ctx.cookies.set('userName', '', { maxAge: 0 })
-    ctx.cookies.set('userIcon', '', { maxAge: 0 })
+    ctx.cookies.set('githubId', '', { maxAge: 0 })
+    ctx.cookies.set('githubName', '', { maxAge: 0 })
+    ctx.cookies.set('githubAvatar', '', { maxAge: 0 })
     ctx.cookies.set('githubToken', '', { maxAge: 0 })
     ctx.body = {}
   }
@@ -54,13 +54,13 @@ export class OAuthController {
       },
     })
 
-    ctx.cookies.set('userId', res.data.id, { httpOnly: false }) //用户id
-    ctx.cookies.set('userName', res.data.login, { httpOnly: false }) //用户名称
-    ctx.cookies.set('userIcon', res.data.avatar_url, { httpOnly: false }) //用户图片
+    ctx.cookies.set('githubId', res.data.id, { httpOnly: false }) //用户id
+    ctx.cookies.set('githubName', res.data.login, { httpOnly: false }) //用户名称
+    ctx.cookies.set('githubAvatar', res.data.avatar_url, { httpOnly: false }) //用户图片
     ctx.cookies.set('githubToken', accessToken, { httpOnly: false }) //用户githubToken
-
+    
     ctx.status = 301
     ctx.redirect(serviceConfig.auth.redirectPath) //重定向到请求页面
   }
 }
-export default OAuthController
+export default GitHubAuthController
