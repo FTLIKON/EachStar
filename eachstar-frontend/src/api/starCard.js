@@ -1,4 +1,5 @@
-export function starCard(card, type) {
+import axios from "axios";
+export async function starCard(card, type) {
     let param = new URLSearchParams();
     param.append("type", type)
     param.append("cardId", card.id);
