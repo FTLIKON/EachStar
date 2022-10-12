@@ -94,12 +94,14 @@ import { ElMessage } from "element-plus";
 import BottomLine from "../components/bottomLine.vue";
 import "../iconfont/iconfont";
 import AsideMenu from "../components/asideMenu.vue";
-import { getPageData } from "../api/getPageData.js"
+import { getPageData } from "../api/getPageData.js";
+import { getUserName } from "../api/getUserName.js";
+import { starCard } from "../api/starCard.js";
 
 export default {
   name: "github",
   mounted() {
-    this.pageChange(1);
+    refreshPageData(1);
     bus.on("refreshPageData", this.refreshPageData);
   },
   data() {
@@ -115,144 +117,57 @@ export default {
     };
   },
   methods: {
-    // ---------- star-card相关 ----------
-    // Star按钮
-    starButton: function (card) {
-      // 打开发布页面->需要登录
-      let userName = this.$cookies.get("userName");
-      if (userName) {
-        var that = this;
-        let param = new URLSearchParams();
-        param.append("cardId", card.id);
-        var config = {
-          method: "post",
-          url: "server/api/card/quickstar",
-          data: param,
-        };
-
-        that.buttonLoading = true;
-        setTimeout(() => {
-          that.buttonLoading = false;
-        }, 2000);
-        card.starring = true;
-        axios(config)
-          .then(function (response) {
-            setTimeout(() => {
-              ElMessage({
-                message: "一键star成功! 获得星币:" + card.starPrice,
-                type: "success",
-              });
-              card.starNum -= 1;
-              card.starred = true;
-              bus.emit("refreshUserInfo");
-              if (card.starNum == 0) {
-                // 如果悬赏次数为0->刷新页面
-                that.getPageData(that.currentPage);
-              }
-            }, 1000);
-          })
-          .catch(function (error) {
-            if (error.response.status == 400) {
-              ElMessage({
-                message: "一键star失败, 请稍后再试试~",
-                type: "warning",
-              });
-            }
-            card.starred = false;
-          });
-      } else {
+    /**
+     * star按钮
+     */ 
+    starCardButton(card) {
+      if (!getUserName("GitHub")) {
         ElMessage({
           message: "请先进行 登录/注册!",
           type: "warning",
         });
+      } 
+      
+      // star按钮触发动画
+      this.buttonLoading = true;
+      setTimeout(()=>{this.buttonLoading=false}, 2000);
+      card.starring = true;
+
+      if(starCard(card, "GitHub")){
+        ElMessage({
+            message: "一键star成功! 获得星币:" + card.starPrice,
+            type: "success",
+        });
+        card.starNum -= 1;
+        card.starred = true;
+        bus.emit("refreshUserInfo");
+
+        if (card.starNum == 0) { // 退化情况
+          that.getPageData(that.currentPage);
+        }
+      } else {
+        ElMessage({
+            message: "一键star失败, 请稍后再试试~",
+            type: "warning",
+        });
+        card.starred = false;
       }
     },
 
-    getUserId() {
-      // 获取用户id->判断是否可以star
-      var that = this;
-      var config = {
-        method: "get",
-        url: "server/api/user/@me",
-      };
-      axios(config)
-        .then(function (response) {
-          that.userId = response.data.id;
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-    },
-
-    // ========== github.vue 页面控制 ==========
-    // 执行换页
+    /**
+     * 切换页面
+     */ 
     pageChange: function (page) {
-      this.currentPage = page - 1;
-      console.log("切换至页面: " + this.currentPage);
-
-      this.updatePageData("GitHub", this.currentPage);
+      this.currentPage = page;
+      getPageData("GitHub", this.currentPage);
     },
+    
+    /**
+     * 刷新页面(到第一页)
+     */ 
     refreshPageData: function () {
       this.pageChange(1);
     },
-    parseTimeString: function (timeString) {
-      let resTime;
-      let cardTime = new Date(timeString);
-      let nowTime = new Date();
-      let diffTime = nowTime.getTime() + 9000 - cardTime.getTime();
-      if (diffTime < 60 * 1000) {
-        resTime = Math.floor(diffTime / 1000) + "秒前";
-      } else if (diffTime < 3600 * 1000) {
-        resTime = Math.floor(diffTime / (60 * 1000)) + "分钟前";
-      } else if (diffTime < 3600 * 24 * 1000) {
-        resTime = Math.floor(diffTime / (3600 * 1000)) + "小时前";
-      } else {
-        resTime = Math.floor(diffTime / (3600 * 24 * 1000)) + "天前";
-      }
-      return resTime;
-    },
-    
-    async updatePageData(type, page) {
-      var data = await getPageData(type, page)
-      this.totalCard = data.count;
-      this.totalPage = Math.ceil(data.count / 10);
-      this.currentPageData = data.data;
-      this.loading = false;
-    }
-    // getPageData: function (page) {
-    //   var that = this;
-    //   var config = {
-    //     method: "get",
-    //     url: "/server/api/card?" + 
-    //     "type=" + "GitHub" + "&" +
-    //     "start=" + page * that.pageSize,
-    //   };
-    //   axios(config)
-    //     .then(function (response) {
-    //       console.log(response)
-
-    //       that.totalCard = parseInt(response.data.count);
-    //       that.totalPage = Math.ceil(that.totalCard / 10);
-
-    //       var list = [];
-    //       var index = 0;
-    //       var start = page * that.pageSize;
-    //       while (index < that.pageSize && start < that.totalCard) {
-    //         if (response.data.data[index] != undefined) {
-    //           let nowData = response.data.data[index];
-    //           nowData.createdAt = that.parseTimeString(nowData.createdAt);
-    //           nowData.cardStatus = list.push(nowData);
-    //         }
-    //         index++;
-    //         start++;
-    //       }
-    //       that.currentPageData = list;
-    //       that.loading = false;
-    //     })
-    //     .catch(function (error) {
-    //       console.log(error);
-    //     });
-    // },
   },
   components: {
     BottomLine,

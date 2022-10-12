@@ -31,14 +31,6 @@ const router = createRouter({
         title: "EachStar",
       },
     },
-    {
-      path: "/develop",
-      name: "develop",
-      component: develop,
-      meta: {
-        title: "EachStar Develop",
-      },
-    },
   ],
 });
 
