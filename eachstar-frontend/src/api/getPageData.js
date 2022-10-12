@@ -15,6 +15,7 @@ export async function getPageData(type, page) {
     };
     var res = await axios(config);
     
+    console.log(res);
     var count = res.data.count; // 卡片数量
 
     var list = [];
