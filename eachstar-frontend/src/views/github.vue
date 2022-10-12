@@ -159,9 +159,11 @@ export default {
     pageChange: function (page) {
       this.currentPage = page;
 
-      var res = getPageData("GitHub", this.currentPage);
-      this.currentPageData = res.data;
-      this.totalPage = Math.ceil(res.count / 10);
+      var src = getPageData("GitHub", this.currentPage);
+      this.currentPageData = src.data;
+      this.totalPage = Math.ceil(src.count / 10);
+      console.log(this.totalPage);
+      console.log(this.currentPageData);
       this.loading = false;
     },
     
