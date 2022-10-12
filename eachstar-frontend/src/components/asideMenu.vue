@@ -42,10 +42,6 @@ export default {
     openPublicDialog() {
       this.$.refs.PublicDialog.openPage();
     },
-    
-    async updateUserPrice() {
-      this.userPrice = await getUserPrice();
-    },
 
     async getUserPrice() {
       var config = {
@@ -54,7 +50,13 @@ export default {
       };
       let res = await axios(config);
       return res.data.price;
-    }
+    },
+
+    async updateUserPrice() {
+      this.userPrice = await getUserPrice();
+    },
+
+    
     // getUserPrice() {
     //   // 获取用户积分
     //   var that = this;
