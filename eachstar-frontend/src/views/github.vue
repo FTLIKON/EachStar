@@ -156,10 +156,11 @@ export default {
     /**
      * 切换页面
      */ 
-    pageChange: function (page) {
+    async pageChange(page) {
       this.currentPage = page;
+      this.loading = true;
 
-      var src = getPageData("GitHub", this.currentPage);
+      var src = await getPageData("GitHub", this.currentPage);
       this.currentPageData = src.data;
       this.totalPage = Math.ceil(src.count / 10);
       console.log(this.totalPage);
