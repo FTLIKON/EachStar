@@ -25,7 +25,7 @@
 
 <script>
 import axios from "axios";
-import { getUserPrice } from "../api/getUserPrice";
+// import { getUserPrice } from "../api/getUserPrice";
 import bus from "../utils/emitter";
 import PublicDialog from "./dialog/public.vue";
 export default {
@@ -47,6 +47,14 @@ export default {
       this.userPrice = await getUserPrice();
     },
 
+    async getUserPrice() {
+      var config = {
+          method: "get",
+          url: "server/api/user/@me",
+      };
+      let res = await axios(config);
+      return res.data.price;
+    }
     // getUserPrice() {
     //   // 获取用户积分
     //   var that = this;
