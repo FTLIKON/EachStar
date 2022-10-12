@@ -44,7 +44,7 @@ export default {
     },
     
     updateUserPrice() {
-      this.userPrice = await getUserPrice();
+      this.userPrice = getUserPrice();
     },
 
     // getUserPrice() {
