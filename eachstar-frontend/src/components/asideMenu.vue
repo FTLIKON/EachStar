@@ -42,17 +42,14 @@ export default {
       this.$.refs.PublicDialog.openPage();
     },
 
-    async getUserPrice() {
+    async updateUserPrice() {
+      // this.userPrice = await this.getUserPrice();
       var config = {
           method: "get",
           url: "server/api/user/@me",
       };
       let res = await axios(config);
-      return res.data.price;
-    },
-
-    async updateUserPrice() {
-      this.userPrice = await this.getUserPrice();
+      this.userPrice = res.data.price;
     },
 
     
