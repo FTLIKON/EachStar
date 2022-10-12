@@ -25,7 +25,6 @@
 
 <script>
 import axios from "axios";
-// import { getUserPrice } from "../api/getUserPrice";
 import bus from "../utils/emitter";
 import PublicDialog from "./dialog/public.vue";
 export default {
@@ -53,7 +52,7 @@ export default {
     },
 
     async updateUserPrice() {
-      this.userPrice = await getUserPrice();
+      this.userPrice = await this.getUserPrice();
     },
 
     
