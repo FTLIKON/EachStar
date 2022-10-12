@@ -215,14 +215,14 @@ export default {
       var that = this;
       var config = {
         method: "get",
-        url: "/server/api/card?+" + 
+        url: "/server/api/card?" + 
         "type=" + "GitHub" + "&" +
         "start=" + page * that.pageSize,
       };
       axios(config)
         .then(function (response) {
           console.log(response)
-          
+
           that.totalCard = parseInt(response.data.count);
           that.totalPage = Math.ceil(that.totalCard / 10);
 
