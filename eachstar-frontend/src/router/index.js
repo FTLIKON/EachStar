@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import mygithub from "../views/mygithub.vue";
 import github from "../views/github.vue";
-import develop from "../views/develop.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
