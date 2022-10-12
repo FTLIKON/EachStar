@@ -159,7 +159,7 @@ export default {
      */ 
     pageChange: function (page) {
       this.currentPage = page;
-      await getPageData("GitHub", this.currentPage);
+      getPageData("GitHub", this.currentPage);
       this.loading = false;
     },
     
