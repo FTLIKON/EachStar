@@ -141,7 +141,7 @@ export default {
       var that = this;
       var config = {
         method: "get",
-        url: "server/api/user/@me",
+        url: "http://119.91.192.183:3050/api/user/@me",
       };
       axios(config)
         .then(function (response) {
@@ -154,7 +154,7 @@ export default {
           console.log(error);
         });
     },
-    
+
     menuSelect(key, keyPath) {
       // 菜单选择
       // console.log('[DEBUGGER] '+key);
@@ -182,7 +182,7 @@ export default {
       font-weight: bold;
       font-size: 35px;
       text-shadow: 1px 1px 2px #303133, 0px 0px 3px #303133;
-    
+
       display: flex;
       align-items: center;
       margin-left: 2%;
@@ -209,7 +209,7 @@ export default {
       background-color: none;
       font-size: large;
       font-style: normal;
-    
+
       border: none;
     }
     .divider {
@@ -225,7 +225,7 @@ export default {
       font-weight: bold;
       color: white;
       background-color: #409eff;
-    
+
       margin-right: 5%;
       margin-left: 30%;
       font-size: medium;
