@@ -18,7 +18,7 @@ export default defineConfig({
       // 本地开发环境通过代理实现跨域，生产环境使用 nginx 转发
       // 正则表达式写法
       "^/server": {
-        target: "http://119.91.192.183:3050", // 后端服务实际地址
+        target: "http://www.each-star.com:3050", // 后端服务实际地址
         changeOrigin: true, //开启代理
         rewrite: (path) => path.replace(/^\/server/, ""),
       },
