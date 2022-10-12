@@ -15,6 +15,7 @@ export async function getPageData(type, page) {
     };
     var res = await axios(config);
     
+    console.log(res);
     countCard = res.data.count; // 卡片数量
     countPage = Math.ceil(countCard / 10); // 卡片页数
 
