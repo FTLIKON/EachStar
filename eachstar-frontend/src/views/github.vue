@@ -212,7 +212,7 @@ export default {
       return resTime;
     },
     
-    updatePageData(type, page) {
+    async updatePageData(type, page) {
       var data = await getPageData(type, page)
       this.totalCard = data.count;
       this.totalPage = Math.ceil(data.count / 10);
