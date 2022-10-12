@@ -27,50 +27,35 @@
 import axios from "axios";
 import bus from "../utils/emitter";
 import PublicDialog from "./dialog/public.vue";
+import { getUserPrice } from "../api/getUserPrice.js"
 export default {
-  mounted() {
-    this.updateUserPrice();
-    bus.on("refreshUserInfo", this.updateUserPrice);
-  },
   data() {
     return {
       userPrice: null,
     };
   },
+  components: {
+    PublicDialog,
+  },
+
+  mounted() {
+    this.updateUserPrice();
+    bus.on("refreshUserInfo", this.updateUserPrice);
+  },
   methods: {
+    /**
+     * 打开子发布页面
+     */
     openPublicDialog() {
       this.$.refs.PublicDialog.openPage();
     },
 
+    /**
+     * api更新用户积分
+     */ 
     async updateUserPrice() {
-      // this.userPrice = await this.getUserPrice();
-      var config = {
-          method: "get",
-          url: "server/api/user/@me",
-      };
-      let res = await axios(config);
-      this.userPrice = res.data.price;
+      this.userPrice = await getUserPrice();
     },
-
-    
-    // getUserPrice() {
-    //   // 获取用户积分
-    //   var that = this;
-    //   var config = {
-    //     method: "get",
-    //     url: "server/api/user/@me",
-    //   };
-    //   axios(config)
-    //     .then(function (response) {
-    //       that.userPrice = response.data.price;
-    //     })
-    //     .catch(function (error) {
-    //       console.log(error);
-    //     });
-    // },
-  },
-  components: {
-    PublicDialog,
   },
 };
 </script>
@@ -103,8 +88,8 @@ export default {
 
 .user-price {
   display: flex;
-  justify-content: center; /* 水平居中 */
-  align-items: center; /*垂直居中*/
+  justify-content: center;
+  align-items: center;
   font-family: "微软雅黑";
   margin-top: 2%;
   margin-left: 5%;
