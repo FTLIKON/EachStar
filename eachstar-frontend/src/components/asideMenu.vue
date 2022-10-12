@@ -43,8 +43,8 @@ export default {
       this.$.refs.PublicDialog.openPage();
     },
     
-    updateUserPrice() {
-      this.userPrice = getUserPrice();
+    async updateUserPrice() {
+      this.userPrice = await getUserPrice();
     },
 
     // getUserPrice() {
