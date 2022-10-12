@@ -161,6 +161,7 @@ export default {
 
       var res = getPageData("GitHub", this.currentPage);
       this.currentPageData = res.data;
+      console.log(res);
       this.totalPage = Math.ceil(res.count / 10);
       this.loading = false;
     },
