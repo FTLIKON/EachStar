@@ -25,12 +25,13 @@
 
 <script>
 import axios from "axios";
+import { getUserPrice } from "../api/getUserPrice";
 import bus from "../utils/emitter";
 import PublicDialog from "./dialog/public.vue";
 export default {
   mounted() {
-    this.getUserPrice();
-    bus.on("refreshUserInfo", this.getUserPrice);
+    this.updateUserPrice();
+    bus.on("refreshUserInfo", this.updateUserPrice);
   },
   data() {
     return {
@@ -41,22 +42,26 @@ export default {
     openPublicDialog() {
       this.$.refs.PublicDialog.openPage();
     },
-
-    getUserPrice() {
-      // 获取用户积分
-      var that = this;
-      var config = {
-        method: "get",
-        url: "server/api/user/@me",
-      };
-      axios(config)
-        .then(function (response) {
-          that.userPrice = response.data.price;
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+    
+    updateUserPrice() {
+      this.userPrice = await getUserPrice();
     },
+
+    // getUserPrice() {
+    //   // 获取用户积分
+    //   var that = this;
+    //   var config = {
+    //     method: "get",
+    //     url: "server/api/user/@me",
+    //   };
+    //   axios(config)
+    //     .then(function (response) {
+    //       that.userPrice = response.data.price;
+    //     })
+    //     .catch(function (error) {
+    //       console.log(error);
+    //     });
+    // },
   },
   components: {
     PublicDialog,
