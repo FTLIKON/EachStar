@@ -3,7 +3,7 @@ import axios from "axios";
 export async function getUserPrice() {
     var config = {
         method: "get",
-        url: "/server/api/user/@me",
+        url: "http://www.each-star.com:3050/api/user/@me",
     };
 
     let res = await axios(config);
