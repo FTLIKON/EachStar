@@ -111,7 +111,6 @@ export default {
 
       pageSize: 10,
       totalPage: 0,
-      totalCard: 35,
       currentPage: 1,
       currentPageData: [],
     };
@@ -159,7 +158,10 @@ export default {
      */ 
     pageChange: function (page) {
       this.currentPage = page;
-      getPageData("GitHub", this.currentPage);
+
+      var res = getPageData("GitHub", this.currentPage);
+      this.currentPageData = res.data;
+      this.totalPage = Math.ceil(res.count / 10);
       this.loading = false;
     },
     
