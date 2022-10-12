@@ -10,7 +10,7 @@ export async function getPageData(type, page) {
     var config = {
         method: "get",
         url: "/server/api/card?" +
-        "type" + type +
+        "type=" + type +
         "start=" + page * 10,
     };
     var res = await axios(config);
