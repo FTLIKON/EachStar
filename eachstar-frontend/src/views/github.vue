@@ -42,7 +42,7 @@
             <el-button
               v-show="!item.starred && !item.starring && !buttonLoading"
               id="card-button"
-              @click="starButton(item)"
+              @click="starCardButton(item)"
               plain
             >
               <svg class="fronticon" style="color: #b88230" aria-hidden="true">
@@ -101,7 +101,7 @@ import { starCard } from "../api/starCard.js";
 export default {
   name: "github",
   mounted() {
-    refreshPageData(1);
+    this.refreshPageData(1);
     bus.on("refreshPageData", this.refreshPageData);
   },
   data() {
@@ -125,7 +125,7 @@ export default {
         ElMessage({
           message: "请先进行 登录/注册!",
           type: "warning",
-        });
+        })
       } 
       
       // star按钮触发动画
