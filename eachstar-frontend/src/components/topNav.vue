@@ -141,13 +141,13 @@ export default {
       var that = this;
       var config = {
         method: "get",
-        url: "server/api/user/@me",
+        url: "server/api/user/@me?type=GitHub",
       };
       axios(config)
         .then(function (response) {
-          that.userName = response.data.githubName;
+          that.userName = response.data.name;
           that.userPrice = response.data.price;
-          that.userIconURL = response.data.icon;
+          that.userIconURL = response.data.avatar;
           that.isLogin = true;
         })
         .catch(function (error) {
