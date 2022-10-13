@@ -6,5 +6,6 @@ export async function getUserInfo(type){
     };
 
     var res = await axios(config);
-    return res.data;
+    console.log(res.data)
+    return res.data.data;
 }
