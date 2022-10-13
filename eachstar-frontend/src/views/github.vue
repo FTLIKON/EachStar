@@ -99,20 +99,19 @@ import { starCard } from "../api/starCard.js";
 
 export default {
   name: "github",
-  mounted() {
-    this.refreshPageData();
-    bus.on("refreshPageData", this.refreshPageData);
-  },
   data() {
     return {
       loading: true,
       buttonLoading: false,
 
-      pageSize: 10,
       totalPage: 0,
       currentPage: 1,
       currentPageData: [],
     };
+  },
+  mounted() {
+    this.refreshPageData();
+    bus.on("refreshPageData", this.refreshPageData);
   },
   methods: {
     /**

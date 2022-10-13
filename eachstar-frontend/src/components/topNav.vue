@@ -4,7 +4,6 @@
       id="menu"
       mode="horizontal"
       default-active="1"
-      @select="menuSelect"
       :ellipsis="false"
     >
       <div class="left-block">
@@ -95,14 +94,10 @@ import axios from "axios";
 import GithubAuth from "./githubAuth.vue";
 import Logout from "./dialog/logout.vue";
 import { ElMessage } from "element-plus";
-import { goEachStar } from "../api/goEachStar.js"
+import { getUserInfo } from "../api/getUserInfo.js"
 import "../iconfont/iconfont";
 
 export default {
-  components: {
-    GithubAuth,
-    Logout,
-  },
   data() {
     return {
       userName: "",
@@ -112,19 +107,27 @@ export default {
     };
   },
   mounted() {
-    this.getUserInfo();
-    bus.on("refreshUserInfo", this.getUserInfo);
+    this.updateUserInfo();
+    bus.on("refreshUserInfo", this.updateUserInfo);
   },
   methods: {
-    // 注册按钮
+    /**
+     * 注册按钮
+     */ 
     authButton() {
       this.$.refs.GithubAuth.openPage();
     },
-    // 登出按钮
+
+    /**
+     * 登出按钮
+     */ 
     logoutButton() {
       this.$.refs.Logout.openPage();
     },
-    // 未登录禁止打开我的仓库
+    
+    /**
+     * 未登录提示
+     */ 
     noLoginError() {
       ElMessage({
         message: "请先进行 登录/注册!",
@@ -132,29 +135,19 @@ export default {
       });
     },
 
-    getUserInfo() {
-      // 刷新用户信息->data
-      var that = this;
-      var config = {
-        method: "get",
-        url: "server/api/user/@me?type=GitHub",
-      };
-      axios(config)
-        .then(function (response) {
-          that.userName = response.data.name;
-          that.userPrice = response.data.price;
-          that.userIconURL = response.data.avatar;
-          that.isLogin = true;
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+    /**
+     * 更新用户信息
+     */ 
+    async updateUserInfo() {
+      var data = await getUserInfo("GitHub");
+      this.userName = data.name;
+      this.userPrice = data.price;
+      this.userIconURL = data.avatar;
     },
-    
-    menuSelect(key, keyPath) {
-      // 菜单选择
-      // console.log('[DEBUGGER] '+key);
-    },
+  },
+  components: {
+    GithubAuth,
+    Logout,
   },
 };
 </script>

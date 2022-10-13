@@ -24,7 +24,6 @@
 </template>
 
 <script>
-import axios from "axios";
 export default {
   data() {
     return {
@@ -32,9 +31,16 @@ export default {
     };
   },
   methods: {
+    /**
+     * 打开注册页面
+     */ 
     openPage() {
       this.dialogVisible = true;
     },
+
+    /**
+     * 前往页面
+     */
     goPage(url) {
       window.location.href = url;
     },

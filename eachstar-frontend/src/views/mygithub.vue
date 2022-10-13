@@ -80,20 +80,18 @@ import { getMyPageData } from "../api/getMyPageData.js";
 
 export default {
   name: "mygithub",
-  mounted() {
-    this.refreshPageData();
-    bus.on("refreshPageData", this.refreshPageData);
-  },
   data() {
     return {
       loading: true,
 
-      pageSize: 10,
       totalPage: 0,
-      totalCard: 35,
-      currentPage: 0,
+      currentPage: 1,
       currentPageData: [],
     };
+  },
+  mounted() {
+    this.refreshPageData();
+    bus.on("refreshPageData", this.refreshPageData);
   },
   methods: {
     /**
