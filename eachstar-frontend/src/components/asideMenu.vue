@@ -73,8 +73,8 @@ export default {
   margin-bottom: auto;
 }
 .public-button {
-  width: 100%;
-  min-width: 110px;
+  width: 150px;
+  margin-left: 75px;
   height: 50px;
   font-size: larger;
   font-weight: bolder;
