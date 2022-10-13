@@ -17,7 +17,7 @@
         </svg>
         <svg
           class="fronticon"
-          style="color: #000000; margin-top: 12%"
+          style="color: #000000; margin-top: 2%"
           aria-hidden="true"
         >
           <use xlink:href="#icon-github"></use>
