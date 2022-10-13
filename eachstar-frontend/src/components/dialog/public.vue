@@ -89,6 +89,8 @@ import { validateGithubUrl } from "../../utils/validate.js";
 import axios from "axios";
 import "../../iconfont/iconfont";
 import bus from "../../utils/emitter";
+import { getExpireTime } from "../../utils/common.js";
+import { getUserPrice } from "../../api/getUserPrice";
 export default {
   data() {
     return {
@@ -150,60 +152,15 @@ export default {
     },
 
     openPage() {
-      // 打开发布页面->需要登录
-      let userName = this.$cookies.get("userName");
-      if (userName) {
-        this.dialogVisible = true;
-
-        var that = this;
-        var config = {
-          method: "get",
-          url: "server/api/user/@me",
-        };
-        axios(config)
-          .then(function (response) {
-            console.log(response.data.price);
-            that.userPrice = response.data.price;
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-      } else {
+      if (!getUserName("GitHub")) { // 登录
         ElMessage({
           message: "请先进行 登录/注册!",
           type: "warning",
         });
       }
-    },
-
-    getExpireTime() {
-      let now = new Date();
-      now = now.setDate(now.getDate() + 10);
-      now = new Date(now);
-      let year = now.getFullYear();
-      let month = now.getMonth() + 1;
-      let date = now.getDate();
-      let hour = now.getHours();
-      let minute = now.getMinutes();
-      let second = now.getSeconds();
-      if (month < 10) month = "0" + month;
-      if (date < 10) date = "0" + date;
-      if (hour < 10) hour = "0" + hour;
-      if (minute < 10) minute = "0" + minute;
-      if (second < 10) second = "0" + second;
-      return (
-        year +
-        "-" +
-        month +
-        "-" +
-        date +
-        " " +
-        hour +
-        ":" +
-        minute +
-        ":" +
-        second
-      );
+      
+      this.dialogVisible = true; // 显示页面
+      this.userPrice = await getUserPrice();
     },
   },
 };

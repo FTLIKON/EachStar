@@ -15,7 +15,6 @@
 
 <script>
 import bus from '../../utils/emitter';
-import { register } from "../../api/auth";
 import { ElMessage } from "element-plus";
 import axios from "axios";
 
