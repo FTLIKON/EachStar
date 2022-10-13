@@ -1,9 +1,7 @@
 <template>
   <div class="all">
-    <div class="logo">
-      <img class="logo-pic" src="icon.png" />
-      <div class="title">EachStar</div>
-    </div>
+    <img class="logo-pic" src="icon.png" />
+    <div class="title">EachStar</div>
     <div>目前暂不支持手机端，请在电脑端访问！</div>
   </div>
 </template>
@@ -15,12 +13,6 @@ export default { name: "phonehome" }
   display: flex;
   align-items: center;
   flex-direction: column;
-}
-.logo {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-left: 10%;
 }
 .title {
   color: #ffffff;
