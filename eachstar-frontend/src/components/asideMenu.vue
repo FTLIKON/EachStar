@@ -60,8 +60,7 @@ export default {
 
 <style scoped>
 #menu {
-  width: 100%;
-  min-width: 85px;
+  width: 150px;
 }
 
 .fronticon {
