@@ -8,8 +8,8 @@
     >
       <div class="left-block">
         <div class="logo">
-          <img class="logo-pic" src="icon.png" @click="goEachStar()" />
-          <span @click="goEachStar()">EachStar</span>
+          <img class="logo-pic" src="icon.png" @click="goEachStar" />
+          <span @click="goEachStar">EachStar</span>
         </div>
       </div>
 
