@@ -19,7 +19,7 @@ export async function getPageData(type, page) {
 
     var list = [];
     var index = 0;
-    var start = page * 10;
+    var start = (page - 1) * 10;
     // 一页只刷新10个卡片 && 防止下标越界
     while (index < 10 && start < count) {
         if(res.data.data[index]){
