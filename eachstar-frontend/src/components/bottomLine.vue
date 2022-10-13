@@ -25,7 +25,7 @@ export default {};
 
 <style lang="scss">
 .main {
-  margin-bottom: 80px;
+  margin-bottom: 50px;
   width: 100%;
   height: 100px;
   background-color: #303133;
