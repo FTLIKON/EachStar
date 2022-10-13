@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <el-container>
+    <el-container style="height:100%">
       <!-- 头部导航栏 -->
       <el-header class="top-nav" v-show="!isPhone">
         <top-nav />
@@ -60,6 +60,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  height: 100%;
 }
 
 html, body {
