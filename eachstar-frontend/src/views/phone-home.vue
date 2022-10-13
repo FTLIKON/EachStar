@@ -3,5 +3,7 @@
 </template>
 
 <script></script>
-
+export default {
+  name: "phonehome"
+}
 <style lang="scss" scoped></style>
