@@ -44,9 +44,9 @@ export default {
             message: "已成功删除：" + this.cardTitle,
             type: "success",
         });
-        this.$parent.pageChange(this.$parent.currentPage);
         bus.emit("refreshUserInfo");
         this.dialogVisible = false;
+        await this.$parent.pageChange(this.$parent.currentPage);
       }
       this.cardRemoving = false;
     },
