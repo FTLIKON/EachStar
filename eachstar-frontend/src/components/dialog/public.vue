@@ -151,7 +151,7 @@ export default {
       }
     },
 
-    openPage() {
+    async openPage() {
       if (!getUserName("GitHub")) { // 登录
         ElMessage({
           message: "请先进行 登录/注册!",
