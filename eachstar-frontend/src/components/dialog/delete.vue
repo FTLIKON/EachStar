@@ -16,7 +16,6 @@
 <script>
 import bus from '../../utils/emitter';
 import { ElMessage } from "element-plus";
-import axios from "axios";
 import { getUserPrice } from '../../api/getUserPrice';
 import { deleteCard } from "../../api/deleteCard";
 
