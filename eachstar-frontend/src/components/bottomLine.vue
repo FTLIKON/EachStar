@@ -25,7 +25,7 @@ export default {};
 
 <style lang="scss">
 .main {
-  bottom: 0;
+  margin-bottom: 60px;
   width: 100%;
   height: 100px;
   background-color: #303133;
@@ -53,8 +53,8 @@ export default {};
       display: flex;
       flex-direction: row;
       .fronticon {
-        width: 75px;
-        height: 75px;
+        width: 60px;
+        height: 60px;
         vertical-align: -0.45em;
         fill: currentColor;
         overflow: hidden;
