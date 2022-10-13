@@ -1,8 +1,6 @@
 import axios from "axios";
 
 export async function deleteCard(type, cardId){
-    var that = this;
-    that.cardRemoving = true;
     var config = {
         method: "delete",
         url: "server/api/card?" 
