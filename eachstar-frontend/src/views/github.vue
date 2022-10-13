@@ -210,10 +210,11 @@ export default {
   .card-list {
     box-shadow: 0px 0px 3px 3px #cdd0d6;
     border-radius: 15px;
-    width: 60%;
-    margin-left: 20%;
-    margin-right: 20%;
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
     margin-bottom: 2%;
+    min-width: 600px;
   }
   .pagination {
     margin: 3% 0% 3% 0%;
