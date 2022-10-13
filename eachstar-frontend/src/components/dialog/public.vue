@@ -91,6 +91,7 @@ import "../../iconfont/iconfont";
 import bus from "../../utils/emitter";
 import { getExpireTime } from "../../utils/common.js";
 import { getUserPrice } from "../../api/getUserPrice";
+import { getUserName } from "../../api/getUserName";
 export default {
   data() {
     return {
