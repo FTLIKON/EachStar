@@ -8,10 +8,10 @@
         <div class="saytext">Version: 1.0.0</div>
       </div>
       <div class="icons">
-        <svg class="fronticon" aria-hidden="true">
+        <svg class="fronticon" style="color: black" aria-hidden="true">
           <use xlink:href="#icon-qq"></use>
         </svg>
-        <svg class="fronticon" aria-hidden="true">
+        <svg class="fronticon" style="color: black" aria-hidden="true">
           <use xlink:href="#icon-github"></use>
         </svg>
       </div>
