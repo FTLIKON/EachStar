@@ -7,7 +7,9 @@
 
     <!-- 卡片视图 -->
     <div class="card-view">
+
       <!-- 卡片列表 -->
+      <div class="card-container">
       <el-card
         v-for="item of currentPageData"
         :key="item"
@@ -55,7 +57,8 @@
           </div>
         </div>
       </el-card>
-
+      </div>
+      
       <!-- 卡片换页 -->
       <el-pagination
         id="pagination"
@@ -63,6 +66,10 @@
         @current-change="pageChange"
         :total="totalPage * 10"
       />
+
+      <div class="footer">
+        <bottom-line />
+      </div>
     </div>
   </div>
   <Delete ref="Delete" />
@@ -129,9 +136,8 @@ export default {
 
 <style lang="scss" scoped>
 .aside-menu {
-  width: 20% !important;
+  width: 0.001px !important;
 }
-
 .fronticon {
   width: 25px;
   height: 25px;
@@ -149,7 +155,7 @@ export default {
 .card-view {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 100%;
   min-width: 960px;
   margin-left: min(20%, 200px);
   .card-list {
@@ -159,62 +165,64 @@ export default {
     margin-bottom: 2%;
   }
   #pagination {
-    margin: 3% 40% 3% 0%;
+    margin: 3% 0% 3% 0%;
     justify-content: center;
   }
 }
 
-.card-block {
-  .card-titleblock {
-    margin-bottom: 2%;
-    width: 100%;
-    display: flex;
-    .card-title {
-      color: #303133;
-      width: 70%;
-      text-align: left;
-      font-size: large;
-      font-weight: bold;
-      text-decoration: none;
+.card-container {
+  .card-block {
+    .card-titleblock {
+      margin-bottom: 2%;
+      width: 100%;
+      display: flex;
+      .card-title {
+        color: #303133;
+        width: 70%;
+        text-align: left;
+        font-size: large;
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      .card-time {
+        color: #606266;
+        width: 30%;
+        text-align: right;
+      }
     }
 
-    .card-time {
+    .card-discription {
       color: #606266;
-      width: 30%;
-      text-align: right;
-    }
-  }
-
-  .card-discription {
-    color: #606266;
-    text-align: left;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    letter-spacing: 0;
-    text-overflow: ellipsis;
-    width: 90%;
-    margin: 0% 3% 3% 3%;
-  }
-
-  .card-valueblock {
-    width: 100%;
-    display: flex;
-
-    .card-rank {
-      color: #b88230;
-      background-color: none;
-
-      width: 80%;
-      margin: auto 3% auto 3%;
       text-align: left;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      letter-spacing: 0;
+      text-overflow: ellipsis;
+      width: 90%;
+      margin: 0% 3% 3% 3%;
     }
 
-    #card-button {
-      color: #303133;
-      font-size: large;
-      width: 30%;
+    .card-valueblock {
+      width: 100%;
+      display: flex;
+
+      .card-rank {
+        color: #b88230;
+        background-color: none;
+
+        width: 80%;
+        margin: auto 3% auto 3%;
+        text-align: left;
+      }
+
+      #card-button {
+        color: #303133;
+        font-size: large;
+        width: 30%;
+      }
     }
   }
 }
