@@ -36,6 +36,7 @@ export default {
   },
   mounted() {
     this.updateUserPrice();
+    this.windowWidth = document.documentElement.clientWidth;
     bus.on("refreshUserInfo", this.updateUserPrice);
 
     var that = this;
