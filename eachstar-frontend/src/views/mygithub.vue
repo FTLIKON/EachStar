@@ -161,8 +161,8 @@ export default {
     box-shadow: 0px 0px 3px 3px #cdd0d6;
     border-radius: 15px;
     width: 50%;
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 25%;
+    margin-right: 25%;
     margin-bottom: 2%;
   }
   #pagination {
