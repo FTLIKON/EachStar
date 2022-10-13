@@ -35,14 +35,17 @@ export default {
     };
   },
   methods: {  
+    /**
+     * 删除卡片
+     */ 
     async deleteButton(){
       if (deleteCard("GitHub", this.cardId)){
         ElMessage({
             message: "已成功删除：" + this.cardTitle,
             type: "success",
         });
-        bus.emit("refreshUserInfo");
         this.$parent.pageChange(this.$parent.currentPage);
+        bus.emit("refreshUserInfo");
         this.dialogVisible = false;
       }
       this.cardRemoving = false;
