@@ -143,6 +143,7 @@ export default {
       this.userName = data.name;
       this.userPrice = data.price;
       this.userIconURL = data.avatar;
+      this.isLogin = true;
     },
   },
   components: {
