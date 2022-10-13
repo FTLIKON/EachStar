@@ -7,9 +7,5 @@ export const getUserApiMiddleware = () => {
   })
   const userController = new UserController()
   router.get('/user/@me', userController.getSelf.bind(userController))
-  router.post(
-    '/user/price',
-    userController.changeUserPrice.bind(userController),
-  )
   return router.routes()
 }
