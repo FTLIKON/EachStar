@@ -87,7 +87,9 @@
         :total="totalPage * 10"
       />
 
-      <bottom-line />
+      <div class="footer">
+        <bottom-line />
+      </div>
     </div>
   </div>
 </template>
@@ -278,5 +280,9 @@ export default {
       }
     }
   }
+}
+
+.footer {
+  height: 100px !important;
 }
 </style>
