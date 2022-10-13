@@ -26,7 +26,7 @@
 <script>
 import bus from "../utils/emitter";
 import PublicDialog from "./dialog/public.vue";
-import { getUserPrice } from "../api/getUserPrice.js"
+import { getUserPrice } from "../api/getUserPrice.js";
 export default {
   data() {
     return {
@@ -47,7 +47,7 @@ export default {
 
     /**
      * api更新用户积分
-     */ 
+     */
     async updateUserPrice() {
       this.userPrice = await getUserPrice();
     },
@@ -61,7 +61,7 @@ export default {
 <style scoped>
 #menu {
   width: 100%;
-  min-width: 85px;
+  min-width: 200px;
 }
 
 .fronticon {
@@ -73,7 +73,7 @@ export default {
   margin-bottom: auto;
 }
 .public-button {
-  width: 50%;
+  width: 100%;
   min-width: 110px;
   height: 50px;
   font-size: larger;
