@@ -75,7 +75,7 @@
       <div class="title">请确认您的github仓库已公开，其他人才能给您star哦~</div>
       <span class="dialog-footer">
         <el-button @click="publicConfirm = false">取消</el-button>
-        <el-button type="primary" @click="publicCard()"
+        <el-button type="primary" @click="publicButton()"
           >确认, 立即发布</el-button
         >
       </span>
@@ -91,67 +91,63 @@ import "../../iconfont/iconfont";
 import bus from "../../utils/emitter";
 import { getExpireTime } from "../../utils/common.js";
 import { getUserPrice } from "../../api/getUserPrice";
-import { getUserName } from "../../api/getUserName";
+import { getUserName } from "../../api/getUserName.js";
+import { publicCard } from "../../api/publicCard.js"
 export default {
   data() {
     return {
       dialogVisible: false,
       publicConfirm: false,
+      userPrice: "查询中...",
+
       cardTitle: "",
       cardDiscription: "",
       starPrice: 1,
       starNum: 1,
-
-      userPrice: "查询中...",
     };
   },
   methods: {
-    publicCard: function () {
+    /**
+     * 发布按钮
+     */ 
+    async publicButton() {
+      // 剩余积分不足
       if (this.userPrice - this.starPrice * this.starNum < 0) {
         ElMessage({
           message: "您当前星币不足~ 快去star别人的卡片吧!",
           type: "warning",
         });
         this.publicConfirm = false;
+    
+      // 检查是否github链接
       } else if (validateGithubUrl(this.cardTitle)) {
         ElMessage({
           message: "您输入的似乎不是Github链接, 请检查",
           type: "warning",
         });
         this.publicConfirm = false;
-      } else {
-        var that = this;
-        let param = new URLSearchParams();
 
+      } else {
         this.dialogVisible = false;
         this.publicConfirm = false;
         ElMessage("正在尝试发布, 请稍等");
 
-        param.append("title", that.cardTitle);
-        param.append("context", that.cardDiscription);
-        param.append("starPrice", that.starPrice);
-        param.append("starNum", that.starNum);
-        param.append("expireTime", that.getExpireTime());
-        var config = {
-          method: "post",
-          url: "server/api/card",
-          data: param,
-        };
-        axios(config)
-        .then(function (response) {
+        let access = await publicCard(
+          "GitHub", this.cardTitle, this.cardDiscription, this.starPrice, this.starNum);
+        if (access) {
           ElMessage({
             message: "发布成功! 为您重定向至第一页...",
             type: "success",
           });
           bus.emit("refreshUserInfo");
           bus.emit("refreshPageData");
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+        }
       }
     },
 
+    /**
+     * 提供可调用的public页面
+     */ 
     async openPage() {
       if (!getUserName("GitHub")) { // 登录
         ElMessage({
