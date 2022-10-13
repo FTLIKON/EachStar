@@ -28,7 +28,7 @@ export class DevController {
         starNum: '50',
       },
       {
-        title: 'https://github.com/FTLIKON?tab=stars',
+        title: 'https://github.com/dnSpy/dnSpy',
         context:
           'dnSpy is a debugger and .NET assembly editor. You can use it to edit and debug assemblies even if you don',
         starPrice: '5',
