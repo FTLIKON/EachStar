@@ -1,5 +1,5 @@
 import axios from "axios";
-export function getUserInfo(type){
+export async function getUserInfo(type){
     var config = {
         method: "get",
         url: "server/api/user/@me?type=" + type,
