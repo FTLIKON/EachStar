@@ -20,6 +20,7 @@ export default { name: "phonehome" }
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-left: 10%;
 }
 .title {
   color: #ffffff;
