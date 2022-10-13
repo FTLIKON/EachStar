@@ -12,14 +12,12 @@ export default {};
 .main {
   bottom: 0;
   width: 100%;
-  height: 30px;
+  height: 5%;
   background-color: #303133;
   display: flex;
   align-items: center;
   flex-direction: column;
   .icpcode {
-    margin-top: 2%;
-    margin-bottom: 2%;
     color: #a8abb2;
   }
 }
