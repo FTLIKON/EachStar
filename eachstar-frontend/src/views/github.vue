@@ -140,7 +140,7 @@ export default {
           card.starred = true;
           bus.emit("refreshUserInfo");
           if (card.starNum == 0) { // 退化情况
-            that.getPageData(that.currentPage);
+            that.refreshPageData();
           }
         }, 1000)
       } else {

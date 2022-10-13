@@ -6,7 +6,7 @@
         <top-nav />
       </el-header>
 
-      <el-container>
+      <el-container style="height: 100%">
         <!-- 侧边菜单 -->
         <!-- <el-aisde class="aside-view"><aside-menu /></el-aisde> -->
 
@@ -62,10 +62,10 @@ export default {
   text-align: center;
 }
 
-html,
-body {
+html, body {
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 .top-nav {
