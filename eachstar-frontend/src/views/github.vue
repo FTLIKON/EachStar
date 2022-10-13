@@ -195,7 +195,6 @@ export default {
 
 .github {
   display: flex;
-  min-height: 100%;
   flex: 1;
 }
 
