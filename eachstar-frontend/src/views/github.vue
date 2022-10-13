@@ -131,17 +131,18 @@ export default {
       card.starring = true;
 
       if(starCard(card, "GitHub")){
-        ElMessage({
+        setTimeout(()=>{
+          ElMessage({
             message: "一键star成功! 获得星币:" + card.starPrice,
             type: "success",
-        });
-        card.starNum -= 1;
-        card.starred = true;
-        bus.emit("refreshUserInfo");
-
-        if (card.starNum == 0) { // 退化情况
-          that.getPageData(that.currentPage);
-        }
+          });
+          card.starNum -= 1;
+          card.starred = true;
+          bus.emit("refreshUserInfo");
+          if (card.starNum == 0) { // 退化情况
+            that.getPageData(that.currentPage);
+          }
+        }, 1000)
       } else {
         ElMessage({
             message: "一键star失败, 请稍后再试试~",
