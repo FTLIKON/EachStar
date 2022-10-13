@@ -4,6 +4,7 @@ import { authorization } from './middleware/authorization'
 import { getOAuthMiddleware } from './routers/oauth'
 import { getCardMiddleware } from './routers/card'
 import { getUserApiMiddleware } from './routers/user'
+import { getDevApiMiddleware } from './routers/dev'
 
 declare class BigInt {
   toJSON(): string
@@ -33,6 +34,7 @@ app.use(authorization)
 app.use(getOAuthMiddleware())
 app.use(getCardMiddleware())
 app.use(getUserApiMiddleware())
+app.use(getDevApiMiddleware())
 
 console.log(
   '########################\n Eachstar server start!!\n########################\n\n',
