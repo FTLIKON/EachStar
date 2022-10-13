@@ -2,7 +2,9 @@
   <div class="all">
     <img class="logo-pic" src="icon.png" />
     <div class="title">EachStar</div>
-    <div>目前暂不支持手机端，请在电脑端访问！</div>
+    <div class="text">欢迎光临EachStar! 我们是开源仓库互助平台</div>
+    <div class="text">我们的唯一网址：www.each-star.com</div>
+    <div class="text">目前暂不支持手机端，请在电脑端访问！</div>
   </div>
 </template>
 
@@ -24,5 +26,8 @@ export default { name: "phonehome" }
   width: 20%;
   min-width: 100px;
   margin-right: 2%;
+}
+.text {
+  margin-top: 5%;
 }
 </style>
