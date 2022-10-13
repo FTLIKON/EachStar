@@ -8,11 +8,4 @@ export async function getUserPrice() {
 
     let res = await axios(config);
     return res.data.price;
-    // axios(config)
-    // .then(function (response) {
-    //     that.userPrice = response.data.price;
-    // })
-    // .catch(function (error) {
-    //     console.log(error);
-    // });
 }

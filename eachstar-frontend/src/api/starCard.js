@@ -12,9 +12,7 @@ export async function starCard(card, type) {
 
     var res = await axios(config)
     .then(function (response) {
-        setTimeout(()=>{
-            return true;
-        }, 1000);
+        return true;
     })
     .catch(function (error) {
         return false;

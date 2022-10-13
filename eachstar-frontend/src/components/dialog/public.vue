@@ -75,7 +75,7 @@
       <div class="title">请确认您的github仓库已公开，其他人才能给您star哦~</div>
       <span class="dialog-footer">
         <el-button @click="publicConfirm = false">取消</el-button>
-        <el-button type="primary" @click="publicCard()"
+        <el-button type="primary" @click="publicButton()"
           >确认, 立即发布</el-button
         >
       </span>
@@ -89,121 +89,75 @@ import { validateGithubUrl } from "../../utils/validate.js";
 import axios from "axios";
 import "../../iconfont/iconfont";
 import bus from "../../utils/emitter";
+import { getExpireTime } from "../../utils/common.js";
+import { getUserPrice } from "../../api/getUserPrice";
+import { getUserName } from "../../api/getUserName.js";
+import { publicCard } from "../../api/publicCard.js"
 export default {
   data() {
     return {
       dialogVisible: false,
       publicConfirm: false,
+      userPrice: "查询中...",
+
       cardTitle: "",
       cardDiscription: "",
       starPrice: 1,
       starNum: 1,
-
-      userPrice: "查询中...",
     };
   },
   methods: {
-    publicCard: function () {
+    /**
+     * 发布按钮
+     */ 
+    async publicButton() {
+      // 剩余积分不足
       if (this.userPrice - this.starPrice * this.starNum < 0) {
         ElMessage({
           message: "您当前星币不足~ 快去star别人的卡片吧!",
           type: "warning",
         });
         this.publicConfirm = false;
+    
+      // 检查是否github链接
       } else if (validateGithubUrl(this.cardTitle)) {
         ElMessage({
           message: "您输入的似乎不是Github链接, 请检查",
           type: "warning",
         });
         this.publicConfirm = false;
-      } else {
-        var that = this;
-        let param = new URLSearchParams();
 
+      } else {
         this.dialogVisible = false;
         this.publicConfirm = false;
         ElMessage("正在尝试发布, 请稍等");
 
-        param.append("title", that.cardTitle);
-        param.append("context", that.cardDiscription);
-        param.append("starPrice", that.starPrice);
-        param.append("starNum", that.starNum);
-        param.append("expireTime", that.getExpireTime());
-        var config = {
-          method: "post",
-          url: "server/api/card",
-          data: param,
-        };
-        axios(config)
-        .then(function (response) {
+        let access = await publicCard(
+          "GitHub", this.cardTitle, this.cardDiscription, this.starPrice, this.starNum);
+        if (access) {
           ElMessage({
             message: "发布成功! 为您重定向至第一页...",
             type: "success",
           });
           bus.emit("refreshUserInfo");
           bus.emit("refreshPageData");
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+        }
       }
     },
 
-    openPage() {
-      // 打开发布页面->需要登录
-      let userName = this.$cookies.get("userName");
-      if (userName) {
-        this.dialogVisible = true;
-
-        var that = this;
-        var config = {
-          method: "get",
-          url: "server/api/user/@me",
-        };
-        axios(config)
-          .then(function (response) {
-            console.log(response.data.price);
-            that.userPrice = response.data.price;
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-      } else {
+    /**
+     * 提供可调用的public页面
+     */ 
+    async openPage() {
+      if (!getUserName("GitHub")) { // 登录
         ElMessage({
           message: "请先进行 登录/注册!",
           type: "warning",
         });
       }
-    },
-
-    getExpireTime() {
-      let now = new Date();
-      now = now.setDate(now.getDate() + 10);
-      now = new Date(now);
-      let year = now.getFullYear();
-      let month = now.getMonth() + 1;
-      let date = now.getDate();
-      let hour = now.getHours();
-      let minute = now.getMinutes();
-      let second = now.getSeconds();
-      if (month < 10) month = "0" + month;
-      if (date < 10) date = "0" + date;
-      if (hour < 10) hour = "0" + hour;
-      if (minute < 10) minute = "0" + minute;
-      if (second < 10) second = "0" + second;
-      return (
-        year +
-        "-" +
-        month +
-        "-" +
-        date +
-        " " +
-        hour +
-        ":" +
-        minute +
-        ":" +
-        second
-      );
+      
+      this.dialogVisible = true; // 显示页面
+      this.userPrice = await getUserPrice();
     },
   },
 };
