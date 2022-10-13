@@ -205,7 +205,6 @@ export default {
   flex-direction: column;
   width: 100%;
   min-width: 960px;
-  margin-left: min(20%,200px);
   .card-list {
     box-shadow: 0px 0px 3px 3px #cdd0d6;
     border-radius: 15px;
