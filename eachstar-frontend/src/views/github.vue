@@ -88,7 +88,6 @@
 </template>
 
 <script>
-import axios from "axios";
 import bus from "../utils/emitter";
 import { ElMessage } from "element-plus";
 import BottomLine from "../components/bottomLine.vue";
