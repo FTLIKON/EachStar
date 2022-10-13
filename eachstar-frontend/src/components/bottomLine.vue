@@ -1,11 +1,19 @@
 <template>
   <div class="main">
-    <div class="icpcode">互联网ICP备案：渝ICP备2022011108号</div>
+    <div class="icpcode">- 互联网ICP备案：渝ICP备2022011108号 -</div>
     <div class="public">
       <div class="says">
         <div class="saytext">开发者们的开源互助社区</div>
         <div class="saytext">World is powered by cooperation</div>
         <div class="saytext">Version: 1.0.0</div>
+      </div>
+      <div class="icons">
+        <svg class="icon svg-icon" aria-hidden="true">
+          <use xlink:href="#icon-qq"></use>
+        </svg>
+        <svg class="icon svg-icon" aria-hidden="true">
+          <use xlink:href="#icon-github"></use>
+        </svg>
       </div>
     </div>
   </div>
