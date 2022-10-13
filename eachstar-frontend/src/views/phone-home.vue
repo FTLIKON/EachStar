@@ -14,6 +14,7 @@ export default { name: "phonehome" }
 .all {
   display: flex;
   align-items: center;
+  flex-direction: column;
 }
 .logo {
   color: #ffffff;
