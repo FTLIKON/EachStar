@@ -1,7 +1,7 @@
 /**
  * 日期字符串
  */
-export function parseTimeString(){
+export function parseTimeString(timeString){
     let resTime;
     let cardTime = new Date(timeString);
     let nowTime = new Date();
