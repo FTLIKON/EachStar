@@ -95,6 +95,7 @@ import GithubAuth from "./githubAuth.vue";
 import Logout from "./dialog/logout.vue";
 import { ElMessage } from "element-plus";
 import { getUserInfo } from "../api/getUserInfo.js"
+import { goEachStar } from "../api/goEachStar.js"
 import "../iconfont/iconfont";
 
 export default {
