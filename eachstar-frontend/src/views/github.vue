@@ -190,7 +190,7 @@ export default {
 
 <style lang="scss" scoped>
 .aside-menu {
-  width: 0.001px !important;
+  width: 20% !important;
 }
 .fronticon {
   width: 25px;
