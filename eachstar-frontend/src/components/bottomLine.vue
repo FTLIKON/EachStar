@@ -8,10 +8,18 @@
         <div class="saytext">Version: 1.0.0</div>
       </div>
       <div class="icons">
-        <svg class="fronticon" style="color: #000000" aria-hidden="true">
+        <svg
+          class="fronticon"
+          style="color: #000000; margin-top: 2%"
+          aria-hidden="true"
+        >
           <use xlink:href="#icon-qq"></use>
         </svg>
-        <svg class="fronticon" style="color: #000000" aria-hidden="true">
+        <svg
+          class="fronticon"
+          style="color: #000000; margin-top: 12%"
+          aria-hidden="true"
+        >
           <use xlink:href="#icon-github"></use>
         </svg>
       </div>
@@ -24,6 +32,14 @@ export default {};
 </script>
 
 <style lang="scss">
+.fronticon {
+  width: 60px;
+  height: 60px;
+  vertical-align: -0.45em;
+  fill: currentColor;
+  overflow: hidden;
+  margin-bottom: auto;
+}
 .main {
   width: 100%;
   height: 100px;
@@ -51,14 +67,6 @@ export default {};
     .icons {
       display: flex;
       flex-direction: row;
-      .fronticon {
-        width: 60px;
-        height: 60px;
-        vertical-align: -0.45em;
-        fill: currentColor;
-        overflow: hidden;
-        margin-bottom: auto;
-      }
     }
   }
 }
