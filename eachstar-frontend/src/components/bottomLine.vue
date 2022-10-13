@@ -76,7 +76,6 @@ export default {
     .says {
       display: flex;
       flex-direction: column;
-      margin-right: 10%;
       .saytext {
         margin-right: auto;
         color: #909399;
