@@ -75,7 +75,7 @@ html, body {
 }
 
 .main-view {
-  width: 80%;
+  width: 100%;
   padding-left: 0px !important;
   padding-right: 0px !important;
   padding-bottom: 0px !important;
