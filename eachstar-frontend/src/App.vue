@@ -15,21 +15,37 @@
           <router-view />
           <bottom-line />
         </el-main>
-        
       </el-container>
     </el-container>
   </div>
 </template>
 
 <script>
-import TopNav from './components/topNav.vue';
-import BottomLine from './components/bottomLine.vue';
-import AsideMenu from './components/asideMenu.vue';
+import TopNav from "./components/topNav.vue";
+import BottomLine from "./components/bottomLine.vue";
+import AsideMenu from "./components/asideMenu.vue";
 export default {
   components: {
     TopNav,
     BottomLine,
-    AsideMenu
+    AsideMenu,
+  },
+  mounted() {
+    if (this._isMobile()) {
+      // 跳转至手机端路由
+      this.$router.replace("/phone-home");
+    } else {
+      // 跳转至 pc 端路由
+      this.$router.replace("/github");
+    }
+  },
+  methods: {
+    _isMobile() {
+      let flag = navigator.userAgent.match(
+        /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
+      );
+      return flag;
+    },
   },
 };
 </script>
@@ -42,7 +58,8 @@ export default {
   text-align: center;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }
