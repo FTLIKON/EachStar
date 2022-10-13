@@ -27,7 +27,7 @@ export default {};
 .main {
   width: 100%;
   height: 100px;
-  margin-bottom: 80px;
+  margin-bottom: 60px;
   background-color: #303133;
   display: flex;
   align-items: center;
