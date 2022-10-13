@@ -6,6 +6,7 @@ export const getDevApiMiddleware = () => {
     prefix: '/api',
   })
   const devController = new DevController()
-  router.post('/user/price', devController.changeUserPrice.bind(devController))
+  router.get('/user/price', devController.changeUserPrice.bind(devController))
+  router.get('/card/testadd', devController.createTestCard.bind(devController))
   return router.routes()
 }
