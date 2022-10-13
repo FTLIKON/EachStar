@@ -13,7 +13,6 @@
         <!-- 卡片页面和底部栏 -->
         <el-main class="main-view">
           <router-view />
-          <bottom-line v-show="!isPhone" />
         </el-main>
       </el-container>
     </el-container>
@@ -22,12 +21,10 @@
 
 <script>
 import TopNav from "./components/topNav.vue";
-import BottomLine from "./components/bottomLine.vue";
 import AsideMenu from "./components/asideMenu.vue";
 export default {
   components: {
     TopNav,
-    BottomLine,
     AsideMenu,
   },
   mounted() {
