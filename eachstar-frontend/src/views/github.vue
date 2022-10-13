@@ -7,74 +7,77 @@
 
     <!-- 卡片视图 -->
     <div class="card-view">
+
       <!-- 卡片列表 -->
-      <el-card v-for="item of currentPageData" :key="item" class="card-list">
-        <div class="card-block">
-          <div class="card-titleblock">
-            <a class="card-title" :href="item.title" target="_blank">
-              {{ item.title.replace("https://github.com/", "") }}</a
-            >
-            <span class="card-time">{{ item.createdAt }}</span>
-          </div>
-          <div class="card-discription">
-            {{ item.context }}
-          </div>
-          <div class="card-valueblock">
-            <span class="card-rank">
-              <span>
-                <svg class="fronticon" aria-hidden="true">
-                  <use xlink:href="#icon-bonus-line"></use>
-                </svg>
-                可获得星币: {{ item.starPrice }}
-              </span>
-              <el-divider direction="vertical" />
-              <span style="color: #409eff">
-                <svg
-                  class="fronticon"
-                  style="width: 23px; height: 23px; vertical-align: -0.42em"
-                  aria-hidden="true"
-                >
-                  <use xlink:href="#icon-cishu"></use>
-                </svg>
-                悬赏次数: {{ item.starNum }}</span
+      <div class="card-container">
+        <el-card v-for="item of currentPageData" :key="item" class="card-list">
+          <div class="card-block">
+            <div class="card-titleblock">
+              <a class="card-title" :href="item.title" target="_blank">
+                {{ item.title.replace("https://github.com/", "") }}</a
               >
-            </span>
-            <el-button
-              v-show="!item.starred && !item.starring && !buttonLoading"
-              id="card-button"
-              @click="starCardButton(item)"
-              plain
-            >
-              <svg class="fronticon" style="color: #b88230" aria-hidden="true">
-                <use xlink:href="#icon-xingxing"></use>
-              </svg>
-              一键Star</el-button
-            >
-            <el-button
-              v-show="!item.starred && item.starring"
-              id="card-button"
-              loading
-              plain
-            >
-              Star请求中...</el-button
-            >
-            <el-button
-              v-show="!item.starred && !item.starring && buttonLoading"
-              id="card-button"
-              loading
-              plain
-            >
-              等待中...</el-button
-            >
-            <el-button v-show="item.starred" id="card-button" type="info" plain>
-              <svg class="fronticon" aria-hidden="true">
-                <use xlink:href="#icon-xingxing1"></use>
-              </svg>
-              Starred</el-button
-            >
+              <span class="card-time">{{ item.createdAt }}</span>
+            </div>
+            <div class="card-discription">
+              {{ item.context }}
+            </div>
+            <div class="card-valueblock">
+              <span class="card-rank">
+                <span>
+                  <svg class="fronticon" aria-hidden="true">
+                    <use xlink:href="#icon-bonus-line"></use>
+                  </svg>
+                  可获得星币: {{ item.starPrice }}
+                </span>
+                <el-divider direction="vertical" />
+                <span style="color: #409eff">
+                  <svg
+                    class="fronticon"
+                    style="width: 23px; height: 23px; vertical-align: -0.42em"
+                    aria-hidden="true"
+                  >
+                    <use xlink:href="#icon-cishu"></use>
+                  </svg>
+                  悬赏次数: {{ item.starNum }}</span
+                >
+              </span>
+              <el-button
+                v-show="!item.starred && !item.starring && !buttonLoading"
+                id="card-button"
+                @click="starCardButton(item)"
+                plain
+              >
+                <svg class="fronticon" style="color: #b88230" aria-hidden="true">
+                  <use xlink:href="#icon-xingxing"></use>
+                </svg>
+                一键Star</el-button
+              >
+              <el-button
+                v-show="!item.starred && item.starring"
+                id="card-button"
+                loading
+                plain
+              >
+                Star请求中...</el-button
+              >
+              <el-button
+                v-show="!item.starred && !item.starring && buttonLoading"
+                id="card-button"
+                loading
+                plain
+              >
+                等待中...</el-button
+              >
+              <el-button v-show="item.starred" id="card-button" type="info" plain>
+                <svg class="fronticon" aria-hidden="true">
+                  <use xlink:href="#icon-xingxing1"></use>
+                </svg>
+                Starred</el-button
+              >
+            </div>
           </div>
-        </div>
-      </el-card>
+        </el-card>
+      </div>
 
       <!-- 卡片换页 -->
       <el-pagination
@@ -218,58 +221,61 @@ export default {
   }
 }
 
-.card-block {
-  .card-titleblock {
-    margin-bottom: 2%;
-    width: 100%;
-    display: flex;
+.card-container {
+  flex-grow: 1;
+  .card-block {
+    .card-titleblock {
+      margin-bottom: 2%;
+      width: 100%;
+      display: flex;
 
-    .card-title {
-      color: #303133;
-      width: 70%;
-      text-align: left;
-      font-size: large;
-      font-weight: bold;
-      text-decoration: none;
+      .card-title {
+        color: #303133;
+        width: 70%;
+        text-align: left;
+        font-size: large;
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      .card-time {
+        color: #606266;
+        width: 30%;
+        text-align: right;
+      }
     }
 
-    .card-time {
+    .card-discription {
       color: #606266;
-      width: 30%;
-      text-align: right;
-    }
-  }
-
-  .card-discription {
-    color: #606266;
-    text-align: left;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    letter-spacing: 0;
-    text-overflow: ellipsis;
-    width: 90%;
-    margin: 0% 3% 3% 3%;
-  }
-
-  .card-valueblock {
-    width: 100%;
-    display: flex;
-
-    .card-rank {
-      color: #b88230;
-      background-color: none;
-
-      width: 80%;
-      margin: auto 3% auto 3%;
       text-align: left;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      letter-spacing: 0;
+      text-overflow: ellipsis;
+      width: 90%;
+      margin: 0% 3% 3% 3%;
     }
 
-    #card-button {
-      color: #303133;
-      font-size: large;
-      width: 30%;
+    .card-valueblock {
+      width: 100%;
+      display: flex;
+
+      .card-rank {
+        color: #b88230;
+        background-color: none;
+
+        width: 80%;
+        margin: auto 3% auto 3%;
+        text-align: left;
+      }
+
+      #card-button {
+        color: #303133;
+        font-size: large;
+        width: 30%;
+      }
     }
   }
 }
