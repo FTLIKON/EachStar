@@ -196,7 +196,6 @@ export default {
 .github {
   display: flex;
   flex: 1;
-  overflow-y: hidden;
 }
 
 .card-view {
