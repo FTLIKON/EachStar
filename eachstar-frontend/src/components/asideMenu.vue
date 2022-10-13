@@ -43,8 +43,8 @@ export default {
       return(()=>{
         console.log(document.documentElement.clientWidth);
         that.windowWidth = document.documentElement.clientWidth;
-      })
-    }
+      })()
+    };
   },
   methods: {
     /**
