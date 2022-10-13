@@ -83,6 +83,7 @@ export default {
       }
     }
     .icons {
+      margin-left: 5%;
       display: flex;
       flex-direction: row;
     }
