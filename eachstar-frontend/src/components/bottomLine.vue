@@ -26,7 +26,7 @@ export default {};
 <style lang="scss">
 .main {
   width: 100%;
-  height: 160px;
+  height: 100px;
   background-color: #303133;
   display: flex;
   align-items: center;
