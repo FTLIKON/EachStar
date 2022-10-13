@@ -67,7 +67,7 @@ export class DevController {
     }
     const userPrice =
       type == 'GitHub' ? ctx.github_user.price : ctx.gitee_user.price
-    const newPrice = userPrice - 500
+    const newPrice = userPrice - BigInt(500)
     const user = await this.repository.changeUserPrice(type, userId, newPrice)
     if (type == 'GitHub') {
       ctx.github_user = user
