@@ -1,5 +1,5 @@
 <template>
-  <div id="menu" :style="{width:this.windowWidth+'px'}">
+  <div id="menu" :style="{width:0.2 * this.windowWidth+'px'}">
     <el-button class="public-button" @click="openPublicDialog()" type="success">
       <svg
         class="fronticon"
@@ -69,7 +69,6 @@ export default {
 
 <style scoped>
 #menu {
-  width: 100%;
   min-width: 200px;
 }
 
@@ -82,13 +81,12 @@ export default {
   margin-bottom: auto;
 }
 .public-button {
-  width: 150px;
-  margin-left: 75px;
+  width: 80%;
+  margin: 5px;
   height: 50px;
   font-size: larger;
   font-weight: bolder;
   text-shadow: 1px 1px 2px #303133, 0px 0px 2px #303133;
-  margin-left: 10%;
   border-radius: 15px;
   box-shadow: var(--el-box-shadow-dark);
 }
