@@ -12,6 +12,7 @@
           class="fronticon"
           style="color: #000000; margin-top: 2%"
           aria-hidden="true"
+          href="https://github.com/FTLIKON/EachStar"
         >
           <use xlink:href="#icon-qq"></use>
         </svg>
