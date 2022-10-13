@@ -6,7 +6,7 @@
         <top-nav />
       </el-header>
 
-      <el-container style="height: 100%">
+      <el-container style="overflow: auto">
         <!-- 侧边菜单 -->
         <!-- <el-aisde class="aside-view"><aside-menu /></el-aisde> -->
 

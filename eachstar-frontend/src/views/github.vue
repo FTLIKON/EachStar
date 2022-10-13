@@ -78,21 +78,20 @@
           </div>
         </el-card>
 
-        <el-pagination
-          class="pagination"
-          layout="prev, pager, next"
-          @current-change="pageChange"
-          :total="totalPage * 10"
-        />
-
-        <div class="footer">
-          <bottom-line />
-        </div>
-
+        
       </div>
 
       <!-- 卡片换页 -->
+      <el-pagination
+        class="pagination"
+        layout="prev, pager, next"
+        @current-change="pageChange"
+        :total="totalPage * 10"
+      />
 
+      <div class="footer">
+        <bottom-line />
+      </div>
     </div>
   </div>
 </template>
