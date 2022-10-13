@@ -76,7 +76,7 @@ html, body {
 
 .main-view {
   width: 100%;
-  display: flex;
+  display: flex !important;
   flex-direction: column;
   padding-left: 0px !important;
   padding-right: 0px !important;
