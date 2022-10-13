@@ -3,7 +3,7 @@
     <div class="icpcode">- 互联网ICP备案：渝ICP备2022011108号 -</div>
     <div class="public">
       <div class="says">
-        <div class="saytext">开发者们的开源互助社区</div>
+        <div class="saytext">开发者们的开源互助s社区</div>
         <div class="saytext">World is powered by cooperation</div>
         <div class="saytext">Version: 1.0.0</div>
       </div>
