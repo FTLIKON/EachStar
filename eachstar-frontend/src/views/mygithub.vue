@@ -171,6 +171,7 @@ export default {
 }
 
 .card-container {
+  flex-grow: 1;
   .card-block {
     .card-titleblock {
       margin-bottom: 2%;
