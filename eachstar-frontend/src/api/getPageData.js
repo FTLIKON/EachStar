@@ -30,6 +30,6 @@ export async function getPageData(type, page) {
         index++; start++;
     }
     res.data.data = list;
-    console.log(res.data)
+    console.log(res.data.data)
     return res.data;
 }
