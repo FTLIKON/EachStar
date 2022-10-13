@@ -17,4 +17,4 @@ export class DevController {
   }
 
 }
-export default UserController
+export default DevController
