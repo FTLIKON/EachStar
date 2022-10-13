@@ -35,8 +35,8 @@ export default {
     };
   },
   methods: {  
-    async deleteButton(cardId){
-      if (deleteCard("GitHub", cardId)){
+    async deleteButton(){
+      if (deleteCard("GitHub", this.cardId)){
         ElMessage({
             message: "已成功删除：" + this.cardTitle,
             type: "success",
