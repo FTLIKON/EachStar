@@ -77,8 +77,6 @@
             </div>
           </div>
         </el-card>
-
-        
       </div>
 
       <!-- 卡片换页 -->
@@ -89,9 +87,7 @@
         :total="totalPage * 10"
       />
 
-      <div class="footer">
-        <bottom-line />
-      </div>
+      <bottom-line />
     </div>
   </div>
 </template>
@@ -209,9 +205,8 @@ export default {
 .card-view {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 100%;
   min-width: 960px;
-  margin-left: min(20%, 200px);
   .card-list {
     box-shadow: 0px 0px 3px 3px #cdd0d6;
     border-radius: 15px;
@@ -283,9 +278,5 @@ export default {
       }
     }
   }
-}
-
-.footer {
-  height: 100px !important;
 }
 </style>
