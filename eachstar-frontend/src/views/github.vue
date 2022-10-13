@@ -78,7 +78,7 @@
 
       <!-- 卡片换页 -->
       <el-pagination
-        id="pagination"
+        class="pagination"
         layout="prev, pager, next"
         @current-change="pageChange"
         :total="totalPage * 10"
@@ -212,8 +212,8 @@ export default {
     margin-right: 20%;
     margin-bottom: 2%;
   }
-  #pagination {
-    margin: 3% 40% 3% 0%;
+  .pagination {
+    margin: 3% 0% 3% 0%;
     justify-content: center;
   }
 }
