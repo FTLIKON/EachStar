@@ -60,7 +60,7 @@ export default {
       this.cardDiscription = card.context;
       this.starPrice = card.starPrice;
       this.starNum = card.starNum;
-      this.userPrice = await getUserPrice();
+      this.userPrice = await getUserPrice("GitHub");
     },
   },
 }

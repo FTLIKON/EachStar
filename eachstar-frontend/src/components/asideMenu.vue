@@ -59,7 +59,7 @@ export default {
      * api更新用户积分
      */
     async updateUserPrice() {
-      this.userPrice = await getUserPrice();
+      this.userPrice = await getUserPrice("GitHub");
     },
   },
   components: {
