@@ -42,7 +42,7 @@ export default {
             type: "success",
         });
         bus.emit("refreshUserInfo");
-        this.$parent.getMyPageData(this.$parent.currentPage);
+        this.$parent.pageChange(this.$parent.currentPage);
         this.dialogVisible = false;
       }
       this.cardRemoving = false;
