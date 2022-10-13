@@ -2,9 +2,11 @@
   <div class="main">
     <div class="icpcode">互联网ICP备案：渝ICP备2022011108号</div>
     <div class="public">
-      <div class="saytext">开发者们的开源互助社区</div>
-      <div class="saytext">World is powered by cooperation</div>
-      <div class="saytext">Version: 1.0.0</div>
+      <div class="says">
+        <div class="saytext">开发者们的开源互助社区</div>
+        <div class="saytext">World is powered by cooperation</div>
+        <div class="saytext">Version: 1.0.0</div>
+      </div>
     </div>
   </div>
 </template>
@@ -30,9 +32,17 @@ export default {};
   .public {
     display: flex;
     flex-direction: row;
-    .saytext {
-      color: #909399;
-      margin-top: 2px;
+    .says {
+      display: flex;
+      flex-direction: column;
+      .saytext {
+        color: #909399;
+        margin-top: 2px;
+      }
+    }
+    .icons {
+      display: flex;
+      flex-direction: row;
     }
   }
 }
