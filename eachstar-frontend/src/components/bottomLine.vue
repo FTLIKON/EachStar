@@ -12,7 +12,7 @@ export default {};
 .main {
   bottom: 0;
   width: 100%;
-  height: 5%;
+  height: 100px;
   background-color: #303133;
   display: flex;
   align-items: center;
