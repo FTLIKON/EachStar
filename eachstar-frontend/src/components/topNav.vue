@@ -22,7 +22,7 @@
             发现仓库</router-link
           >
         </el-menu-item>
-        <el-divider direction="vertical" />
+        <el-divider class="divider" direction="vertical" />
         <el-menu-item index="2">
           <router-link to="/mygithub" class="link" v-show="isLogin">
             <svg class="fronticon" aria-hidden="true">
