@@ -1,5 +1,5 @@
 <template>
-  <div id="menu">
+  <div id="menu" :style="{width:this.windowWidth+'px'}">
     <el-button class="public-button" @click="openPublicDialog()" type="success">
       <svg
         class="fronticon"
@@ -31,11 +31,19 @@ export default {
   data() {
     return {
       userPrice: null,
+      windowWidth: 1000,
     };
   },
   mounted() {
     this.updateUserPrice();
     bus.on("refreshUserInfo", this.updateUserPrice);
+
+    var that = this;
+    window.onresize = ()=> {
+      return(()=>{
+        that.windowWidth = window.fullWidth;
+      })
+    }
   },
   methods: {
     /**
