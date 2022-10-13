@@ -1,12 +1,12 @@
 <template>
   <div id="app">
-    <el-container>
+    <el-container style="height:100%">
       <!-- 头部导航栏 -->
       <el-header class="top-nav" v-show="!isPhone">
         <top-nav />
       </el-header>
 
-      <el-container>
+      <el-container style="height: 100%">
         <!-- 侧边菜单 -->
         <!-- <el-aisde class="aside-view"><aside-menu /></el-aisde> -->
 
@@ -60,12 +60,13 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  height: 100%;
 }
 
-html,
-body {
+html, body {
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 .top-nav {
@@ -74,7 +75,9 @@ body {
 }
 
 .main-view {
-  width: 80%;
+  width: 100%;
+  display: flex !important;
+  flex-direction: column;
   padding-left: 0px !important;
   padding-right: 0px !important;
   padding-bottom: 0px !important;
