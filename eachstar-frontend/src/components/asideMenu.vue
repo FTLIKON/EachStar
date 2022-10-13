@@ -39,9 +39,9 @@ export default {
     bus.on("refreshUserInfo", this.updateUserPrice);
 
     var that = this;
-    window.onresize = ()=> {
+    window.onresize = () => {
       return(()=>{
-        that.windowWidth = window.fullWidth;
+        that.windowWidth = window.innerWidth;
       })
     }
   },
