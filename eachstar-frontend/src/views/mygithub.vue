@@ -164,6 +164,7 @@ export default {
     margin-left: 25%;
     margin-right: 25%;
     margin-bottom: 2%;
+    min-width: 600px;
   }
   #pagination {
     margin: 3% 0% 3% 0%;
