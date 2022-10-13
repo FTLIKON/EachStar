@@ -7,7 +7,7 @@
       </div>
       <span class="dialog-footer">
         <el-button @click="dialogVisible = false">取消</el-button>
-        <el-button type="primary" @click="deleteStar" v-show="!cardRemoving">删除</el-button>
+        <el-button type="primary" @click="deleteButton" v-show="!cardRemoving">删除</el-button>
       </span>
     </div>
   </el-dialog>
@@ -16,67 +16,51 @@
 <script>
 import bus from '../../utils/emitter';
 import { ElMessage } from "element-plus";
-import axios from "axios";
+import { getUserPrice } from '../../api/getUserPrice';
+import { deleteCard } from "../../api/deleteCard";
 
 export default {
   data() {
     return {
       dialogVisible: false,
+      cardRemoving: false,
+      userPrice: "查询中...",
+
       cardId: 0,
       cardTitle: "",
       cardDiscription: "",
-      cardRemoving: false,
       starPrice: 1,
       starNum: 1,
-
-      userPrice: "查询中...",
     };
   },
   methods: {  
-    deleteStar: function(){
-      var that = this;
-      that.cardRemoving = true;
-      var config = {
-        method: "delete",
-        url: "server/api/card?cardId=" + that.cardId,
-      };
-      axios(config)
-      .then(function (response) {
+    /**
+     * 删除卡片
+     */ 
+    async deleteButton(){
+      if (deleteCard("GitHub", this.cardId)){
         ElMessage({
-          message: "已成功删除：" + that.cardTitle,
-          type: "success",
+            message: "已成功删除：" + this.cardTitle,
+            type: "success",
         });
         bus.emit("refreshUserInfo");
-        that.$parent.getMyPageData(that.$parent.currentPage);
-        that.dialogVisible = false;
-        that.cardRemoving = false;
-      })
-      .catch(function (error) {
-        console.log(error);
-        that.cardRemoving = false;
-      });
+        this.dialogVisible = false;
+        await this.$parent.pageChange(this.$parent.currentPage);
+      }
+      this.cardRemoving = false;
     },
 
-    openPage(card) { // 打开该卡片的发布页面
+    /**
+     * 打开页面
+     */ 
+    async openPage(card) {
       this.dialogVisible = true;
       this.cardId = card.id;
       this.cardTitle = card.title;
       this.cardDiscription = card.context;
       this.starPrice = card.starPrice;
       this.starNum = card.starNum;
-      var that = this;
-      var config = {
-        method: 'get',
-        url: 'server/api/user/@me'
-      };
-      axios(config)
-      .then(function (response) {
-        console.log(response.data.price);
-        that.userPrice = parseInt(response.data.price);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+      this.userPrice = await getUserPrice();
     },
   },
 }
