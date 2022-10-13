@@ -209,7 +209,7 @@ export default {
 .card-view {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 80%;
   min-width: 960px;
   .card-list {
     box-shadow: 0px 0px 3px 3px #cdd0d6;
