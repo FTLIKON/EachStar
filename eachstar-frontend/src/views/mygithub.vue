@@ -76,11 +76,12 @@ import Delete from "../components/dialog/delete.vue";
 import BottomLine from "../components/bottomLine.vue";
 import AsideMenu from "../components/asideMenu.vue";
 import "../iconfont/iconfont";
+import { getMyPageData } from "../api/getMyPageData.js";
 
 export default {
   name: "mygithub",
   mounted() {
-    this.pageChange(1);
+    this.refreshPageData();
     bus.on("refreshPageData", this.refreshPageData);
   },
   data() {
@@ -95,63 +96,31 @@ export default {
     };
   },
   methods: {
-    // ---------- 删除相关 ----------
+    /**
+     * 删除按钮
+     */ 
     deleteButton(card) {
-      // 删除按钮->点击打开delete.vue
       this.$.refs.Delete.openPage(card);
     },
 
-    // ---------- page内容显示 ----------
-    pageChange: function (page) {
-      this.currentPage = page - 1;
-      this.getMyPageData(this.currentPage);
+    /**
+     * 切换页面
+     */ 
+    async pageChange(page) {
+      this.currentPage = page;
+      this.loading = true;
+
+      var src = await getMyPageData("GitHub", this.currentPage);
+      this.currentPageData = src.data;
+      this.totalPage = Math.ceil(src.count / 10);
+      this.loading = false;
     },
+
+    /**
+     * 刷新页面(到第一页)
+     */ 
     refreshPageData: function () {
       this.pageChange(1);
-    },
-    parseTimeString: function (timeString) {
-      let resTime;
-      let cardTime = new Date(timeString);
-      let nowTime = new Date();
-      let diffTime = nowTime.getTime() + 9000 - cardTime.getTime();
-      if (diffTime < 60 * 1000) {
-        resTime = Math.floor(diffTime / 1000) + "秒前";
-      } else if (diffTime < 3600 * 1000) {
-        resTime = Math.floor(diffTime / (60 * 1000)) + "分钟前";
-      } else if (diffTime < 3600 * 24 * 1000) {
-        resTime = Math.floor(diffTime / (3600 * 1000)) + "小时前";
-      } else {
-        resTime = Math.floor(diffTime / (3600 * 24 * 1000)) + "天前";
-      }
-      return resTime;
-    },
-    getMyPageData: function (page) {
-      var that = this;
-      var config = {
-        method: "get",
-        url: "/server/api/card/@me?start=" + page * that.pageSize,
-      };
-      axios(config)
-        .then(function (response) {
-          that.totalCard = parseInt(response.data.count);
-          that.totalPage = Math.ceil(that.totalCard / 10);
-
-          var list = [];
-          var index = 0;
-          var start = page * that.pageSize;
-          while (index < that.pageSize && start < that.totalCard) {
-            let nowData = response.data.data[index];
-            nowData.createdAt = that.parseTimeString(nowData.createdAt);
-            list.push(nowData);
-            index++;
-            start++;
-          }
-          that.currentPageData = list;
-          that.loading = false;
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
     },
   },
   components: {
