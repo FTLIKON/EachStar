@@ -157,7 +157,7 @@ export default {
       }
       
       this.dialogVisible = true; // 显示页面
-      this.userPrice = await getUserPrice();
+      this.userPrice = await getUserPrice("GitHub");
     },
   },
 };
