@@ -1,5 +1,5 @@
 <template>
-  <div id="menu" :style="{width:this.windowWidth+'px'}">
+  <div id="menu" :style="{width:0.25 * this.windowWidth+'px'}">
     <el-button class="public-button" @click="openPublicDialog()" type="success">
       <svg
         class="fronticon"
@@ -36,6 +36,7 @@ export default {
   },
   mounted() {
     this.updateUserPrice();
+    this.windowWidth = document.documentElement.clientWidth;
     bus.on("refreshUserInfo", this.updateUserPrice);
 
     var that = this;
@@ -69,7 +70,6 @@ export default {
 
 <style scoped>
 #menu {
-  width: 100%;
   min-width: 200px;
 }
 
@@ -82,13 +82,12 @@ export default {
   margin-bottom: auto;
 }
 .public-button {
-  width: 150px;
-  margin-left: 75px;
+  width: 50%;
   height: 50px;
+  min-width: 150px;
   font-size: larger;
   font-weight: bolder;
   text-shadow: 1px 1px 2px #303133, 0px 0px 2px #303133;
-  margin-left: 10%;
   border-radius: 15px;
   box-shadow: var(--el-box-shadow-dark);
 }
@@ -99,6 +98,5 @@ export default {
   align-items: center;
   font-family: "微软雅黑";
   margin-top: 2%;
-  margin-left: 5%;
 }
 </style>
