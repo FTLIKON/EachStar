@@ -90,12 +90,10 @@
 
 <script>
 import bus from "../utils/emitter";
-import axios from "axios";
 import GithubAuth from "./githubAuth.vue";
 import Logout from "./dialog/logout.vue";
 import { ElMessage } from "element-plus";
 import { getUserInfo } from "../api/getUserInfo.js"
-import { goEachStar } from "../api/goEachStar.js"
 import "../iconfont/iconfont";
 
 export default {
@@ -146,6 +144,13 @@ export default {
       this.userIconURL = data.avatar;
       this.isLogin = true;
     },
+
+    /**
+     * 前往EachStar主页
+     */ 
+    goEachStar() {
+      window.location.href = "https://github.com/FTLIKON/EachStar";
+    }
   },
   components: {
     GithubAuth,
