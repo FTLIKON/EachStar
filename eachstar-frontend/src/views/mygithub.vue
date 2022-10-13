@@ -2,7 +2,7 @@
   <div class="mygithub" v-loading="loading">
     <!-- 侧栏视图 -->
     <el-affix class="aside-menu" :offset="100">
-      <aside-menu />card-view
+      <aside-menu />
     </el-affix>
 
     <!-- 卡片视图 -->
