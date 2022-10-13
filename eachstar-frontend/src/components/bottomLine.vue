@@ -36,6 +36,7 @@ export default {};
       display: flex;
       flex-direction: column;
       .saytext {
+        margin-right: auto;
         color: #909399;
         margin-top: 2px;
       }
