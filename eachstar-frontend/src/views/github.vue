@@ -182,10 +182,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.aside-menu {
-  width: 20% !important;
-}
-
 .fronticon {
   width: 25px;
   height: 25px;
