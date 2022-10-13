@@ -1,5 +1,5 @@
 <template>
-  <div id="menu" :style="{width:0.2 * this.windowWidth+'px'}">
+  <div id="menu" :style="{width:0.25 * this.windowWidth+'px'}">
     <el-button class="public-button" @click="openPublicDialog()" type="success">
       <svg
         class="fronticon"
@@ -82,7 +82,6 @@ export default {
 }
 .public-button {
   width: 80%;
-  margin: 5px;
   height: 50px;
   font-size: larger;
   font-weight: bolder;
@@ -97,6 +96,5 @@ export default {
   align-items: center;
   font-family: "微软雅黑";
   margin-top: 2%;
-  margin-left: 5%;
 }
 </style>
