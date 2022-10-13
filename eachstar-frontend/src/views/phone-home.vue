@@ -11,8 +11,10 @@
 <script></script>
 export default { name: "phonehome" }
 <style lang="scss" scoped>
-
-
+.all {
+  display: flex;
+  align-items: center;
+}
 .logo {
   color: #ffffff;
   font-weight: bold;
