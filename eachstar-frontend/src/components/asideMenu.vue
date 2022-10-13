@@ -41,6 +41,7 @@ export default {
     var that = this;
     window.onresize = () => {
       return(()=>{
+        console.log(window.innerWidth);
         that.windowWidth = window.innerWidth;
       })
     }
