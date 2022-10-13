@@ -12,7 +12,6 @@
           class="fronticon"
           style="color: #000000; margin-top: 2%"
           aria-hidden="true"
-          href="https://github.com/FTLIKON/EachStar"
         >
           <use xlink:href="#icon-qq"></use>
         </svg>
@@ -20,6 +19,7 @@
           class="fronticon"
           style="color: #000000; margin-top: 2%"
           aria-hidden="true"
+          @click="goEachStar"
         >
           <use xlink:href="#icon-github"></use>
         </svg>
@@ -29,7 +29,16 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    /**
+     * 前往EachStar主页
+     */
+    goEachStar() {
+      window.location.href = "https://github.com/FTLIKON/EachStar";
+    },
+  },
+};
 </script>
 
 <style lang="scss">
