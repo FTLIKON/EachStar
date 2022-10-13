@@ -2,7 +2,7 @@
   <div id="app">
     <el-container>
       <!-- 头部导航栏 -->
-      <el-header class="top-nav">
+      <el-header class="top-nav" v-show="!isPhone">
         <top-nav />
       </el-header>
 
@@ -13,7 +13,7 @@
         <!-- 卡片页面和底部栏 -->
         <el-main class="main-view">
           <router-view />
-          <bottom-line />
+          <bottom-line v-show="!isPhone" />
         </el-main>
       </el-container>
     </el-container>
@@ -34,10 +34,14 @@ export default {
     if (this._isMobile()) {
       // 跳转至手机端路由
       this.$router.replace("/phone-home");
+      this.isPhone = true;
     } else {
       // 跳转至 pc 端路由
       this.$router.replace("/github");
     }
+  },
+  data() {
+    return { isPhone: false };
   },
   methods: {
     _isMobile() {
