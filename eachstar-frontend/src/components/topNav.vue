@@ -179,7 +179,7 @@ export default {
       router.push('/'+this.type.toLowerCase())
       this.updateUserInfo();
       this.isDark = !this.isDark;
-      bus.emit("refreshUserInfo");
+      bus.emit("refreshUserInfo", this.type);
     },
 
     /**
