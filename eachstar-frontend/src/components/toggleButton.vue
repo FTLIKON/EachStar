@@ -5,7 +5,7 @@
     </button>
 </template>
 
-<script>
+<script setup>
 import { useToggle } from '@vueuse/shared'
 import { isDark } from '../../.vitepress/theme/composables/dark'
 
