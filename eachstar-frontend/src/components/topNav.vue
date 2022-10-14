@@ -165,7 +165,7 @@ export default {
       } else if (this.type=="Gitee") {
         this.type = "GitHub";
       }
-      router.push('/'+type)
+      router.push('/'+this.type)
       this.updateUserInfo();
       this.isDark = !this.isDark;
     },
