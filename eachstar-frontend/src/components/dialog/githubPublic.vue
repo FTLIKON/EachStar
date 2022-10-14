@@ -141,7 +141,6 @@ export default {
             message: "发布成功! 为您重定向至第一页...",
             type: "success",
           });
-          bus.emit("refreshUserInfo", "GitHub");
           bus.emit("refreshUserPrice", "GitHub");
           bus.emit("refreshPageData", "GitHub");
         }

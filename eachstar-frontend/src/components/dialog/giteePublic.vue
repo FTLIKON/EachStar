@@ -140,7 +140,6 @@ export default {
             message: "发布成功! 为您重定向至第一页...",
             type: "success",
           });
-          bus.emit("refreshUserInfo", "Gitee");
           bus.emit("refreshUserPrice", "Gitee");
           bus.emit("refreshPageData", "Gitee");
         }
