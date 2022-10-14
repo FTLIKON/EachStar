@@ -42,6 +42,37 @@
         </el-menu-item>
       </div>
 
+      <div class="mid-block" v-show="this.type=='GitEE'">
+        <el-menu-item index="1">
+          <router-link to="/gitee" class="link">
+            <svg class="fronticon" style="margin-top: 10%" aria-hidden="true">
+              <use xlink:href="#icon-fangdajing"></use>
+            </svg>
+            发现仓库
+          </router-link>
+        </el-menu-item>
+        <el-divider class="divider" direction="vertical" />
+        <el-menu-item index="2">
+          <router-link to="/mygitee" class="link" v-show="isLogin">
+            <svg class="fronticon" aria-hidden="true">
+              <use xlink:href="#icon-geren"></use>
+            </svg>
+            我的仓库</router-link
+          >
+          <router-link
+            to="/gitee"
+            @click="noLoginError()"
+            class="link"
+            v-show="!isLogin"
+          >
+            <svg class="fronticon" aria-hidden="true">
+              <use xlink:href="#icon-geren"></use>
+            </svg>
+            我的仓库</router-link
+          >
+        </el-menu-item>
+      </div>
+
       <div class="right-block">
         <el-button v-show="!isLogin" @click="authButton()" id="auth-button"
           >登录 / 注册</el-button
