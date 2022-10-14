@@ -194,7 +194,6 @@ export default {
 
       bus.emit("typeChange");
       router.push('/'+this.type.toLowerCase())
-      console.log("topNav传参"+this.type);
       bus.emit("refreshUserInfo", this.type);
     },
 

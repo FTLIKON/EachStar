@@ -40,9 +40,9 @@ export default {
     };
   },
   mounted() {
+    this.updateUserPrice(this.type)
     bus.on("refreshUserInfo", this.updateUserPrice);
     bus.on("typeChange", this.typeChange)
-    this.updateUserPrice(this.type)
 
     var that = this;
     this.windowWidth = document.documentElement.clientWidth;
