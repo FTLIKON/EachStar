@@ -156,6 +156,7 @@ export default {
             message: "一键star失败, 请稍后再试试~",
             type: "warning",
         });
+        card.starring = false;
         card.starred = false;
       }
     },
