@@ -1,0 +1,18 @@
+<template>
+    <button @click="toggleDark()">
+        <i inline-block align-middle i="dark:carbon-moon carbon-sun" />
+        <span class="ml-2">{{ isDark ? 'Dark' : 'Light' }}</span>
+    </button>
+</template>
+
+<script>
+import { useToggle } from '@vueuse/shared'
+import { isDark } from '../../.vitepress/theme/composables/dark'
+
+// const isDark = useDark()
+const toggleDark = useToggle(isDark)
+</script>
+
+<style>
+
+</style>

@@ -11,6 +11,7 @@
           <img class="logo-pic" src="icon.png" @click="goEachStar" />
           <span @click="goEachStar">EachStar</span>
         </div>
+        <toggle-button />
       </div>
 
       <div class="mid-block">
