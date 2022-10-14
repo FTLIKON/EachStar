@@ -5,7 +5,7 @@
     title="退出登录"
   >
     <div class="logout-block">
-      <div class="title">确认要退出登录吗?</div>
+      <div class="title">确认要登出GitHub吗?</div>
       <span class="dialog-footer">
         <el-button @click="dialogVisible = false">取消</el-button>
         <el-button type="primary" @click="userLogout">确认</el-button>
@@ -43,7 +43,7 @@ export default {
     userLogout() {
       var config = {
         method: "get",
-        url: "server/oauth/logout",
+        url: "server/oauth/github/logout",
       };
       axios(config)
         .then(function (response) {

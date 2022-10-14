@@ -92,7 +92,7 @@
 <script>
 import bus from "../utils/emitter";
 import GithubAuth from "./githubAuth.vue";
-import Logout from "./dialog/logout.vue";
+import Logout from "./dialog/githubLogout.vue";
 import ToggleButton from "./toggleButton.vue";
 import { ElMessage } from "element-plus";
 import { getUserInfo } from "../api/getUserInfo.js"
