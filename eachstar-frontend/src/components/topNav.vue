@@ -42,7 +42,7 @@
         </el-menu-item>
       </div>
 
-      <div class="mid-block" v-show="this.type=='GitEE'">
+      <div class="mid-block" v-show="this.type=='Gitee'">
         <el-menu-item index="1">
           <router-link to="/gitee" class="link">
             <svg class="fronticon" style="margin-top: 10%" aria-hidden="true">
