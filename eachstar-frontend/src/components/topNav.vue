@@ -162,14 +162,14 @@ export default {
     };
   },
   mounted() {
-    await this.updateUserInfo();
+    this.updateUserInfo();
     bus.on("refreshUserInfo", this.updateUserInfo);
   },
   methods: {
     /**
      * 切换Type
      */ 
-    toggleType() {
+    async toggleType() {
       if (this.type=="GitHub") {
         this.type = "Gitee";
       } else if (this.type=="Gitee") {
