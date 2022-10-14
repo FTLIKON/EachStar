@@ -1,6 +1,7 @@
 import axios from "axios";
 import cookies from "vue-cookies"
 export function getUserId(type) {
+    console.log(this.$cookies.get('githubId'));
     if (type=="github") {
         if (this.$cookies.get('githubId')) {
             return this.$cookies.get('githubId')
