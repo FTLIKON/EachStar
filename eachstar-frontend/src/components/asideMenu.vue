@@ -1,5 +1,5 @@
 <template>
-  <div id="menu" :style="{width:0.25 * this.windowWidth+'px'}">
+  <div id="menu" :style="{ width: 0.25 * this.windowWidth + 'px' }">
     <el-button class="public-button" @click="openPublicDialog()" type="success">
       <svg
         class="fronticon"
@@ -10,15 +10,30 @@
       </svg>
       发布卡片
     </el-button>
-    <div v-show="userPrice && type=='GitHub'" class="user-price">
-      <svg class="fronticon" style="color: #b88230; width: 23px; height: 23px" aria-hidden="true">
-        <use xlink:href="#icon-bonus-line"></use>
-      </svg>可用星币: {{ userPrice }}
+    <div v-show="userPrice && type == 'GitHub'" class="user-price">
+      <svg
+        class="fronticon"
+        style="color: #b88230; width: 23px; height: 23px; margin-top: 2%"
+        aria-hidden="true"
+      >
+        <use xlink:href="#icon-bonus-line"></use></svg
+      >可用星币: {{ userPrice }}
     </div>
-    <div v-show="userPrice && type=='Gitee'" class="user-price">
-      <svg class="fronticon" style="color: #b88230; width: 23px; height: 23px" aria-hidden="true">
-        <use xlink:href="#icon-bonus-line"></use>
-      </svg>可用云币: {{ userPrice }}
+    <div v-show="userPrice && type == 'Gitee'" class="user-price">
+      <svg
+        class="fronticon"
+        style="
+          width: 18px;
+          height: 18px;
+          color: #c45656;
+          margin-top: 2%;
+          margin-right: 2%;
+        "
+        aria-hidden="true"
+      >
+        <use xlink:href="#icon-yunpan"></use>
+      </svg>
+      可用云币: {{ userPrice }}
     </div>
     <giteePublic ref="giteePublic" />
     <githubPublic ref="githubPublic" />
@@ -46,14 +61,14 @@ export default {
       }
     }, 2000);
     bus.on("refreshUserInfo", this.updateUserPrice);
-    bus.on("typeChange", this.typeChange)
+    bus.on("typeChange", this.typeChange);
 
     var that = this;
     this.windowWidth = document.documentElement.clientWidth;
     window.onresize = () => {
-      return(()=>{
+      return (() => {
         that.windowWidth = document.documentElement.clientWidth;
-      })()
+      })();
     };
   },
   methods: {
@@ -62,9 +77,9 @@ export default {
      */
     openPublicDialog() {
       if (UserIsLogin(this.type)) {
-        if ( this.type == "Gitee" ) {
+        if (this.type == "Gitee") {
           this.$.refs.giteePublic.openPage();
-        } else if ( this.type == "GitHub" ) {
+        } else if (this.type == "GitHub") {
           this.$.refs.githubPublic.openPage();
         }
       } else {
@@ -81,29 +96,29 @@ export default {
     async updateUserPrice(type) {
       this.type = type;
       var isLogin = false;
-      if ( type == "GitHub" ) {
-        if(this.$cookies.get("githubName")){
+      if (type == "GitHub") {
+        if (this.$cookies.get("githubName")) {
           isLogin = true;
         }
-      } else if ( type == "Gitee" ) {
-        if(this.$cookies.get("giteeName")){
+      } else if (type == "Gitee") {
+        if (this.$cookies.get("giteeName")) {
           isLogin = true;
         }
       }
 
       if (isLogin) {
-        console.log(type)
+        console.log(type);
         this.userPrice = await getUserPrice(type);
       }
     },
 
     /**
      * 切换页面注销钩子
-     */ 
+     */
     async typeChange() {
       bus.off("refreshUserInfo", this.updateUserPrice);
-      bus.off("typeChange", this.typeChange)
-    }
+      bus.off("typeChange", this.typeChange);
+    },
   },
   components: {
     giteePublic,
