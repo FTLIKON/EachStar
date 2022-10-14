@@ -38,7 +38,6 @@ export default {
     };
   },
   mounted() {
-    this.updateUserPrice(this.type);
     bus.on("refreshUserInfo", this.updateUserPrice);
     bus.on("typeChange", this.typeChange)
 
@@ -59,7 +58,7 @@ export default {
     },
 
     /**
-     * api更新用户积分
+     * api更新用户积分和type
      */
     async updateUserPrice(type) {
       this.type = type;
