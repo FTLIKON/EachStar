@@ -38,7 +38,7 @@
           class="slider"
           :step="1"
           :min="1"
-          :max="5"
+          :max="this.minx(5, userPrice/starNum)"
         ></el-slider>
       </div>
       <div class="rank-num-block">
@@ -62,7 +62,7 @@
           class="slider"
           :step="1"
           :min="1"
-          :max="50"
+          :max="this.minx(50, userPrice/starPrice)"
         ></el-slider>
       </div>
       <div class="user-rank-calc">
@@ -157,6 +157,7 @@ export default {
             type: "success",
           });
           bus.emit("refreshUserPrice", "Gitee");
+          bus.emit("refreshUserInfo", "Gitee");
           bus.emit("refreshPageData", "Gitee");
         }
       }
@@ -176,6 +177,11 @@ export default {
         this.dialogVisible = true; // 显示页面
         this.userPrice = await getUserPrice("Gitee");
       }
+    },
+
+    minx(a, b) {
+      if ( a > b ) return Math.floor(b);
+      return Math.floor(a);
     },
   },
 };
