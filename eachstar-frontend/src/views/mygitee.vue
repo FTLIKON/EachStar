@@ -180,7 +180,7 @@ export default {
       width: 100%;
       display: flex;
       .card-title {
-        color: #303133;
+        color: #e4e7ed;
         width: 70%;
         text-align: left;
         font-size: large;
@@ -189,14 +189,14 @@ export default {
       }
 
       .card-time {
-        color: #606266;
+        color: #a8abb2;
         width: 30%;
         text-align: right;
       }
     }
 
     .card-discription {
-      color: #606266;
+      color: #909399;
       text-align: left;
       display: -webkit-box;
       -webkit-line-clamp: 2;
@@ -221,7 +221,7 @@ export default {
       }
 
       #card-button {
-        color: #303133;
+        color: #e4e7ed;
         font-size: large;
         width: 30%;
       }
