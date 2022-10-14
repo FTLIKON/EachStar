@@ -62,14 +62,13 @@ export default {
      */
     async updateUserPrice() {
       if (await UserIsLogin(this.type)) {
-        console.log("正在获取积分")
         this.userPrice = await getUserPrice(this.type);
+        console.log(this.userPrice);
       }
     },
 
     async typeChange(type) {
       this.type = type;
-      console.log(type);
       this.userPrice = null;
       await this.updateUserPrice();
     }
