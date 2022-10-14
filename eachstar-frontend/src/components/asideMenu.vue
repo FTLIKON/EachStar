@@ -61,6 +61,7 @@ export default {
      */
     async updateUserPrice() {
       if (await UserIsLogin("GitHub")) {
+        console.log("get user price")
         this.userPrice = await getUserPrice("GitHub");
       }
     },
