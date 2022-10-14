@@ -178,9 +178,9 @@ export default {
       }
       bus.emit("typeChange", type);
       router.push('/'+type.toLowerCase())
-      await this.updateUserInfo();
       this.isDark = !this.isDark;
       this.type = type;
+      await this.updateUserInfo();
       bus.emit("refreshUserInfo", type);
     },
 
