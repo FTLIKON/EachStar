@@ -96,6 +96,7 @@ export default {
   mounted() {
     this.refreshPageData();
     bus.on("refreshPageData", this.refreshPageData);
+    bus.emit("refreshUserInfo", "github");
   },
   methods: {
     /**
