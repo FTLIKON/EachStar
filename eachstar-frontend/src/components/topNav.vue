@@ -7,7 +7,7 @@
         <div class="logo">
           <img class="logo-pic" src="icon.png" @click="goEachStar" />
           <span @click="goEachStar">EachStar</span>
-          <el-button @click="toggleType()">BUTTON</el-button>
+          <el-button @click="toggleType()" style="margin-left: 5%">切换到码云版</el-button>
         </div>
       </div>
 
@@ -117,7 +117,7 @@ import Logout from "./dialog/logout.vue";
 import { ElMessage } from "element-plus";
 import { getUserInfo } from "../api/getUserInfo.js"
 import "../iconfont/iconfont";
-import { useDark, useToggle } from '@vueuse/core'
+import { useDark } from '@vueuse/core'
 import { UserIsLogin } from "../api/UserIsLogin";
 
 export default {
@@ -141,8 +141,9 @@ export default {
      * 切换Type
      */ 
     toggleType() {
-      this.isDark = !this.isDark;
-      console.log(this.isDark)
+      if (type=="GitHub") {
+        
+      }
     },
 
     /**
