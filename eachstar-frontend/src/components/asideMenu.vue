@@ -61,13 +61,15 @@ export default {
      * api更新用户积分
      */
     async updateUserPrice() {
+      console.log("正在访问是否登录" + this.type)
       if (await UserIsLogin(this.type)) {
         this.userPrice = await getUserPrice(this.type);
       }
     },
 
-    async typeChange(type) {
-      this.type = type;
+    async typeChange(t) {
+      this.type = t;
+      console.log("切换到" + this.type)
       this.userPrice = null;
       await this.updateUserPrice();
     }
