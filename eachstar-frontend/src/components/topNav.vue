@@ -242,10 +242,14 @@ export default {
     },
 
     /**
-     * 更新用户积分
-     */ 
-     async updateUserPrice(type) {
-      this.userPrice = getUserPrice(type);
+     * api更新用户积分和type
+     */
+    async updateUserPrice(type) {
+      this.type = type;
+      this.userPrice = null;
+      if (await UserIsLogin(type)) {
+        this.userPrice = await getUserPrice(type);
+      }
     },
 
     /**
