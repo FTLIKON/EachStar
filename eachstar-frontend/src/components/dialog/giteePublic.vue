@@ -22,9 +22,11 @@
           <svg
             class="fronticon"
             style="
-              width: 18px;
-              height: 18px;
+              width: 19px;
+              height: 19px;
               color: #c45656;
+              margin-bottom: 1%;
+              margin-right: 1%;
             "
             aria-hidden="true"
           >
@@ -48,6 +50,7 @@
               width: 23px;
               height: 23px;
               vertical-align: -0.47em;
+              margin-right: 1%;
             "
             aria-hidden="true"
           >
