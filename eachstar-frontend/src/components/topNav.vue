@@ -7,10 +7,10 @@
         <div class="logo">
           <img class="logo-pic" src="icon.png" @click="goEachStar" />
           <span @click="goEachStar">EachStar</span>
-          <el-button @click="toggleType()" style="margin-left: 5%" v-show="toggleCooldown"
+          <el-button @click="toggleType()" style="margin-left: 5%" v-show="!toggleCooldown"
             >切换到码云版</el-button
           >
-          <el-button @click="toggleType()" style="margin-left: 5%" loading v-show="!toggleCooldown"
+          <el-button @click="toggleType()" style="margin-left: 5%" loading v-show="toggleCooldown"
             >切换到码云版</el-button
           >
         </div>
@@ -21,10 +21,10 @@
         <div class="logo">
           <img class="logo-pic" src="icon.png" @click="goEachStar" />
           <span @click="goEachStar">EachStar</span>
-          <el-button @click="toggleType()" style="margin-left: 5%" v-show="toggleCooldown"
+          <el-button @click="toggleType()" style="margin-left: 5%" v-show="!toggleCooldown"
             >切换到GitHub版</el-button
           >
-          <el-button @click="toggleType()" style="margin-left: 5%" loading v-show="!toggleCooldown"
+          <el-button @click="toggleType()" style="margin-left: 5%" loading v-show="toggleCooldown"
             >切换到GitHub版</el-button
           >
         </div>
