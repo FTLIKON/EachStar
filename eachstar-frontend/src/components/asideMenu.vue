@@ -26,7 +26,8 @@
 
 <script>
 import bus from "../utils/emitter";
-import PublicDialog from "./dialog/public.vue";
+import giteePublic from "./dialog/giteePublic.vue";
+import githubPublic from "./dialog/githubPublic.vue";
 import { getUserPrice } from "../api/getUserPrice.js";
 import { UserIsLogin } from "../api/UserIsLogin";
 export default {
@@ -54,7 +55,11 @@ export default {
      * 打开子发布页面
      */
     openPublicDialog() {
-      this.$.refs.PublicDialog.openPage();
+      if ( this.type == "gitee" ) {
+        this.$.refs.giteePublic.openPage();
+      } else if ( this.type == "github" ) {
+        this.$.refs.githubPublic.openPage();
+      }
     },
 
     /**
@@ -76,7 +81,8 @@ export default {
     }
   },
   components: {
-    PublicDialog,
+    giteePublic,
+    githubPublic,
   },
 };
 </script>

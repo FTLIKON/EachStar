@@ -75,7 +75,7 @@
 
 <script>
 import bus from "../utils/emitter";
-import Delete from "../components/dialog/delete.vue";
+import Delete from "../components/dialog/githubDelete.vue";
 import BottomLine from "../components/bottomLine.vue";
 import AsideMenu from "../components/asideMenu.vue";
 import "../iconfont/iconfont";
