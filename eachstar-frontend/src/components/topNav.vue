@@ -116,7 +116,7 @@
         <span v-show="isLogin && type == 'GitHub'" class="user-rank">
           <svg
             class="fronticon"
-            style="color: #b88230; margin-top: 12%"
+            style="color: #b88230; margin-top: 11%"
             aria-hidden="true"
           >
             <use xlink:href="#icon-bonus-line"></use>
@@ -126,7 +126,7 @@
         <span v-show="isLogin && type == 'Gitee'" class="user-rank">
           <svg
             class="fronticon"
-            style="color: #409eff; margin-top: 12%"
+            style="width: 20px; height: 20px; color: #409eff; margin-top: 10%"
             aria-hidden="true"
           >
             <use xlink:href="#icon-yunpan"></use>
