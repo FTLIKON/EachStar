@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-import { useDark, useToggle } from '@vueuse/shared'
+import { useDark, useToggle } from '@vueuse/core'
 // import { isDark } from '../../.vitepress/theme/composables/dark'
 
 const isDark = useDark()
