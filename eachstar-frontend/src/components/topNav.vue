@@ -3,7 +3,8 @@
 
     <!-- 主栏 -->
     <el-menu id="menu" mode="horizontal" default-active="1" :ellipsis="false">
-      <div class="left-block">
+      <!-- GitHub LOGO -->
+      <div class="left-block" v-show="this.type=='GitHub'">
         <div class="logo">
           <img class="logo-pic" src="icon.png" @click="goEachStar" />
           <span @click="goEachStar">EachStar</span>
@@ -11,6 +12,16 @@
         </div>
       </div>
 
+      <!-- Gitee LOGO -->
+      <div class="left-block" v-show="this.type=='Gitee'">
+        <div class="logo">
+          <img class="logo-pic" src="icon.png" @click="goEachStar" />
+          <span @click="goEachStar">EachStar</span>
+          <el-button @click="toggleType()" style="margin-left: 5%">切换到GitHub版</el-button>
+        </div>
+      </div>
+
+      <!-- Github菜单栏 -->
       <div class="mid-block" v-show="this.type=='GitHub'">
         <el-menu-item index="1">
           <router-link to="/github" class="link">
@@ -42,6 +53,7 @@
         </el-menu-item>
       </div>
 
+      <!-- Gitee菜单栏 -->
       <div class="mid-block" v-show="this.type=='Gitee'">
         <el-menu-item index="1">
           <router-link to="/gitee" class="link">
@@ -73,6 +85,7 @@
         </el-menu-item>
       </div>
 
+      <!-- 用户信息栏 -->
       <div class="right-block">
         <el-button v-show="!isLogin" @click="authButton()" id="auth-button"
           >登录 / 注册</el-button
@@ -134,6 +147,7 @@ import { getUserInfo } from "../api/getUserInfo.js"
 import "../iconfont/iconfont";
 import { useDark } from '@vueuse/core'
 import { UserIsLogin } from "../api/UserIsLogin";
+import router from "../router";
 
 export default {
   data() {
@@ -161,6 +175,7 @@ export default {
       } else if (this.type=="Gitee") {
         this.type = "GitHub";
       }
+      router.push('/'+this.type)
       this.updateUserInfo();
       this.isDark = !this.isDark;
     },
