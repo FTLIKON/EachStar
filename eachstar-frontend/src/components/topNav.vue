@@ -148,6 +148,7 @@ import "../iconfont/iconfont";
 import { useDark } from '@vueuse/core'
 import { UserIsLogin } from "../api/UserIsLogin";
 import router from "../router";
+import { getUserPrice } from "../api/getUserPrice";
 
 export default {
   data() {
@@ -164,6 +165,7 @@ export default {
   mounted() {
     this.isDark = false;
     bus.on("refreshUserInfo", this.updateUserInfo);
+    bus.on("refreshUserPrice", this.updateUserPrice);
     
     bus.emit("refreshUserInfo", this.type);
   },
@@ -237,6 +239,13 @@ export default {
       } else {
         console.log("你还没有登录"+this.type);
       }
+    },
+
+    /**
+     * 更新用户积分
+     */ 
+     async updateUserPrice(type) {
+      this.userPrice = getUserPrice(type);
     },
 
     /**
