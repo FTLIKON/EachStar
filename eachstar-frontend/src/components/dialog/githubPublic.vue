@@ -32,7 +32,7 @@
           class="slider"
           :step="1"
           :min="1"
-          :max="this.min(5, (userPrice-starPrice*starNum)/starNum)"
+          :max="this.minx(5, (userPrice-starPrice*starNum)/starNum)"
         ></el-slider>
       </div>
       <div class="rank-num-block">
@@ -56,7 +56,7 @@
           class="slider"
           :step="1"
           :min="1"
-          :max="this.min(50, (userPrice-starPrice*starNum)/starPrice)"
+          :max="this.minx(50, (userPrice-starPrice*starNum)/starPrice)"
         ></el-slider>
       </div>
       <div class="user-rank-calc">
@@ -99,7 +99,6 @@ import { getUserPrice } from "../../api/getUserPrice";
 import { getUserName } from "../../api/getUserName.js";
 import { publicCard } from "../../api/publicCard.js";
 import { UserIsLogin } from "../../api/UserIsLogin.js";
-import { min } from "../../utils/math.js";
 
 export default {
   data() {
@@ -173,7 +172,7 @@ export default {
       }
     },
 
-    min(a, b) {
+    minx(a, b) {
       if ( a > b ) return b;
       return a;
     },
