@@ -157,7 +157,8 @@ export default {
           card.starNum -= 1;
           card.starred = true;
           bus.emit("refreshUserPrice", "Gitee");
-          if (card.starNum == 0) { // 退化情况
+          if (card.starNum == 0) {
+            // 退化情况
             this.refreshPageData();
           }
         }, 1000);
@@ -244,7 +245,7 @@ export default {
       display: flex;
 
       .card-title {
-        color: #E4E7ED;
+        color: #e4e7ed;
         width: 70%;
         text-align: left;
         font-size: large;
@@ -253,7 +254,7 @@ export default {
       }
 
       .card-time {
-        color: #A8ABB2;
+        color: #a8abb2;
         width: 30%;
         text-align: right;
       }
@@ -286,7 +287,7 @@ export default {
       }
 
       #card-button {
-        color: #303133;
+        color: #e4e7ed;
         font-size: large;
         width: 30%;
       }
