@@ -142,6 +142,7 @@ export default {
             type: "success",
           });
           bus.emit("refreshUserInfo");
+          bus.emit("refreshUserPrice");
           bus.emit("refreshPageData");
         }
       }
