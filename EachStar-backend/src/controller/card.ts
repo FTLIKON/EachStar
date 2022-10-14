@@ -98,6 +98,7 @@ export class CardController {
         console.log(error)
         rep = false
       })
+    console.log(rep)
     return rep
   }
 
@@ -128,23 +129,21 @@ export class CardController {
     const start = ctx.query.start
     const type = ctx.query.type
     const cards = await this.repository.getCardsByTimeSort(type, Number(start))
-    if (!ctx.user) {
-      for (let index in cards.data) {
+
+    for (let index in cards.data) {
+      cards.data[index]['starred'] = false
+    }
+    const userId = type == 'GitHub' ? ctx.github_user.id : ctx.gitee_user.id
+    const userStarred = await this.repository.getUserStarred(type, userId)
+    let userStarredCardId = []
+    for (let index in userStarred) {
+      userStarredCardId.push(userStarred[index].cardId)
+    }
+    for (let index in cards.data) {
+      if (userStarredCardId.includes(cards.data[index].id)) {
+        cards.data[index]['starred'] = true
+      } else {
         cards.data[index]['starred'] = false
-      }
-    } else {
-      const userId = type == 'GitHub' ? ctx.github_user.id : ctx.gitee_user.id
-      const userStarred = await this.repository.getUserStarred(type, userId)
-      let userStarredCardId = []
-      for (let index in userStarred) {
-        userStarredCardId.push(userStarred[index].cardId)
-      }
-      for (let index in cards.data) {
-        if (userStarredCardId.includes(cards.data[index].id)) {
-          cards.data[index]['starred'] = true
-        } else {
-          cards.data[index]['starred'] = false
-        }
       }
     }
     ctx.body = cards
