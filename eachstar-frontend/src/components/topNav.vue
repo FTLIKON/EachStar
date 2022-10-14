@@ -201,7 +201,6 @@ export default {
     async updateUserInfo() {
       if (await UserIsLogin(this.type)) {
         var data = await getUserInfo(this.type);
-        console.log(this.type);
         this.userName = data.name;
         this.userPrice = data.price;
         this.userIconURL = data.avatar;
