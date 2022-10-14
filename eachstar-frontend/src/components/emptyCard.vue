@@ -1,14 +1,20 @@
 <template>
-  <div class="emptycard">您目前还没有卡片，快点击左侧的【发布卡片】创建吧~</div>
+  <div class="main">
+    <div class="emptycard">您目前还没有卡片，快点击左侧的【发布卡片】吧~</div>
+  </div>
 </template>
 
 <script>
 export default {};
 </script>
 
-<style scoped>
-.emptycard {
-  margin-top: 300px;
-  font-weight: bolder;
+<style lang="scss" scoped>
+.main {
+  display: flex;
+  height: 500px;
+  .emptycard {
+    margin-top: 200px;
+    font-weight: bolder;
+  }
 }
 </style>
