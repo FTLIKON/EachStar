@@ -37,11 +37,12 @@ export default {
     };
   },
   mounted() {
-    this.updateUserPrice();
-    this.windowWidth = document.documentElement.clientWidth;
+    this.updateUserPrice(this.type);
     bus.on("refreshUserInfo", this.updateUserPrice);
     bus.on("typeChange", this.typeChange)
+    
     var that = this;
+    this.windowWidth = document.documentElement.clientWidth;
     window.onresize = () => {
       return(()=>{
         that.windowWidth = document.documentElement.clientWidth;
