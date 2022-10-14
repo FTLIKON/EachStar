@@ -48,11 +48,6 @@ export default {
       })()
     };
   },
-  beforeDestroy() {
-    console.log("before destory")
-    bus.off("refreshUserInfo", this.updateUserPrice);
-    bus.off("typeChange", this.typeChange)
-  },
   methods: {
     /**
      * 打开子发布页面
@@ -64,18 +59,19 @@ export default {
     /**
      * api更新用户积分
      */
-    async updateUserPrice() {
-      console.log("正在访问是否登录" + this.type)
-      if (await UserIsLogin(this.type)) {
-        this.userPrice = await getUserPrice(this.type);
+    async updateUserPrice(type) {
+      this.type = type;
+      if (await UserIsLogin(type)) {
+        this.userPrice = await getUserPrice(type);
       }
     },
 
-    async typeChange(t) {
-      this.type = t;
-      console.log("切换到" + this.type)
-      this.userPrice = null;
-      await this.updateUserPrice();
+    /**
+     * 切换页面注销钩子
+     */ 
+    async typeChange() {
+      bus.off("refreshUserInfo", this.updateUserPrice);
+      bus.off("typeChange", this.typeChange)
     }
   },
   components: {
