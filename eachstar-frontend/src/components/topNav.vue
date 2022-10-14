@@ -93,6 +93,7 @@
 import bus from "../utils/emitter";
 import GithubAuth from "./githubAuth.vue";
 import Logout from "./dialog/logout.vue";
+import ToggleButton from "./toggleButton.vue";
 import { ElMessage } from "element-plus";
 import { getUserInfo } from "../api/getUserInfo.js"
 import "../iconfont/iconfont";
@@ -159,6 +160,7 @@ export default {
   components: {
     GithubAuth,
     Logout,
+    ToggleButton,
   },
 };
 </script>
