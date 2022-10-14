@@ -10,12 +10,13 @@ export async function starCard(card, type) {
       data: param,
     };
 
+    var access = false;
     var res = await axios(config)
     .then(function (response) {
-        return true;
+        access = true;
     })
     .catch(function (error) {
-        return false;
+        access = false;
     });
 }
 
