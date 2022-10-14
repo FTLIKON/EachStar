@@ -83,7 +83,7 @@ import { getMyPageData } from "../api/getMyPageData.js";
 import EmptyCard from '../components/emptyCard.vue';
 
 export default {
-  name: "mygithub",
+  name: "mygitee",
   data() {
     return {
       loading: true,
@@ -147,7 +147,7 @@ export default {
   margin-bottom: auto;
 }
 
-.mygithub {
+.mygitee {
   display: flex;
   flex: 1;
 }
