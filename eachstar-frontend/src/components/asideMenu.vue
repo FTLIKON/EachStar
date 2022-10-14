@@ -27,6 +27,7 @@
 import bus from "../utils/emitter";
 import PublicDialog from "./dialog/public.vue";
 import { getUserPrice } from "../api/getUserPrice.js";
+import { UserIsLogin } from "../api/UserIsLogin";
 export default {
   data() {
     return {
@@ -59,7 +60,9 @@ export default {
      * api更新用户积分
      */
     async updateUserPrice() {
-      this.userPrice = await getUserPrice("GitHub");
+      if (UserIsLogin("GitHub")) {
+        this.userPrice = await getUserPrice("GitHub");
+      }
     },
   },
   components: {

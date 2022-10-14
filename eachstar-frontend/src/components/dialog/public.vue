@@ -156,6 +156,7 @@ export default {
           message: "请先进行 登录/注册!",
           type: "warning",
         });
+        return;
       }
       
       this.dialogVisible = true; // 显示页面

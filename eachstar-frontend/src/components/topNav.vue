@@ -95,6 +95,7 @@ import Logout from "./dialog/logout.vue";
 import { ElMessage } from "element-plus";
 import { getUserInfo } from "../api/getUserInfo.js"
 import "../iconfont/iconfont";
+import { UserIsLogin } from "../api/UserIsLogin";
 
 export default {
   data() {
@@ -138,11 +139,13 @@ export default {
      * 更新用户信息
      */ 
     async updateUserInfo() {
-      var data = await getUserInfo("GitHub");
-      this.userName = data.name;
-      this.userPrice = data.price;
-      this.userIconURL = data.avatar;
-      this.isLogin = true;
+      if (UserIsLogin("GitHub")) {
+        var data = await getUserInfo("GitHub");
+        this.userName = data.name;
+        this.userPrice = data.price;
+        this.userIconURL = data.avatar;
+        this.isLogin = true;
+      }
     },
 
     /**
