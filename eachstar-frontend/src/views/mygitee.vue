@@ -96,7 +96,7 @@ export default {
   mounted() {
     this.refreshPageData();
     bus.on("refreshPageData", this.refreshPageData);
-    bus.emit("refreshUserInfo", "gitee");
+    bus.emit("refreshUserInfo", "Gitee");
   },
   methods: {
     /**

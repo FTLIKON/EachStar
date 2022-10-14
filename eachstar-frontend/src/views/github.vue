@@ -119,7 +119,7 @@ export default {
   mounted() {
     this.refreshPageData();
     bus.on("refreshPageData", this.refreshPageData);
-    bus.emit("refreshUserInfo", "github");
+    bus.emit("refreshUserInfo", "GitHub");
   },
   methods: {
     /**
