@@ -245,7 +245,7 @@ export default {
       display: flex;
 
       .card-title {
-        color: #EBEEF5;
+        color: #E4E7ED;
         width: 70%;
         text-align: left;
         font-size: large;
