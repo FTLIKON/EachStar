@@ -75,7 +75,7 @@ export class GiteeAuthController {
     }) //用户giteeToken
 
     ctx.status = 301
-    ctx.redirect(serviceConfig.auth.redirectPath) //重定向到请求页面
+    ctx.redirect(serviceConfig.auth.giteeRedirectPath) //重定向到请求页面
   }
 }
 export default GiteeAuthController
