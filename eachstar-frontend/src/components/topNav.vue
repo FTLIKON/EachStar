@@ -195,7 +195,7 @@ export default {
       this.toggleCooldown = true; // 3秒冷却
       setTimeout(function(){
         that.toggleCooldown = false;
-      }, 3000)
+      }, 5000)
 
       if (this.type == "GitHub") {
         this.type = "Gitee";
