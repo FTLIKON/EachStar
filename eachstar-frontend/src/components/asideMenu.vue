@@ -62,6 +62,7 @@ export default {
      */
     async updateUserPrice() {
       if (await UserIsLogin(this.type)) {
+        console.log("正在获取积分")
         this.userPrice = await getUserPrice(this.type);
       }
     },
