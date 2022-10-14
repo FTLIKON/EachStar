@@ -162,7 +162,7 @@ export default {
     };
   },
   mounted() {
-    this.updateUserInfo();
+    this.updateUserInfo(this.type);
     bus.on("refreshUserInfo", this.updateUserInfo);
   },
   methods: {
