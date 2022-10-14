@@ -63,7 +63,7 @@ export default {
     async updateUserPrice() {
       if (await UserIsLogin(this.type)) {
         this.userPrice = await getUserPrice(this.type);
-        console.log(this.userPrice);
+        console.log(await getUserPrice(this.type));
       }
     },
 
