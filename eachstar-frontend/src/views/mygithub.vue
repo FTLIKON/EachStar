@@ -7,57 +7,52 @@
 
     <!-- 卡片视图 -->
     <div class="card-view">
-
       <!-- 卡片列表 -->
       <div class="card-container">
-      <el-card
-        v-for="item of currentPageData"
-        :key="item"
-        class="card-list"
-      >
-        <div class="card-block">
-          <div class="card-titleblock">
-            <a class="card-title" :href="item.title" target="_blank">{{
-              item.title
-            }}</a>
-            <span class="card-time">{{ item.createdAt }}</span>
-          </div>
-          <div class="card-discription">
-            {{ item.context }}
-          </div>
-          <div class="card-valueblock">
-            <span class="card-rank">
-              <span
-                ><svg class="fronticon" aria-hidden="true">
-                  <use xlink:href="#icon-bonus-line"></use></svg
-                >星币价值: {{ item.starPrice }}</span
-              >
-              <el-divider direction="vertical" />
-              <span style="color: #409eff"
-                ><svg
-                  class="fronticon"
-                  style="width: 23px; height: 23px; vertical-align: -0.42em"
-                  aria-hidden="true"
+        <el-card v-for="item of currentPageData" :key="item" class="card-list">
+          <div class="card-block">
+            <div class="card-titleblock">
+              <a class="card-title" :href="item.title" target="_blank">{{
+                item.title
+              }}</a>
+              <span class="card-time">{{ item.createdAt }}</span>
+            </div>
+            <div class="card-discription">
+              {{ item.context }}
+            </div>
+            <div class="card-valueblock">
+              <span class="card-rank">
+                <span
+                  ><svg class="fronticon" aria-hidden="true">
+                    <use xlink:href="#icon-bonus-line"></use></svg
+                  >星币价值: {{ item.starPrice }}</span
                 >
-                  <use xlink:href="#icon-cishu"></use></svg
-                >剩余悬赏次数: {{ item.starNum }}</span
+                <el-divider direction="vertical" />
+                <span style="color: #409eff"
+                  ><svg
+                    class="fronticon"
+                    style="width: 23px; height: 23px; vertical-align: -0.42em"
+                    aria-hidden="true"
+                  >
+                    <use xlink:href="#icon-cishu"></use></svg
+                  >剩余悬赏次数: {{ item.starNum }}</span
+                >
+              </span>
+              <el-button
+                id="card-button"
+                @click="deleteButton(item)"
+                type="danger"
+                plain
+                ><svg class="fronticon" aria-hidden="true">
+                  <use xlink:href="#icon-lajitong"></use>
+                </svg>
+                删除</el-button
               >
-            </span>
-            <el-button
-              id="card-button"
-              @click="deleteButton(item)"
-              type="danger"
-              plain
-              ><svg class="fronticon" aria-hidden="true">
-                <use xlink:href="#icon-lajitong"></use>
-              </svg>
-              删除</el-button
-            >
+            </div>
           </div>
-        </div>
-      </el-card>
+        </el-card>
       </div>
-      
+
       <!-- 卡片换页 -->
       <el-pagination
         id="pagination"
@@ -100,14 +95,14 @@ export default {
   methods: {
     /**
      * 删除按钮
-     */ 
+     */
     deleteButton(card) {
       this.$.refs.Delete.openPage(card);
     },
 
     /**
      * 切换页面
-     */ 
+     */
     async pageChange(page) {
       this.currentPage = page;
       this.loading = true;
@@ -120,7 +115,7 @@ export default {
 
     /**
      * 刷新页面(到第一页)
-     */ 
+     */
     refreshPageData: function () {
       this.pageChange(1);
     },
@@ -162,7 +157,7 @@ export default {
     width: 50%;
     margin-left: 25%;
     margin-right: 25%;
-    margin-bottom: 2%;
+    margin-bottom: max(1%, 15px);
     min-width: 600px;
   }
   #pagination {
@@ -214,7 +209,6 @@ export default {
       .card-rank {
         color: #b88230;
         background-color: none;
-
         width: 80%;
         margin: auto 3% auto 3%;
         text-align: left;

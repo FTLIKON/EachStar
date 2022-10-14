@@ -213,7 +213,7 @@ export default {
     width: 50%;
     margin-left: 25%;
     margin-right: 25%;
-    margin-bottom: 2%;
+    margin-bottom: max(1%,15px);
     min-width: 600px;
   }
   .pagination {
