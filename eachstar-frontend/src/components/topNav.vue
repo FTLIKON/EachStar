@@ -141,7 +141,7 @@ export default {
      * 切换Type
      */ 
     toggleType() {
-      useToggle(isDark)
+      useToggle(this.isDark)
     },
 
     /**
