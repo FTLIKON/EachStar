@@ -69,7 +69,7 @@ export default {
     /**
      * 切换页面注销钩子
      */ 
-    async typeChange(t) {
+    async typeChange() {
       bus.off("refreshUserInfo", this.updateUserPrice);
       bus.off("typeChange", this.typeChange)
     }

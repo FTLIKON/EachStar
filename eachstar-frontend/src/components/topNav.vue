@@ -162,7 +162,7 @@ export default {
     };
   },
   mounted() {
-    this.updateUserInfo();
+    await this.updateUserInfo();
     bus.on("refreshUserInfo", this.updateUserInfo);
   },
   methods: {
@@ -177,7 +177,7 @@ export default {
       }
       bus.emit("typeChange", this.type);
       router.push('/'+this.type.toLowerCase())
-      this.updateUserInfo();
+      await this.updateUserInfo();
       this.isDark = !this.isDark;
       bus.emit("refreshUserInfo", this.type);
     },
