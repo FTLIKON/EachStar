@@ -65,6 +65,8 @@ export default {
       this.type = type;
       if (await UserIsLogin(type)) {
         this.userPrice = await getUserPrice(type);
+      } else {
+        this.userPrice = null;
       }
     },
 
