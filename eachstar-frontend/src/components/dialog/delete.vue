@@ -39,7 +39,7 @@ export default {
      * 删除卡片
      */ 
     async deleteButton(){
-      if (deleteCard("GitHub", this.cardId)){
+      if (await deleteCard("GitHub", this.cardId)){
         ElMessage({
             message: "已成功删除：" + this.cardTitle,
             type: "success",
@@ -47,8 +47,13 @@ export default {
         bus.emit("refreshUserInfo");
         this.dialogVisible = false;
         await this.$parent.pageChange(this.$parent.currentPage);
+      } else {
+        ElMessage({
+            message: "删除失败, 请稍后再试试~",
+            type: "error",
+        });
+        this.cardRemoving = false;
       }
-      this.cardRemoving = false;
     },
 
     /**

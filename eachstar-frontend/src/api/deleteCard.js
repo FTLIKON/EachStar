@@ -6,11 +6,13 @@ export async function deleteCard(type, cardId){
         url: "server/api/card?" 
         + "type=" + type + "&cardId=" + cardId,
     };
+    var access = false;
     var res = await axios(config)
     .then(function (response) {
-        return true;
+        access = true;
     })
     .catch(function (error) {
-        return false;
+        access = false;
     });
+    return access;
 }
