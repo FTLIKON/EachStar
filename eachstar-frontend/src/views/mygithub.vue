@@ -54,7 +54,7 @@
           </div>
         </el-card>
 
-        <empty-card />
+        <empty-card v-show="currentPageData.length==0"/>
       </div>
 
       <!-- 卡片换页 -->
