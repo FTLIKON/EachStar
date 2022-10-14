@@ -37,7 +37,6 @@ export default {
     };
   },
   mounted() {
-    console.log("aside menu")
     this.updateUserPrice();
     this.windowWidth = document.documentElement.clientWidth;
     bus.on("refreshUserInfo", this.updateUserPrice);
@@ -68,7 +67,7 @@ export default {
     },
 
     /**
-     * 切换页面
+     * 切换页面注销钩子
      */ 
     async typeChange(t) {
       bus.off("refreshUserInfo", this.updateUserPrice);
