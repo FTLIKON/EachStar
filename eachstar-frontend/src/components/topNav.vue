@@ -160,7 +160,7 @@ export default {
         this.type = "GitHub";
       }
       this.updateUserInfo();
-      this.isDark = !this.isDark();
+      this.isDark = !this.isDark;
     },
 
     /**
