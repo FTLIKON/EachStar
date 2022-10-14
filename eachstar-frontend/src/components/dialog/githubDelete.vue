@@ -44,7 +44,7 @@ export default {
             message: "已成功删除：" + this.cardTitle,
             type: "success",
         });
-        bus.emit("refreshUserInfo");
+        bus.emit("refreshUserInfo", "GitHub");
         this.dialogVisible = false;
         await this.$parent.pageChange(this.$parent.currentPage);
       } else {

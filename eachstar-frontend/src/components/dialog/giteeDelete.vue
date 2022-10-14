@@ -3,7 +3,7 @@
     <div class="delete-block">
       <div class="title"> 确认要删除卡片吗? </div>
       <div class="user-rank-calc">
-        将会返还星币: {{ starPrice*starNum }}
+        将会返还云币: {{ starPrice*starNum }}
       </div>
       <span class="dialog-footer">
         <el-button @click="dialogVisible = false">取消</el-button>
@@ -39,12 +39,12 @@ export default {
      * 删除卡片
      */ 
     async deleteButton(){
-      if (await deleteCard("GitHub", this.cardId)){
+      if (await deleteCard("Gitee", this.cardId)){
         ElMessage({
             message: "已成功删除：" + this.cardTitle,
             type: "success",
         });
-        bus.emit("refreshUserInfo");
+        bus.emit("refreshUserInfo", "Gitee");
         this.dialogVisible = false;
         await this.$parent.pageChange(this.$parent.currentPage);
       } else {
@@ -60,14 +60,14 @@ export default {
      * 打开页面
      */ 
     async openPage(card) {
-      if (await UserIsLogin("GitHub")) {
+      if (await UserIsLogin("Gitee")) {
         this.dialogVisible = true;
         this.cardId = card.id;
         this.cardTitle = card.title;
         this.cardDiscription = card.context;
         this.starPrice = card.starPrice;
         this.starNum = card.starNum;
-        this.userPrice = await getUserPrice("GitHub");
+        this.userPrice = await getUserPrice("Gitee");
       }
     },
   },
