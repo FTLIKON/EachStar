@@ -24,7 +24,17 @@ export function validateEmail(value) {
  * 验证github链接
  */
 export function validateGithubUrl(value) {
-  let reg = /^(https:\/\/github.com\/)+([a-zA-Z0-9]{1,39})+(\/)+(.*$)/;
+  let reg =
+    /^(https:\/\/github.com\/)+([a-zA-Z0-9]{1,39})+(\/)+([a-zA-Z0-9-]{1,100}$)/;
+  return !reg.test(value) ? true : false;
+}
+
+/**
+ * 验证gitee链接
+ */
+export function validateGithubUrl(value) {
+  let reg =
+    /^(https:\/\/gitee.com\/)+([a-zA-Z0-9]{1,39})+(\/)+([a-zA-Z0-9-]{1,100}$)/;
   return !reg.test(value) ? true : false;
 }
 
