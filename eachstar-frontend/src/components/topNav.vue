@@ -11,7 +11,7 @@
             >切换到码云版</el-button
           >
           <el-button @click="toggleType()" style="margin-left: 5%" loading v-show="toggleCooldown"
-            >切换到码云版</el-button
+            >等待中...</el-button
           >
         </div>
       </div>
@@ -25,7 +25,7 @@
             >切换到GitHub版</el-button
           >
           <el-button @click="toggleType()" style="margin-left: 5%" loading v-show="toggleCooldown"
-            >切换到GitHub版</el-button
+            >等待中...</el-button
           >
         </div>
       </div>
