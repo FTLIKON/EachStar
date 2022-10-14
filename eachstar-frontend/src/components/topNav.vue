@@ -169,9 +169,9 @@ export default {
      * 注册按钮
      */ 
     authButton() {
-      if (type=="GitHub") {
+      if (this.type=="GitHub") {
         this.$.refs.GithubAuth.openPage();
-      } else if (type="Gitee") {
+      } else if (this.type="Gitee") {
         this.$.refs.GiteeAuth.openPage();
       }
     },
@@ -180,9 +180,9 @@ export default {
      * 登出按钮
      */ 
     logoutButton() {
-      if (type=="GitHub") {
+      if (this.type=="GitHub") {
         this.$.refs.GithubLogout.openPage();
-      } else if (type="Gitee") {
+      } else if (this.type="Gitee") {
         this.$.refs.GiteeLogout.openPage();
       }
     },
