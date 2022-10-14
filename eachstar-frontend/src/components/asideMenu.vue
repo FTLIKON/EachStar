@@ -68,6 +68,7 @@ export default {
 
     typeChange(type) {
       this.type = type;
+      this.userPrice = null;
       this.updateUserPrice();
     }
   },
