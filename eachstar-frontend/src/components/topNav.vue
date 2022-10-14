@@ -117,7 +117,9 @@
     </el-menu>
   </el-affix>
   <GithubAuth ref="GithubAuth" />
-  <Logout ref="Logout" />
+  <GiteeAuth ref="GiteeAuth" />
+  <GithubLogout ref="GithubLogout" />
+  <GiteeLogout ref="GiteeLogout" />
 </template>
 
 <script>
@@ -170,11 +172,7 @@ export default {
       if (type=="GitHub") {
         this.$.refs.GithubAuth.openPage();
       } else if (type="Gitee") {
-        // GITEE
-        // GITEE
-        // GITEE
-        // GITEE
-        // GITEE
+        this.$.refs.GiteeAuth.openPage();
       }
     },
 
@@ -182,7 +180,11 @@ export default {
      * 登出按钮
      */ 
     logoutButton() {
-      this.$.refs.Logout.openPage();
+      if (type=="GitHub") {
+        this.$.refs.GithubLogout.openPage();
+      } else if (type="Gitee") {
+        this.$.refs.GiteeLogout.openPage();
+      }
     },
     
     /**
@@ -203,7 +205,7 @@ export default {
       this.userPrice = null;
       this.userIconURL = null;
       this.isLogin = false;
-      
+
       if (await UserIsLogin(this.type)) {
         var data = await getUserInfo(this.type);
         this.userName = data.name;
