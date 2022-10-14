@@ -199,6 +199,11 @@ export default {
      * 更新用户信息
      */ 
     async updateUserInfo() {
+      this.userName = "";
+      this.userPrice = null;
+      this.userIconURL = null;
+      this.isLogin = false;
+      
       if (await UserIsLogin(this.type)) {
         var data = await getUserInfo(this.type);
         this.userName = data.name;
