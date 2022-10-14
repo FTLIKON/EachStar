@@ -61,8 +61,8 @@ export default {
      */
     async updateUserPrice(type) {
       this.type = type;
-      if (await UserIsLogin(this.type)) {
-        this.userPrice = await getUserPrice(this.type);
+      if (await UserIsLogin(type)) {
+        this.userPrice = await getUserPrice(type);
       }
     },
 
