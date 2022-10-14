@@ -40,7 +40,7 @@ export default {
     };
   },
   mounted() {
-    bus.on("refreshUserPrice", this.updateUserPrice);
+    bus.on("refreshUserInfo", this.updateUserPrice);
     bus.on("typeChange", this.typeChange)
 
     var that = this;
@@ -75,7 +75,18 @@ export default {
      */
     async updateUserPrice(type) {
       this.type = type;
-      if (await UserIsLogin(type)) {
+      var isLogin = false;
+      if ( type == "GitHub" ) {
+        if(this.$cookies.get("githubName")){
+          isLogin = true;
+        }
+      } else if ( type == "Gitee" ) {
+        if(this.$cookies.get("giteeName")){
+          isLogin = true;
+        }
+      }
+
+      if (isLogin) {
         this.userPrice = await getUserPrice(type);
       }
     },
