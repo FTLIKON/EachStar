@@ -18,6 +18,8 @@ export async function starCard(card, type) {
     .catch(function (error) {
         access = false;
     });
+
+    return access;
 }
 
 /**
