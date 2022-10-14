@@ -151,6 +151,7 @@ export default {
             type: "success",
           });
           bus.emit("refreshUserPrice", "GitHub");
+          bus.emit("refreshUserInfo", "GitHub");
           bus.emit("refreshPageData", "GitHub");
         }
       }

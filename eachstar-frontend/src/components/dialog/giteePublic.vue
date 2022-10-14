@@ -157,6 +157,7 @@ export default {
             type: "success",
           });
           bus.emit("refreshUserPrice", "Gitee");
+          bus.emit("refreshUserInfo", "Gitee");
           bus.emit("refreshPageData", "Gitee");
         }
       }
