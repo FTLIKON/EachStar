@@ -139,7 +139,7 @@ export default {
      * 更新用户信息
      */ 
     async updateUserInfo() {
-      if (UserIsLogin("GitHub")) {
+      if (await UserIsLogin("GitHub")) {
         var data = await getUserInfo("GitHub");
         this.userName = data.name;
         this.userPrice = data.price;

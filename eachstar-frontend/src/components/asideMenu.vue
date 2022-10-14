@@ -60,7 +60,7 @@ export default {
      * api更新用户积分
      */
     async updateUserPrice() {
-      if (UserIsLogin("GitHub")) {
+      if (await UserIsLogin("GitHub")) {
         this.userPrice = await getUserPrice("GitHub");
       }
     },

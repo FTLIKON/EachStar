@@ -151,7 +151,7 @@ export default {
      * 提供可调用的public页面
      */ 
     async openPage() {
-      if (!UserIsLogin("GitHub")) { // 登录
+      if (!await UserIsLogin("GitHub")) { // 登录
         ElMessage({
           message: "请先进行 登录/注册!",
           type: "warning",
