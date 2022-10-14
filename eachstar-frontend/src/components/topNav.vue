@@ -162,6 +162,7 @@ export default {
     };
   },
   mounted() {
+    this.isDark = false;
     bus.on("refreshUserInfo", this.updateUserInfo);
     bus.emit("refreshUserInfo", this.type);
   },
