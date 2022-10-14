@@ -9,6 +9,7 @@ const authConfig = {
     '3152a3d1d35572c122807c550d5b2ede3612f79e9a61955167c035738e678fec',
   redirectPath: 'http://www.each-star.com/',
   giteeCallbackPath: 'http://www.each-star.com:3050/oauth/gitee/callback',
+  githubCallbackPath: 'http://www.each-star.com:3050/oauth/github/callback',
 }
 
 const verificationConfig = {
