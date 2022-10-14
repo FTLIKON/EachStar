@@ -2,22 +2,22 @@
   <el-dialog
     v-model="dialogVisible"
     style="width: 25%; margin-top: 250px"
-    id="giteeAuth"
+    id="githubAuth"
     title=""
   >
     <div class="main-block">
-      <img class="gitee-logo" src="giteeLogo.png" alt="未找到图片" />
+      <img class="github-logo" src="githubLogo.webp" alt="未找到图片" />
 
       <el-button
         type="primary"
         class="link-button"
         @click="
           goPage(
-            'http://119.91.192.183:3050/oauth/gitee/login?path=http://119.91.192.183:80/'
+            'http://119.91.192.183:3050/oauth/github/login?path=http://119.91.192.183:80/'
           )
         "
       >
-        使用Gitee快捷登录</el-button
+        使用GitHub快捷登录</el-button
       >
     </div>
   </el-dialog>
@@ -33,7 +33,7 @@ export default {
   methods: {
     /**
      * 打开注册页面
-     */
+     */ 
     openPage() {
       this.dialogVisible = true;
     },
@@ -55,7 +55,7 @@ export default {
   align-items: center;
 }
 
-.gitee-logo {
+.github-logo {
   width: 45%;
   height: 30%;
   margin-bottom: 5%;
@@ -73,7 +73,7 @@ export default {
   border-radius: 15px;
   box-shadow: var(--el-box-shadow-dark);
 }
-#giteeAuth {
+#githubAuth {
   width: 500px;
   height: 30%;
 }
