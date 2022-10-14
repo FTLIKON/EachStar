@@ -99,7 +99,7 @@ import { getUserPrice } from "../../api/getUserPrice";
 import { getUserName } from "../../api/getUserName.js";
 import { publicCard } from "../../api/publicCard.js";
 import { UserIsLogin } from "../../api/UserIsLogin.js";
-import { min } from "../../utils/common";
+import { min } from "../../utils/math.js";
 
 export default {
   data() {
