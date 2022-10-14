@@ -9,7 +9,6 @@
     <div class="card-view">
       <!-- 卡片列表 -->
       <div class="card-container">
-
         <!-- 遍历card -->
         <el-card v-for="item of currentPageData" :key="item" class="card-list">
           <div class="card-block">
@@ -24,10 +23,20 @@
             </div>
             <div class="card-valueblock">
               <span class="card-rank">
-                <span
-                  ><svg class="fronticon" aria-hidden="true">
-                    <use xlink:href="#icon-bonus-line"></use></svg
-                  >云币价值: {{ item.starPrice }}</span
+                <span>
+                  <svg
+                    class="fronticon"
+                    style="
+                      width: 19px;
+                      height: 19px;
+                      color: #c45656;
+                      margin-bottom: 0.4%;
+                    "
+                    aria-hidden="true"
+                  >
+                    <use xlink:href="#icon-yunpan"></use>
+                  </svg>
+                  云币价值: {{ item.starPrice }}</span
                 >
                 <el-divider direction="vertical" />
                 <span style="color: #409eff"
@@ -54,7 +63,7 @@
           </div>
         </el-card>
 
-        <empty-card v-show="currentPageData.length==0"/>
+        <empty-card v-show="currentPageData.length == 0" />
       </div>
 
       <!-- 卡片换页 -->
@@ -80,7 +89,7 @@ import BottomLine from "../components/bottomLine.vue";
 import AsideMenu from "../components/asideMenu.vue";
 import "../iconfont/iconfont";
 import { getMyPageData } from "../api/getMyPageData.js";
-import EmptyCard from '../components/emptyCard.vue';
+import EmptyCard from "../components/emptyCard.vue";
 
 export default {
   name: "mygitee",
