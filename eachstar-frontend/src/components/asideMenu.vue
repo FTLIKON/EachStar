@@ -34,7 +34,7 @@ import { UserIsLogin } from "../api/UserIsLogin";
 export default {
   data() {
     return {
-      type: null,
+      type: "GitHub",
       userPrice: null,
       windowWidth: 1000,
     };
