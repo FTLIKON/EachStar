@@ -19,7 +19,7 @@ export class DevController {
     const type = ctx.query.type
     const userId = type == 'GitHub' ? ctx.github_user.id : ctx.gitee_user.id
 
-    let testCase = [
+    let githubTestCase = [
       {
         title: 'https://github.com/RainbowRoad1/Cgame',
         context:
@@ -54,16 +54,66 @@ export class DevController {
         starNum: '25',
       },
     ]
-    for (let obj in testCase) {
-      await this.repository.createCard(
-        userId,
-        type,
-        testCase[obj].title,
-        testCase[obj].context,
-        testCase[obj].starPrice,
-        testCase[obj].starNum,
-        new Date(),
-      )
+
+    let giteeTestCase = [
+      {
+        title: 'https://gitee.com/Kould/KipDB',
+        context: 'LsmStore: 基于Lsm，使用Leveled Compaction策略(主要内核)',
+        starPrice: '2',
+        starNum: '50',
+      },
+      {
+        title: 'https://gitee.com/avata/VisualFBEditor',
+        context:
+          'Visual FreeBasic Editor可以生成在Windows,Linux, Dos，Android下使用的32位及64位绿色免安装程序，语言风格类似',
+        starPrice: '5',
+        starNum: '20',
+      },
+      {
+        title: 'https://gitee.com/dotnetchina/MiniWord',
+        context:
+          '.NET Word(docx) 模版导出引擎不需要安装 Office COM+ 支持 Linux 和 Mac',
+        starPrice: '4',
+        starNum: '25',
+      },
+      {
+        title: 'https://gitee.com/icewhale-team/CasaOS',
+        context:
+          'Connect with the community developing HOME CLOUD, creating self-sover',
+        starPrice: '5',
+        starNum: '20',
+      },
+      {
+        title: 'https://gitee.com/baomidou/mybatis-plus',
+        context: 'mybatis 增强工具包，简化 CRUD 操作',
+        starPrice: '4',
+        starNum: '25',
+      },
+    ]
+    if (type == 'GitHub') {
+      for (let obj in githubTestCase) {
+        await this.repository.createCard(
+          userId,
+          type,
+          githubTestCase[obj].title,
+          githubTestCase[obj].context,
+          BigInt(githubTestCase[obj].starPrice),
+          BigInt(githubTestCase[obj].starNum),
+          new Date(),
+        )
+      }
+    } else {
+      for (let obj in giteeTestCase) {
+        await this.repository.createCard(
+          userId,
+          type,
+          giteeTestCase[obj].title,
+          giteeTestCase[obj].context,
+          BigInt(giteeTestCase[obj].starPrice),
+          BigInt(giteeTestCase[obj].starNum),
+          new Date(),
+        )
+      }
     }
     const userPrice =
       type == 'GitHub' ? ctx.github_user.price : ctx.gitee_user.price
