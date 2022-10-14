@@ -26,40 +26,19 @@
             <svg class="fronticon" aria-hidden="true">
               <use xlink:href="#icon-geren"></use>
             </svg>
-            我的仓库
-          </router-link>
-          <router-link to="/github" @click="noLoginError()" class="link" v-show="!isLogin">
+            我的仓库</router-link
+          >
+          <router-link
+            to="/github"
+            @click="noLoginError()"
+            class="link"
+            v-show="!isLogin"
+          >
             <svg class="fronticon" aria-hidden="true">
               <use xlink:href="#icon-geren"></use>
             </svg>
-            我的仓库
-          </router-link>
-        </el-menu-item>
-      </div>
-
-      <div class="mid-block" v-show="this.type=='Gitee'">
-        <el-menu-item index="1">
-          <router-link to="/gitee" class="link">
-            <svg class="fronticon" style="margin-top: 10%" aria-hidden="true">
-              <use xlink:href="#icon-fangdajing"></use>
-            </svg>
-            发现仓库
-          </router-link>
-        </el-menu-item>
-        <el-divider class="divider" direction="vertical" />
-        <el-menu-item index="2">
-          <router-link to="/mygitee" class="link" v-show="isLogin">
-            <svg class="fronticon" aria-hidden="true">
-              <use xlink:href="#icon-geren"></use>
-            </svg>
-            我的仓库
-          </router-link>
-          <router-link to="/gitee" @click="noLoginError()" class="link" v-show="!isLogin">
-            <svg class="fronticon" aria-hidden="true">
-              <use xlink:href="#icon-geren"></use>
-            </svg>
-            我的仓库
-          </router-link>
+            我的仓库</router-link
+          >
         </el-menu-item>
       </div>
 
@@ -113,7 +92,8 @@
 <script>
 import bus from "../utils/emitter";
 import GithubAuth from "./githubAuth.vue";
-import Logout from "./dialog/logout.vue";
+import Logout from "./dialog/githubLogout.vue";
+import ToggleButton from "./toggleButton.vue";
 import { ElMessage } from "element-plus";
 import { getUserInfo } from "../api/getUserInfo.js"
 import "../iconfont/iconfont";
