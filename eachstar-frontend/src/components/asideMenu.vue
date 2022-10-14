@@ -31,6 +31,7 @@ import { UserIsLogin } from "../api/UserIsLogin";
 export default {
   data() {
     return {
+      type: "GitHub",
       userPrice: null,
       windowWidth: 1000,
     };
@@ -39,7 +40,7 @@ export default {
     this.updateUserPrice();
     this.windowWidth = document.documentElement.clientWidth;
     bus.on("refreshUserInfo", this.updateUserPrice);
-
+    bus.on("typeChange", this.typeChange)
     var that = this;
     window.onresize = () => {
       return(()=>{
@@ -60,10 +61,18 @@ export default {
      * api更新用户积分
      */
     async updateUserPrice() {
-      if (await UserIsLogin("GitHub")) {
-        this.userPrice = await getUserPrice("GitHub");
+      console.log("正在访问是否登录" + this.type)
+      if (await UserIsLogin(this.type)) {
+        this.userPrice = await getUserPrice(this.type);
       }
     },
+
+    async typeChange(t) {
+      this.type = t;
+      console.log("切换到" + this.type)
+      this.userPrice = null;
+      await this.updateUserPrice();
+    }
   },
   components: {
     PublicDialog,
