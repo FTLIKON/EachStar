@@ -32,7 +32,7 @@
           class="slider"
           :step="1"
           :min="1"
-          :max="min(5, (userPrice-starPrice*starNum)/starNum)"
+          :max="this.min(5, (userPrice-starPrice*starNum)/starNum)"
         ></el-slider>
       </div>
       <div class="rank-num-block">
@@ -56,7 +56,7 @@
           class="slider"
           :step="1"
           :min="1"
-          :max="min(50, (userPrice-starPrice*starNum)/starPrice)"
+          :max="this.min(50, (userPrice-starPrice*starNum)/starPrice)"
         ></el-slider>
       </div>
       <div class="user-rank-calc">
@@ -171,6 +171,11 @@ export default {
         this.dialogVisible = true; // 显示页面
         this.userPrice = await getUserPrice("GitHub");
       }
+    },
+
+    min(a, b) {
+      if ( a > b ) return b;
+      return a;
     },
   },
 };
