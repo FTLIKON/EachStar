@@ -12,6 +12,7 @@ export default {};
 .main {
   display: flex;
   height: 500px;
+  color: white;
   .emptycard {
     margin-top: 200px;
     font-weight: bolder;
