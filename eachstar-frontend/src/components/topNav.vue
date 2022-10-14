@@ -4,7 +4,7 @@
     <!-- 主栏 -->
     <el-menu id="menu" mode="horizontal" default-active="1" :ellipsis="false">
       <!-- GitHub LOGO -->
-      <div class="left-block">
+      <div class="left-block" v-show="this.type=='GitHub'">
         <div class="logo">
           <img class="logo-pic" src="icon.png" @click="goEachStar" />
           <span @click="goEachStar">EachStar</span>
@@ -13,7 +13,7 @@
       </div>
 
       <!-- Gitee LOGO -->
-      <div class="left-block">
+      <div class="left-block" v-show="this.type=='Gitee'">
         <div class="logo">
           <img class="logo-pic" src="icon.png" @click="goEachStar" />
           <span @click="goEachStar">EachStar</span>
