@@ -7,7 +7,7 @@
         <div class="logo">
           <img class="logo-pic" src="icon.png" @click="goEachStar" />
           <span @click="goEachStar">EachStar</span>
-          <el-button @click="toggleType()" style="margin-left: 5%"
+          <el-button @click="toggleType()" style="margin-left: 5%" v-loading="toggleCooldown"
             >切换到码云版</el-button
           >
         </div>
@@ -18,7 +18,7 @@
         <div class="logo">
           <img class="logo-pic" src="icon.png" @click="goEachStar" />
           <span @click="goEachStar">EachStar</span>
-          <el-button @click="toggleType()" style="margin-left: 5%"
+          <el-button @click="toggleType()" style="margin-left: 5%" v-loading="toggleCooldown"
             >切换到GitHub版</el-button
           >
         </div>
@@ -167,6 +167,7 @@ export default {
       type: "GitHub",
       isDark: useDark(),
       isLogin: false,
+      toggleCooldown: false,
 
       userName: "",
       userPrice: null,
@@ -184,6 +185,11 @@ export default {
      * 切换Type
      */
     async toggleType() {
+      this.toggleCooldown = true; // 3秒冷却
+      setTimeout(function(){
+        this.toggleCooldown = false;
+      }, 3000)
+
       if (this.type == "GitHub") {
         this.type = "Gitee";
         this.isDark = true;
