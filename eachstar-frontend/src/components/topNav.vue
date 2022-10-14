@@ -126,7 +126,7 @@
         <span v-show="isLogin && type == 'Gitee'" class="user-rank">
           <svg
             class="fronticon"
-            style="width: 18px; height: 18px; color: #c45656; margin-top: 13%; margin-right: 2%"
+            style="width: 18px; height: 18px; color: #c45656; margin-top: 15%; margin-right: 2%"
             aria-hidden="true"
           >
             <use xlink:href="#icon-yunpan"></use>
