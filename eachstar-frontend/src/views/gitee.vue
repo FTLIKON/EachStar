@@ -27,11 +27,9 @@
                   <svg
                     class="fronticon"
                     style="
-                      width: 18px;
-                      height: 18px;
+                      width: 20px;
+                      height: 20px;
                       color: #c45656;
-                      margin-top: 1%;
-                      margin-right: 1%;
                     "
                     aria-hidden="true"
                   >
