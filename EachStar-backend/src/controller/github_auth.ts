@@ -65,7 +65,7 @@ export class GitHubAuthController {
     ctx.cookies.set('githubToken', accessToken, { httpOnly: false }) //用户githubToken
 
     ctx.status = 301
-    ctx.redirect(serviceConfig.auth.redirectPath) //重定向到请求页面
+    ctx.redirect(serviceConfig.auth.githubRedirectPath) //重定向到请求页面
   }
 }
 export default GitHubAuthController
