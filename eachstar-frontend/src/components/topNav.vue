@@ -176,7 +176,6 @@ export default {
   mounted() {
     this.isDark = false;
     bus.on("refreshUserInfo", this.updateUserInfo);
-    bus.on("refreshUserPrice", this.updateUserPrice);
 
     bus.emit("refreshUserInfo", this.type);
   },
@@ -194,9 +193,9 @@ export default {
       }
 
       bus.emit("typeChange");
-      router.push("/" + this.type.toLowerCase());
-      await this.updateUserInfo(this.type);
-      bus.emit("refreshUserPrice", this.type);
+      router.push('/'+this.type.toLowerCase())
+      // await this.updateUserInfo(this.type);
+      bus.emit("refreshUserInfo", this.type);
     },
 
     /**
@@ -241,24 +240,25 @@ export default {
       this.userIconURL = null;
       this.isLogin = false;
 
-      if (await UserIsLogin(type)) {
+      if ( type == "GitHub" ) {
+        if(this.$cookies.get("githubName")){
+          this.userName = this.$cookies.get("githubName")
+          this.userIconURL = this.$cookies.get("githubAvatar")
+          this.isLogin = true
+        }
+      } else if ( type == "Gitee" ) {
+        if(this.$cookies.get("giteeName")){
+          this.userName = this.$cookies.get("giteeName")
+          this.userIconURL = this.$cookies.get("giteeAvatar")
+          this.isLogin = true
+        }
+      }
+
+      if (this.isLogin) {
         var data = await getUserInfo(type);
-        this.userName = data.name;
         this.userPrice = data.price;
-        this.userIconURL = data.avatar;
-        this.isLogin = true;
       } else {
         console.log("你还没有登录" + this.type);
-      }
-    },
-
-    /**
-     * api更新用户积分和type
-     */
-    async updateUserPrice(type) {
-      this.type = type;
-      if (await UserIsLogin(type)) {
-        this.userPrice = await getUserPrice(type);
       }
     },
 

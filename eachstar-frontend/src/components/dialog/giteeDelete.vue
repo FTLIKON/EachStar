@@ -60,7 +60,7 @@ export default {
      * 打开页面
      */ 
     async openPage(card) {
-      if (await UserIsLogin("Gitee")) {
+      if (this.$cookies.get("giteeName")) {
         this.dialogVisible = true;
         this.cardId = card.id;
         this.cardTitle = card.title;

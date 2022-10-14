@@ -27,7 +27,7 @@
                   <svg class="fronticon" aria-hidden="true">
                     <use xlink:href="#icon-bonus-line"></use>
                   </svg>
-                  可获得星币: {{ item.starPrice }}
+                  可获得云币: {{ item.starPrice }}
                 </span>
                 <el-divider direction="vertical" />
                 <span style="color: #409eff">
@@ -151,7 +151,7 @@ export default {
       if (await starCard(card, "Gitee")) {
         setTimeout(() => {
           ElMessage({
-            message: "一键star成功! 获得星币:" + card.starPrice,
+            message: "一键star成功! 获得云币:" + card.starPrice,
             type: "success",
           });
           card.starNum -= 1;
