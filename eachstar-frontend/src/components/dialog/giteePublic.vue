@@ -18,9 +18,17 @@
         clearable
       />
       <div class="rank-block">
-        <span class="slider-text"
-          ><svg class="fronticon" style="color: #b88230" aria-hidden="true">
-            <use xlink:href="#icon-bonus-line"></use></svg
+        <span class="slider-text">
+          <svg
+            class="fronticon"
+            style="
+              width: 18px;
+              height: 18px;
+              color: #c45656;
+            "
+            aria-hidden="true"
+          >
+            <use xlink:href="#icon-yunpan"></use></svg
           >云币价值: {{ starPrice }}</span
         >
         <el-slider
@@ -55,7 +63,7 @@
         ></el-slider>
       </div>
       <div class="user-rank-calc">
-        消耗星币: {{ starPrice * starNum }}
+        消耗云币: {{ starPrice * starNum }}
         <el-divider direction="vertical" /> 剩余云币:
         {{ userPrice - starPrice * starNum }}
       </div>
@@ -83,7 +91,8 @@
   </el-dialog>
 </template>
 
-<script> import { ElMessage } from "element-plus";
+<script>
+import { ElMessage } from "element-plus";
 import { validateGiteeUrl } from "../../utils/validate.js";
 import axios from "axios";
 import "../../iconfont/iconfont";
@@ -91,7 +100,7 @@ import bus from "../../utils/emitter";
 import { getExpireTime } from "../../utils/common.js";
 import { getUserPrice } from "../../api/getUserPrice";
 import { getUserName } from "../../api/getUserName.js";
-import { publicCard } from "../../api/publicCard.js"
+import { publicCard } from "../../api/publicCard.js";
 import { UserIsLogin } from "../../api/UserIsLogin.js";
 
 export default {
@@ -110,7 +119,7 @@ export default {
   methods: {
     /**
      * 发布按钮
-     */ 
+     */
     async publicButton() {
       // 剩余积分不足
       if (this.userPrice - this.starPrice * this.starNum < 0) {
@@ -119,22 +128,26 @@ export default {
           type: "warning",
         });
         this.publicConfirm = false;
-    
-      // 检查是否gitee链接
+
+        // 检查是否gitee链接
       } else if (validateGiteeUrl(this.cardTitle)) {
         ElMessage({
           message: "您输入的似乎不是Gitee链接, 请检查",
           type: "warning",
         });
         this.publicConfirm = false;
-
       } else {
         this.dialogVisible = false;
         this.publicConfirm = false;
         ElMessage("正在尝试发布, 请稍等");
 
         let access = await publicCard(
-          "Gitee", this.cardTitle, this.cardDiscription, this.starPrice, this.starNum);
+          "Gitee",
+          this.cardTitle,
+          this.cardDiscription,
+          this.starPrice,
+          this.starNum
+        );
         if (access) {
           ElMessage({
             message: "发布成功! 为您重定向至第一页...",
@@ -148,9 +161,10 @@ export default {
 
     /**
      * 提供可调用的public页面
-     */ 
+     */
     async openPage() {
-      if (!this.$cookies.get("giteeName")) { // 登录
+      if (!this.$cookies.get("giteeName")) {
+        // 登录
         ElMessage({
           message: "请先进行 登录/注册!",
           type: "warning",
