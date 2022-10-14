@@ -24,8 +24,18 @@
             <div class="card-valueblock">
               <span class="card-rank">
                 <span>
-                  <svg class="fronticon" aria-hidden="true">
-                    <use xlink:href="#icon-bonus-line"></use>
+                  <svg
+                    class="fronticon"
+                    style="
+                      width: 18px;
+                      height: 18px;
+                      color: #c45656;
+                      margin-top: 1%;
+                      margin-right: 1%;
+                    "
+                    aria-hidden="true"
+                  >
+                    <use xlink:href="#icon-yunpan"></use>
                   </svg>
                   可获得云币: {{ item.starPrice }}
                 </span>
