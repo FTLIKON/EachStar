@@ -68,6 +68,7 @@ export default {
 
     async typeChange(type) {
       this.type = type;
+      console.log(type);
       this.userPrice = null;
       await this.updateUserPrice();
     }
