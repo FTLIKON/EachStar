@@ -180,7 +180,7 @@ export default {
       router.push('/'+type.toLowerCase())
       this.isDark = !this.isDark;
       this.type = type;
-      await this.updateUserInfo();
+      await this.updateUserInfo(type);
       bus.emit("refreshUserInfo", type);
     },
 
