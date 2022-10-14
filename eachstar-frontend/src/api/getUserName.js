@@ -1,6 +1,5 @@
 import axios from "axios";
 export async function getUserName(type) {
-    console.log(this.$cookies.get('githubName'));
     if (type=="github") {
         if (this.$cookies.get('githubName')) {
             return this.$cookies.get('githubName')

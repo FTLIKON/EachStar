@@ -60,7 +60,7 @@ export default {
      * 打开页面
      */ 
     async openPage(card) {
-      if (await UserIsLogin("GitHub")) {
+      if (this.$cookies.get("githubName")) {
         this.dialogVisible = true;
         this.cardId = card.id;
         this.cardTitle = card.title;

@@ -152,7 +152,7 @@ export default {
      * 提供可调用的public页面
      */ 
     async openPage() {
-      if (!await UserIsLogin("GitHub")) { // 登录
+      if (!this.$cookies.get("githubName")) { // 登录
         ElMessage({
           message: "请先进行 登录/注册!",
           type: "warning",

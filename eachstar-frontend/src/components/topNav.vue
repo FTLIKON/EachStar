@@ -230,7 +230,13 @@ export default {
       this.userIconURL = null;
       this.isLogin = false;
 
-      if (await UserIsLogin(type)) {
+      if ( type == "GitHub" ) {
+        if(this.$cookies.get("githubName"))this.isLogin = true
+      } else if ( type == "Gitee" ) {
+        if(this.$cookies.get("giteeName"))this.isLogin = true
+      }
+      
+      if (this.isLogin) {
         var data = await getUserInfo(type);
         this.userName = data.name;
         this.userPrice = data.price;
