@@ -7,8 +7,11 @@
         <div class="logo">
           <img class="logo-pic" src="icon.png" @click="goEachStar" />
           <span @click="goEachStar">EachStar</span>
-          <el-button @click="toggleType()" style="margin-left: 5%" v-loading="toggleCooldown"
+          <el-button @click="toggleType()" style="margin-left: 5%" v-show="!toggleCooldown"
             >切换到码云版</el-button
+          >
+          <el-button @click="toggleType()" style="margin-left: 5%" loading v-show="toggleCooldown"
+            >等待中...</el-button
           >
         </div>
       </div>
@@ -18,8 +21,11 @@
         <div class="logo">
           <img class="logo-pic" src="icon.png" @click="goEachStar" />
           <span @click="goEachStar">EachStar</span>
-          <el-button @click="toggleType()" style="margin-left: 5%" v-loading="toggleCooldown"
+          <el-button @click="toggleType()" style="margin-left: 5%" v-show="!toggleCooldown"
             >切换到GitHub版</el-button
+          >
+          <el-button @click="toggleType()" style="margin-left: 5%" loading v-show="toggleCooldown"
+            >等待中...</el-button
           >
         </div>
       </div>
@@ -189,7 +195,7 @@ export default {
       this.toggleCooldown = true; // 3秒冷却
       setTimeout(function(){
         that.toggleCooldown = false;
-      }, 3000)
+      }, 5000)
 
       if (this.type == "GitHub") {
         this.type = "Gitee";

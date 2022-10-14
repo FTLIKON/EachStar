@@ -40,9 +40,11 @@ export default {
     };
   },
   mounted() {
-    if (this.userPrice == null) {
-      this.updateUserPrice(this.type);
-    }
+    setTimeout(() => {
+      if (this.userPrice == null) {
+        this.updateUserPrice(this.type);
+      }
+    }, 2000);
     bus.on("refreshUserInfo", this.updateUserPrice);
     bus.on("typeChange", this.typeChange)
 
