@@ -6,10 +6,10 @@
 </template>
 
 <script setup>
-import { useToggle } from '@vueuse/shared'
+import { useDark, useToggle } from '@vueuse/shared'
 // import { isDark } from '../../.vitepress/theme/composables/dark'
 
-const isDark = true
+const isDark = useDark()
 const toggleDark = useToggle(isDark)
 </script>
 
