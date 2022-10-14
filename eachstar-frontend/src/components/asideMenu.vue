@@ -49,6 +49,10 @@ export default {
       })()
     };
   },
+  beforeDestroy() {
+    bus.off("refreshUserInfo");
+    bus.off("typeChange")
+  },
   methods: {
     /**
      * 打开子发布页面
