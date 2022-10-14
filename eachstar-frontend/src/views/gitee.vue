@@ -30,6 +30,7 @@
                       width: 18px;
                       height: 18px;
                       color: #c45656;
+                      margin-bottom: 0.5%
                     "
                     aria-hidden="true"
                   >
