@@ -12,6 +12,9 @@ export default {};
 .emptyCardMain {
   display: flex;
   height: 500px;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
   .emptycard {
     margin-top: 200px;
     font-weight: bolder;
