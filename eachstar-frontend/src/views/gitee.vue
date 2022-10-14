@@ -156,9 +156,8 @@ export default {
           });
           card.starNum -= 1;
           card.starred = true;
-          bus.emit("refreshUserInfo", "Gitee");
-          if (card.starNum == 0) {
-            // 退化情况
+          bus.emit("refreshUserPrice", "Gitee");
+          if (card.starNum == 0) { // 退化情况
             this.refreshPageData();
           }
         }, 1000);
