@@ -50,8 +50,8 @@ export default {
     };
   },
   beforeDestroy() {
-    bus.off("refreshUserInfo");
-    bus.off("typeChange")
+    bus.off("refreshUserInfo", this.updateUserPrice);
+    bus.off("typeChange", this.typeChange)
   },
   methods: {
     /**
