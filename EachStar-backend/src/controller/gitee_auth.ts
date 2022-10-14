@@ -60,18 +60,15 @@ export class GiteeAuthController {
     })
     console.log(res.data)
 
-    ctx.cookies.set('giteeId', res.data.id, { httpOnly: false, maxAge: 86400 }) //用户id
+    ctx.cookies.set('giteeId', res.data.id, { httpOnly: false }) //用户id
     ctx.cookies.set('giteeName', res.data.login, {
       httpOnly: false,
-      maxAge: 86400,
     }) //用户名称
     ctx.cookies.set('giteeAvatar', res.data.avatar_url, {
       httpOnly: false,
-      maxAge: 86400,
     }) //用户图片
     ctx.cookies.set('giteeToken', accessToken, {
       httpOnly: false,
-      maxAge: 86400,
     }) //用户giteeToken
 
     ctx.status = 301
