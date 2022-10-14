@@ -193,7 +193,7 @@ export default {
       }
 
       bus.emit("typeChange");
-      router.push('/'+this.type.toLowerCase())
+      await router.push('/'+this.type.toLowerCase())
       bus.emit("refreshUserInfo", this.type);
     },
 
