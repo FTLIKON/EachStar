@@ -123,10 +123,10 @@ export default {
      * 切换Type
      */ 
     toggleType() {
-      if (type=="GitHub") {
-        type = "Gitee";
-      } else if (type=="Gitee") {
-        type = "GitHub";
+      if (this.type=="GitHub") {
+        this.type = "Gitee";
+      } else if (this.type=="Gitee") {
+        this.type = "GitHub";
       }
       this.updateUserInfo();
       this.isDark = !this.isDark();
