@@ -10,6 +10,7 @@
 
       <!-- 卡片列表 -->
       <div class="card-container">
+        <!-- 遍历card -->
         <el-card v-for="item of currentPageData" :key="item" class="card-list">
           <div class="card-block">
             <div class="card-titleblock">

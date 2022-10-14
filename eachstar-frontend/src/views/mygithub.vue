@@ -9,6 +9,8 @@
     <div class="card-view">
       <!-- 卡片列表 -->
       <div class="card-container">
+
+        <!-- 遍历card -->
         <el-card v-for="item of currentPageData" :key="item" class="card-list">
           <div class="card-block">
             <div class="card-titleblock">
@@ -51,6 +53,8 @@
             </div>
           </div>
         </el-card>
+
+        <empty-card />
       </div>
 
       <!-- 卡片换页 -->
@@ -76,6 +80,7 @@ import BottomLine from "../components/bottomLine.vue";
 import AsideMenu from "../components/asideMenu.vue";
 import "../iconfont/iconfont";
 import { getMyPageData } from "../api/getMyPageData.js";
+import EmptyCard from '../components/emptyCard.vue';
 
 export default {
   name: "mygithub",
@@ -124,6 +129,7 @@ export default {
     Delete,
     AsideMenu,
     BottomLine,
+    EmptyCard,
   },
 };
 </script>
