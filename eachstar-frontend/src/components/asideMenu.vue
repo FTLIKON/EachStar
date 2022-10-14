@@ -20,7 +20,8 @@
         <use xlink:href="#icon-bonus-line"></use>
       </svg>可用云币: {{ userPrice }}
     </div>
-    <PublicDialog ref="PublicDialog" />
+    <giteePublic ref="giteePublic" />
+    <githubPublic ref="githubPublic" />
   </div>
 </template>
 
