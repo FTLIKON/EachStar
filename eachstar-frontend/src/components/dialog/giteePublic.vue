@@ -84,7 +84,7 @@
 </template>
 
 <script> import { ElMessage } from "element-plus";
-import { validateGithubUrl } from "../../utils/validate.js";
+import { validateGiteeUrl } from "../../utils/validate.js";
 import axios from "axios";
 import "../../iconfont/iconfont";
 import bus from "../../utils/emitter";
