@@ -40,7 +40,7 @@ export default {
     };
   },
   mounted() {
-    if (userPrice == null) {
+    if (this.userPrice == null) {
       this.updateUserPrice(this.type);
     }
     bus.on("refreshUserInfo", this.updateUserPrice);
