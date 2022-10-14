@@ -165,7 +165,6 @@ export default {
   mounted() {
     this.isDark = false;
     bus.on("refreshUserInfo", this.updateUserInfo);
-    bus.on("refreshUserPrice", this.updateUserPrice);
 
     bus.emit("refreshUserInfo", this.type);
   },
@@ -184,8 +183,8 @@ export default {
 
       bus.emit("typeChange");
       router.push('/'+this.type.toLowerCase())
-      await this.updateUserInfo(this.type);
-      bus.emit("refreshUserPrice", this.type);
+      // await this.updateUserInfo(this.type);
+      bus.emit("refreshUserInfo", this.type);
     },
 
     /**
@@ -249,16 +248,6 @@ export default {
         this.userPrice = data.price;
       } else {
         console.log("你还没有登录"+this.type);
-      }
-    },
-
-    /**
-     * api更新用户积分和type
-     */
-    async updateUserPrice(type) {
-      this.type = type;
-      if (await UserIsLogin(type)) {
-        this.userPrice = await getUserPrice(type);
       }
     },
 
