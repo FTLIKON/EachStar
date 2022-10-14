@@ -26,7 +26,7 @@
           width: 18px;
           height: 18px;
           color: #c45656;
-          margin-top: 0.5%;
+          margin-top: 1%;
           margin-right: 1%;
         "
         aria-hidden="true"
