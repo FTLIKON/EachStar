@@ -11,6 +11,7 @@
         </div>
       </div>
 
+      <!-- Github菜单栏 -->
       <div class="mid-block" v-show="this.type=='GitHub'">
         <el-menu-item index="1">
           <router-link to="/github" class="link">
@@ -42,6 +43,7 @@
         </el-menu-item>
       </div>
 
+      <!-- Gitee菜单栏 -->
       <div class="mid-block" v-show="this.type=='Gitee'">
         <el-menu-item index="1">
           <router-link to="/gitee" class="link">
@@ -73,6 +75,7 @@
         </el-menu-item>
       </div>
 
+      <!-- 用户信息栏 -->
       <div class="right-block">
         <el-button v-show="!isLogin" @click="authButton()" id="auth-button"
           >登录 / 注册</el-button
@@ -169,6 +172,7 @@ export default {
      * 注册按钮
      */ 
     authButton() {
+      
       if (this.type=="GitHub") {
         this.$.refs.GithubAuth.openPage();
       } else if (this.type="Gitee") {
