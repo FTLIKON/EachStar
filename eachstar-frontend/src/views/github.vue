@@ -123,12 +123,13 @@ export default {
     /**
      * star按钮
      */ 
-    starCardButton(card) {
-      if (!getUserName("GitHub")) {
+    async starCardButton(card) {
+      if (!await UserIsLogin("GitHub")) {
         ElMessage({
           message: "请先进行 登录/注册!",
           type: "warning",
         })
+        return false;
       } 
       
       // star按钮触发动画
@@ -136,7 +137,7 @@ export default {
       setTimeout(()=>{this.buttonLoading=false}, 2000);
       card.starring = true;
 
-      if(starCard(card, "GitHub")){
+      if(await starCard(card, "GitHub")){
         setTimeout(()=>{
           ElMessage({
             message: "一键star成功! 获得星币:" + card.starPrice,

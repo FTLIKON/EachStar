@@ -18,6 +18,7 @@ import bus from '../../utils/emitter';
 import { ElMessage } from "element-plus";
 import { getUserPrice } from '../../api/getUserPrice';
 import { deleteCard } from "../../api/deleteCard";
+import { UserIsLogin } from '../../api/UserIsLogin';
 
 export default {
   data() {
@@ -54,13 +55,15 @@ export default {
      * 打开页面
      */ 
     async openPage(card) {
-      this.dialogVisible = true;
-      this.cardId = card.id;
-      this.cardTitle = card.title;
-      this.cardDiscription = card.context;
-      this.starPrice = card.starPrice;
-      this.starNum = card.starNum;
-      this.userPrice = await getUserPrice("GitHub");
+      if (await UserIsLogin("GitHub")) {
+        this.dialogVisible = true;
+        this.cardId = card.id;
+        this.cardTitle = card.title;
+        this.cardDiscription = card.context;
+        this.starPrice = card.starPrice;
+        this.starNum = card.starNum;
+        this.userPrice = await getUserPrice("GitHub");
+      }
     },
   },
 }
