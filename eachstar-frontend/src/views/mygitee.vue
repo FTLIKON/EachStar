@@ -27,7 +27,7 @@
                 <span
                   ><svg class="fronticon" aria-hidden="true">
                     <use xlink:href="#icon-bonus-line"></use></svg
-                  >星币价值: {{ item.starPrice }}</span
+                  >云币价值: {{ item.starPrice }}</span
                 >
                 <el-divider direction="vertical" />
                 <span style="color: #409eff"
