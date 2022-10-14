@@ -180,8 +180,8 @@ export default {
      * 更新用户信息
      */ 
     async updateUserInfo() {
-      if (await UserIsLogin(type)) {
-        var data = await getUserInfo(type);
+      if (await UserIsLogin(this.type)) {
+        var data = await getUserInfo(this.type);
         this.userName = data.name;
         this.userPrice = data.price;
         this.userIconURL = data.avatar;
