@@ -141,7 +141,7 @@ export default {
      * 切换Type
      */ 
     toggleType() {
-      useToggle(this.isDark)
+      this.isDark = !this.isDark;
       console.log(this.isDark)
     },
 
