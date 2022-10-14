@@ -13,7 +13,7 @@
     <div v-show="userPrice && type == 'GitHub'" class="user-price">
       <svg
         class="fronticon"
-        style="color: #b88230; width: 23px; height: 23px; margin-top: 2%"
+        style="color: #b88230; width: 23px; height: 23px; margin-top: 0.5%"
         aria-hidden="true"
       >
         <use xlink:href="#icon-bonus-line"></use></svg
@@ -26,8 +26,8 @@
           width: 18px;
           height: 18px;
           color: #c45656;
-          margin-top: 2%;
-          margin-right: 2%;
+          margin-top: 0.5%;
+          margin-right: 1%;
         "
         aria-hidden="true"
       >
