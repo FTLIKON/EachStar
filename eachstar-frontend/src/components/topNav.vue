@@ -176,6 +176,7 @@ export default {
         this.type = "GitHub";
       }
       bus.emit("typeChange", this.type);
+      bus.emit("refreshUserInfo");
       router.push('/'+this.type.toLowerCase())
       this.updateUserInfo();
       this.isDark = !this.isDark;

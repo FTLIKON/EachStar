@@ -37,6 +37,7 @@ export default {
     };
   },
   mounted() {
+    console.log("aside menu")
     this.updateUserPrice();
     this.windowWidth = document.documentElement.clientWidth;
     bus.on("refreshUserInfo", this.updateUserPrice);
