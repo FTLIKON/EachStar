@@ -7,7 +7,6 @@
 
     <!-- 卡片视图 -->
     <div class="card-view">
-
       <!-- 卡片列表 -->
       <div class="card-container">
         <!-- 遍历card -->
@@ -48,7 +47,11 @@
                 @click="starCardButton(item)"
                 plain
               >
-                <svg class="fronticon" style="color: #b88230" aria-hidden="true">
+                <svg
+                  class="fronticon"
+                  style="color: #b88230"
+                  aria-hidden="true"
+                >
                   <use xlink:href="#icon-xingxing"></use>
                 </svg>
                 一键Star</el-button
@@ -69,7 +72,12 @@
               >
                 等待中...</el-button
               >
-              <el-button v-show="item.starred" id="card-button" type="info" plain>
+              <el-button
+                v-show="item.starred"
+                id="card-button"
+                type="info"
+                plain
+              >
                 <svg class="fronticon" aria-hidden="true">
                   <use xlink:href="#icon-xingxing1"></use>
                 </svg>
@@ -123,23 +131,25 @@ export default {
   methods: {
     /**
      * star按钮
-     */ 
+     */
     async starCardButton(card) {
-      if (!await UserIsLogin("Gitee")) {
+      if (!(await UserIsLogin("Gitee"))) {
         ElMessage({
           message: "请先进行 登录/注册!",
           type: "warning",
-        })
+        });
         return false;
-      } 
-      
+      }
+
       // star按钮触发动画
       this.buttonLoading = true;
-      setTimeout(()=>{this.buttonLoading=false}, 2000);
+      setTimeout(() => {
+        this.buttonLoading = false;
+      }, 2000);
       card.starring = true;
 
-      if(await starCard(card, "Gitee")){
-        setTimeout(()=>{
+      if (await starCard(card, "Gitee")) {
+        setTimeout(() => {
           ElMessage({
             message: "一键star成功! 获得星币:" + card.starPrice,
             type: "success",
@@ -147,14 +157,15 @@ export default {
           card.starNum -= 1;
           card.starred = true;
           bus.emit("refreshUserInfo");
-          if (card.starNum == 0) { // 退化情况
+          if (card.starNum == 0) {
+            // 退化情况
             this.refreshPageData();
           }
-        }, 1000)
+        }, 1000);
       } else {
         ElMessage({
-            message: "一键star失败, 请稍后再试试~",
-            type: "warning",
+          message: "一键star失败, 请稍后再试试~",
+          type: "warning",
         });
         card.starred = false;
       }
@@ -162,7 +173,7 @@ export default {
 
     /**
      * 切换页面
-     */ 
+     */
     async pageChange(page) {
       this.currentPage = page;
       this.loading = true;
@@ -172,10 +183,10 @@ export default {
       this.totalPage = Math.ceil(src.count / 10);
       this.loading = false;
     },
-    
+
     /**
      * 刷新页面(到第一页)
-     */ 
+     */
     refreshPageData: function () {
       this.pageChange(1);
     },
@@ -216,7 +227,7 @@ export default {
     width: 50%;
     margin-left: 25%;
     margin-right: 25%;
-    margin-bottom: max(1%,15px);
+    margin-bottom: max(1%, 15px);
     min-width: 600px;
   }
   .pagination {
@@ -234,7 +245,7 @@ export default {
       display: flex;
 
       .card-title {
-        color: #303133;
+        color: #f2f6fc;
         width: 70%;
         text-align: left;
         font-size: large;
@@ -243,14 +254,14 @@ export default {
       }
 
       .card-time {
-        color: #606266;
+        color: #ebeef5;
         width: 30%;
         text-align: right;
       }
     }
 
     .card-discription {
-      color: #606266;
+      color: #e4e7ed;
       text-align: left;
       display: -webkit-box;
       -webkit-line-clamp: 2;
