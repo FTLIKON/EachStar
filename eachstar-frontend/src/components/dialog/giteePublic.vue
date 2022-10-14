@@ -22,8 +22,8 @@
           <svg
             class="fronticon"
             style="
-              width: 18px;
-              height: 18px;
+              width: 19px;
+              height: 19px;
               color: #c45656;
               margin-bottom: 1%;
               margin-right: 1%;
