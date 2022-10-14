@@ -172,6 +172,7 @@ export default {
       var src = await getPageData("GitHub", this.currentPage);
       this.currentPageData = src.data;
       this.totalPage = Math.ceil(src.count / 10);
+      this.$refs.table.bodyWrapper.scrollTop = 0
       this.loading = false;
     },
     
