@@ -8,7 +8,7 @@ export default {};
 
 <style scoped>
 .emptycard {
-  margin-top: 30%;
+  margin-top: 300px;
   font-weight: bolder;
 }
 </style>
