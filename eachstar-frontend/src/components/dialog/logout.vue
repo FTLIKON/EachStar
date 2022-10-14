@@ -23,13 +23,24 @@ export default {
     };
   },
   methods: {
+    /**
+     * 登出页面打开
+     */ 
     openPage() {
       this.dialogVisible = true;
     },
+
+    /**
+     * 前往URL
+     */ 
     goPage(url) {
       window.location.href = url;
     },
-    userLogout: function () {
+
+    /**
+     * 尝试登出
+     */ 
+    userLogout() {
       var config = {
         method: "get",
         url: "server/oauth/logout",
