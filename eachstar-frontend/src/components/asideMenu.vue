@@ -70,13 +70,8 @@ export default {
      * 切换页面
      */ 
     async typeChange(t) {
-      this.type = t;
-      console.log("切换到" + this.type)
-      console.log("before destory")
       bus.off("refreshUserInfo", this.updateUserPrice);
       bus.off("typeChange", this.typeChange)
-      this.userPrice = null;
-      await this.updateUserPrice();
     }
   },
   components: {
