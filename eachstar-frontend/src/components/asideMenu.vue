@@ -42,7 +42,8 @@ export default {
   mounted() {
     bus.on("refreshUserInfo", this.updateUserPrice);
     bus.on("typeChange", this.typeChange)
-
+    this.updateUserPrice(type)
+    
     var that = this;
     this.windowWidth = document.documentElement.clientWidth;
     window.onresize = () => {
