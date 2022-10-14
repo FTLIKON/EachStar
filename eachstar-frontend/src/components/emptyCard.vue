@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div class="emptycard">
     当前没有卡片!
   </div>
 </template>
@@ -11,7 +11,7 @@ export default {
 </script>
 
 <style scoped>
-.main {
-
+.emptycard {
+    font-weight: bolder;
 }
 </style>
