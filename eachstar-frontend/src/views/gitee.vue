@@ -125,7 +125,7 @@ export default {
      * star按钮
      */ 
     async starCardButton(card) {
-      if (!await UserIsLogin("GitHub")) {
+      if (!await UserIsLogin("Gitee")) {
         ElMessage({
           message: "请先进行 登录/注册!",
           type: "warning",
@@ -138,7 +138,7 @@ export default {
       setTimeout(()=>{this.buttonLoading=false}, 2000);
       card.starring = true;
 
-      if(await starCard(card, "GitHub")){
+      if(await starCard(card, "Gitee")){
         setTimeout(()=>{
           ElMessage({
             message: "一键star成功! 获得星币:" + card.starPrice,
@@ -167,7 +167,7 @@ export default {
       this.currentPage = page;
       this.loading = true;
 
-      var src = await getPageData("GitHub", this.currentPage);
+      var src = await getPageData("Gitee", this.currentPage);
       this.currentPageData = src.data;
       this.totalPage = Math.ceil(src.count / 10);
       this.loading = false;

@@ -112,7 +112,7 @@ export default {
       this.currentPage = page;
       this.loading = true;
 
-      var src = await getMyPageData("GitHub", this.currentPage);
+      var src = await getMyPageData("Gitee", this.currentPage);
       this.currentPageData = src.data;
       this.totalPage = Math.ceil(src.count / 10);
       this.loading = false;
