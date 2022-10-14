@@ -137,6 +137,7 @@ import { getUserInfo } from "../api/getUserInfo.js"
 import "../iconfont/iconfont";
 import { useDark } from '@vueuse/core'
 import { UserIsLogin } from "../api/UserIsLogin";
+import router from "../router";
 
 export default {
   data() {
@@ -164,6 +165,7 @@ export default {
       } else if (this.type=="Gitee") {
         this.type = "GitHub";
       }
+      router.push('/'+type)
       this.updateUserInfo();
       this.isDark = !this.isDark;
     },
@@ -172,7 +174,6 @@ export default {
      * 注册按钮
      */ 
     authButton() {
-      
       if (this.type=="GitHub") {
         this.$.refs.GithubAuth.openPage();
       } else if (this.type="Gitee") {
