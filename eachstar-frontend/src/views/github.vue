@@ -101,6 +101,7 @@ import AsideMenu from "../components/asideMenu.vue";
 import { getPageData } from "../api/getPageData.js";
 import { getUserName } from "../api/getUserName.js";
 import { starCard } from "../api/starCard.js";
+import { UserIsLogin } from "../api/UserIsLogin.js";
 
 export default {
   name: "github",
