@@ -167,7 +167,7 @@ export default {
     bus.on("refreshUserInfo", this.updateUserInfo);
     bus.on("refreshUserPrice", this.updateUserPrice);
 
-    bus.emit("refreshUserPrice", this.type);
+    bus.emit("refreshUserInfo", this.type);
   },
   methods: {
     /**

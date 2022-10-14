@@ -20,19 +20,21 @@
         <use xlink:href="#icon-bonus-line"></use>
       </svg>可用云币: {{ userPrice }}
     </div>
-    <PublicDialog ref="PublicDialog" />
+    <giteePublic ref="giteePublic" />
+    <githubPublic ref="githubPublic" />
   </div>
 </template>
 
 <script>
 import bus from "../utils/emitter";
-import PublicDialog from "./dialog/public.vue";
+import giteePublic from "./dialog/giteePublic.vue";
+import githubPublic from "./dialog/githubPublic.vue";
 import { getUserPrice } from "../api/getUserPrice.js";
 import { UserIsLogin } from "../api/UserIsLogin";
 export default {
   data() {
     return {
-      type: null,
+      type: "GitHub",
       userPrice: null,
       windowWidth: 1000,
     };
@@ -54,7 +56,18 @@ export default {
      * 打开子发布页面
      */
     openPublicDialog() {
-      this.$.refs.PublicDialog.openPage();
+      if (UserIsLogin(this.type)) {
+        if ( this.type == "Gitee" ) {
+          this.$.refs.giteePublic.openPage();
+        } else if ( this.type == "GitHub" ) {
+          this.$.refs.githubPublic.openPage();
+        }
+      } else {
+        ElMessage({
+          message: "请先进行 登录/注册!",
+          type: "warning",
+        });
+      }
     },
 
     /**
@@ -76,7 +89,8 @@ export default {
     }
   },
   components: {
-    PublicDialog,
+    giteePublic,
+    githubPublic,
   },
 };
 </script>

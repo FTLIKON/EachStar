@@ -70,12 +70,12 @@
       </div>
     </div>
   </div>
-  <Delete ref="Delete" />
+  <GiteeDelete ref="Delete" />
 </template>
 
 <script>
 import bus from "../utils/emitter";
-import Delete from "../components/dialog/delete.vue";
+import GiteeDelete from "../components/dialog/giteeDelete.vue";
 import BottomLine from "../components/bottomLine.vue";
 import AsideMenu from "../components/asideMenu.vue";
 import "../iconfont/iconfont";
@@ -126,7 +126,7 @@ export default {
     },
   },
   components: {
-    Delete,
+    GiteeDelete,
     AsideMenu,
     BottomLine,
     EmptyCard,
