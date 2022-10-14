@@ -170,16 +170,15 @@ export default {
      * 切换Type
      */ 
     async toggleType() {
-      var type = undefined;
       if (this.type=="GitHub") {
-        type = "Gitee";
+        this.type = "Gitee";
       } else if (this.type=="Gitee") {
-        type = "GitHub";
+        this.type = "GitHub";
       }
-      bus.emit("typeChange", type);
+
+      bus.emit("typeChange");
       router.push('/'+type.toLowerCase())
       this.isDark = !this.isDark;
-      this.type = type;
       await this.updateUserInfo(type);
       bus.emit("refreshUserInfo", type);
     },

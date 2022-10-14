@@ -32,7 +32,7 @@ import { UserIsLogin } from "../api/UserIsLogin";
 export default {
   data() {
     return {
-      type: "GitHub",
+      type: this.$router.name,
       userPrice: null,
       windowWidth: 1000,
     };
@@ -73,7 +73,6 @@ export default {
      * 切换页面注销钩子
      */ 
     async typeChange() {
-      this.userPrice = null;
       bus.off("refreshUserInfo", this.updateUserPrice);
       bus.off("typeChange", this.typeChange)
     }
