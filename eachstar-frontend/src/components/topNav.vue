@@ -205,6 +205,8 @@ export default {
         this.userPrice = data.price;
         this.userIconURL = data.avatar;
         this.isLogin = true;
+      } else {
+        console.log("你还没有登录"+this.type);
       }
     },
 
