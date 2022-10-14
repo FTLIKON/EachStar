@@ -7,10 +7,17 @@
         <div class="logo">
           <img class="logo-pic" src="icon.png" @click="goEachStar" />
           <span @click="goEachStar">EachStar</span>
-          <el-button @click="toggleType()" style="margin-left: 5%" v-show="!toggleCooldown"
+          <el-button
+            @click="toggleType()"
+            style="margin-left: 5%"
+            v-show="!toggleCooldown"
             >切换到码云版</el-button
           >
-          <el-button @click="toggleType()" style="margin-left: 5%" loading v-show="toggleCooldown"
+          <el-button
+            @click="toggleType()"
+            style="margin-left: 5%"
+            loading
+            v-show="toggleCooldown"
             >等待中...</el-button
           >
         </div>
@@ -21,10 +28,17 @@
         <div class="logo">
           <img class="logo-pic" src="icon.png" @click="goEachStar" />
           <span @click="goEachStar">EachStar</span>
-          <el-button @click="toggleType()" style="margin-left: 5%" v-show="!toggleCooldown"
+          <el-button
+            @click="toggleType()"
+            style="margin-left: 5%"
+            v-show="!toggleCooldown"
             >切换到GitHub版</el-button
           >
-          <el-button @click="toggleType()" style="margin-left: 5%" loading v-show="toggleCooldown"
+          <el-button
+            @click="toggleType()"
+            style="margin-left: 5%"
+            loading
+            v-show="toggleCooldown"
             >等待中...</el-button
           >
         </div>
@@ -112,10 +126,10 @@
         <span v-show="isLogin && type == 'Gitee'" class="user-rank">
           <svg
             class="fronticon"
-            style="color: #b88230; margin-top: 12%"
+            style="color: #409eff; margin-top: 12%"
             aria-hidden="true"
           >
-            <use xlink:href="#icon-bonus-line"></use>
+            <use xlink:href="#icon-yunpan"></use>
           </svg>
           云币: {{ userPrice }}
         </span>
@@ -193,9 +207,9 @@ export default {
     async toggleType() {
       var that = this;
       this.toggleCooldown = true; // 3秒冷却
-      setTimeout(function(){
+      setTimeout(function () {
         that.toggleCooldown = false;
-      }, 5000)
+      }, 5000);
 
       if (this.type == "GitHub") {
         this.type = "Gitee";
@@ -206,7 +220,7 @@ export default {
       }
 
       bus.emit("typeChange");
-      await router.push('/'+this.type.toLowerCase())
+      await router.push("/" + this.type.toLowerCase());
       bus.emit("refreshUserInfo", this.type);
     },
 
@@ -252,17 +266,17 @@ export default {
       this.userIconURL = null;
       this.isLogin = false;
 
-      if ( type == "GitHub" ) {
-        if(this.$cookies.get("githubName")){
-          this.userName = this.$cookies.get("githubName")
-          this.userIconURL = this.$cookies.get("githubAvatar")
-          this.isLogin = true
+      if (type == "GitHub") {
+        if (this.$cookies.get("githubName")) {
+          this.userName = this.$cookies.get("githubName");
+          this.userIconURL = this.$cookies.get("githubAvatar");
+          this.isLogin = true;
         }
-      } else if ( type == "Gitee" ) {
-        if(this.$cookies.get("giteeName")){
-          this.userName = this.$cookies.get("giteeName")
-          this.userIconURL = this.$cookies.get("giteeAvatar")
-          this.isLogin = true
+      } else if (type == "Gitee") {
+        if (this.$cookies.get("giteeName")) {
+          this.userName = this.$cookies.get("giteeName");
+          this.userIconURL = this.$cookies.get("giteeAvatar");
+          this.isLogin = true;
         }
       }
 
