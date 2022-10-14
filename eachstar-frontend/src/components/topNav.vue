@@ -122,8 +122,12 @@ export default {
      */ 
     toggleType() {
       if (type=="GitHub") {
-        
+        type = "Gitee";
+      } else if (type=="Gitee") {
+        type = "GitHub";
       }
+      this.updateUserInfo();
+      this.isDark = !this.isDark();
     },
 
     /**
