@@ -66,10 +66,10 @@ export default {
       }
     },
 
-    typeChange(type) {
+    async typeChange(type) {
       this.type = type;
       this.userPrice = null;
-      this.updateUserPrice();
+      await this.updateUserPrice();
     }
   },
   components: {
