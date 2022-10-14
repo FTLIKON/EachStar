@@ -117,7 +117,7 @@ export default {
       var src = await getMyPageData("GitHub", this.currentPage);
       this.currentPageData = src.data;
       this.totalPage = Math.ceil(src.count / 10);
-      this.pageIsEmpty = (currentPageData.length == 0);
+      this.pageIsEmpty = (this.currentPageData.length == 0);
       this.loading = false;
     },
 
