@@ -1,17 +1,14 @@
 <template>
-  <div class="emptycard">
-    当前没有卡片!
-  </div>
+  <div class="emptycard">您目前还没有卡片，快点击左侧的【发布卡片】创建吧~</div>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style scoped>
 .emptycard {
-    font-weight: bolder;
+  margin-top: 30%;
+  font-weight: bolder;
 }
 </style>
