@@ -173,8 +173,8 @@ export default {
     },
 
     minx(a, b) {
-      if ( a > b ) return b;
-      return a;
+      if ( a > b ) return Math.floor(b);
+      return Math.floor(a);
     },
   },
 };
