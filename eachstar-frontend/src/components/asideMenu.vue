@@ -44,12 +44,12 @@ export default {
     var that = this;
     window.onresize = () => {
       return(()=>{
-        console.log(document.documentElement.clientWidth);
         that.windowWidth = document.documentElement.clientWidth;
       })()
     };
   },
   beforeDestroy() {
+    console.log("before destory")
     bus.off("refreshUserInfo", this.updateUserPrice);
     bus.off("typeChange", this.typeChange)
   },
