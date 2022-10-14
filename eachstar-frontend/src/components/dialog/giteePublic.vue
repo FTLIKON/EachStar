@@ -4,7 +4,7 @@
       <el-input
         class="title-input"
         v-model="cardTitle"
-        placeholder="您的项目链接，例如：https://github.com/FTLIKON/EachStar"
+        placeholder="您的项目链接，例如：https://gitee.com/FTLIKON/EachStar"
         clearable
       />
       <el-input
@@ -21,7 +21,7 @@
         <span class="slider-text"
           ><svg class="fronticon" style="color: #b88230" aria-hidden="true">
             <use xlink:href="#icon-bonus-line"></use></svg
-          >星币价值: {{ starPrice }}</span
+          >云币价值: {{ starPrice }}</span
         >
         <el-slider
           v-model="starPrice"
@@ -56,7 +56,7 @@
       </div>
       <div class="user-rank-calc">
         消耗星币: {{ starPrice * starNum }}
-        <el-divider direction="vertical" /> 剩余星币:
+        <el-divider direction="vertical" /> 剩余云币:
         {{ userPrice - starPrice * starNum }}
       </div>
       <span class="dialog-footer">
@@ -72,7 +72,7 @@
     title="确认发布"
   >
     <div class="publicConfirm-block">
-      <div class="title">请确认您的github仓库已公开，其他人才能给您star哦~</div>
+      <div class="title">请确认您的gitee仓库已公开，其他人才能给您star哦~</div>
       <span class="dialog-footer">
         <el-button @click="publicConfirm = false">取消</el-button>
         <el-button type="primary" @click="publicButton()"
@@ -83,8 +83,7 @@
   </el-dialog>
 </template>
 
-<script>
-import { ElMessage } from "element-plus";
+<script> import { ElMessage } from "element-plus";
 import { validateGithubUrl } from "../../utils/validate.js";
 import axios from "axios";
 import "../../iconfont/iconfont";
@@ -116,15 +115,15 @@ export default {
       // 剩余积分不足
       if (this.userPrice - this.starPrice * this.starNum < 0) {
         ElMessage({
-          message: "您当前星币不足~ 快去star别人的卡片吧!",
+          message: "您当前云币不足~ 快去star别人的卡片吧!",
           type: "warning",
         });
         this.publicConfirm = false;
     
-      // 检查是否github链接
-      } else if (validateGithubUrl(this.cardTitle)) {
+      // 检查是否gitee链接
+      } else if (validateGiteeUrl(this.cardTitle)) {
         ElMessage({
-          message: "您输入的似乎不是Github链接, 请检查",
+          message: "您输入的似乎不是Gitee链接, 请检查",
           type: "warning",
         });
         this.publicConfirm = false;
@@ -152,14 +151,14 @@ export default {
      * 提供可调用的public页面
      */ 
     async openPage() {
-      if (!await UserIsLogin("GitHub")) { // 登录
+      if (!await UserIsLogin("Gitee")) { // 登录
         ElMessage({
           message: "请先进行 登录/注册!",
           type: "warning",
         });
       } else {
         this.dialogVisible = true; // 显示页面
-        this.userPrice = await getUserPrice("GitHub");
+        this.userPrice = await getUserPrice("Gitee");
       }
     },
   },
