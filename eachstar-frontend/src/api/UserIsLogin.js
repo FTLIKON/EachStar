@@ -5,11 +5,14 @@ export async function UserIsLogin(type){
         url: "server/api/user/@me?type=" + type,
     };
 
+    var login = false;
     var res = await axios(config)
     .then(function(){
-        return true;
+        login = true;
     })
     .catch(function(){
-        return false;
+        login = false;
     })
+
+    return login;
 }
