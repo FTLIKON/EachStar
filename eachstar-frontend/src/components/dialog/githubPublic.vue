@@ -32,7 +32,7 @@
           class="slider"
           :step="1"
           :min="1"
-          :max="5"
+          :max="min(5, (userPrice-starPrice*starNum)/starNum)"
         ></el-slider>
       </div>
       <div class="rank-num-block">
@@ -56,7 +56,7 @@
           class="slider"
           :step="1"
           :min="1"
-          :max="50"
+          :max="min(50, (userPrice-starPrice*starNum)/starPrice)"
         ></el-slider>
       </div>
       <div class="user-rank-calc">
