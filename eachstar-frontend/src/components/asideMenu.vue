@@ -38,7 +38,7 @@ export default {
     };
   },
   mounted() {
-    bus.on("refreshUserInfo", this.updateUserPrice);
+    bus.on("refreshUserPrice", this.updateUserPrice);
     bus.on("typeChange", this.typeChange)
 
     var that = this;
