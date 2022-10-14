@@ -142,6 +142,7 @@ export default {
      */ 
     toggleType() {
       useToggle(this.isDark)
+      console.log(this.isDark)
     },
 
     /**
