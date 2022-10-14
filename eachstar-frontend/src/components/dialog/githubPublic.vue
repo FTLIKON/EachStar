@@ -32,7 +32,7 @@
           class="slider"
           :step="1"
           :min="1"
-          :max="this.minx(5, (userPrice-starPrice*starNum)/starNum)"
+          :max="this.minx(5, userPrice/starNum)"
         ></el-slider>
       </div>
       <div class="rank-num-block">
@@ -56,7 +56,7 @@
           class="slider"
           :step="1"
           :min="1"
-          :max="this.minx(50, (userPrice-starPrice*starNum)/starPrice)"
+          :max="this.minx(50, userPrice/starPrice)"
         ></el-slider>
       </div>
       <div class="user-rank-calc">
