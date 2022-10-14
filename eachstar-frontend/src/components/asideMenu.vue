@@ -40,7 +40,7 @@ export default {
     };
   },
   mounted() {
-    this.updateUserPrice(this.type)
+    console.log("buson")
     bus.on("refreshUserInfo", this.updateUserPrice);
     bus.on("typeChange", this.typeChange)
 
@@ -97,6 +97,7 @@ export default {
      * 切换页面注销钩子
      */ 
     async typeChange() {
+      console.log("offing")
       bus.off("refreshUserInfo", this.updateUserPrice);
       bus.off("typeChange", this.typeChange)
     }
