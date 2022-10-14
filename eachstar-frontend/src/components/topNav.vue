@@ -170,7 +170,7 @@ export default {
      * 切换Type
      */ 
     async toggleType() {
-      type = undefined;
+      var type = undefined;
       if (this.type=="GitHub") {
         type = "Gitee";
       } else if (this.type=="Gitee") {
