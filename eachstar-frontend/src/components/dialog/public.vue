@@ -93,6 +93,8 @@ import { getExpireTime } from "../../utils/common.js";
 import { getUserPrice } from "../../api/getUserPrice";
 import { getUserName } from "../../api/getUserName.js";
 import { publicCard } from "../../api/publicCard.js"
+import { UserIsLogin } from "../api/UserIsLogin.js";
+
 export default {
   data() {
     return {
