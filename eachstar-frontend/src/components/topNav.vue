@@ -185,9 +185,10 @@ export default {
      * 切换Type
      */
     async toggleType() {
+      var that = this;
       this.toggleCooldown = true; // 3秒冷却
       setTimeout(function(){
-        this.toggleCooldown = false;
+        that.toggleCooldown = false;
       }, 3000)
 
       if (this.type == "GitHub") {
