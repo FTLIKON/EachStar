@@ -164,6 +164,7 @@ export default {
   mounted() {
     this.isDark = false;
     bus.on("refreshUserInfo", this.updateUserInfo);
+    
     bus.emit("refreshUserInfo", this.type);
   },
   methods: {
@@ -181,8 +182,8 @@ export default {
 
       bus.emit("typeChange");
       router.push('/'+type.toLowerCase())
-      await this.updateUserInfo(type);
-      bus.emit("refreshUserInfo", type);
+      await this.updateUserInfo(this.type);
+      bus.emit("refreshUserInfo", this.type);
     },
 
     /**
