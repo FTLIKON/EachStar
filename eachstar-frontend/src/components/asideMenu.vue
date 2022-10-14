@@ -39,10 +39,10 @@ export default {
       windowWidth: 1000,
     };
   },
-  beforeMount() {
-    this.updateUserPrice(this.type);
-  },
   mounted() {
+    if (userPrice == null) {
+      this.updateUserPrice(this.type);
+    }
     bus.on("refreshUserInfo", this.updateUserPrice);
     bus.on("typeChange", this.typeChange)
 
