@@ -166,8 +166,8 @@ export default {
     this.isDark = false;
     bus.on("refreshUserInfo", this.updateUserInfo);
     bus.on("refreshUserPrice", this.updateUserPrice);
-    
-    bus.emit("refreshUserInfo", this.type);
+
+    bus.emit("refreshUserPrice", this.type);
   },
   methods: {
     /**
@@ -185,7 +185,7 @@ export default {
       bus.emit("typeChange");
       router.push('/'+this.type.toLowerCase())
       await this.updateUserInfo(this.type);
-      bus.emit("refreshUserInfo", this.type);
+      bus.emit("refreshUserPrice", this.type);
     },
 
     /**

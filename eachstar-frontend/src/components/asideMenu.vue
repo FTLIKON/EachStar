@@ -32,7 +32,7 @@ import { UserIsLogin } from "../api/UserIsLogin";
 export default {
   data() {
     return {
-      type: this.$router.name,
+      type: null,
       userPrice: null,
       windowWidth: 1000,
     };
