@@ -245,7 +245,7 @@ export default {
       display: flex;
 
       .card-title {
-        color: #f2f6fc;
+        color: #C0C4CC;
         width: 70%;
         text-align: left;
         font-size: large;
@@ -254,14 +254,14 @@ export default {
       }
 
       .card-time {
-        color: #ebeef5;
+        color: #A8ABB2;
         width: 30%;
         text-align: right;
       }
     }
 
     .card-discription {
-      color: #e4e7ed;
+      color: #909399;
       text-align: left;
       display: -webkit-box;
       -webkit-line-clamp: 2;
