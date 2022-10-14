@@ -10,14 +10,15 @@
       </svg>
       发布卡片
     </el-button>
-    <div v-show="userPrice" class="user-price">
-      <svg
-        class="fronticon"
-        style="color: #b88230; width: 23px; height: 23px"
-        aria-hidden="true"
-      >
-        <use xlink:href="#icon-bonus-line"></use></svg
-      >可用星币: {{ userPrice }}
+    <div v-show="userPrice && type=='GitHub'" class="user-price">
+      <svg class="fronticon" style="color: #b88230; width: 23px; height: 23px" aria-hidden="true">
+        <use xlink:href="#icon-bonus-line"></use>
+      </svg>可用星币: {{ userPrice }}
+    </div>
+    <div v-show="userPrice && type=='Gitee'" class="user-price">
+      <svg class="fronticon" style="color: #b88230; width: 23px; height: 23px" aria-hidden="true">
+        <use xlink:href="#icon-bonus-line"></use>
+      </svg>可用云币: {{ userPrice }}
     </div>
     <PublicDialog ref="PublicDialog" />
   </div>
@@ -40,7 +41,7 @@ export default {
     this.updateUserPrice(this.type);
     bus.on("refreshUserInfo", this.updateUserPrice);
     bus.on("typeChange", this.typeChange)
-    
+
     var that = this;
     this.windowWidth = document.documentElement.clientWidth;
     window.onresize = () => {
@@ -71,6 +72,7 @@ export default {
      * 切换页面注销钩子
      */ 
     async typeChange() {
+      this.userPrice = null;
       bus.off("refreshUserInfo", this.updateUserPrice);
       bus.off("typeChange", this.typeChange)
     }
