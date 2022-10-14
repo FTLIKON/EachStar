@@ -48,11 +48,6 @@ export default {
       })()
     };
   },
-  beforeDestroy() {
-    console.log("before destory")
-    bus.off("refreshUserInfo", this.updateUserPrice);
-    bus.off("typeChange", this.typeChange)
-  },
   methods: {
     /**
      * 打开子发布页面
@@ -74,6 +69,9 @@ export default {
     async typeChange(t) {
       this.type = t;
       console.log("切换到" + this.type)
+      console.log("before destory")
+      bus.off("refreshUserInfo", this.updateUserPrice);
+      bus.off("typeChange", this.typeChange)
       this.userPrice = null;
       await this.updateUserPrice();
     }
