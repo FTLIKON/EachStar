@@ -15,7 +15,7 @@
           <div class="card-block">
             <div class="card-titleblock">
               <a class="card-title" :href="item.title" target="_blank">
-                {{ item.title.replace("https://github.com/", "") }}</a
+                {{ item.title.replace("https://gitee.com/", "") }}</a
               >
               <span class="card-time">{{ item.createdAt }}</span>
             </div>
