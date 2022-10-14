@@ -56,10 +56,17 @@ export default {
      * 打开子发布页面
      */
     openPublicDialog() {
-      if ( this.type == "Gitee" ) {
-        this.$.refs.giteePublic.openPage();
-      } else if ( this.type == "GitHub" ) {
-        this.$.refs.githubPublic.openPage();
+      if (UserIsLogin(this.type)) {
+        if ( this.type == "Gitee" ) {
+          this.$.refs.giteePublic.openPage();
+        } else if ( this.type == "GitHub" ) {
+          this.$.refs.githubPublic.openPage();
+        }
+      } else {
+        ElMessage({
+          message: "请先进行 登录/注册!",
+          type: "warning",
+        });
       }
     },
 
