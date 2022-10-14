@@ -3,11 +3,21 @@
 
     <!-- 主栏 -->
     <el-menu id="menu" mode="horizontal" default-active="1" :ellipsis="false">
+      <!-- GitHub LOGO -->
       <div class="left-block">
         <div class="logo">
           <img class="logo-pic" src="icon.png" @click="goEachStar" />
           <span @click="goEachStar">EachStar</span>
           <el-button @click="toggleType()" style="margin-left: 5%">切换到码云版</el-button>
+        </div>
+      </div>
+
+      <!-- Gitee LOGO -->
+      <div class="left-block">
+        <div class="logo">
+          <img class="logo-pic" src="icon.png" @click="goEachStar" />
+          <span @click="goEachStar">EachStar</span>
+          <el-button @click="toggleType()" style="margin-left: 5%">切换到GitHub版</el-button>
         </div>
       </div>
 
