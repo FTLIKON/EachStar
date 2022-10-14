@@ -1,27 +1,24 @@
 <template>
   <el-affix :offset="0">
-    <el-menu
-      id="menu"
-      mode="horizontal"
-      default-active="1"
-      :ellipsis="false"
-    >
+
+    <!-- 主栏 -->
+    <el-menu id="menu" mode="horizontal" default-active="1" :ellipsis="false">
       <div class="left-block">
         <div class="logo">
           <img class="logo-pic" src="icon.png" @click="goEachStar" />
           <span @click="goEachStar">EachStar</span>
-          <toggle-button />
+          <el-button @click="toggleType()">BUTTON</el-button>
         </div>
       </div>
 
-      <div class="mid-block">
+      <div class="mid-block" v-show="this.type=='GitHub'">
         <el-menu-item index="1">
           <router-link to="/github" class="link">
             <svg class="fronticon" style="margin-top: 10%" aria-hidden="true">
               <use xlink:href="#icon-fangdajing"></use>
             </svg>
-            发现仓库</router-link
-          >
+            发现仓库
+          </router-link>
         </el-menu-item>
         <el-divider class="divider" direction="vertical" />
         <el-menu-item index="2">
@@ -49,15 +46,18 @@
         <el-button v-show="!isLogin" @click="authButton()" id="auth-button"
           >登录 / 注册</el-button
         >
-        <span v-show="isLogin" class="user-rank"
-          ><svg
-            class="fronticon"
-            style="color: #b88230; margin-top: 12%"
-            aria-hidden="true"
-          >
-            <use xlink:href="#icon-bonus-line"></use></svg
-          >星币: {{ userPrice }}</span
-        >
+        <span v-show="isLogin && type=='GitHub'" class="user-rank">
+          <svg class="fronticon" style="color: #b88230; margin-top: 12%" aria-hidden="true">
+            <use xlink:href="#icon-bonus-line"></use>
+          </svg>
+            星币: {{ userPrice }}
+        </span>
+        <span v-show="isLogin && type=='Gitee'" class="user-rank">
+          <svg class="fronticon" style="color: #b88230; margin-top: 12%" aria-hidden="true">
+            <use xlink:href="#icon-bonus-line"></use>
+          </svg>
+            云币: {{ userPrice }}
+        </span>
         <span v-show="isLogin" class="user-hello">您好, {{ userName }}</span>
 
         <el-popover
@@ -97,15 +97,19 @@ import ToggleButton from "./toggleButton.vue";
 import { ElMessage } from "element-plus";
 import { getUserInfo } from "../api/getUserInfo.js"
 import "../iconfont/iconfont";
+import { useDark, useToggle } from '@vueuse/core'
 import { UserIsLogin } from "../api/UserIsLogin";
 
 export default {
   data() {
     return {
+      type: "GitHub",
+      isDark: useDark(),
+      isLogin: false,
+
       userName: "",
       userPrice: null,
       userIconURL: null,
-      isLogin: false,
     };
   },
   mounted() {
@@ -114,10 +118,26 @@ export default {
   },
   methods: {
     /**
+     * 切换Type
+     */ 
+    toggleType() {
+      this.isDark = !this.isDark;
+      console.log(this.isDark)
+    },
+
+    /**
      * 注册按钮
      */ 
     authButton() {
-      this.$.refs.GithubAuth.openPage();
+      if (type=="GitHub") {
+        this.$.refs.GithubAuth.openPage();
+      } else if (type="Gitee") {
+        // GITEE
+        // GITEE
+        // GITEE
+        // GITEE
+        // GITEE
+      }
     },
 
     /**
@@ -141,8 +161,8 @@ export default {
      * 更新用户信息
      */ 
     async updateUserInfo() {
-      if (await UserIsLogin("GitHub")) {
-        var data = await getUserInfo("GitHub");
+      if (await UserIsLogin(this.type)) {
+        var data = await getUserInfo(this.type);
         this.userName = data.name;
         this.userPrice = data.price;
         this.userIconURL = data.avatar;
@@ -160,7 +180,6 @@ export default {
   components: {
     GithubAuth,
     Logout,
-    ToggleButton,
   },
 };
 </script>
