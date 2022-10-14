@@ -75,6 +75,7 @@
               <el-button
                 v-show="item.starred"
                 id="card-button"
+                style="color: #a8abb2"
                 type="info"
                 plain
               >
