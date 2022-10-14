@@ -13,7 +13,6 @@
       <el-card
         v-for="item of currentPageData"
         :key="item"
-        style="box-shadow: 0px 0px 5px 5px #cdd0d6"
         class="card-list"
       >
         <div class="card-block">
