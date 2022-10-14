@@ -134,15 +134,15 @@ export default {
         ElMessage("正在尝试发布, 请稍等");
 
         let access = await publicCard(
-          "GitHub", this.cardTitle, this.cardDiscription, this.starPrice, this.starNum);
+          "Gitee", this.cardTitle, this.cardDiscription, this.starPrice, this.starNum);
         if (access) {
           ElMessage({
             message: "发布成功! 为您重定向至第一页...",
             type: "success",
           });
-          bus.emit("refreshUserInfo");
-          bus.emit("refreshUserPrice");
-          bus.emit("refreshPageData");
+          bus.emit("refreshUserInfo", "Gitee");
+          bus.emit("refreshUserPrice", "Gitee");
+          bus.emit("refreshPageData", "Gitee");
         }
       }
     },
