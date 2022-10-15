@@ -9,6 +9,8 @@ import { getDevApiMiddleware } from './routers/dev'
 import http from 'http'
 import https from 'https'
 import fs from 'fs'
+import path from 'path'
+
 declare class BigInt {
   toJSON(): string
 }
@@ -43,7 +45,7 @@ console.log(
 
 http.createServer(app.callback()).listen(3050)
 const options = {
-  key: fs.readFileSync('ssl/each-star.com.key', 'utf8'),
-  cert: fs.readFileSync('ssl/each-star.com.pem', 'utf8'),
+  key: fs.readFileSync(path.join(__dirname, './ssl/each-star.com.key')),
+  cert: fs.readFileSync(path.join(__dirname, './ssl/each-star.com.pem'))
 }
 https.createServer(options, app.callback()).listen(3001)
