@@ -25,25 +25,25 @@ export default {
   methods: {
     /**
      * 登出页面打开
-     */ 
+     */
     openPage() {
       this.dialogVisible = true;
     },
 
     /**
      * 前往URL
-     */ 
+     */
     goPage(url) {
       window.location.href = url;
     },
 
     /**
      * 尝试登出
-     */ 
+     */
     userLogout() {
       var config = {
         method: "get",
-        url: "server/oauth/github/logout",
+        url: "http://119.91.192.183:3050/oauth/github/logout",
       };
       axios(config)
         .then(function (response) {

@@ -2,7 +2,7 @@ import axios from "axios";
 export async function getUserInfo(type){
     var config = {
         method: "get",
-        url: "server/api/user/@me?type=" + type,
+        url: "http://119.91.192.183:3050/api/user/@me?type=" + type,
     };
 
     var res = await axios(config);
