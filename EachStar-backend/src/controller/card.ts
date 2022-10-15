@@ -130,7 +130,10 @@ export class CardController {
     const type = ctx.query.type
     const cards = await this.repository.getCardsByTimeSort(type, Number(start))
 
-    if (ctx.github_user || ctx.github_user) {
+    if (
+      (type == 'GitHub' && ctx.github_user) ||
+      (type == 'Gitee' && ctx.github_user)
+    ) {
       for (let index in cards.data) {
         cards.data[index]['starred'] = false
       }
