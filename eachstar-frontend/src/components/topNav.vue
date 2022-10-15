@@ -1,7 +1,7 @@
 <template>
-  <el-affix :offset="0" style="height: 60px">
+  <el-affix :offset="0">
     <!-- 主栏 -->
-    <el-menu id="menu" mode="horizontal" default-active="1" :ellipsis="false">
+    <el-menu id="menu" style="border: none" mode="horizontal" default-active="1" :ellipsis="false">
       <!-- GitHub LOGO -->
       <div class="left-block" v-show="this.type == 'GitHub'">
         <div class="logo">
