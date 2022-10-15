@@ -39,13 +39,13 @@ app.use(getCardMiddleware())
 app.use(getUserApiMiddleware())
 app.use(getDevApiMiddleware())
 
+http.createServer(app.callback()).listen(3001)
+const options = {
+  key: fs.readFileSync(path.join(__dirname, './ssl/each-star.com.key')),
+  cert: fs.readFileSync(path.join(__dirname, './ssl/each-star.com.pem')),
+}
+https.createServer(options, app.callback()).listen(3050)
+
 console.log(
   '########################\n Eachstar server start!!\n########################\n\n',
 )
-
-http.createServer(app.callback()).listen(3050)
-const options = {
-  key: fs.readFileSync(path.join(__dirname, './ssl/each-star.com.key')),
-  cert: fs.readFileSync(path.join(__dirname, './ssl/each-star.com.pem'))
-}
-https.createServer(options, app.callback()).listen(3001)
