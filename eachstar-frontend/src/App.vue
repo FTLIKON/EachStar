@@ -28,6 +28,11 @@ export default {
     TopNav,
     AsideMenu,
   },
+  watch: {
+    '$route'() {
+      Object.assign(this.$data, this.$options.data())
+    }
+  },
   mounted() {
     bus.on("scrollToTop", this.scrollTop);
     if (this._isMobile()) {
