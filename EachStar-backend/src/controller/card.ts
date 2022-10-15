@@ -20,7 +20,7 @@ export class CardController {
     if (
       starPrice <= BigInt(0) ||
       starNum <= BigInt(0) ||
-      starPrice * starNum <
+      starPrice * starNum >
         (type == 'GitHub' ? ctx.github_user.price : ctx.gitee_user.price)
     ) {
       ctx.status = 400
