@@ -6,7 +6,7 @@
     title=""
   >
     <div class="main-block">
-      <img class="github-logo" src="githubLogo.webp" alt="未找到图片" />
+      <img class="github-logo" src="../assets/images/githubLogo.webp" alt="未找到图片" />
 
       <el-button
         type="primary"

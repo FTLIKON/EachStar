@@ -6,7 +6,11 @@
     title=""
   >
     <div class="main-block">
-      <img class="gitee-logo" src="giteeLogo.png" alt="未找到图片" />
+      <img
+        class="gitee-logo"
+        src="../assets/images/giteeLogo.png"
+        alt="未找到图片"
+      />
 
       <el-button
         type="primary"

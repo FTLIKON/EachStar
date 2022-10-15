@@ -5,7 +5,11 @@
       <!-- GitHub LOGO -->
       <div class="left-block" v-show="this.type == 'GitHub'">
         <div class="logo">
-          <img class="logo-pic" src="icon.png" @click="goEachStar" />
+          <img
+            class="logo-pic"
+            src="../assets/images/icon.png"
+            @click="goEachStar"
+          />
           <span @click="goEachStar">EachStar</span>
           <el-button
             @click="toggleType()"
@@ -26,7 +30,11 @@
       <!-- Gitee LOGO -->
       <div class="left-block" v-show="this.type == 'Gitee'">
         <div class="logo">
-          <img class="logo-pic" src="icon.png" @click="goEachStar" />
+          <img
+            class="logo-pic"
+            src="../assets/images/icon.png"
+            @click="goEachStar"
+          />
           <span @click="goEachStar">EachStar</span>
           <el-button
             @click="toggleType()"
