@@ -85,6 +85,7 @@
         class="pagination"
         layout="prev, pager, next"
         @current-change="pageChange"
+        :currentPage="currentPage"
         :total="totalPage * 10"
       />
 
