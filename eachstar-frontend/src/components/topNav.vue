@@ -201,10 +201,10 @@ export default {
     };
   },
   mounted() {
-    console.log("testtesttest");
-    console.log(window.location.href);
-    console.log(this.$router.path);
-    if (this.$router.path == "/gitee" || this.$router.path == "/mygitee") {
+    if (
+      window.location.href.indexOf("/gitee") != -1 ||
+      window.location.href.indexOf("/mygitee") != -1
+    ) {
       this.isDark = true;
     } else {
       this.isDark = false;
