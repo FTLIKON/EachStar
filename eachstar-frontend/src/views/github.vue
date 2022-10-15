@@ -6,10 +6,10 @@
     </el-affix>
 
     <!-- 卡片视图 -->
-    <div class="card-view" ref="box">
+    <div class="card-view">
 
       <!-- 卡片列表 -->
-      <div class="card-container">
+      <div class="card-container" ref="box">
         <!-- 遍历card -->
         <el-card v-for="item of currentPageData" :key="item" class="card-list">
           <div class="card-block">
