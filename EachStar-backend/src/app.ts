@@ -6,6 +6,10 @@ import { getOAuthMiddleware } from './routers/oauth'
 import { getCardMiddleware } from './routers/card'
 import { getUserApiMiddleware } from './routers/user'
 import { getDevApiMiddleware } from './routers/dev'
+import http from 'http'
+import https from 'https'
+import fs from 'fs'
+import path from 'path'
 
 declare class BigInt {
   toJSON(): string
@@ -19,7 +23,7 @@ const app = new Koa()
 app.use(
   cors({
     origin: function (ctx) {
-      return 'http://www.each-star.com'
+      return 'https://each-star.com'
     },
     exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
     maxAge: 5,
@@ -35,8 +39,12 @@ app.use(getCardMiddleware())
 app.use(getUserApiMiddleware())
 app.use(getDevApiMiddleware())
 
+const options = {
+  key: fs.readFileSync(path.join(__dirname, './ssl/each-star.com.key')),
+  cert: fs.readFileSync(path.join(__dirname, './ssl/each-star.com.pem')),
+}
+https.createServer(options, app.callback()).listen(3050)
+
 console.log(
   '########################\n Eachstar server start!!\n########################\n\n',
 )
-
-app.listen(3050)

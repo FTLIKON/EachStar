@@ -11,7 +11,7 @@ export async function UserIsLogin(type){
     }
     var config = {
         method: "get",
-        url: "http://www.each-star.com:3050/api/user/@me?type=" + type,
+        url: "https://each-star.com:3050/api/user/@me?type=" + type,
     };
     
     var login = false;
