@@ -19,11 +19,7 @@ const app = new Koa()
 app.use(
   cors({
     origin: function (ctx) {
-      /*if (ctx.url === '/cors') {
-          return "*"; // 允许来自所有域名请求
-      }*/
-      return '*'
-      // return 'http://localhost:8080';
+      return 'http://each-star.com:80'
     },
     exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
     maxAge: 5,
