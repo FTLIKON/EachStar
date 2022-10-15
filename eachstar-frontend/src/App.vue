@@ -42,8 +42,7 @@ export default {
   methods: {
     scrollTop() {
       this.$nextTick(() => {
-        console.log(this.$refs.box.$el.scrollLeft)
-        this.$refs.box.scrollTop = 0;
+        this.$refs.box.$el.scrollTop = 0;
       })
     },
     _isMobile() {
