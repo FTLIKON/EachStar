@@ -13,14 +13,14 @@
           <span @click="goEachStar">EachStar</span>
           <el-button
             @click="toggleType()"
-            style="margin-left: 5%"
+            style="font-weight: bolder; margin-left: 5%"
             color="#303133"
             v-show="!toggleCooldown"
             >切换到码云版</el-button
           >
           <el-button
             @click="toggleType()"
-            style="margin-left: 5%;"
+            style="font-weight: bolder; margin-left: 5%;"
             loading
             v-show="toggleCooldown"
             >冷却中...</el-button
@@ -39,13 +39,13 @@
           <span @click="goEachStar">EachStar</span>
           <el-button
             @click="toggleType()"
-            style="margin-left: 5%;background: #F5F7FA;color: #303133;"
+            style="font-weight: bolder; margin-left: 5%;background: #F5F7FA;color: #303133;"
             v-show="!toggleCooldown"
             >返回GitHub版</el-button
           >
           <el-button
             @click="toggleType()"
-            style="margin-left: 5%"
+            style="font-weight: bolder; margin-left: 5%"
             loading
             v-show="toggleCooldown"
             >冷却中...</el-button
