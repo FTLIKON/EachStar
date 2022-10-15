@@ -161,7 +161,12 @@ export default {
      * 提供可调用的public页面
      */
     async openPage() {
-      if (!this.$cookies.get("githubName")) {
+      if (this.userPrice <= 0) {
+        ElMessage({
+          message: "您当前云币不足~ 快去star别人的卡片吧!",
+          type: "warning",
+        });
+      } else if (!this.$cookies.get("githubName")) {
         // 登录
         ElMessage({
           message: "请先进行 登录/注册!",
@@ -174,6 +179,7 @@ export default {
     },
 
     minx(a, b) {
+      if ( b <= 0 ) b = 0;
       if ( a > b ) return Math.floor(b);
       return Math.floor(a);
     },
