@@ -279,7 +279,6 @@ export class RepositoryPostgres implements RepositoryType {
     )
     let cards = []
     for (let index in result.rows) {
-      delete result.rows[index].
       cards.push(this.formatCardPo(result.rows[index]))
     }
     const resCount = await client.query(
