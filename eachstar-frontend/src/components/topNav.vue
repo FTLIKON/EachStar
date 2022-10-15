@@ -14,12 +14,14 @@
           <el-button
             @click="toggleType()"
             style="margin-left: 5%"
+            color="#303133"
             v-show="!toggleCooldown"
             >切换到码云版</el-button
           >
           <el-button
             @click="toggleType()"
             style="margin-left: 5%"
+            color="#303133"
             loading
             v-show="toggleCooldown"
             >冷却中...</el-button
