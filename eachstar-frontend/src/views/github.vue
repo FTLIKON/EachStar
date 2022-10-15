@@ -174,7 +174,7 @@ export default {
       this.totalPage = Math.ceil(src.count / 10);
       this.loading = false;
       this.$nextTick(()=>{
-        window.scrollTo(0, 0);
+        this.$refs.box.scrollTo(0, 0);
       })
     },
     
