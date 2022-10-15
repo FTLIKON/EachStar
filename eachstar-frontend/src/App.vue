@@ -42,7 +42,7 @@ export default {
   methods: {
     scrollTop() {
       this.$nextTick(() => {
-        this.$refs.box.scrollTo(0, 0);
+        this.$refs.box.scrollTop = 0;
       })
     },
     _isMobile() {
