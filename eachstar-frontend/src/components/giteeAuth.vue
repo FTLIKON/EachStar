@@ -17,7 +17,7 @@
         class="link-button"
         @click="
           goPage(
-            'http://www.each-star.com:3050/oauth/gitee/login?path=http://each-star.com:80/'
+            'https://each-star.com/oauth/gitee/login?path=http://each-star.com:80/'
           )
         "
       >

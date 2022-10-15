@@ -9,7 +9,7 @@ import { parseTimeString } from "../utils/common";
 export async function getMyPageData(type, page) {
     var config = {
         method: "get",
-        url: "http://www.each-star.com:3050/api/card/@me?" +
+        url: "https://each-star.com/api/card/@me?" +
         "type=" + type + "&" +
         "start=" + (page - 1) * 10,
     };

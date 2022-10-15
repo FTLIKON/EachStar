@@ -3,7 +3,7 @@ import axios from "axios";
 export async function deleteCard(type, cardId){
     var config = {
         method: "delete",
-        url: "http://www.each-star.com:3050/api/card?" 
+        url: "https://each-star.com/api/card?" 
         + "type=" + type + "&cardId=" + cardId,
     };
     var access = false;

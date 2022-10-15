@@ -11,7 +11,7 @@ export async function publicCard(type, title, context, price, num){
     param.append("expireTime", getExpireTime());
     var config = {
       method: "post",
-      url: "http://www.each-star.com:3050/api/card",
+      url: "https://each-star.com/api/card",
       data: param,
     };
     
