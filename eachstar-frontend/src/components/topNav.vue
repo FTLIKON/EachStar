@@ -210,14 +210,6 @@ export default {
     };
   },
   mounted() {
-    if (
-      window.location.href.indexOf("/gitee") != -1 ||
-      window.location.href.indexOf("/mygitee") != -1
-    ) {
-      this.isDark = true;
-    } else {
-      this.isDark = false;
-    }
     bus.on("refreshUserInfo", this.updateUserInfo);
     bus.emit("refreshUserInfo", this.type);
   },
@@ -281,6 +273,14 @@ export default {
      * 更新用户信息
      */
     async updateUserInfo(type) {
+      if (
+        window.location.href.indexOf("/gitee") != -1 ||
+        window.location.href.indexOf("/mygitee") != -1
+      ) {
+        this.isDark = true;
+      } else {
+        this.isDark = false;
+      }
       this.type = type;
       this.userName = "";
       this.userPrice = null;
