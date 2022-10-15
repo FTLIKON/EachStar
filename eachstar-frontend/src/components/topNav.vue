@@ -20,8 +20,7 @@
           >
           <el-button
             @click="toggleType()"
-            style="margin-left: 5%"
-            color="#E6E8EB"
+            style="margin-left: 5%;background: #F5F7FA;color: #303133;"
             loading
             v-show="toggleCooldown"
             >冷却中...</el-button
