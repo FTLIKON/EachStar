@@ -132,7 +132,7 @@ export class CardController {
 
     if (
       (type == 'GitHub' && ctx.github_user) ||
-      (type == 'Gitee' && ctx.github_user)
+      (type == 'Gitee' && ctx.gitee_user)
     ) {
       for (let index in cards.data) {
         cards.data[index]['starred'] = false
