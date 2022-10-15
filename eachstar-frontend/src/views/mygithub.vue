@@ -54,7 +54,7 @@
           </div>
         </el-card>
 
-        <empty-card v-show="currentPageData.length==0"/>
+        <empty-card v-show="pageIsEmpty"/>
       </div>
 
       <!-- 卡片换页 -->
@@ -87,6 +87,7 @@ export default {
   data() {
     return {
       loading: true,
+      pageIsEmpty: false,
 
       totalPage: 0,
       currentPage: 1,
@@ -116,6 +117,7 @@ export default {
       var src = await getMyPageData("GitHub", this.currentPage);
       this.currentPageData = src.data;
       this.totalPage = Math.ceil(src.count / 10);
+      this.pageIsEmpty = (this.currentPageData.length == 0);
       this.loading = false;
     },
 

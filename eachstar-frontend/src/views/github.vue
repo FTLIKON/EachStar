@@ -9,7 +9,7 @@
     <div class="card-view">
 
       <!-- 卡片列表 -->
-      <div class="card-container">
+      <div class="card-container" ref="box">
         <!-- 遍历card -->
         <el-card v-for="item of currentPageData" :key="item" class="card-list">
           <div class="card-block">
@@ -172,6 +172,7 @@ export default {
       var src = await getPageData("GitHub", this.currentPage);
       this.currentPageData = src.data;
       this.totalPage = Math.ceil(src.count / 10);
+      this.$refs.box.scrollTop = 0
       this.loading = false;
     },
     
