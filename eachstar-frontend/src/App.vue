@@ -29,7 +29,7 @@ export default {
     AsideMenu,
   },
   mounted() {
-    bus.on("scrollTop", this.scrollTop);
+    bus.on("scrollToTop", this.scrollTop);
     if (this._isMobile()) {
       // 跳转至手机端路由
       this.$router.replace("/phone-home");
@@ -41,7 +41,9 @@ export default {
   },
   methods: {
     scrollTop() {
-      this.$refs.box.scrollTo(0, 0);
+      this.$nextTick(() => {
+        this.$refs.box.scrollTo(0, 0);
+      })
     },
     _isMobile() {
       let flag = navigator.userAgent.match(

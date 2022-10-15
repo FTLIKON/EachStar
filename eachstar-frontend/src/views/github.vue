@@ -173,9 +173,7 @@ export default {
       this.currentPageData = src.data;
       this.totalPage = Math.ceil(src.count / 10);
       this.loading = false;
-      this.$nextTick(()=>{
-        bus.emit("scrollTop");
-      })
+      bus.emit("scrollToTop");
     },
     
     /**
