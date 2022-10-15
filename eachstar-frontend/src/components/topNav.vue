@@ -1,5 +1,5 @@
 <template>
-  <el-affix :offset="0">
+  <el-affix :offset="0" style="height: 60px">
     <!-- 主栏 -->
     <el-menu id="menu" mode="horizontal" default-active="1" :ellipsis="false">
       <!-- GitHub LOGO -->
