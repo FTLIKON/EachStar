@@ -17,6 +17,16 @@ export class CardController {
     const context = body.context
     const starPrice = BigInt(body.starPrice)
     const starNum = BigInt(body.starNum)
+    if (
+      starPrice <= BigInt(0) ||
+      starNum <= BigInt(0) ||
+      starPrice * starNum <
+        (type == 'GitHub' ? ctx.github_user.price : ctx.gitee_user.price)
+    ) {
+      ctx.status = 400
+      ctx.body = {}
+      return
+    }
     const expireTime = new Date(body.expireTime)
 
     const card = await this.repository.createCard(
@@ -150,6 +160,9 @@ export class CardController {
           cards.data[index]['starred'] = false
         }
       }
+    }
+    for (let index in cards.data) {
+      cards.data[index].delete('userId')
     }
     ctx.body = cards
   }
