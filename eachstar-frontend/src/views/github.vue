@@ -1,5 +1,5 @@
 <template>
-  <div class="github" v-loading="loading">
+  <div class="github" v-loading="loading" ref="box">
     <!-- 侧栏视图 -->
     <el-affix class="aside-menu" :offset="100">
       <aside-menu />
