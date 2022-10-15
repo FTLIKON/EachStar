@@ -6,7 +6,7 @@
     </el-affix>
 
     <!-- 卡片视图 -->
-    <div class="card-view" ref="box">
+    <div class="card-view">
 
       <!-- 卡片列表 -->
       <div class="card-container">
@@ -172,8 +172,10 @@ export default {
       var src = await getPageData("GitHub", this.currentPage);
       this.currentPageData = src.data;
       this.totalPage = Math.ceil(src.count / 10);
-      this.$refs.box.scrollTop = 0
       this.loading = false;
+      this.$nextTick(()=>{
+        window.scrollTo(0, 0);
+      })
     },
     
     /**
