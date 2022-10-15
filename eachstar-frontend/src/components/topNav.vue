@@ -371,7 +371,7 @@ export default {
       font-size: large;
     }
     .divider {
-      margin-top: auto 0% auto 0%;
+      margin: auto 0% auto 0%;
     }
   }
   .right-block {
