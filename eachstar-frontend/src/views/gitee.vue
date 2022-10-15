@@ -233,7 +233,7 @@ export default {
   width: 100%;
   min-width: 960px;
   .card-list {
-    box-shadow: var(--el-box-shadow-dark);
+    box-shadow: var(--el-box-shadow);
     border-radius: 15px;
     width: 50%;
     margin-left: 25%;
