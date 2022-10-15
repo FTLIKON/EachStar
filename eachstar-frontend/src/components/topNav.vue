@@ -201,9 +201,12 @@ export default {
     };
   },
   mounted() {
-    this.isDark = false;
+    if (this.$route.path == "/gitee" || this.$route.path == "/mygitee") {
+      this.isDark = true;
+    } else {
+      this.isDark = false;
+    }
     bus.on("refreshUserInfo", this.updateUserInfo);
-
     bus.emit("refreshUserInfo", this.type);
   },
   methods: {
