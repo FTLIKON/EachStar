@@ -162,7 +162,7 @@ export class CardController {
       }
     }
     for (let index in cards.data) {
-      cards.data[index].delete('userId')
+      delete cards.data[index]['userId']
     }
     ctx.body = cards
   }
