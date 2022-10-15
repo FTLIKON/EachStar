@@ -1,7 +1,7 @@
 <template>
   <el-dialog
     v-model="dialogVisible"
-    style="width: 25%; margin-top: 250px"
+    style="width: 20%; min-width: 300px; margin-top: 200px"
     id="githubAuth"
     title=""
   >
@@ -33,7 +33,7 @@ export default {
   methods: {
     /**
      * 打开注册页面
-     */ 
+     */
     openPage() {
       this.dialogVisible = true;
     },
@@ -56,8 +56,9 @@ export default {
 }
 
 .github-logo {
-  width: 45%;
-  height: 30%;
+  width: 60%;
+  height: 40%;
+  max-width: 180px;
   margin-bottom: 5%;
 }
 .link-button {

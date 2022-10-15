@@ -1,7 +1,7 @@
 <template>
   <el-dialog
     v-model="dialogVisible"
-    style="width: 25%; margin-top: 250px"
+    style="width: 20%; min-width: 300px; margin-top: 200px"
     id="giteeAuth"
     title=""
   >
@@ -58,6 +58,7 @@ export default {
 .gitee-logo {
   width: 45%;
   height: 30%;
+  max-width: 120px;
   margin-bottom: 5%;
 }
 .link-button {
