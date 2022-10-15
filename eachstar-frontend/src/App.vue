@@ -22,6 +22,7 @@
 <script>
 import TopNav from "./components/topNav.vue";
 import AsideMenu from "./components/asideMenu.vue";
+import bus from "../utils/emitter";
 export default {
   components: {
     TopNav,
