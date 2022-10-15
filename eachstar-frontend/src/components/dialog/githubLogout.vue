@@ -43,7 +43,7 @@ export default {
     userLogout() {
       var config = {
         method: "get",
-        url: "http://each-star.com:3050/oauth/github/logout",
+        url: "http://www.each-star.com:3050/oauth/github/logout",
       };
       axios(config)
         .then(function (response) {

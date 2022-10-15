@@ -12,7 +12,7 @@ export function getUserId(type) {
     }
     var config = {
         method: "get",
-        url: "http://each-star.com:3050/api/user/@me?"
+        url: "http://www.each-star.com:3050/api/user/@me?"
         + "type=" + type,
     };
 
