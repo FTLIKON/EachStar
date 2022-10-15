@@ -32,9 +32,6 @@ export default {
       // 跳转至手机端路由
       this.$router.replace("/phone-home");
       this.isPhone = true;
-    } else {
-      // 跳转至 pc 端路由
-      this.$router.replace("/github");
     }
   },
   data() {
