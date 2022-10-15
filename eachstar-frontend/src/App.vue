@@ -75,6 +75,7 @@ html, body {
   padding-left: 0px !important;
   padding-right: 0px !important;
   box-shadow: var(--el-box-shadow);
+  height: 60px;
 }
 
 .main-view {
