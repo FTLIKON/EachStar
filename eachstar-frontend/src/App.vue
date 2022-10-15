@@ -74,6 +74,7 @@ html, body {
 .top-nav {
   padding-left: 0px !important;
   padding-right: 0px !important;
+  box-shadow: var(--el-box-shadow);
 }
 
 .main-view {
