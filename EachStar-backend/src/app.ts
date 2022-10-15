@@ -19,7 +19,7 @@ const app = new Koa()
 app.use(
   cors({
     origin: function (ctx) {
-      return 'http://each-star.com'
+      return 'http://each-star.com:3050'
     },
     exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
     maxAge: 5,
