@@ -1,6 +1,6 @@
 <template>
   <div class="all">
-    <img class="logo-pic" src="icon.png" />
+    <img class="logo-pic" src="../assets/images/icon.png" />
     <div class="title">EachStar</div>
     <div class="text">欢迎光临EachStar! 我们是开源仓库互助平台</div>
     <div class="text">我们的唯一网址：www.each-star.com</div>

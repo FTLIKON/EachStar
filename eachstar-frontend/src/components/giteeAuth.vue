@@ -6,14 +6,18 @@
     title=""
   >
     <div class="main-block">
-      <img class="gitee-logo" src="giteeLogo.png" alt="未找到图片" />
+      <img
+        class="gitee-logo"
+        src="../assets/images/giteeLogo.png"
+        alt="未找到图片"
+      />
 
       <el-button
         type="primary"
         class="link-button"
         @click="
           goPage(
-            'http://119.91.192.183:3050/oauth/gitee/login?path=http://119.91.192.183:80/'
+            'http://each-star.com:3050/oauth/gitee/login?path=http://each-star.com:80/'
           )
         "
       >
