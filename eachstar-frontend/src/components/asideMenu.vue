@@ -1,6 +1,6 @@
 <template>
   <div id="menu" :style="{ width: 0.25 * this.windowWidth + 'px' }">
-    <el-button class="public-button" @click="openPublicDialog()" type="success">
+    <el-button class="public-button" @click="openPublicDialog()" type="primary">
       <svg
         class="fronticon"
         style="width: 23px; height: 23px"
