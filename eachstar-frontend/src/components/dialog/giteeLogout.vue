@@ -43,7 +43,7 @@ export default {
     userLogout() {
       var config = {
         method: "get",
-        url: "http://119.91.192.183:3050/oauth/gitee/logout",
+        url: "http://each-star.com:3050/oauth/gitee/logout",
       };
       axios(config)
         .then(function (response) {
