@@ -1,5 +1,5 @@
 <template>
-  <div class="github" v-loading="loading">
+  <div class="github" ref="box" v-loading="loading">
     <!-- 侧栏视图 -->
     <el-affix class="aside-menu" :offset="100">
       <aside-menu />
@@ -9,7 +9,7 @@
     <div class="card-view">
 
       <!-- 卡片列表 -->
-      <div class="card-container" ref="box">
+      <div class="card-container">
         <!-- 遍历card -->
         <el-card v-for="item of currentPageData" :key="item" class="card-list">
           <div class="card-block">
@@ -88,7 +88,6 @@
         :currentPage="currentPage"
         :total="totalPage * 10"
       />
-
       <bottom-line />
     </div>
   </div>
