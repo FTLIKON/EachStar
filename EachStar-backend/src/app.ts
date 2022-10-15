@@ -6,6 +6,7 @@ import { getOAuthMiddleware } from './routers/oauth'
 import { getCardMiddleware } from './routers/card'
 import { getUserApiMiddleware } from './routers/user'
 import { getDevApiMiddleware } from './routers/dev'
+import sslify from 'koa-sslify'
 
 declare class BigInt {
   toJSON(): string
@@ -16,6 +17,7 @@ BigInt.prototype.toJSON = function () {
 }
 
 const app = new Koa()
+app.use(sslify())
 app.use(
   cors({
     origin: function (ctx) {
