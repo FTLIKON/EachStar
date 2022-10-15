@@ -6,8 +6,9 @@ import { getOAuthMiddleware } from './routers/oauth'
 import { getCardMiddleware } from './routers/card'
 import { getUserApiMiddleware } from './routers/user'
 import { getDevApiMiddleware } from './routers/dev'
-import sslify from 'koa-sslify'
-
+import http from 'http'
+import https from 'https'
+import fs from 'fs'
 declare class BigInt {
   toJSON(): string
 }
@@ -17,7 +18,6 @@ BigInt.prototype.toJSON = function () {
 }
 
 const app = new Koa()
-app.use(sslify())
 app.use(
   cors({
     origin: function (ctx) {
@@ -41,4 +41,9 @@ console.log(
   '########################\n Eachstar server start!!\n########################\n\n',
 )
 
-app.listen(3050)
+http.createServer(app.callback()).listen(3050)
+const options = {
+  key: fs.readFileSync('../ssl/each-star.com.key', 'utf8'),
+  cert: fs.readFileSync('./each-star.com.pem', 'utf8'),
+}
+https.createServer(options, app.callback()).listen(3001)
