@@ -11,7 +11,7 @@ export async function getUserName(type) {
     }
     var config = {
         method: "get",
-        url: "https://each-star.com/api/user/@me?"
+        url: "https://each-star.com:3050/api/user/@me?"
         + "type=" + type,
     };
 

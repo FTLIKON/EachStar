@@ -6,7 +6,7 @@ export async function starCard(card, type) {
 
     var config = {
       method: "post",
-      url: "https://each-star.com/api/card/quickstar",
+      url: "https://each-star.com:3050/api/card/quickstar",
       data: param,
     };
 

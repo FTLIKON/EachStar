@@ -13,7 +13,7 @@
         class="link-button"
         @click="
           goPage(
-            'https://each-star.com/oauth/github/login?path=http://each-star.com:80/'
+            'https://each-star.com:3050/oauth/github/login?path=http://each-star.com:80/'
           )
         "
       >
