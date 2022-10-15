@@ -43,7 +43,7 @@ console.log(
 
 http.createServer(app.callback()).listen(3050)
 const options = {
-  key: fs.readFileSync('../ssl/each-star.com.key', 'utf8'),
-  cert: fs.readFileSync('./each-star.com.pem', 'utf8'),
+  key: fs.readFileSync('./ssl/each-star.com.key', 'utf8'),
+  cert: fs.readFileSync('./ssl/each-star.com.pem', 'utf8'),
 }
 https.createServer(options, app.callback()).listen(3001)
