@@ -9,7 +9,7 @@
     <div class="card-view">
 
       <!-- 卡片列表 -->
-      <div class="card-container" ref="box">
+      <div class="card-container">
         <!-- 遍历card -->
         <el-card v-for="item of currentPageData" :key="item" class="card-list">
           <div class="card-block">
@@ -174,7 +174,7 @@ export default {
       this.totalPage = Math.ceil(src.count / 10);
       this.loading = false;
       this.$nextTick(()=>{
-        this.$refs.box.scrollTo(0, 0);
+        bus.emit("scrollTop");
       })
     },
     

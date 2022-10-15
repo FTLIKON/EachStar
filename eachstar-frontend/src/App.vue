@@ -11,7 +11,7 @@
         <!-- <el-aisde class="aside-view"><aside-menu /></el-aisde> -->
 
         <!-- 卡片页面和底部栏 -->
-        <el-main class="main-view">
+        <el-main class="main-view" ref="box">
           <router-view />
         </el-main>
       </el-container>
@@ -28,6 +28,7 @@ export default {
     AsideMenu,
   },
   mounted() {
+    bus.on("scrollTop", this.scrollTop);
     if (this._isMobile()) {
       // 跳转至手机端路由
       this.$router.replace("/phone-home");
@@ -38,6 +39,9 @@ export default {
     return { isPhone: false };
   },
   methods: {
+    scrollTop() {
+      this.$refs.box.scrollTo(0, 0);
+    }
     _isMobile() {
       let flag = navigator.userAgent.match(
         /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
