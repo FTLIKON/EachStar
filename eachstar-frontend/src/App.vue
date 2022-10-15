@@ -6,12 +6,12 @@
         <top-nav />
       </el-header>
 
-      <el-container style="overflow: auto" ref="box">
+      <el-container style="overflow: auto">
         <!-- 侧边菜单 -->
         <!-- <el-aisde class="aside-view"><aside-menu /></el-aisde> -->
 
         <!-- 卡片页面和底部栏 -->
-        <el-main class="main-view">
+        <el-main class="main-view" ref="box">
           <router-view />
         </el-main>
       </el-container>
