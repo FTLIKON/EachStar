@@ -14,5 +14,9 @@ export default defineConfig({
   server: {
     host: "0.0.0.0",
     port: 443,
+    https: {
+      key: fs.readFileSync(path.join(__dirname, "./ssl/each-star.com.key")),
+      cert: fs.readFileSync(path.join(__dirname, "./ssl/each-star.com.pem")),
+    },
   },
 });
