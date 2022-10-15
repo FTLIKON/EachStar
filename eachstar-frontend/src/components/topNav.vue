@@ -202,8 +202,8 @@ export default {
   },
   mounted() {
     console.log("testtesttest");
-    console.log(this.$route.path);
-    if (this.$router.path == "/gitee" || this.$route.path == "/mygitee") {
+    console.log(this.$router.path);
+    if (this.$router.path == "/gitee" || this.$router.path == "/mygitee") {
       this.isDark = true;
     } else {
       this.isDark = false;
