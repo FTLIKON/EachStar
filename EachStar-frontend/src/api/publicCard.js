@@ -22,26 +22,3 @@ export async function publicCard(type, title, context, price, num){
         return false;
     }
 }
-// let param = new URLSearchParams();
-// param.append("title", that.cardTitle);
-// param.append("context", that.cardDiscription);
-// param.append("starPrice", that.starPrice);
-// param.append("starNum", that.starNum);
-// param.append("expireTime", that.getExpireTime());
-// var config = {
-//   method: "post",
-//   url: "server/api/card",
-//   data: param,
-// };
-// axios(config)
-// .then(function (response) {
-//   ElMessage({
-//     message: "发布成功! 为您重定向至第一页...",
-//     type: "success",
-//   });
-//   bus.emit("refreshUserInfo");
-//   bus.emit("refreshPageData");
-// })
-// .catch(function (error) {
-//   console.log(error);
-// });

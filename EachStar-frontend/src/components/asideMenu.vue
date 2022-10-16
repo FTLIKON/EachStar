@@ -123,7 +123,6 @@ export default {
       }
 
       if (isLogin) {
-        console.log(type);
         this.userPrice = await getUserPrice(type);
       }
     },

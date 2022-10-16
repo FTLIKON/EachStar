@@ -32,32 +32,3 @@ export async function getMyPageData(type, page) {
     res.data.data = list;
     return res.data;
 }
-
-// getMyPageData: function (page) {
-//     var that = this;
-//     var config = {
-//       method: "get",
-//       url: "/server/api/card/@me?start=" + page * that.pageSize,
-//     };
-//     axios(config)
-//       .then(function (response) {
-//         that.totalCard = parseInt(response.data.count);
-//         that.totalPage = Math.ceil(that.totalCard / 10);
-
-//         var list = [];
-//         var index = 0;
-//         var start = page * that.pageSize;
-//         while (index < that.pageSize && start < that.totalCard) {
-//           let nowData = response.data.data[index];
-//           nowData.createdAt = that.parseTimeString(nowData.createdAt);
-//           list.push(nowData);
-//           index++;
-//           start++;
-//         }
-//         that.currentPageData = list;
-//         that.loading = false;
-//       })
-//       .catch(function (error) {
-//         console.log(error);
-//       });
-//   }

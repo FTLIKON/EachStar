@@ -31,7 +31,6 @@ export class GiteeAuthController {
   }
 
   async giteeCallBack(ctx: Context) {
-    console.log(ctx.query)
     const code = ctx.query.code //返回的授权码
     const params = JSON.stringify({
       client_id: serviceConfig.auth.giteeClientId,
@@ -49,7 +48,6 @@ export class GiteeAuthController {
       },
       data: params,
     })
-    console.log(res.data)
 
     const accessToken = res.data.access_token
 
@@ -58,7 +56,6 @@ export class GiteeAuthController {
       method: 'get',
       url: 'https://gitee.com/api/v5/user?access_token=' + accessToken,
     })
-    console.log(res.data)
 
     ctx.cookies.set('giteeId', res.data.id, { httpOnly: false }) //用户id
     ctx.cookies.set('giteeName', res.data.login, {
