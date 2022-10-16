@@ -25,21 +25,21 @@ export default {
   methods: {
     /**
      * 登出页面打开
-     */ 
+     */
     openPage() {
       this.dialogVisible = true;
     },
 
     /**
      * 前往URL
-     */ 
+     */
     goPage(url) {
       window.location.href = url;
     },
 
     /**
      * 尝试登出
-     */ 
+     */
     userLogout() {
       var config = {
         method: "get",
@@ -52,6 +52,10 @@ export default {
         .catch(function (error) {
           console.log(error);
         });
+      this.$cookies.remove("giteeId");
+      this.$cookies.remove("giteeName");
+      this.$cookies.remove("giteeAvatar");
+      this.$cookies.remove("giteeToken");
       this.$router.go(0);
     },
   },

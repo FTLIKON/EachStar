@@ -16,6 +16,7 @@
 
 <script>
 import axios from "axios";
+
 export default {
   data() {
     return {
@@ -52,6 +53,10 @@ export default {
         .catch(function (error) {
           console.log(error);
         });
+      this.$cookies.remove("githubId");
+      this.$cookies.remove("githubName");
+      this.$cookies.remove("githubAvatar");
+      this.$cookies.remove("githubToken");
       this.$router.go(0);
     },
   },
