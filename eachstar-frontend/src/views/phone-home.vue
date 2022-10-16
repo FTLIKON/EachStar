@@ -3,7 +3,7 @@
     <img class="logo-pic" src="../assets/images/icon.png" />
     <div class="title">EachStar</div>
     <div class="text">欢迎光临EachStar! 我们是开源仓库互助平台</div>
-    <div class="text">我们的唯一网址：www.each-star.com</div>
+    <div class="text">我们的唯一网址：each-star.com</div>
     <div class="text">非常抱歉，暂不支持手机端，请在电脑端访问！</div>
   </div>
 </template>
