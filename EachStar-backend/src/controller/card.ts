@@ -54,6 +54,10 @@ export class CardController {
     const type = ctx.query.type
     const userId = type == 'GitHub' ? ctx.github_user.id : ctx.gitee_user.id
     const card = await this.repository.getCardById(type, BigInt(Number(cardId)))
+    if (userId != card.userId) {
+      ctx.status = 400
+      ctx.body = {}
+    }
     // 退还当前卡片的剩余积分
     const cardAuthor = await this.repository.getUserById(type, card.userId)
     if (cardAuthor) {
@@ -120,7 +124,7 @@ export class CardController {
       userId,
       cardId,
     )
-    if (verfityUserStar!=undefined) {
+    if (verfityUserStar != undefined) {
       ctx.status = 400
       ctx.body = {}
       return
