@@ -7,8 +7,8 @@ const authConfig = {
     'bea94d82fd25f1d4993f081f2dc8281bc31a35155460959d68eff2fa4c48b586',
   giteeClientSecret:
     '3152a3d1d35572c122807c550d5b2ede3612f79e9a61955167c035738e678fec',
-  githubRedirectPath: 'https://each-star.com/github',
-  giteeRedirectPath: 'https://each-star.com/gitee',
+  githubRedirectPath: 'https://each-star.com/#/github',
+  giteeRedirectPath: 'https://each-star.com/#/gitee',
   giteeCallbackPath: 'https://each-star.com:3050/oauth/gitee/callback',
   githubCallbackPath: 'https://each-star.com:3050/oauth/github/callback',
 }
