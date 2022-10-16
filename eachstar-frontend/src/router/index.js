@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 import mygithub from "../views/mygithub.vue";
 import github from "../views/github.vue";
 import mygitee from "../views/mygitee.vue";
@@ -6,7 +6,7 @@ import gitee from "../views/gitee.vue";
 import phonehome from "../views/phone-home.vue";
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: "/",
