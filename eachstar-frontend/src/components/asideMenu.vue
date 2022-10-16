@@ -46,6 +46,8 @@ import giteePublic from "./dialog/giteePublic.vue";
 import githubPublic from "./dialog/githubPublic.vue";
 import { getUserPrice } from "../api/getUserPrice.js";
 import { UserIsLogin } from "../api/UserIsLogin";
+import { ElMessage } from "element-plus";
+
 export default {
   data() {
     return {
@@ -96,6 +98,8 @@ export default {
               message: "您当前星币不足~ 快去star别人的卡片吧!",
               type: "warning",
             });
+          } else {
+            this.$.refs.githubPublic.openPage();
           }
         }
       } else {
