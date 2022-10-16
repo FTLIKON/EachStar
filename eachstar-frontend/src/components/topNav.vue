@@ -3,7 +3,7 @@
     <!-- 主栏 -->
     <el-menu
       id="menu"
-      style="border: none"
+      style="border: none; height: 60px"
       mode="horizontal"
       default-active="1"
       :ellipsis="false"
