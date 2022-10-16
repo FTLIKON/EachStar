@@ -78,7 +78,7 @@ export default {
     openPublicDialog() {
       if (UserIsLogin(this.type)) {
         if (this.type == "Gitee") {
-          if (this.userPrice <= 0) {
+          if (this.userPrice == 0) {
             ElMessage({
               message: "您当前云币不足~ 快去star别人的卡片吧!",
               type: "warning",
@@ -88,7 +88,7 @@ export default {
           }
         } else if (this.type == "GitHub") {
           console.log(this.userPrice);
-          if (this.userPrice <= 0) {
+          if (this.userPrice == 0) {
             ElMessage({
               message: "您当前星币不足~ 快去star别人的卡片吧!",
               type: "warning",
