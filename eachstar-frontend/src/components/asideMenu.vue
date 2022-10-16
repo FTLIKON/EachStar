@@ -78,9 +78,23 @@ export default {
     openPublicDialog() {
       if (UserIsLogin(this.type)) {
         if (this.type == "Gitee") {
-          this.$.refs.giteePublic.openPage();
+          if (this.userPrice <= 0) {
+            ElMessage({
+              message: "您当前云币不足~ 快去star别人的卡片吧!",
+              type: "warning",
+            });
+          } else {
+            this.$.refs.giteePublic.openPage();
+          }
         } else if (this.type == "GitHub") {
-          this.$.refs.githubPublic.openPage();
+          if (this.userPrice <= 0) {
+            ElMessage({
+              message: "您当前星币不足~ 快去star别人的卡片吧!",
+              type: "warning",
+            });
+          } else {
+            this.$.refs.githubPublic.openPage();
+          }
         }
       } else {
         ElMessage({
