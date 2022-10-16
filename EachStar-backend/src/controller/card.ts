@@ -115,7 +115,7 @@ export class CardController {
     const type = body.type
     const userId = type == 'GitHub' ? ctx.github_user.id : ctx.gitee_user.id
     const cardId = body.cardId
-    const verfityUserStar = this.repository.vertifyUserStarCard(
+    const verfityUserStar = await this.repository.vertifyUserStarCard(
       type,
       userId,
       cardId,
