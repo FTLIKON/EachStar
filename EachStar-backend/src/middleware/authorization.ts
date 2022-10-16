@@ -45,7 +45,5 @@ export const authorization = async (ctx: Context, next: Next) => {
     }
     ctx.gitee_user = user
   }
-  console.log(ctx.gitee_user)
-  console.log(ctx.github_user)
   await next()
 }

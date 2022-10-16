@@ -11,7 +11,6 @@ export class CardController {
   async createCard(ctx: Context) {
     const body = ctx.request.body
     const type = body.type
-    console.log(ctx.github_user.id)
     const userId = type == 'GitHub' ? ctx.github_user.id : ctx.gitee_user.id
     const title = body.title
     const context = body.context
@@ -108,7 +107,6 @@ export class CardController {
         console.log(error)
         rep = false
       })
-    console.log(rep)
     return rep
   }
 
@@ -117,6 +115,7 @@ export class CardController {
     const type = body.type
     const userId = type == 'GitHub' ? ctx.github_user.id : ctx.gitee_user.id
     const cardId = body.cardId
+    const userStarred = await this.repository.getUserStarred(type, userId)
 
     const card = await this.repository.getCardById(type, cardId)
     let isStared
@@ -125,7 +124,6 @@ export class CardController {
     } else {
       isStared = await this.starGiteeRepo(ctx, card.title)
     }
-    console.log(isStared)
     if (isStared) {
       const newCard = await this.repository.starCard(type, userId, cardId)
       ctx.body = newCard

@@ -384,4 +384,22 @@ export class RepositoryPostgres implements RepositoryType {
 
     return user_starred
   }
+
+  async vertifyUserStarCard(
+    type: string,
+    userId: bigint,
+    cardId: bigint,
+  ): Promise<any> {
+    const client = await this.pool.connect()
+
+    const result = await client.query<UserStarPO>(
+      `--sql
+      SELECT * FROM user_star WHERE user_id = $1 AND cardId = $2 AND type = $3
+    `,
+      [userId, cardId, type],
+    )
+    client.release()
+
+    return this.formatUserStarPo(result.rows[0])
+  }
 }
