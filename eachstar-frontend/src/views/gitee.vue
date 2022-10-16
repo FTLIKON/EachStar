@@ -30,7 +30,7 @@
                       width: 19px;
                       height: 19px;
                       color: #c45656;
-                      margin-bottom: 0.4%
+                      margin-bottom: 0.4%;
                     "
                     aria-hidden="true"
                   >
@@ -168,6 +168,7 @@ export default {
           card.starNum -= 1;
           card.starred = true;
           bus.emit("refreshUserPrice", "Gitee");
+          bus.emit("refreshUserInfo", "Gitee");
           if (card.starNum == 0) {
             // 退化情况
             this.refreshPageData();
