@@ -88,14 +88,9 @@ export default {
           }
         } else if (this.type == "GitHub") {
           console.log(this.userPrice);
-          if (this.userPrice == 0) {
-            ElMessage({
-              message: "您当前星币不足~ 快去star别人的卡片吧!",
-              type: "warning",
-            });
-          } else {
+
             this.$.refs.githubPublic.openPage();
-          }
+          
         }
       } else {
         ElMessage({
