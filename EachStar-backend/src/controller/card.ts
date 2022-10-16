@@ -120,7 +120,7 @@ export class CardController {
       userId,
       cardId,
     )
-    if (!verfityUserStar) {
+    if (verfityUserStar!=undefined) {
       ctx.status = 400
       ctx.body = {}
       return
