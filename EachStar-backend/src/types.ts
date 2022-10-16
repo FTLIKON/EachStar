@@ -59,4 +59,9 @@ export interface RepositoryType {
   getCardsByUserId(type: string, userId: bigint, start: number): Promise<any>
   starCard(type: string, userId: bigint, cardId: bigint): Promise<any>
   getUserStarred(type: string, userId: bigint): Promise<any>
+  vertifyUserStarCard(
+    type: string,
+    userId: bigint,
+    cardId: bigint,
+  ): Promise<any>
 }
