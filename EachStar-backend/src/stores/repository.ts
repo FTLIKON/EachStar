@@ -394,7 +394,7 @@ export class RepositoryPostgres implements RepositoryType {
 
     const result = await client.query<UserStarPO>(
       `--sql
-      SELECT * FROM user_star WHERE user_id = $1 AND cardId = $2 AND type = $3
+      SELECT * FROM user_star WHERE user_id = $1 AND card_id = $2 AND type = $3
     `,
       [userId, cardId, type],
     )
