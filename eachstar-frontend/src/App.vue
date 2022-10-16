@@ -2,7 +2,7 @@
   <div id="app">
     <el-container style="height:100%">
       <!-- 头部导航栏 -->
-      <el-header class="top-nav" v-show="!isPhone">
+      <el-header class="top-nav" v-show="!isPhone" style="height:auto">
         <top-nav />
       </el-header>
 
