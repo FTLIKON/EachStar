@@ -1,7 +1,13 @@
 <template>
   <el-affix :offset="0">
     <!-- 主栏 -->
-    <el-menu id="menu" style="border: none" mode="horizontal" default-active="1" :ellipsis="false">
+    <el-menu
+      id="menu"
+      style="border: none"
+      mode="horizontal"
+      default-active="1"
+      :ellipsis="false"
+    >
       <!-- GitHub LOGO -->
       <div class="left-block" v-show="this.type == 'GitHub'">
         <div class="logo">
@@ -14,13 +20,13 @@
           <el-button
             @click="toggleType()"
             style="font-weight: bolder; margin-left: 5%"
-            color="#303133"
+            color="#606266"
             v-show="!toggleCooldown"
             >切换到码云版</el-button
           >
           <el-button
             @click="toggleType()"
-            style="font-weight: bolder; margin-left: 5%;"
+            style="font-weight: bolder; margin-left: 5%"
             loading
             v-show="toggleCooldown"
             >冷却中...</el-button
@@ -39,7 +45,12 @@
           <span @click="goEachStar">EachStar</span>
           <el-button
             @click="toggleType()"
-            style="font-weight: bolder; margin-left: 5%;background: #F5F7FA;color: #303133;"
+            style="
+              font-weight: bolder;
+              margin-left: 5%;
+              background: #f5f7fa;
+              color: #cdd0d6;
+            "
             v-show="!toggleCooldown"
             >返回GitHub版</el-button
           >
