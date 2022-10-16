@@ -89,11 +89,7 @@ export default {
             this.$.refs.giteePublic.openPage();
           }
         } else if (this.type == "GitHub") {
-          console.log(this.userPrice == 0);
-          console.log(this.userPrice == "0");
-          console.log(this.userPrice == BigInt(0));
           if (this.userPrice == 0) {
-            console.log("test");
             ElMessage({
               message: "您当前星币不足~ 快去star别人的卡片吧!",
               type: "warning",
