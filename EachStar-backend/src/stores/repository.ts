@@ -399,7 +399,7 @@ export class RepositoryPostgres implements RepositoryType {
       [userId, cardId, type],
     )
     client.release()
-
+    if (result.rows[0] == undefined) return undefined
     return this.formatUserStarPo(result.rows[0])
   }
 }
