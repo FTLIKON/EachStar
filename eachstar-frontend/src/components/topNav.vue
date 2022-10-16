@@ -20,7 +20,7 @@
           <el-button
             @click="toggleType()"
             style="font-weight: bolder; margin-left: 5%"
-            color="#606266"
+            color="#333436"
             v-show="!toggleCooldown"
             >切换到码云版</el-button
           >
@@ -48,8 +48,8 @@
             style="
               font-weight: bolder;
               margin-left: 5%;
-              background: #f5f7fa;
-              color: #cdd0d6;
+              background: #cdd0d6;
+              color: #303133;
             "
             v-show="!toggleCooldown"
             >返回GitHub版</el-button
