@@ -115,8 +115,16 @@ export class CardController {
     const type = body.type
     const userId = type == 'GitHub' ? ctx.github_user.id : ctx.gitee_user.id
     const cardId = body.cardId
-    const userStarred = await this.repository.getUserStarred(type, userId)
-
+    const verfityUserStar = this.repository.vertifyUserStarCard(
+      type,
+      userId,
+      cardId,
+    )
+    if (!verfityUserStar) {
+      ctx.status = 400
+      ctx.body = {}
+      return
+    }
     const card = await this.repository.getCardById(type, cardId)
     let isStared
     if (type == 'GitHub') {
