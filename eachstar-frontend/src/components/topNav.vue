@@ -22,7 +22,7 @@
             style="font-weight: bolder; margin-left: 5%"
             color="#333436"
             v-show="!toggleCooldown"
-            >切换到Gitee版</el-button
+            >切换到码云版</el-button
           >
           <el-button
             @click="toggleType()"
