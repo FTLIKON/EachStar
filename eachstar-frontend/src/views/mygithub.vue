@@ -9,7 +9,6 @@
     <div class="card-view">
       <!-- 卡片列表 -->
       <div class="card-container">
-
         <!-- 遍历card -->
         <el-card v-for="item of currentPageData" :key="item" class="card-list">
           <div class="card-block">
@@ -54,7 +53,7 @@
           </div>
         </el-card>
 
-        <empty-card v-show="pageIsEmpty"/>
+        <empty-card v-show="pageIsEmpty" />
       </div>
 
       <!-- 卡片换页 -->
@@ -80,7 +79,7 @@ import BottomLine from "../components/bottomLine.vue";
 import AsideMenu from "../components/asideMenu.vue";
 import "../iconfont/iconfont";
 import { getMyPageData } from "../api/getMyPageData.js";
-import EmptyCard from '../components/emptyCard.vue';
+import EmptyCard from "../components/emptyCard.vue";
 
 export default {
   name: "mygithub",
@@ -117,8 +116,9 @@ export default {
       var src = await getMyPageData("GitHub", this.currentPage);
       this.currentPageData = src.data;
       this.totalPage = Math.ceil(src.count / 10);
-      this.pageIsEmpty = (this.currentPageData.length == 0);
+      this.pageIsEmpty = this.currentPageData.length == 0;
       this.loading = false;
+      bus.emit("scrollToTop");
     },
 
     /**

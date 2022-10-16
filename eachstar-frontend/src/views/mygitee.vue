@@ -126,8 +126,9 @@ export default {
       var src = await getMyPageData("Gitee", this.currentPage);
       this.currentPageData = src.data;
       this.totalPage = Math.ceil(src.count / 10);
-      this.pageIsEmpty = (this.currentPageData.length == 0);
+      this.pageIsEmpty = this.currentPageData.length == 0;
       this.loading = false;
+      bus.emit("scrollToTop");
     },
 
     /**
