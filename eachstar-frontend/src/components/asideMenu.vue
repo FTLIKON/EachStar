@@ -96,8 +96,6 @@ export default {
               message: "您当前星币不足~ 快去star别人的卡片吧!",
               type: "warning",
             });
-          } else {
-            this.$.refs.githubPublic.openPage();
           }
         }
       } else {
