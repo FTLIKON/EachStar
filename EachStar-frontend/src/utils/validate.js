@@ -25,7 +25,7 @@ export function validateEmail(value) {
  */
 export function validateGithubUrl(value) {
   let reg =
-    /^(https:\/\/github.com\/)+([a-zA-Z0-9-]{1,39})+(\/)+([a-zA-Z0-9-]{1,100}$)/;
+    /^(https:\/\/github.com\/)+([a-zA-Z0-9-_]{1,39})+(\/)+([a-zA-Z0-9-_.]{1,100}$)/;
   return !reg.test(value) ? true : false;
 }
 
@@ -34,7 +34,7 @@ export function validateGithubUrl(value) {
  */
 export function validateGiteeUrl(value) {
   let reg =
-    /^(https:\/\/gitee.com\/)+([a-zA-Z0-9-]{1,39})+(\/)+([a-zA-Z0-9-]{1,100}$)/;
+    /^(https:\/\/gitee.com\/)+([a-zA-Z0-9-_]{1,39})+(\/)+([a-zA-Z0-9-_.]{1,100}$)/;
   return !reg.test(value) ? true : false;
 }
 

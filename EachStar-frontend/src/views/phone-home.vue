@@ -8,8 +8,10 @@
   </div>
 </template>
 
-<script></script>
-export default { name: "phonehome" }
+<script>
+export default { name: "phonehome" };
+</script>
+
 <style lang="scss" scoped>
 .all {
   display: flex;
