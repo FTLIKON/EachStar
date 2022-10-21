@@ -2,6 +2,8 @@
 # kv
 config.ts
 dev.ts
+.env.development
+.env.production
 
 # Logs
 logs

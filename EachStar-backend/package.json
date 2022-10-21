@@ -5,11 +5,11 @@
   "license": "MIT",
   "scripts": {
     "start": "yarn api",
-    "api": "cross-env NODE_ENV=development nodemon --watch '.' -e ts,tsx --exec 'ts-node' ./src/app.ts",
+    "api": "cross-env NODE_ENV=production nodemon --watch '.' -e ts,tsx --exec 'ts-node' ./src/app.ts",
+    "dev": "yarn cross-env NODE_ENV=development nodemon --watch '.' -e ts,tsx --exec 'ts-node' ./src/app.ts",
     "build": "yarn build:cjs && yarn build:esm",
     "build:esm": "tsc -p . -m ESNext --outDir dist/esm",
     "build:cjs": "tsc -p . -m commonjs --outDir dist/cjs",
-    "test": "vitest",
     "prepublishOnly": "yarn build"
   },
   "dependencies": {
@@ -17,6 +17,7 @@
     "axios": "^0.27.2",
     "bcryptjs": "^2.4.3",
     "cross-env": "^7.0.3",
+    "dotenv": "^16.0.3",
     "fs": "^0.0.1-security",
     "googleapis": "^105.0.0",
     "html-to-text": "^8.2.1",

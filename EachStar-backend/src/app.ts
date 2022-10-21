@@ -6,7 +6,7 @@ import { getOAuthMiddleware } from './routers/oauth'
 import { getCardMiddleware } from './routers/card'
 import { getUserApiMiddleware } from './routers/user'
 import { getDevApiMiddleware } from './routers/dev'
-import http from 'http'
+import serviceConfig from './config'
 import https from 'https'
 import fs from 'fs'
 import path from 'path'
@@ -43,7 +43,7 @@ const options = {
   key: fs.readFileSync(path.join(__dirname, './ssl/each-star.com.key')),
   cert: fs.readFileSync(path.join(__dirname, './ssl/each-star.com.pem')),
 }
-https.createServer(options, app.callback()).listen(3050)
+https.createServer(options, app.callback()).listen(serviceConfig.apiPort)
 
 console.log(
   '########################\n Eachstar server start!!\n########################\n\n',
