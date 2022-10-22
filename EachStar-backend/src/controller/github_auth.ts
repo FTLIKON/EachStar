@@ -59,22 +59,10 @@ export class GitHubAuthController {
       },
     })
 
-    ctx.cookies.set('githubId', res.data.id, {
-      httpOnly: false,
-      domain: serviceConfig.apiDomain,
-    }) //用户id
-    ctx.cookies.set('githubName', res.data.login, {
-      httpOnly: false,
-      domain: serviceConfig.apiDomain,
-    }) //用户名称
-    ctx.cookies.set('githubAvatar', res.data.avatar_url, {
-      httpOnly: false,
-      domain: serviceConfig.apiDomain,
-    }) //用户图片
-    ctx.cookies.set('githubToken', accessToken, {
-      httpOnly: false,
-      domain: serviceConfig.apiDomain,
-    }) //用户githubToken
+    ctx.cookies.set('githubId', res.data.id, { httpOnly: false }) //用户id
+    ctx.cookies.set('githubName', res.data.login, { httpOnly: false }) //用户名称
+    ctx.cookies.set('githubAvatar', res.data.avatar_url, { httpOnly: false }) //用户图片
+    ctx.cookies.set('githubToken', accessToken, { httpOnly: false }) //用户githubToken
 
     ctx.status = 301
     ctx.redirect(serviceConfig.auth.githubRedirectPath) //重定向到请求页面
