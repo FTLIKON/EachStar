@@ -32,6 +32,7 @@ export class GitHubAuthController {
 
   async githubCallBack(ctx: Context) {
     const code = ctx.query.code //返回的授权码
+    console.log(code)
     const params = JSON.stringify({
       client_id: serviceConfig.auth.githubClientId,
       client_secret: serviceConfig.auth.githubClientSecret,
