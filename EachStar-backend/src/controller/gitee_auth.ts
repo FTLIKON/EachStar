@@ -57,15 +57,21 @@ export class GiteeAuthController {
       url: 'https://gitee.com/api/v5/user?access_token=' + accessToken,
     })
 
-    ctx.cookies.set('giteeId', res.data.id, { httpOnly: false }) //用户id
+    ctx.cookies.set('giteeId', res.data.id, {
+      httpOnly: false,
+      domain: serviceConfig.apiDomain,
+    }) //用户id
     ctx.cookies.set('giteeName', res.data.login, {
       httpOnly: false,
+      domain: serviceConfig.apiDomain,
     }) //用户名称
     ctx.cookies.set('giteeAvatar', res.data.avatar_url, {
       httpOnly: false,
+      domain: serviceConfig.apiDomain,
     }) //用户图片
     ctx.cookies.set('giteeToken', accessToken, {
       httpOnly: false,
+      domain: serviceConfig.apiDomain,
     }) //用户giteeToken
 
     ctx.status = 301
