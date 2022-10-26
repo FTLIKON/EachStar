@@ -121,9 +121,17 @@ export class CardController {
       return
     }
     if (cardId == undefined) {
-      this.createCard(ctx, type, userId, title, context, starPrice, starNum)
+      await this.createCard(
+        ctx,
+        type,
+        userId,
+        title,
+        context,
+        starPrice,
+        starNum,
+      )
     } else {
-      this.updateCard(
+      await this.updateCard(
         ctx,
         cardId,
         type,
