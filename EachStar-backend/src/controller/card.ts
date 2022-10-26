@@ -8,14 +8,19 @@ export class CardController {
     this.repository = new RepositoryPostgres()
   }
 
-  async createCard(ctx: Context) {
+  async createCard(
+    ctx: Context,
+    type: string,
+    userId: bigint,
+    title: string,
+    context: string,
+    starPrice: bigint,
+    starNum: bigint,
+  ) {
+    /**
+     * 创建卡片，先判断用户有足够的积分，然后创建卡片，并且扣除用户对应的积分数
+     */
     const body = ctx.request.body
-    const type = body.type
-    const userId = type == 'GitHub' ? ctx.github_user.id : ctx.gitee_user.id
-    const title = body.title
-    const context = body.context
-    const starPrice = BigInt(body.starPrice)
-    const starNum = BigInt(body.starNum)
     if (
       starPrice <= BigInt(0) ||
       starNum <= BigInt(0) ||
@@ -47,6 +52,88 @@ export class CardController {
       ctx.gitee_user = user
     }
     ctx.body = card
+  }
+
+  async updateCard(
+    ctx: Context,
+    cardId: bigint,
+    type: string,
+    userId: bigint,
+    title: string,
+    context: string,
+    starPrice: bigint,
+    starNum: bigint,
+  ) {
+    /**
+     * 修改卡片，先判断用户有足够的积分修改，然后修改卡片和对应用户的积分
+     */
+    const body = ctx.request.body
+    const expireTime = new Date(body.expireTime)
+    const nowCard = await this.repository.getCardById(type, cardId)
+    if (starPrice <= BigInt(0) || starNum <= BigInt(0)) {
+      ctx.status = 400
+      ctx.body = {}
+      return
+    }
+    const priceDiff = starPrice * starNum - nowCard.starPrice * nowCard.starNum
+    const userPrice =
+      type == 'GitHub' ? ctx.github_user.price : ctx.gitee_user.price
+    if (priceDiff > 0 && userPrice < priceDiff) {
+      ctx.status = 400
+      ctx.body = {}
+      return
+    }
+    const newCard = await this.repository.updateCard({
+      id: cardId,
+      type: type,
+      userId: userId,
+      title: title,
+      context: context,
+      starPrice: starPrice,
+      starNum: starNum,
+      expireTime: expireTime,
+      createdAt: nowCard.createdAt,
+      updatedAt: new Date(),
+    })
+
+    const newPrice = userPrice - priceDiff
+    const user = await this.repository.changeUserPrice(type, userId, newPrice)
+    if (type == 'GitHub') {
+      ctx.github_user = user
+    } else {
+      ctx.gitee_user = user
+    }
+    ctx.body = newCard
+  }
+
+  async createOrUpdateCard(ctx: Context) {
+    const body = ctx.request.body
+    const cardId = body.cardId
+    const type = body.type
+    const userId = type == 'GitHub' ? ctx.github_user.id : ctx.gitee_user.id
+    const title = body.title
+    const context = body.context
+    const starPrice = BigInt(body.starPrice)
+    const starNum = BigInt(body.starNum)
+    if (userId == undefined) {
+      ctx.status = 400
+      ctx.body = {}
+      return
+    }
+    if (cardId == undefined) {
+      this.createCard(ctx, type, userId, title, context, starPrice, starNum)
+    } else {
+      this.updateCard(
+        ctx,
+        cardId,
+        type,
+        userId,
+        title,
+        context,
+        starPrice,
+        starNum,
+      )
+    }
   }
 
   async deleteCard(ctx: Context) {
