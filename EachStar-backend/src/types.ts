@@ -28,6 +28,7 @@ export interface UserStar {
   type: string
   userId: bigint
   cardId: bigint
+  cardTitle: string
   authorId: bigint
   createdAt: Date
 }

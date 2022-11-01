@@ -27,6 +27,7 @@ CREATE TABLE "user_star" (
 "type" TEXT NOT NULL,
 "user_id" BIGINT NOT NULL,
 "card_id" BIGINT NOT NULL, 
+"card_title" TEXT NOT NULL,
 "author_id" BIGINT NOT NULL,
 "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
