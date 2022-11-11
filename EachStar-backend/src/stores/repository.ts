@@ -31,6 +31,7 @@ interface UserStarPO {
   type: string
   user_id: bigint
   card_id: bigint
+  card_title: string
   author_id: bigint
   created_at: Date
 }
@@ -99,6 +100,7 @@ export class RepositoryPostgres implements RepositoryType {
     type,
     user_id,
     card_id,
+    card_title,
     author_id,
     created_at,
   }: UserStarPO): UserStar {
@@ -107,6 +109,7 @@ export class RepositoryPostgres implements RepositoryType {
       type: type,
       userId: BigInt(user_id),
       cardId: BigInt(card_id),
+      cardTitle: card_title,
       authorId: BigInt(author_id),
       createdAt: created_at,
     }
@@ -349,6 +352,7 @@ export class RepositoryPostgres implements RepositoryType {
         "type",
         "user_id",
         "card_id",
+        "card_title",
         "author_id",
         "created_at"
         ) VALUES (
@@ -357,10 +361,11 @@ export class RepositoryPostgres implements RepositoryType {
           $3,
           $4,
           $5,
+          $6,
           NOW()
           ) RETURNING *
           `,
-      [this.genId, type, userId, cardId, oldCard.userId],
+      [this.genId, type, userId, cardId, oldCard.title, oldCard.userId],
     )
 
     client.release()
