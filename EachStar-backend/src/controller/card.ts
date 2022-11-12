@@ -70,7 +70,7 @@ export class CardController {
     const body = ctx.request.body
     const expireTime = new Date(body.expireTime)
     const nowCard = await this.repository.getCardById(type, cardId)
-    if (starPrice <= BigInt(0) || starNum <= BigInt(0)) {
+    if (starPrice <= BigInt(0) || starNum < BigInt(0)) {
       ctx.status = 400
       ctx.body = {}
       return
@@ -78,7 +78,7 @@ export class CardController {
     const priceDiff = starPrice * starNum - nowCard.starPrice * nowCard.starNum
     const userPrice =
       type == 'GitHub' ? ctx.github_user.price : ctx.gitee_user.price
-    if (priceDiff > 0 && userPrice < priceDiff) {
+    if (userPrice < priceDiff) {
       ctx.status = 400
       ctx.body = {}
       return
