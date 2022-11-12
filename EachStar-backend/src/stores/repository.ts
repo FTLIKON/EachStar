@@ -276,7 +276,7 @@ export class RepositoryPostgres implements RepositoryType {
 
     const result = await client.query<CardPO>(
       `--sql
-      SELECT * FROM cards WHERE type = $1 AND star_num > 0 ORDER BY created_at DESC limit 10 offset $2
+      SELECT * FROM cards WHERE type = $1 AND star_num > 0 ORDER BY updated_at DESC limit 10 offset $2
     `,
       [type, start],
     )
@@ -304,7 +304,7 @@ export class RepositoryPostgres implements RepositoryType {
 
     const result = await client.query<CardPO>(
       `--sql
-      SELECT * FROM cards WHERE user_id=$1 AND type = $2 ORDER BY created_at DESC limit 10 offset $3
+      SELECT * FROM cards WHERE user_id=$1 AND type = $2 ORDER BY updated_at DESC limit 10 offset $3
     `,
       [userId, type, start],
     )
