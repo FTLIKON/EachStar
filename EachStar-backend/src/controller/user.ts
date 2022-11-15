@@ -7,6 +7,9 @@ export class UserController {
     this.repository = new RepositoryPostgres()
   }
 
+  /**
+   * 获取用户的个人信息
+   */
   async getSelf(ctx: Context) {
     const type = ctx.query.type
     const nowUser = type == 'GitHub' ? ctx.github_user : ctx.gitee_user
