@@ -3,6 +3,7 @@
 dev.ts
 .env.development
 .env.production
+ssl
 
 # Logs
 logs

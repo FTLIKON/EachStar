@@ -1,0 +1,106 @@
+.card-list {
+  box-shadow: var(--el-box-shadow);
+  border-radius: 15px;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: max(1%, 15px);
+  .card-titleblock {
+    margin-bottom: 2%;
+    width: 100%;
+    display: flex;
+
+    .card-title {
+      font-size: 20px;
+      text-align: left;
+      font-weight: bold;
+      color: #303133;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+    .card-title:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    .card-time {
+      color: #606266;
+      width: 25%;
+      font-size: 12px;
+      text-align: right;
+    }
+  }
+
+  .card-discription {
+    color: #606266;
+    text-align: left;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    letter-spacing: 0;
+    text-overflow: ellipsis;
+    width: 90%;
+    font-size: 14px;
+    margin: 0% 3% 3% 3%;
+  }
+
+  .card-low-notice {
+    color: #b25252;
+    margin: 0% 0% 1% 1%;
+    font-size: 13px;
+  }
+}
+
+html.dark {
+  .card-list {
+    box-shadow: var(--el-box-shadow);
+    border-radius: 15px;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: max(1%, 15px);
+    .card-titleblock {
+      margin-bottom: 2%;
+      width: 100%;
+      display: flex;
+
+      .card-title {
+        color: #eaf1ff;
+        text-decoration: none;
+        font-size: 20px;
+        text-align: left;
+        font-weight: bold;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .card-time {
+        color: #606266;
+        width: 30%;
+        text-align: right;
+      }
+    }
+
+    .card-discription {
+      color: #606266;
+      text-align: left;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      letter-spacing: 0;
+      text-overflow: ellipsis;
+      width: 90%;
+      margin: 0% 3% 3% 3%;
+    }
+  }
+
+  .card-low-notice {
+    color: #f78989;
+    margin: 0% 0% 1% 1%;
+    font-size: 13px;
+  }
+}
